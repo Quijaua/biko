@@ -1,0 +1,17 @@
+@media print {
+  @page {
+    margin: 2cm;
+  }
+  body {
+    margin: 0;
+    color: #000;
+    background-color: #fff;
+  }
+  header, footer, aside, nav, form, iframe, button, .btn {
+    display: none;
+  }
+  #prt-brk-pnt {
+    page-break-before: always;
+    break-before: always;
+  }
+}

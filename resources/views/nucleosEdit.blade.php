@@ -1,0 +1,248 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+  <!-- PAGE HEADER -->
+  <div class="row">
+      <div class="col-12 text-center">
+        <h1>DADOS DO NÚCLEO</h1>
+      </div>
+  </div>
+  @if(\Session::has('success'))
+  <div class="row mt-2">
+    <div class="col">
+      <div class="alert alert-success text-center" role="alert">
+        {!! \Session::get('success') !!}
+      </div>
+    </div>
+  </div>
+  @endif
+
+  <form method="POST" action="/nucleos/update/{{ $dados->id }}">
+      @csrf
+      <h3>IDENTIFICAÇÃO</h3>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="inputNomeNucleo">Nome do núcleo</label>
+            <input type="text" class="form-control" id="inputNomeNucleo" name="inputNomeNucleo" aria-describedby="inputNomeNucleoHelp" value="{{ $dados->NomeNucleo }}">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputAreaAtuacao">Área de atuação</label><br>
+            <div class="form-check form-check-inline">
+              <input <?php if($dados->AreaAtuacao == 'educacao'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAreaAtuacao" id="inputAreaAtuacao1" value="educacao">
+              <label class="form-check-label" for="inputAreaAtuacao1">Educação</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input <?php if($dados->AreaAtuacao == 'esporte'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAreaAtuacao" id="inputAreaAtuacao2" value="esporte">
+              <label class="form-check-label" for="inputAreaAtuacao2">Esporte</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input <?php if($dados->AreaAtuacao == 'cultura'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAreaAtuacao" id="inputAreaAtuacao3" value="cultura">
+              <label class="form-check-label" for="inputAreaAtuacao3">Cultura</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input <?php if($dados->AreaAtuacao == 'outro'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAreaAtuacao" id="inputAreaAtuacao4" value="outro">
+              <label class="form-check-label" for="inputAreaAtuacao4">Outro</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="inputInfoInscricao">Informação de inscrição</label>
+            <input type="text" class="form-control" id="inputInfoInscricao" name="inputInfoInscricao" aria-describedby="inputInfoInscricaoHelp" value="{{ $dados->InfoInscricao }}">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="inputEspacoInserido">Espaço em que está inserido</label>
+            <input type="text" class="form-control" id="inputEspacoInserido" name="inputEspacoInserido" aria-describedby="inputEspacoInseridoHelp" value="{{ $dados->EspacoInserido }}">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        @if($representantes)
+        @foreach($representantes as $representante)
+        <div class="col-6">
+          <div class="form-group">
+            <label for="representante">Representante no CGU</label>
+            <input type="text" class="form-control" id="representante" name="representante" aria-describedby="representanteHelp" value="{{ $representante->NomeCoordenador }}" disabled>
+          </div>
+        </div>
+        @endforeach
+        @endif
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="inputCEP">CEP</label>
+            <input type="text" class="form-control" id="inputCEP" name="inputCEP" aria-describedby="inputCEPHelp" data-mask="00000-000" value="{{ $dados->CEP }}" onblur="checkCEP('#inputCEP')">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputEndereco">Rua</label>
+            <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEndereco" name="inputEndereco" aria-describedby="inputEnderecoHelp" value="{{ $dados->Endereco }}">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputNumero">Número</label>
+            <input type="text" class="form-control" id="inputNumero" name="inputNumero" aria-describedby="inputNumeroHelp" value="{{ $dados->Numero }}">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="inputBairro">Bairro</label>
+            <input type="text" class="form-control" id="inputBairro" name="inputBairro" aria-describedby="inputBairroHelp" value="{{ $dados->Bairro }}">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputComplemento">Complemento</label>
+            <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" value="{{ $dados->Complemento }}">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputCidade">Cidade</label>
+            <input type="text" class="form-control" id="inputCidade" name="inputCidade" aria-describedby="inputCidadeHelp" value="{{ $dados->Cidade }}">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputEstado">Estado</label>
+            <select id="inputEstado" name="inputEstado" class="custom-select">
+              <option selected>Selecione</option>
+              <option <?php if($dados->Estado == 'AC'){ echo 'selected=selected';} ?> value="AC">Acre</option>
+              <option <?php if($dados->Estado == 'AL'){ echo 'selected=selected';} ?> value="AL">Alagoas</option>
+              <option <?php if($dados->Estado == 'AP'){ echo 'selected=selected';} ?> value="AP">Amapá</option>
+              <option <?php if($dados->Estado == 'AM'){ echo 'selected=selected';} ?> value="AM">Amazonas</option>
+              <option <?php if($dados->Estado == 'BA'){ echo 'selected=selected';} ?> value="BA">Bahia</option>
+              <option <?php if($dados->Estado == 'CE'){ echo 'selected=selected';} ?> value="CE">Ceará</option>
+              <option <?php if($dados->Estado == 'DF'){ echo 'selected=selected';} ?> value="DF">Distrito Federal</option>
+              <option <?php if($dados->Estado == 'ES'){ echo 'selected=selected';} ?> value="ES">Espírito Santo</option>
+              <option <?php if($dados->Estado == 'GO'){ echo 'selected=selected';} ?> value="GO">Goiás</option>
+              <option <?php if($dados->Estado == 'MA'){ echo 'selected=selected';} ?> value="MA">Maranhão</option>
+              <option <?php if($dados->Estado == 'MT'){ echo 'selected=selected';} ?> value="MT">Mato Grosso</option>
+              <option <?php if($dados->Estado == 'MS'){ echo 'selected=selected';} ?> value="MS">Mato Grosso do Sul</option>
+              <option <?php if($dados->Estado == 'MG'){ echo 'selected=selected';} ?> value="MG">Minas Gerais</option>
+              <option <?php if($dados->Estado == 'PA'){ echo 'selected=selected';} ?> value="PA">Pará</option>
+              <option <?php if($dados->Estado == 'PB'){ echo 'selected=selected';} ?> value="PB">Paraíba</option>
+              <option <?php if($dados->Estado == 'PR'){ echo 'selected=selected';} ?> value="PR">Paraná</option>
+              <option <?php if($dados->Estado == 'PE'){ echo 'selected=selected';} ?> value="PE">Pernambuco</option>
+              <option <?php if($dados->Estado == 'PI'){ echo 'selected=selected';} ?> value="PI">Piauí</option>
+              <option <?php if($dados->Estado == 'RJ'){ echo 'selected=selected';} ?> value="RJ">Rio de Janeiro</option>
+              <option <?php if($dados->Estado == 'RN'){ echo 'selected=selected';} ?> value="RN">Rio Grande do Norte</option>
+              <option <?php if($dados->Estado == 'RS'){ echo 'selected=selected';} ?> value="RS">Rio Grande do Sul</option>
+              <option <?php if($dados->Estado == 'RO'){ echo 'selected=selected';} ?> value="RO">Rondônia</option>
+              <option <?php if($dados->Estado == 'RR'){ echo 'selected=selected';} ?> value="RR">Roraima</option>
+              <option <?php if($dados->Estado == 'SC'){ echo 'selected=selected';} ?> value="SC">Santa Catarina</option>
+              <option <?php if($dados->Estado == 'SP'){ echo 'selected=selected';} ?> value="SP">São Paulo</option>
+              <option <?php if($dados->Estado == 'SE'){ echo 'selected=selected';} ?> value="SE">Sergipe</option>
+              <option <?php if($dados->Estado == 'TO'){ echo 'selected=selected';} ?> value="TO">Tocantins</option>
+              <option <?php if($dados->Estado == 'EX'){ echo 'selected=selected';} ?> value="EX">Estrangeiro</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="inputTelefone">Telefone</label>
+            <input type="phone" class="form-control" id="inputTelefone" name="inputTelefone" aria-describedby="inputTelefoneHelp" data-mask="(00) 0000-0000" value="{{ $dados->Telefone }}">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputEmail">Email</label>
+            <input type="email" class="form-control" id="inputEmail" name="inputEmail" aria-describedby="inputEmailHelp" value="{{ $dados->Email }}">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="inputFundacao">Fundação</label>
+            <input type="date" class="form-control" id="inputFundacao" name="inputFundacao" aria-describedby="inputFundacaoHelp" value="{{ $dados->Fundacao }}">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputFacebook">Facebook</label>
+            <input type="text" class="form-control" id="inputFacebook" name="inputFacebook" aria-describedby="inputFacebookHelp" value="{{ $dados->Facebook }}">
+          </div>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="inputTaxaInscricao">Tem taxa de inscrição</label><br>
+              <div class="form-check form-check-inline">
+                <input <?php if($dados->TaxaInscricao == 'sim'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputTaxaInscricao" id="inputTaxaInscricao1" value="sim" onclick="showInput('#TaxaInscricaoValor')">
+                <label class="form-check-label" for="inputTaxaInscricao1">Sim</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input <?php if($dados->TaxaInscricao == 'nao'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputTaxaInscricao" id="inputTaxaInscricao2" value="nao" onclick="hideTaxaInput('#TaxaInscricaoValor')">
+                <label class="form-check-label" for="inputTaxaInscricao2">Não</label>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            @if($dados->TaxaInscricao == 'sim')
+            <div id="TaxaInscricaoValor" class="form-group">
+              <label for="inputTaxaInscricaoValor">Qual o valor da taxa?</label>
+              <input type="text" class="form-control currency" id="inputTaxaInscricaoValor" name="inputTaxaInscricaoValor" aria-describedby="inputTaxaInscricaoValorHelp" data-thousands="." data-decimal="," data-prefix="R$ " value="{{ $dados->TaxaInscricaoValor }}">
+            </div>
+            @else
+            <div id="TaxaInscricaoValor" class="form-group" style="display:none;">
+              <label for="inputTaxaInscricaoValor">Se sim, quanto?</label>
+              <input type="number" class="form-control" id="inputTaxaInscricaoValor" name="inputTaxaInscricaoValor" aria-describedby="inputTaxaInscricaoValorHelp" value="{{ $dados->TaxaInscricaoValor }}">
+            </div>
+            @endif
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="inputVagas">Quantas vagas?</label>
+              <input pattern="[0-9]{0,3}" type="text" class="form-control" id="inputVagas" name="inputVagas" aria-describedby="inputVagasHelp" value="{{ $dados->Vagas }}">
+            </div>
+          </div>
+        </div>
+
+      <div class="form-group">
+        <label>Período de inscrição</label>
+        <div class="row">
+          <div class="col-6">
+            <label for="inputInscricaoFrom">De</label>
+            <input type="date" class="form-control" id="inputInscricaoFrom" name="inputInscricaoFrom" aria-describedby="inputInscricaoFromHelp" value="{{ $dados->InscricaoFrom }}">
+          </div>
+          <div class="col-6">
+            <label for="inputInscricaoTo">Até</label>
+            <input type="date" class="form-control" id="inputInscricaoTo" name="inputInscricaoTo" aria-describedby="inputInscricaoToHelp" value="{{ $dados->InscricaoTo }}">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputInicioAtividades">Início das atividades</label>
+        <input type="date" class="form-control" id="inputInicioAtividades" name="inputInicioAtividades" aria-describedby="inputInicioAtividadesHelp" value="{{ $dados->InicioAtividades }}">
+      </div>
+      <div class="row mb-5">
+        <div class="col">
+          <button type="submit" class="btn btn-lg btn-block btn-danger">Atualizar Dados</button>
+        </div>
+        <div class="col">
+          <a class="btn btn-lg btn-block btn-success" href="/nucleos">Voltar</a>
+        </div>
+      </div>
+  </form>
+
+</div>
+@endsection

@@ -1,0 +1,229 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+  <!-- PAGE HEADER -->
+  <div class="row">
+      <div class="col-12 text-center">
+        <h1>CADASTRO DE NÚCLEO</h1>
+      </div>
+  </div>
+  @if(\Session::has('success'))
+  <div class="row mt-2">
+    <div class="col">
+      <div class="alert alert-success text-center" role="alert">
+        {!! \Session::get('success') !!}
+      </div>
+    </div>
+  </div>
+  @endif
+
+  <form method="POST" action="/nucleos/create">
+      @csrf
+      <h3>IDENTIFICAÇÃO</h3>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="inputNomeNucleo">Nome do núcleo</label>
+            <input type="text" class="form-control" id="inputNomeNucleo" name="inputNomeNucleo" aria-describedby="inputNomeNucleoHelp" placeholder="Nome do novo núcleo" required>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputAreaAtuacao">Área de atuação</label><br>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inputAreaAtuacao" id="inputAreaAtuacao1" value="educacao">
+              <label class="form-check-label" for="inputAreaAtuacao1">Educação</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inputAreaAtuacao" id="inputAreaAtuacao2" value="esporte">
+              <label class="form-check-label" for="inputAreaAtuacao2">Esporte</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inputAreaAtuacao" id="inputAreaAtuacao3" value="cultura">
+              <label class="form-check-label" for="inputAreaAtuacao3">Cultura</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inputAreaAtuacao" id="inputAreaAtuacao4" value="outro">
+              <label class="form-check-label" for="inputAreaAtuacao4">Outro</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="inputInfoInscricao">Informação de inscrição</label>
+            <input type="text" class="form-control" id="inputInfoInscricao" name="inputInfoInscricao" aria-describedby="inputInfoInscricaoHelp" placeholder="Informações sobre inscrição">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="inputEspacoInserido">Espaço em que está inserido</label>
+            <input type="text" class="form-control" id="inputEspacoInserido" name="inputEspacoInserido" aria-describedby="inputEspacoInseridoHelp" placeholder="Espaço em que está inserido">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="inputCEP">CEP</label>
+            <input type="text" class="form-control" id="inputCEP" name="inputCEP" aria-describedby="inputCEPHelp" data-mask="00000-000" placeholder="xxxxx-xxx" onblur="checkCEP('#inputCEP')">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputEndereco">Rua</label>
+            <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEndereco" name="inputEndereco" aria-describedby="inputEnderecoHelp" placeholder="Rua, Avenida, Logradouro">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputNumero">Número</label>
+            <input type="text" class="form-control" id="inputNumero" name="inputNumero" aria-describedby="inputNumeroHelp" placeholder="Número">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="inputBairro">Bairro</label>
+            <input type="text" class="form-control" id="inputBairro" name="inputBairro" aria-describedby="inputBairroHelp" placeholder="Bairro">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputComplemento">Complemento</label>
+            <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" placeholder="Complemento">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputCidade">Cidade</label>
+            <input type="text" class="form-control" id="inputCidade" name="inputCidade" aria-describedby="inputCidadeHelp" placeholder="Cidade">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputEstado">Estado</label>
+            <select id="inputEstado" name="inputEstado" class="custom-select">
+              <option selected>Selecione</option>
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+              <option value="EX">Estrangeiro</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="inputTelefone">Telefone</label>
+            <input type="text" class="form-control" id="inputTelefone" name="inputTelefone" aria-describedby="inputTelefoneHelp" data-mask="(00) 0000-0000" placeholder="(xx)xxxx-xxxx">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputEmail">Email</label>
+            <input type="email" class="form-control" id="inputEmail" name="inputEmail" aria-describedby="inputEmailHelp" placeholder="Email de contato do núcleo">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="inputFundacao">Fundação</label>
+            <input type="date" class="form-control" id="inputFundacao" name="inputFundacao" aria-describedby="inputFundacaoHelp">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputFacebook">Facebook</label>
+            <input type="text" class="form-control" id="inputFacebook" name="inputFacebook" aria-describedby="inputFacebookHelp" placeholder="Endereço do Facebook">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 mt-2 mb-2 text-center">
+          <h4>Programação 2020</h4>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputTaxaInscricao">Tem taxa de inscrição</label><br>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inputTaxaInscricao" id="inputTaxaInscricao1" value="sim" onclick="showInput('#TaxaInscricaoValor')">
+              <label class="form-check-label" for="inputTaxaInscricao1">Sim</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inputTaxaInscricao" id="inputTaxaInscricao2" value="nao" onclick="hideTaxaInput('#TaxaInscricaoValor')">
+              <label class="form-check-label" for="inputTaxaInscricao2">Não</label>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div id="TaxaInscricaoValor" class="form-group" style="display:none;">
+            <label for="inputTaxaInscricaoValor">Qual o valor da taxa?</label>
+            <input type="text" class="form-control currency" id="inputTaxaInscricaoValor" name="inputTaxaInscricaoValor" aria-describedby="inputTaxaInscricaoValorHelp" data-thousands="." data-decimal="," data-prefix="R$ " placeholder="Informe o valor da taxa de inscrição em R$">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputVagas">Quantas vagas?</label>
+            <input pattern="[0-9]{0,3}" type="text" class="form-control" id="inputVagas" name="inputVagas" aria-describedby="inputVagasHelp" placeholder="Quantidade de vagas disponíveis">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Período de inscrição</label>
+        <div class="row">
+          <div class="col-6">
+            <label for="inputInscricaoFrom">De</label>
+            <input type="date" class="form-control" id="inputInscricaoFrom" name="inputInscricaoFrom" aria-describedby="inputInscricaoFromHelp">
+          </div>
+          <div class="col-6">
+            <label for="inputInscricaoTo">Até</label>
+            <input type="date" class="form-control" id="inputInscricaoTo" name="inputInscricaoTo" aria-describedby="inputInscricaoToHelp">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputInicioAtividades">Início das atividades</label>
+        <input type="date" class="form-control" id="inputInicioAtividades" name="inputInicioAtividades" aria-describedby="inputInicioAtividadesHelp">
+      </div>
+      <input type="hidden" name="inputStatus" value="1">
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-lg btn-primary">Salvar</button>
+        </div>
+      </div>
+  </form>
+
+</div>
+@endsection
