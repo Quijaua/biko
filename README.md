@@ -10,4 +10,4 @@ Os principais recursos do Biko são:
 * Gestão de Coordenadoras/es;
 * Gestão de Núcleos.
 
-O **Biko** é surge de uma demanda da Uneafro Brasil, inicialmente desenvolvida em Drupal 7, mas portado para Laravel.
+O **Biko** é surge de uma demanda da [Uneafro Brasil](http://uneafrobrasil.org/), inicialmente desenvolvida em Drupal 7, mas portado para Laravel.
