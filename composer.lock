@@ -759,7 +759,7 @@
                 "symfony/console": "^4.3.4",
                 "symfony/debug": "^4.3.4",
                 "symfony/finder": "^4.3.4",
-                "symfony/http-foundation": "^4.3.4",
+                "symfony/http-foundation": "^4.3.8",
                 "symfony/http-kernel": "^4.3.4",
                 "symfony/process": "^4.3.4",
                 "symfony/routing": "^4.3.4",
@@ -2188,7 +2188,7 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v4.3.5",
+            "version": "v4.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
@@ -2260,7 +2260,7 @@
                 "psr/log": "~1.0",
                 "symfony/debug": "~3.4|~4.0",
                 "symfony/event-dispatcher": "^4.3",
-                "symfony/http-foundation": "^4.1.1",
+                "symfony/http-foundation": "^4.3.8",
                 "symfony/polyfill-ctype": "~1.8",
                 "symfony/polyfill-php73": "^1.9"
             },
@@ -2335,7 +2335,7 @@
         },
         {
             "name": "symfony/mime",
-            "version": "v4.3.5",
+            "version": "v4.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mime.git",
