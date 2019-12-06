@@ -395,7 +395,7 @@ class AlunosController extends Controller
     {
       $dados = Aluno::find($id);
       $nucleos = Nucleo::get()->where('Status', 1);
-      $familiares = AlunoInfoFamiliares::get();
+      $familiares = AlunoInfoFamiliares::where('id_aluno', $dados->id)->get();
       /*
       foreach($familiares as $parente){
         $counter = count($parente->GrauParentesco);

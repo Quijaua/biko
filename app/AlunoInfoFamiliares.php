@@ -14,6 +14,7 @@ class AlunoInfoFamiliares extends Model
       'Escolaridade',
       'Profissao',
       'Renda',
+      'id_aluno',
     ];
 
     protected $casts = [

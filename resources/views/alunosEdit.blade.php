@@ -791,6 +791,7 @@
         <form method="POST" action="/alunos/familiares/add">
           @csrf
           <input type="hidden" name="inputIdUser" value="{{ $dados->id_user }}">
+          <input type="hidden" name="inputIdAluno" value="{{ $dados->id }}">
           <div class="container-fluid p-3">
             <div id="item" class="stage">
               <div class="row">

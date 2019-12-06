@@ -22,6 +22,7 @@ class AlunoInfoFamiliaresController extends Controller
         'Escolaridade' => $request->input('inputEscolaridade'),
         'Profissao' => $request->input('inputProfissao'),
         'Renda' => $request->input('inputRenda'),
+        'id_aluno' => $request->input('inputIdAluno'),
       ]);
 
       return back()->with([

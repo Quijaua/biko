@@ -119,11 +119,7 @@ trait AuthenticatesUsers
      */
     protected function authenticated(Request $request, $user)
     {
-      if($user->role === 'administrador' || $user->role === 'coordenador' || $user->role === 'professor'){
-        return redirect('/alunos');
-      }elseif($user->role === 'aluno'){
-        return redirect('/home');
-      }
+        //
     }
 
     /**
