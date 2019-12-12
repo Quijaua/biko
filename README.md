@@ -1,5 +1,5 @@
-# Biko
-O **Biko** é um sistema de gestão de cursinhos populares. 
+# biko
+O **biko** é um sistema de gestão de cursinhos populares. 
 
 ***
 Os principais recursos do Biko são:
@@ -10,4 +10,4 @@ Os principais recursos do Biko são:
 * Gestão de Coordenadoras/es;
 * Gestão de Núcleos.
 
-O **Biko** é surge de uma demanda da [Uneafro Brasil](http://uneafrobrasil.org/), inicialmente desenvolvida em Drupal 7, mas portado para Laravel.
+O **biko** é surge de uma demanda da [Uneafro Brasil](http://uneafrobrasil.org/), inicialmente desenvolvida em Drupal 7, mas portado para Laravel.
