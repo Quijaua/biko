@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Verifique seu endereço de e-mail') }}</div>
+                <div class="card-header">{{ __('Seu pré-cadastro foi realizado com sucesso!') }}</div>
 
                 <div class="card-body">
                     @if (session('resent'))
@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    {{ __('Antes de prosseguir, verifique seu e-mail para um link de verificação.') }}
+                    <p>{{ __('A Coordenação do Núcleo que você escolheu entrará em contato em breve.') }}</p>
+                    <p>{{ __('Enquanto isso, enviamos uma mensagem para o seu e-mail, acesse sua caixa de entrada, confirme seu e-mail clicando no link indicado na mensagem e complete seu cadastro.') }}</p>
                     {{ __('Se você não recebeu o email') }},
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf

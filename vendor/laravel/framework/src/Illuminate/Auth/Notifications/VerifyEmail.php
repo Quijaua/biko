@@ -44,8 +44,9 @@ class VerifyEmail extends Notification
         }
 
         return (new MailMessage)
-            ->subject(Lang::get('Verificar endereço de email'))
-            ->line(Lang::get('Clique no botão abaixo para verificar seu endereço de e-mail.'))
+            ->subject(Lang::get('Pré-cadastro - Uneafro'))
+            ->line(Lang::get('Seu pré-cadastro foi realizado com sucesso! A Coordenação do Núcleo que você escolheu entrará em contato em breve.'))
+            ->line(Lang::get('Enquanto isso, clique no botão abaixo para verificar seu endereço de e-mail e complete seu cadastro.'))
             ->action(Lang::get('Verificar endereço de email'), $verificationUrl)
             ->line(Lang::get('Se você não criou uma conta, nenhuma ação adicional será necessária.'));
     }
