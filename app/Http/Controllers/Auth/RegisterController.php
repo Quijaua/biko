@@ -56,6 +56,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'role' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'numeric', 'min:11']
         ]);
     }
 
@@ -80,6 +81,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'role' => $data['role'],
+	    'phone' => $data['phone']
         ]);
 
         $nucleo = Nucleo::first();
@@ -90,6 +92,7 @@ class RegisterController extends Controller
           'NomeAluno' => $user->name,
           'id_user' => $user->id,
           'Status' => 1,
+	  'FoneCelular' => $user->phone,
           //'id_nucleo' => $nucleo->id,
         ]);
 
