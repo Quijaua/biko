@@ -29,7 +29,7 @@ class Nucleo extends Model
       'InscricaoFrom',
       'InscricaoTo',
       'InicioAtividades',
-      'Status',
+      'whatsapp_url',
     ];
 
     public function alunos()

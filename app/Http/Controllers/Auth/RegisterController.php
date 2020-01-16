@@ -76,24 +76,25 @@ class RegisterController extends Controller
             'role' => $data['role'],
         ]);
         */
+
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'role' => $data['role'],
-	    'phone' => $data['phone']
+            'phone' => $data['phone']
         ]);
 
-        $nucleo = Nucleo::first();
+        $nucleo = $data['inputNucleo'];
         Session::put('verified',$user->email_verified_at);
-        //dd($verified);
 
         $aluno = Aluno::create([
-          'NomeAluno' => $user->name,
-          'id_user' => $user->id,
-          'Status' => 1,
-	  'FoneCelular' => $user->phone,
-          //'id_nucleo' => $nucleo->id,
+            'NomeAluno' => $user->name,
+            'id_user' => $user->id,
+            'Status' => 1,
+            'FoneCelular' => $user->phone,
+            'Email' => $data['email'],
+            'id_nucleo' => $nucleo,
         ]);
 
         return User::find($user->id);

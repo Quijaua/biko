@@ -65,6 +65,12 @@
             <input type="text" class="form-control" id="inputEspacoInserido" name="inputEspacoInserido" aria-describedby="inputEspacoInseridoHelp" value="{{ $dados->EspacoInserido }}">
           </div>
         </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputWhatsapp">WhatsApp</label>
+            <input type="text" class="form-control" id="inputWhatsapp" name="inputWhatsapp" aria-describedby="inputWhatsappHelp" value="{{ $dados->whatsapp_url }}">
+          </div>
+        </div>
       </div>
       <div class="row">
         @if($representantes)
