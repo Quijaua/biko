@@ -14,8 +14,8 @@
                         </div>
                     @endif
 
-                    <p>{{ __('A Coordenação do Núcleo que você escolheu entrará em contato em breve.') }}</p>
-                    <p>{{ __('Enquanto isso, enviamos uma mensagem para o seu e-mail, acesse sua caixa de entrada, confirme seu e-mail clicando no link indicado na mensagem e complete seu cadastro.') }}</p>
+                    <p>{{ __('A Coordenação do Cursinho que você escolheu vai entrar em contato em breve.') }}</p>
+                    <p>{{ __('Enquanto isso, enviamos uma mensagem para seu email. Acesse e clique no link para para completar seu cadastro.') }}</p>
                     <?php 
                     use Illuminate\Support\Facades\Auth;
                     use App\Aluno;
