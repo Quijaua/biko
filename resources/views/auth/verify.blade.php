@@ -14,9 +14,15 @@
                         </div>
                     @endif
 
+<<<<<<< HEAD
                     <p>{{ __('A Coordenação do Núcleo que você escolheu entrará em contato em breve.') }}</p>
                     <p>{{ __('Enquanto isso, enviamos uma mensagem para o seu e-mail. Acesse e clique no link para completar seu cadastro.') }}</p>
                     <?php
+=======
+                    <p>{{ __('A Coordenação do Cursinho que você escolheu vai entrar em contato em breve.') }}</p>
+                    <p>{{ __('Enquanto isso, enviamos uma mensagem para seu email. Acesse e clique no link para para completar seu cadastro.') }}</p>
+                    <?php 
+>>>>>>> c6cbd2ffeb6c24770cf8f364a15b9ecf2c4062a3
                     use Illuminate\Support\Facades\Auth;
                     use App\Aluno;
                     use App\Nucleo;
