@@ -14,7 +14,7 @@ class AddPhoneFieldToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-		$table->bigInteger('phone');
+		        $table->bigInteger('phone')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddPhoneFieldToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-		$table->dropColumn('phone');
+		        $table->dropColumn('phone');
         });
     }
 }

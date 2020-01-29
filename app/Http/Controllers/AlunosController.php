@@ -14,6 +14,8 @@ use App\AlunoInfoFamiliares;
 use Image;
 use Session;
 use Carbon\Carbon;
+use App\Exports\AlunosExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AlunosController extends Controller
 {
@@ -426,13 +428,19 @@ class AlunosController extends Controller
         }
       }
       */
-      //exit;
-
 
       return view('alunosDetails')->with([
         'dados' => $dados,
         'nucleos' => $nucleos,
         'familiares' => $familiares,
       ]);
+    }
+
+    public function export(Request $request)
+    {
+      //dd($request->input('nucleo'));
+      $nucleo = $request->input('nucleo');
+      //dd($nucleo);
+      return (new AlunosExport($nucleo))->download('alunos.xlsx');
     }
 }

@@ -62,6 +62,11 @@
     @else
     <a class="btn btn-primary" href="/alunos">Ver alunos ativos</a>
     @endif
+    @if(url()->current() != $app['url']->to('/') . '/alunos/search')
+      <a class="btn btn-primary" href="{{ route('alunos/export/') }}/?nucleo=0">Exportar</a>
+    @else
+    <a class="btn btn-primary" href="{{ route('alunos/export/') }}/?nucleo={{ $aluno->id_nucleo }}">Exportar</a>
+    @endif
   </div>
   @endif
   @endif
@@ -108,6 +113,7 @@
               @else
               <a class="btn btn-success enableBtn" href="/alunos/enable/{{ $aluno->id }}">Ativar</a>
               @endif
+            </td>
           </tr>
           @endforeach
         </tbody>

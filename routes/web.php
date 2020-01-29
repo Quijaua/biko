@@ -37,6 +37,7 @@ Route::get('alunos/disable/{id}', 'AlunosController@disable')->middleware('permi
 Route::get('alunos/enable/{id}', 'AlunosController@enable')->middleware('permissions');
 Route::any('alunos/search', 'AlunosController@search')->middleware('permissions')->name('alunos/search');
 Route::post('alunos/familiares/add', 'AlunoInfoFamiliaresController@add')->name('alunos/familiares/add');
+Route::get('alunos/export/', 'AlunosController@export')->name('alunos/export/');
 
 // ROUTES FOR COORDENADORES MANAGEMENT
 Route::get('coordenadores', 'CoordenadoresController@index')->middleware('permissions');
