@@ -386,11 +386,11 @@ class AlunosController extends Controller
       }
 
       if($nucleo != ''){
-        $result = Aluno::where('id_nucleo', $nucleo)->get();
+        $result = Aluno::where('id_nucleo', $nucleo)->where('status', 1)->get();
         if($result->isEmpty()){
           return back()->with([
             'result' => $result,
-            'error' => 'Não há alunos neste nucleo.',
+            'error' => 'Não há alunos neste núcleo.',
           ]);
         };
 
