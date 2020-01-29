@@ -15,8 +15,8 @@
                     @endif
 
                     <p>{{ __('A Coordenação do Núcleo que você escolheu entrará em contato em breve.') }}</p>
-                    <p>{{ __('Enquanto isso, enviamos uma mensagem para o seu e-mail, acesse sua caixa de entrada, confirme seu e-mail clicando no link indicado na mensagem e complete seu cadastro.') }}</p>
-                    <?php 
+                    <p>{{ __('Enquanto isso, enviamos uma mensagem para o seu e-mail. Acesse e clique no link para completar seu cadastro.') }}</p>
+                    <?php
                     use Illuminate\Support\Facades\Auth;
                     use App\Aluno;
                     use App\Nucleo;
@@ -24,7 +24,10 @@
                     $aluno = Aluno::where('id_user', $user->id)->get('id_nucleo');
                     $nucleo = Nucleo::find($aluno[0]['id_nucleo']);
                     $wa_url = $nucleo->whatsapp_url;
+                    $my_token = app('auth.password.broker')->createToken($user);
+                    $url = $app['url']->to('/');
                     ?>
+                    <p><?php echo '<a href="'.$url.'/password/reset/'.$my_token.'?email='.$user->email.'">Clique aqui</a> para cadastrar ou alterar a sua senha no sistema.'; ?></p>
                     @if($wa_url)
                     <p>
                         <a class="btn btn-success" href="<?php echo $wa_url; ?>" target="_blank">Fale com o seu Núcleo via WhatsApp</a>

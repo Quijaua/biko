@@ -55,7 +55,7 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
                           <label class="col-md-4 col-form-label text-md-right" for="inputNucleo">Núcleo</label>
                             <?php $nucleos = DB::table('nucleos')->where('status', 1)->get(); ?>
@@ -70,7 +70,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <!--<div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Senha') }}</label>
 
                             <div class="col-md-6">
@@ -83,9 +83,9 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div>-->
 
-                        <div class="form-group row">
+                        <!--<div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar Senha') }}</label>
 
                             <div class="col-md-6">
@@ -94,7 +94,8 @@
 
                                 <input id="role" type="hidden" name="role" value="aluno">
                             </div>
-                        </div>
+                        </div>-->
+                        <input id="role" type="hidden" name="role" value="aluno">
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
