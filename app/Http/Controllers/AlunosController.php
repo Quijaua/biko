@@ -356,6 +356,8 @@ class AlunosController extends Controller
       $user = Auth::user();
       $status = $request->input('status');
       $cpf = $request->input('cpf');
+      $nucleo = $request->input('nucleo');
+      //dd($nucleo);
 
       if($cpf != ''){
         $result = Aluno::where('CPF', $cpf)->count();
@@ -374,6 +376,21 @@ class AlunosController extends Controller
             'error' => 'Não há alunos inativos no momento.',
           ]);
         }
+
+        return view('alunos')->with([
+          'user' => $user,
+          'alunos' => $result,
+        ]);
+      }
+
+      if($nucleo != ''){
+        $result = Aluno::where('id_nucleo', $nucleo)->get();
+        if($result->isEmpty()){
+          return back()->with([
+            'result' => $result,
+            'error' => 'Não há alunos neste nucleo.',
+          ]);
+        };
 
         return view('alunos')->with([
           'user' => $user,
