@@ -358,7 +358,7 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h">{{ $dados->DiasHora
         <div class="form-group">
           <label for="inputEstado">Estado</label>
           <select id="inputEstado" name="inputEstado" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option <?php if($dados->Estado == 'AC'){ echo 'selected=selected';} ?> value="AC">Acre</option>
             <option <?php if($dados->Estado == 'AL'){ echo 'selected=selected';} ?> value="AL">Alagoas</option>
             <option <?php if($dados->Estado == 'AP'){ echo 'selected=selected';} ?> value="AP">Amapá</option>
@@ -476,7 +476,7 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h">{{ $dados->DiasHora
         <div class="form-group">
           <label for="inputEstadoEmpresa">Estado da Empresa</label>
           <select id="inputEstadoEmpresa" name="inputEstadoEmpresa" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option <?php if($dados->EstadoEmpresa == 'AC'){ echo 'selected=selected';} ?> value="AC">Acre</option>
             <option <?php if($dados->EstadoEmpresa == 'AL'){ echo 'selected=selected';} ?> value="AL">Alagoas</option>
             <option <?php if($dados->EstadoEmpresa == 'AP'){ echo 'selected=selected';} ?> value="AP">Amapá</option>
@@ -555,7 +555,7 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h">{{ $dados->DiasHora
         <div class="form-group">
           <label for="inputComoSoube">Como você ficou sabendo do cursinho pré-vestibular da UNEafro Brasil?</label>
           <select id="comoSoube" name="inputComoSoube" class="custom-select" onchange="checkComosoube()">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option <?php if($dados->ComoSoube == 'internet'){ echo 'selected=selected';} ?> value="internet">Internet</option>
             <option <?php if($dados->ComoSoube == 'panfleto'){ echo 'selected=selected';} ?> value="panfleto">Panfleto</option>
             <option <?php if($dados->ComoSoube == 'amigos'){ echo 'selected=selected';} ?> value="amigos">Amigos</option>
@@ -596,7 +596,7 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h">{{ $dados->DiasHora
         <div class="form-group">
           <label for="inputEnsinoSuperior"><strong>Ensino Superior</strong></label>
           <select name="inputEnsinoSuperior" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option <?php if($dados->EnsinoSuperior == 'em_curso'){ echo 'selected=selected';} ?> value="em_curso">Em curso</option>
             <option <?php if($dados->EnsinoSuperior == 'completo'){ echo 'selected=selected';} ?> value="completo">Completo</option>
             <option <?php if($dados->EnsinoSuperior == 'incompleto'){ echo 'selected=selected';} ?> value="incompleto">Incompleto</option>
@@ -748,7 +748,7 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h">{{ $dados->DiasHora
         <div class="form-group">
           <label for="inputEspecializacao"><strong>Especialização</strong></label>
           <select name="inputEspecializacao" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option <?php if($dados->Especializacao == 'em_curso'){ echo 'selected=selected';} ?> value="em_curso">Em curso</option>
             <option <?php if($dados->Especializacao == 'completo'){ echo 'selected=selected';} ?> value="completo">Completo</option>
             <option <?php if($dados->Especializacao == 'incompleto'){ echo 'selected=selected';} ?> value="incompleto">Incompleto</option>
@@ -834,7 +834,7 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h">{{ $dados->DiasHora
         <div class="form-group">
           <label for="inputMestrado"><strong>Mestrado</strong></label>
           <select name="inputMestrado" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option <?php if($dados->Mestrado == 'em_curso'){ echo 'selected=selected';} ?> value="em_curso">Em curso</option>
             <option <?php if($dados->Mestrado == 'completo'){ echo 'selected=selected';} ?> value="completo">Completo</option>
             <option <?php if($dados->Mestrado == 'incompleto'){ echo 'selected=selected';} ?> value="incompleto">Incompleto</option>

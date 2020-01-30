@@ -353,7 +353,7 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h"></textarea>
         <div class="form-group">
           <label for="inputEstado">Estado</label>
           <select id="inputEstado" name="inputEstado" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
             <option value="AP">Amapá</option>
@@ -471,7 +471,7 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h"></textarea>
         <div class="form-group">
           <label for="inputEstadoEmpresa">Estado da Empresa</label>
           <select id="inputEstadoEmpresa" name="inputEstadoEmpresa" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
             <option value="AP">Amapá</option>
@@ -535,7 +535,7 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h"></textarea>
         <div class="form-group">
           <label for="inputComoSoube">Como você ficou sabendo do cursinho pré-vestibular da UNEafro Brasil?</label>
           <select id="comoSoube" name="inputComoSoube" class="custom-select" onchange="checkComosoube()">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option value="internet">Internet</option>
             <option value="panfleto">Panfleto</option>
             <option value="amigos">Amigos</option>
@@ -567,7 +567,7 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h"></textarea>
         <div class="form-group">
           <label for="inputEnsinoSuperior"><strong>Ensino Superior</strong></label>
           <select name="inputEnsinoSuperior" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option value="em_curso">Em curso</option>
             <option value="completo">Completo</option>
             <option value="incompleto">Incompleto</option>
@@ -719,7 +719,7 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h"></textarea>
         <div class="form-group">
           <label for="inputEspecializacao"><strong>Especialização</strong></label>
           <select name="inputEspecializacao" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option value="em_curso">Em curso</option>
             <option value="completo">Completo</option>
             <option value="incompleto">Incompleto</option>
@@ -805,7 +805,7 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h"></textarea>
         <div class="form-group">
           <label for="inputMestrado"><strong>Mestrado</strong></label>
           <select name="inputMestrado" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option value="em_curso">Em curso</option>
             <option value="completo">Completo</option>
             <option value="incompleto">Incompleto</option>
