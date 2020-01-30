@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\Aluno;
+use App\Nucleo;
 //use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -87,7 +88,7 @@ class AlunosExport implements FromQuery, WithHeadings
     if($this->nucleo === 0){
       return Aluno::query()->select([
         'NomeAluno',
-        'id_nucleo',
+        'NomeNucleo',
         'CPF',
         'RG',
         'Raca',
@@ -145,9 +146,9 @@ class AlunosExport implements FromQuery, WithHeadings
       ]);
     };
 
-    return Aluno::query()->where('id_nucleo', $this->nucleo)->where('status', 1)->select([
+    return Aluno::query()->where('id_nucleo', $this->nucleo)->select([
       'NomeAluno',
-      'id_nucleo',
+      'NomeNucleo',
       'CPF',
       'RG',
       'Raca',

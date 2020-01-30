@@ -90,7 +90,7 @@
         <div class="form-group">
           <label for="inputRaca">Raça / Cor</label>
           <select name="inputRaca" class="custom-select" required>
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option value="negra">Negra</option>
             <option value="branca">Branca</option>
             <option value="parda">Parda</option>
@@ -103,7 +103,7 @@
         <div class="form-group">
           <label for="inputGenero">Gênero</label>
           <select name="inputGenero" class="custom-select" required>
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option value="mulher">Mulher</option>
             <option value="homem">Homem</option>
             <option value="mulher_trans_cis">Mulher (Trans ou Cis)</option>
@@ -117,7 +117,7 @@
         <div class="form-group">
           <label for="inputEstadoCivil">Estado Civil</label>
           <select name="inputEstadoCivil" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option value="solteiro_a">Solteiro(a)</option>
             <option value="casado_a">Casado(a)</option>
             <option value="uniao_estavel">União Estável</option>
@@ -174,7 +174,7 @@
         <div class="form-group">
           <label for="inputEstado">Estado</label>
           <select id="inputEstado" name="inputEstado" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
             <option value="AP">Amapá</option>
@@ -286,7 +286,7 @@
         <div class="form-group">
           <label for="inputEstadoEmpresa">Estado</label>
           <select id="inputEstadoEmpresa" name="inputEstadoEmpresa" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
             <option value="AP">Amapá</option>
@@ -403,7 +403,7 @@
         <div class="form-group">
           <label for="inputEstadoFamilia">Estado</label>
           <select id="inputEstadoFamilia" name="inputEstadoFamilia" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
             <option value="AP">Amapá</option>
@@ -460,7 +460,7 @@
         <div id="AuxTipo" class="form-group" style="display:none;">
           <label for="inputAuxTipo">Qual?</label>
           <select name="inputAuxTipo" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option value="bolsa_familia">Programa Bolsa Família</option>
             <option value="energia_eletrica">Tarifa Social de Energia Elétrica</option>
             <option value="emergencial_financeiro">Auxílio Emergencial Financeiro</option>
@@ -568,7 +568,7 @@
         <div class="form-group dados-faculdade" style="display:none;">
           <label for="inputAnoFaculdade">Ano</label>
           <select name="inputAnoFaculdade" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option value="1969">1969</option>
             <option value="1970">1970</option>
             <option value="1971">1971</option>
@@ -648,7 +648,7 @@
         <div class="form-group">
           <label for="inputVestibularOutraCidade">Quanto à Universidade, tem disponibilidade/interesse de estudar em outras cidades?</label>
           <select name="inputVestibularOutraCidade" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option value="sim">Sim</option>
             <option value="nao">Não</option>
           </select>
@@ -658,7 +658,7 @@
         <div class="form-group">
           <label for="inputComoSoube">Como você ficou sabendo do cursinho pré-vestibular da UNEafro Brasil?</label>
           <select id="comoSoube" name="inputComoSoube" class="custom-select" onchange="checkComosoube()">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option value="internet">Internet</option>
             <option value="panfleto">Panfleto</option>
             <option value="amigos">Amigos</option>

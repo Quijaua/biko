@@ -97,6 +97,7 @@ class AlunosController extends Controller
 
     public function create(Request $request)
     {
+      $nome_nucleo = Nucleo::find($request->input('inputNucleo'));
       $Fund = $request->input('inputEnsFundamental');
       $Fundamental = json_encode($Fund);
       $Med = $request->input('inputEnsMedio');
@@ -141,6 +142,7 @@ class AlunosController extends Controller
         'Status' => $request->input('inputStatus'),
         'NomeAluno' => $request->input('inputNomeAluno'),
         'id_nucleo' => $request->input('inputNucleo'),
+        'NomeNucleo' => $nome_nucleo->NomeNucleo,
         //'Foto' => $Foto->getFilename() . '.' . $Extension,
         'Foto' => $foto,
         'CPF' => $request->input('inputCPF'),
@@ -232,10 +234,12 @@ class AlunosController extends Controller
     public function update(Request $request,$id)
     {
       $dados = Aluno::find($id);
+
       $Fund = $request->input('inputEnsFundamental');
       $Fundamental = json_encode($Fund);
       $Med = $request->input('inputEnsMedio');
       $Medio = json_encode($Med);
+      $nome_nucleo = Nucleo::find($request->input('inputNucleo'));
 
       $Foto = $request->file('inputFoto');
       if($Foto){
@@ -244,6 +248,7 @@ class AlunosController extends Controller
 
       $dados->NomeAluno = $request->input('inputNomeAluno');
       $dados->id_nucleo = $request->input('inputNucleo');
+      $dados->NomeNucleo = $nome_nucleo->NomeNucleo;
       if($Foto){
         $dados->Foto = $Foto->getFilename() . '.' . $Extension;
       }
