@@ -29,7 +29,7 @@ class AlunosExport implements FromQuery, WithHeadings
           'CPF',
           'RG',
           'Raça',
-          'Genero',
+          'Gênero',
           'Estado Civil',
           'Nascimento',
           'CEP',

@@ -10,6 +10,7 @@ class Coordenadores extends Model
       'id_user',
       'Status',
       'NomeCoordenador',
+      'NomeSocial',
       'id_nucleo',
       'FuncaoCoordenador',
       'AnoIngresso',

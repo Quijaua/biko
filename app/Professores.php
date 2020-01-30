@@ -10,6 +10,7 @@ class Professores extends Model
       'id_user',
       'Status',
       'NomeProfessor',
+      'NomeSocial',
       'id_nucleo',
       'Foto',
       'CPF',

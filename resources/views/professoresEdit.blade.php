@@ -44,6 +44,12 @@
       </div>
       <div class="col">
         <div class="form-group">
+          <label for="inputNomeSocial">Nome Social do professor</label>
+          <input type="text" class="form-control" id="inputNomeSocial" name="inputNomeSocial" aria-describedby="inputNomeSocialHelp" value="{{ $dados->NomeSocial }}">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
           <label for="inputNucleo">Núcleo</label>
           <select name="inputNucleo" class="custom-select">
             <option selected>Selecione</option>

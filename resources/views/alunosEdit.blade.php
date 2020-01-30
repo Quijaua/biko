@@ -35,6 +35,12 @@
       </div>
       <div class="col">
         <div class="form-group">
+          <label for="inputNomeSocial">Nome Social do aluno</label>
+          <input type="text" class="form-control" id="inputNomeSocial" name="inputNomeSocial" aria-describedby="inputNomeSocialHelp" value="{{ $dados->NomeSocial }}">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
           <label for="inputNucleo">Núcleo</label>
           <select name="inputNucleo" class="custom-select">
             <option selected>Selecione</option>
@@ -86,7 +92,7 @@
         <div class="form-group">
           <label for="inputRaca">Raça / Cor</label>
           <select name="inputRaca" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option <?php if($dados->Raca == 'negra'){ echo 'selected=selected';} ?> value="negra">Negra</option>
             <option <?php if($dados->Raca == 'branca'){ echo 'selected=selected';} ?> value="branca">Branca</option>
             <option <?php if($dados->Raca == 'parda'){ echo 'selected=selected';} ?> value="parda">Parda</option>
@@ -99,7 +105,7 @@
         <div class="form-group">
           <label for="inputGenero">Gênero</label>
           <select name="inputGenero" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option <?php if($dados->Genero == 'mulher'){ echo 'selected=selected';} ?> value="mulher">Mulher</option>
             <option <?php if($dados->Genero == 'homem'){ echo 'selected=selected';} ?> value="homem">Homem</option>
             <option <?php if($dados->Genero == 'mulher_trans_cis'){ echo 'selected=selected';} ?> value="mulher_trans_cis">Mulher (Trans ou Cis)</option>
@@ -113,7 +119,7 @@
         <div class="form-group">
           <label for="inputEstadoCivil">Estado Civil</label>
           <select name="inputEstadoCivil" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option <?php if($dados->EstadoCivil == 'solteiro_a'){ echo 'selected=selected';} ?> value="solteiro_a">Solteiro(a)</option>
             <option <?php if($dados->EstadoCivil == 'casado_a'){ echo 'selected=selected';} ?> value="casado_a">Casado(a)</option>
             <option <?php if($dados->EstadoCivil == 'uniao_estavel'){ echo 'selected=selected';} ?> value="uniao_estavel">União Estável</option>
@@ -282,7 +288,7 @@
         <div class="form-group">
           <label for="inputEstadoEmpresa">Estado</label>
           <select name="inputEstadoEmpresa" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option <?php if($dados->EstadoEmpresa == 'AC'){ echo 'selected=selected';} ?> value="AC">Acre</option>
             <option <?php if($dados->EstadoEmpresa == 'AL'){ echo 'selected=selected';} ?> value="AL">Alagoas</option>
             <option <?php if($dados->EstadoEmpresa == 'AP'){ echo 'selected=selected';} ?> value="AP">Amapá</option>
@@ -399,7 +405,7 @@
         <div class="form-group">
           <label for="inputEstadoFamilia">Estado</label>
           <select id="inputEstadoFamilia" name="inputEstadoFamilia" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option <?php if($dados->EstadoFamilia == 'AC'){ echo 'selected=selected';} ?> value="AC">Acre</option>
             <option <?php if($dados->EstadoFamilia == 'AL'){ echo 'selected=selected';} ?> value="AL">Alagoas</option>
             <option <?php if($dados->EstadoFamilia == 'AP'){ echo 'selected=selected';} ?> value="AP">Amapá</option>
@@ -735,7 +741,7 @@
         <div class="form-group">
           <label for="inputVestibularOutraCidade">Quanto à Universidade, tem disponibilidade/interesse de estudar em outras cidades?</label>
           <select name="inputVestibularOutraCidade" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option <?php if($dados->VestibularOutraCidade == 'sim'){ echo 'selected=selected';} ?> value="sim">Sim</option>
             <option <?php if($dados->VestibularOutraCidade == 'nao'){ echo 'selected=selected';} ?> value="nao">Não</option>
           </select>
@@ -745,7 +751,7 @@
         <div class="form-group">
           <label for="inputComoSoube">Como você ficou sabendo do cursinho pré-vestibular da UNEafro Brasil?</label>
           <select id="comoSoube" name="inputComoSoube" class="custom-select" onchange="checkComosoube()">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option <?php if($dados->ComoSoube == 'internet'){ echo 'selected=selected';} ?> value="internet">Internet</option>
             <option <?php if($dados->ComoSoube == 'panfleto'){ echo 'selected=selected';} ?> value="panfleto">Panfleto</option>
             <option <?php if($dados->ComoSoube == 'amigos'){ echo 'selected=selected';} ?> value="amigos">Amigos</option>

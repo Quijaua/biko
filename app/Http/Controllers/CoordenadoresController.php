@@ -112,6 +112,7 @@ class CoordenadoresController extends Controller
         'id_user' => $user->id,
         'Status' => $request->input('inputStatus'),
         'NomeCoordenador' => $request->input('inputNomeCoordenador'),
+        'NomeSocial' => $request->input('inputNomeSocial'),
         'id_nucleo' => $request->input('inputNucleo'),
         'FuncaoCoordenador' => $request->input('inputFuncaoCoordenador'),
         'AnoIngresso' => $request->input('inputAnoIngresso'),
@@ -207,6 +208,7 @@ class CoordenadoresController extends Controller
       }
 
       $dados->NomeCoordenador = $request->input('inputNomeCoordenador');
+      $dados->NomeSocial = $request->input('inputNomeSocial');
       $dados->id_nucleo = $request->input('inputNucleo');
       if($Foto){
         $dados->Foto = $Foto->getFilename() . '.' . $Extension;

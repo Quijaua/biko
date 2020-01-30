@@ -39,6 +39,12 @@
       </div>
       <div class="col">
         <div class="form-group">
+          <label for="inputNomeSocial">Nome Social</label>
+          <input type="text" class="form-control" id="inputNomeSocial" name="inputNomeSocial" aria-describedby="inputNomeSocialHelp" placeholder="Nome social do coordenador" value="{{ old('inputNomeCoordenador') }}" required>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
           <label for="inputNucleo">Núcleo</label>
           <select name="inputNucleo" class="custom-select" required>
             <option selected>Selecione</option>

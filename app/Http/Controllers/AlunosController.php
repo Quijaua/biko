@@ -141,6 +141,7 @@ class AlunosController extends Controller
         'id_user' => $user->id,
         'Status' => $request->input('inputStatus'),
         'NomeAluno' => $request->input('inputNomeAluno'),
+        'NomeSocial' => $request->iput('inputNomeSocial'),
         'id_nucleo' => $request->input('inputNucleo'),
         'NomeNucleo' => $nome_nucleo->NomeNucleo,
         //'Foto' => $Foto->getFilename() . '.' . $Extension,
@@ -247,6 +248,7 @@ class AlunosController extends Controller
       }
 
       $dados->NomeAluno = $request->input('inputNomeAluno');
+      $dados->NomeSocial = $request->input('inputNomeSocial');
       $dados->id_nucleo = $request->input('inputNucleo');
       $dados->NomeNucleo = $nome_nucleo->NomeNucleo;
       if($Foto){

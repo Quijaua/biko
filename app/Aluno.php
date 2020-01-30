@@ -9,6 +9,7 @@ class Aluno extends Model
     protected $fillable = [
       'Status',
       'NomeAluno',
+      'NomeSocial',
       'NomeNucleo',
       'id_user',
       'id_nucleo',

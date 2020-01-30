@@ -127,6 +127,7 @@ class ProfessoresController extends Controller
         'id_user' => $user->id,
         'Status' => $request->input('inputStatus'),
         'NomeProfessor' => $request->input('inputNomeProfessor'),
+        'NomeSocial' => $request->input('inputNomeSocial'),
         'id_nucleo' => $request->input('inputNucleo'),
         //'Foto' => $Foto->getFilename() . '.' . $Extension,
         'Foto' => $foto,
@@ -253,6 +254,7 @@ class ProfessoresController extends Controller
       }
 
       $dados->NomeProfessor = $request->input('inputNomeProfessor');
+      $dados->NomeSocial = $request->input('inputNomeSocial');
       $dados->id_nucleo = $request->input('inputNucleo');
       if($Foto){
         $dados->Foto = $Foto->getFilename() . '.' . $Extension;
