@@ -95,7 +95,7 @@
               @endif
             </td>
             <!--<td class="text-center"><span class="text-light badge badge-info p-2">{{ $nucleo->alunos->count() }}</span></td>-->
-            <td class="text-center"><span class="badge badge-info p-2"><a class="text-light" href="{{ route('alunos/search') }}/?nucleo={{ $nucleo->id }}">{{ $nucleo->alunos->count() }}</a></span></td>
+            <td class="text-center"><span class="badge badge-info p-2"><a class="text-light" href="{{ route('alunos/search') }}/?nucleo={{ $nucleo->id }}">{{ $nucleo->alunos->where('Status', 1)->count() }}</a></span></td>
             <td>
               <a class="btn btn-info text-light" href="/nucleos/details/{{ $nucleo->id }}">Detalhes</a>
               <a class="btn btn-primary" href="/nucleos/edit/{{ $nucleo->id }}">Editar</a>
