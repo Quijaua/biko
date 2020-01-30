@@ -84,7 +84,11 @@
           @foreach($professores as $professor)
           <tr>
             <td><img class="rounded-circle" src="{{ asset('storage') }}/{{ $professor->Foto }}" alt="{{ $professor->Foto }}" width="25%"></td>
+            @if($professor->NomeSocial === null)
             <td>{{ $professor->NomeProfessor }}</td>
+            @else
+            <td>{{ $professor->NomeSocial }}</td>
+            @endif
             <td>{{ $professor->CPF }}</td>
             <td>
               @if($professor->Status === 1)

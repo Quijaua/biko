@@ -84,7 +84,11 @@
           @foreach($coordenadores as $coordenador)
           <tr>
             <td><img class="rounded-circle" src="{{ asset('storage') }}/{{ $coordenador->Foto }}" alt="{{ $coordenador->Foto }}" width="25%"></td>
+            @if($coordenador->NomeSocial === null)
             <td>{{ $coordenador->NomeCoordenador }}</td>
+            @else
+            <td>{{ $coordenador->NomeSocial }}</td>
+            @endif
             @php $nomeNucleo = \App\Nucleo::where('id', $coordenador->id_nucleo)->get('NomeNucleo'); @endphp
             @if($nomeNucleo->isEmpty())
             <td></td>

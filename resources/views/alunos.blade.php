@@ -90,7 +90,11 @@
           @foreach($alunos as $aluno)
           <tr>
             <td><img class="rounded-circle" src="{{ asset('storage') }}/{{ $aluno->Foto }}" alt="{{ $aluno->Foto }}" width="25%"></td>
+            @if($aluno->NomeSocial === null)
             <td>{{ $aluno->NomeAluno}}</td>
+            @else
+            <td>{{ $aluno->NomeSocial}}</td>
+            @endif
             <td>{{ $aluno->CPF }}</td>
             @php $nomeNucleo = \App\Nucleo::where('id', $aluno->id_nucleo)->get('NomeNucleo'); @endphp
             @if($nomeNucleo->isEmpty())
