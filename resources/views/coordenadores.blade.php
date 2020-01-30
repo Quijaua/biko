@@ -75,7 +75,7 @@
           <tr>
             <th scope="col">Foto</th>
             <th scope="col">Nome</th>
-            <th scope="col">CPF</th>
+            <th scope="col">Núcleo</th>
             <th scope="col">Situação</th>
             <th scope="col">Ações</th>
           </tr>
@@ -85,7 +85,12 @@
           <tr>
             <td><img class="rounded-circle" src="{{ asset('storage') }}/{{ $coordenador->Foto }}" alt="{{ $coordenador->Foto }}" width="25%"></td>
             <td>{{ $coordenador->NomeCoordenador }}</td>
-            <td>{{ $coordenador->CPF }}</td>
+            @php $nomeNucleo = \App\Nucleo::where('id', $coordenador->id_nucleo)->get('NomeNucleo'); @endphp
+            @if($nomeNucleo->isEmpty())
+            <td></td>
+            @else
+            <td>{{ $nomeNucleo[0]['NomeNucleo'] }}</td>
+            @endif
             <td>
               @if($coordenador->Status === 1)
               <span class="badge badge-success p-2">ATIVO</span>
