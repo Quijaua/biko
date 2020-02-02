@@ -463,7 +463,7 @@
         <div id="AuxTipo" class="form-group" style="display:none;">
           <label for="inputAuxTipo">Qual?</label>
           <select name="inputAuxTipo" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option value="bolsa_familia">Programa Bolsa Família</option>
             <option value="energia_eletrica">Tarifa Social de Energia Elétrica</option>
             <option value="emergencial_financeiro">Auxílio Emergencial Financeiro</option>
@@ -600,7 +600,7 @@
         <div class="form-group dados-faculdade">
           <label for="inputAnoFaculdade">Ano</label>
           <select name="inputAnoFaculdade" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option <?php if($dados->AnoFaculdade == '1969'){ echo 'selected=selected';} ?> value="1969">1969</option>
             <option <?php if($dados->AnoFaculdade == '1970'){ echo 'selected=selected';} ?> value="1970">1970</option>
             <option <?php if($dados->AnoFaculdade == '1971'){ echo 'selected=selected';} ?> value="1971">1971</option>
