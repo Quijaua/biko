@@ -109,7 +109,7 @@ class AlunosController extends Controller
       }else{
         $foto = null;
       }
-      //$Extension = $Foto->getClientOriginalExtension();
+
       $today = Carbon::now();
 
       $user = User::where('email', $request->input('inputEmail'))->first();
@@ -127,16 +127,6 @@ class AlunosController extends Controller
         ]);
       }
 
-      /*
-      $user = User::create([
-        'name' => $request->input('inputNomeAluno'),
-        'email' => $request->input('inputEmail'),
-        'password' => Hash::make('uneafro@2019'),
-        'role' => 'aluno',
-        'email_verified_at' => $today,
-      ]);
-      */
-
       Aluno::create([
         'id_user' => $user->id,
         'Status' => $request->input('inputStatus'),
@@ -144,7 +134,6 @@ class AlunosController extends Controller
         'NomeSocial' => $request->iput('inputNomeSocial'),
         'id_nucleo' => $request->input('inputNucleo'),
         'NomeNucleo' => $nome_nucleo->NomeNucleo,
-        //'Foto' => $Foto->getFilename() . '.' . $Extension,
         'Foto' => $foto,
         'CPF' => $request->input('inputCPF'),
         'RG' => $request->input('inputRG'),
@@ -366,7 +355,6 @@ class AlunosController extends Controller
       $status = $request->input('status');
       $cpf = $request->input('cpf');
       $nucleo = $request->input('nucleo');
-      //dd($nucleo);
 
       if($cpf != ''){
         $result = Aluno::where('CPF', $cpf)->count();
@@ -393,11 +381,12 @@ class AlunosController extends Controller
       }
 
       if($nucleo != ''){
+
         $result = Aluno::where('id_nucleo', $nucleo)->where('status', 1)->get();
         if($result->isEmpty()){
           return back()->with([
             'result' => $result,
-            'error' => 'Não há alunos neste núcleo.',
+            'error' => 'Sem registros para exibir.',
           ]);
         };
 
@@ -417,24 +406,28 @@ class AlunosController extends Controller
       }
     }
 
+    public function searchByNucleo(Request $request)
+    {
+      $user = Auth::user();
+      $nucleo = $request->input('nucleo');
+      $status = $request->input('status');
+      $alunos = Aluno::where('id_nucleo', $nucleo)->where('Status', $status)->get();
+
+      if($alunos->isEmpty()){
+        return back()->with('error', "Nenhum resultado encontrado.");
+      }
+
+      return view('alunosByNucleo')->with([
+        'alunos' => $alunos,
+        'user' => $user,
+      ]);
+    }
+
     public function details($id)
     {
       $dados = Aluno::find($id);
       $nucleos = Nucleo::get()->where('Status', 1);
       $familiares = AlunoInfoFamiliares::where('id_aluno', $dados->id)->get();
-      /*
-      foreach($familiares as $parente){
-        $counter = count($parente->GrauParentesco);
-        for($i = 0; $i < $counter; $i++){
-          echo $parente->GrauParentesco[$i].'<br>';
-          echo $parente->Idade[$i].'<br>';
-          echo $parente->EstadoCivil[$i].'<br>';
-          echo $parente->Escolaridade[$i].'<br>';
-          echo $parente->Profissao[$i].'<br>';
-          echo $parente->Renda[$i].'<br>';
-        }
-      }
-      */
 
       return view('alunosDetails')->with([
         'dados' => $dados,
@@ -445,9 +438,8 @@ class AlunosController extends Controller
 
     public function export(Request $request)
     {
-      //dd($request->input('nucleo'));
       $nucleo = $request->input('nucleo');
-      //dd($nucleo);
+
       return (new AlunosExport($nucleo))->download('alunos.xlsx');
     }
 }

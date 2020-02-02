@@ -5,7 +5,7 @@
   <!-- PAGE HEADER -->
   <div class="row">
       <div class="col-12 text-center">
-        <h1>CADASTRO DE ALUNOS</h1>
+        <h1>ALUNOS POR NÚCLEO</h1>
       </div>
   </div>
   <div class="container">
@@ -45,31 +45,17 @@
     </div>
   </div>
   @endif
-  @if($alunos->isEmpty())
-  @if($user->role != 'aluno' && $user->role != 'professor')
-  <div class="col mt-4 text-center">
-    <a class="btn btn-success" href="/alunos/add">Adicionar novo aluno</a>
-  </div>
-  @endif
-  @else
   @foreach($alunos as $aluno)
   @endforeach
   @if($user->role != 'aluno' && $user->role != 'professor')
   <div class="col mt-4 text-center">
-    <a class="btn btn-success" href="/alunos/add">Adicionar novo aluno</a>
-    {{ url()->full() }}
     @if($aluno->Status === 1)
-    <a class="btn btn-danger" href="/alunos/search/?status=0">Ver alunos inativos</a>
+    <a class="btn btn-danger" href="/alunos/nucleo/search/?nucleo={{ $aluno->id_nucleo }}&status=0">Ver alunos inativos</a>
     @else
-    <a class="btn btn-primary" href="/alunos">Ver alunos ativos</a>
+    <a class="btn btn-primary" href="/alunos/nucleo/search/?nucleo={{ $aluno->id_nucleo }}&status=1">Ver alunos ativos</a>
     @endif
-    @if(url()->current() != $app['url']->to('/') . '/alunos/search')
-      <a class="btn btn-primary" href="{{ route('alunos/export/') }}/?nucleo=0">Exportar</a>
-    @else
-    <a class="btn btn-primary" href="{{ route('alunos/export/') }}/?nucleo={{ $aluno->id_nucleo }}">Exportar</a>
-    @endif
+    <a class="btn btn-primary" href="{{ route('alunos/export/') }}/?nucleo={{ $aluno->id_nucleo }}">Exportar Todos</a>
   </div>
-  @endif
   @endif
   <div class="row">
     <div class="col mt-4">
