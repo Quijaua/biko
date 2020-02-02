@@ -439,6 +439,11 @@ class AlunosController extends Controller
     public function export(Request $request)
     {
       $nucleo = $request->input('nucleo');
+      //dd($nucleo);
+
+      if($nucleo === null){
+        return (new AlunosExport())->download('alunos.xlsx');
+      }
 
       return (new AlunosExport($nucleo))->download('alunos.xlsx');
     }

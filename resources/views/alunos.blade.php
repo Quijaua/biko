@@ -57,17 +57,12 @@
   @if($user->role != 'aluno' && $user->role != 'professor')
   <div class="col mt-4 text-center">
     <a class="btn btn-success" href="/alunos/add">Adicionar novo aluno</a>
-    {{ url()->full() }}
     @if($aluno->Status === 1)
     <a class="btn btn-danger" href="/alunos/search/?status=0">Ver alunos inativos</a>
     @else
     <a class="btn btn-primary" href="/alunos">Ver alunos ativos</a>
     @endif
-    @if(url()->current() != $app['url']->to('/') . '/alunos/search')
-      <a class="btn btn-primary" href="{{ route('alunos/export/') }}/?nucleo=0">Exportar</a>
-    @else
-    <a class="btn btn-primary" href="{{ route('alunos/export/') }}/?nucleo={{ $aluno->id_nucleo }}">Exportar</a>
-    @endif
+    <a class="btn btn-primary" href="{{ route('alunos/export/') }}/?nucleo=0">Exportar</a>
   </div>
   @endif
   @endif

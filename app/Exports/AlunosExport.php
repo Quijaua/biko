@@ -25,6 +25,7 @@ class AlunosExport implements FromQuery, WithHeadings
   {
       return [
           'Nome',
+          'Status (1-ativo)',
           'Núcleo',
           'CPF',
           'RG',
@@ -88,6 +89,7 @@ class AlunosExport implements FromQuery, WithHeadings
     if($this->nucleo === 0){
       return Aluno::query()->select([
         'NomeAluno',
+        'Status',
         'NomeNucleo',
         'CPF',
         'RG',
@@ -148,6 +150,7 @@ class AlunosExport implements FromQuery, WithHeadings
 
     return Aluno::query()->where('id_nucleo', $this->nucleo)->select([
       'NomeAluno',
+      'Status',
       'NomeNucleo',
       'CPF',
       'RG',
