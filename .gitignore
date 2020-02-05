@@ -12,3 +12,4 @@ npm-debug.log
 yarn-error.log
 vendor/laravel/framework/src/Illuminate/Auth/Notifications/VerifyEmail.php
 vendor/laravel/framework/src/Illuminate/Notifications/resources/views/email.blade.php
+vendor/laravel/framework/src/Illuminate/Auth/Notifications/ResetPassword.php
