@@ -70,12 +70,14 @@
         <div class="form-group">
           <!--<label for="inputListaEspera">Lista de Espera</label>--><br />
           <div class="form-check form-check-inline">
+            @if($user->role != 'aluno' or $user->role != 'professor')
             @if($dados->ListaEspera === 'Sim')
             <input class="form-check-input" name="inputListaEspera" type="checkbox" value="{{ $dados->ListaEspera }}" checked>
             @else
             <input class="form-check-input" name="inputListaEspera" type="checkbox" value="Sim">
             @endif
             <label class="form-check-label" for="inputListaEspera">Lista de Espera</label>
+            @endif
           </div>
         </div>
       </div>

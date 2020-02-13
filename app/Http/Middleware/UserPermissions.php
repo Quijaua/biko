@@ -125,7 +125,10 @@ class UserPermissions
         $allowedNucleosInactive = 'nucleos/disable/';
         $allowedProfessoresDetails = 'professores/details/'.$user->coordenador->id;
         $allowedCoordenadoresList = 'coordenadores';
+        $allowedCoordenadoresEdit = 'coordenadores/edit/'.$user->coordenador->id;
         $allowedInactive = 'professores/disable/';
+
+        //dd(strpos($currentPath, $allowedAlunosEdit));
 
         if($allowedAlunosIndex === $currentPath){
           return $next($request);
@@ -139,7 +142,10 @@ class UserPermissions
         if(strpos($currentPath, $allowedAlunosDetails) !== false){
           return $next($request);
         }
-        if(strpos($currentPath, $allowedAlunosEdit) !== false){
+        /*if(strpos($currentPath, $allowedAlunosEdit) !== false){
+          return $next($request);
+        }*/
+        if(strpos($currentPath, $allowedAlunosEdit) == 0){
           return $next($request);
         }
         if(strpos($currentPath, $allowedAlunosInactive) !== false){
@@ -154,7 +160,10 @@ class UserPermissions
         if($allowedProfessoresCreate === $currentPath){
           return $next($request);
         }
-        if(strpos($currentPath, $allowedProfessoresEdit) !== false){
+        /*if(strpos($currentPath, $allowedProfessoresEdit) !== false){
+          return $next($request);
+        }*/
+        if(strpos($currentPath, $allowedProfessoresEdit) == 0){
           return $next($request);
         }
         if(strpos($currentPath, $allowedProfessoresDisable) !== false){
@@ -167,6 +176,9 @@ class UserPermissions
           return $next($request);
         }
         if(strpos($currentPath, $allowedCoordenadoresDetails) !== false){
+          return $next($request);
+        }
+        if(strpos($currentPath, $allowedCoordenadoresEdit) !== false){
           return $next($request);
         }
         if($allowedCoordenadoresEdit === $currentPath){
