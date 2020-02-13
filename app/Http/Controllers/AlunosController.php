@@ -56,6 +56,7 @@ class AlunosController extends Controller
       }
 
       if($user->role === 'coordenador'){
+        //dd($user);
         $nucleo = Coordenadores::where('id_user', $user->id)->get('id_nucleo');
         $alunos = Aluno::where('id_nucleo', $nucleo[0]['id_nucleo'])->where('Status', 1)->get();
 
@@ -397,12 +398,26 @@ class AlunosController extends Controller
       }
 
       $query = $request->input('inputQuery');
-      $results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->get();
+      if($user->role === 'coordenador'){
+        $me = Coordenadores::where('id_user', $user->id)->first();
+        $results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->get();
+      }elseif($user->role === 'professor'){
+        $me = Professores::where('id_user', $user->id)->first();
+        $results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->get();
+      }else{
+        $query = $request->input('inputQuery');
+        $results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->get();
+      }
+      //$query = $request->input('inputQuery');
+      //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->get();
 
       if($results->isEmpty()){
         return back()->with('error', 'Nenhum resultado encontrado.');
       }else{
-        return view('alunos')->with('alunos', $results);
+        return view('alunos')->with([
+          'user' => $user,
+          'alunos' => $results
+        ]);
       }
     }
 

@@ -105,6 +105,7 @@ class UserPermissions
         $currentPath = $request->path();
         $allowedAlunosIndex = 'alunos';
         $allowedAlunosSearch = 'alunos/search';
+        $allowedAlunosSearchByNucleo = 'alunos/nucleo/search';
         $allowedAlunosDetails = 'alunos/details/';
         $allowedAlunosEdit = 'alunos/edit/';
         $allowedAlunosInactive = 'alunos/disable/';
@@ -130,6 +131,9 @@ class UserPermissions
           return $next($request);
         }
         if(strpos($currentPath, $allowedAlunosSearch) !== false){
+          return $next($request);
+        }
+        if(strpos($currentPath, $allowedAlunosSearchByNucleo) !== false){
           return $next($request);
         }
         if(strpos($currentPath, $allowedAlunosDetails) !== false){

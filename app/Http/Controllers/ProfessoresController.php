@@ -40,7 +40,8 @@ class ProfessoresController extends Controller
       }
 
       if($user->role === 'coordenador'){
-        $professores = Professores::get();
+        $me = Coordenadores::where('id_user', $user->id)->first();
+        $professores = Professores::where('id_nucleo', $me->id_nucleo)->get();
 
         return view('professores')->with([
           'professores' => $professores,
