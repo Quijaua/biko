@@ -71,6 +71,12 @@
         <input type="text" class="form-control" id="inputWhatsapp" name="inputWhatsapp" aria-describedby="inputWhatsappHelp" value="{{ $dados->whatsapp_url }}" disabled>
       </div>
     </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="inputRegiao">Região</label>
+        <input type="text" class="form-control" id="inputRegiao" name="inputRegiao" aria-describedby="inputRegiaoHelp"  value="{{ $dados->Regiao }}" disabled>
+      </div>
+    </div>
   </div>
   <div class="row">
     @foreach($representantes as $representante)

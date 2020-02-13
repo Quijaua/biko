@@ -66,6 +66,19 @@
         <small class="form-text text-muted">Arquivos devem ter menos que <strong>8 MB</strong>.</small>
         <small class="form-text text-muted">Tipos de arquivos permitidos: <strong>png gif jpg jpeg</strong>.</small>
       </div>
+      <div class="col">
+        <div class="form-group">
+          <!--<label for="inputListaEspera">Lista de Espera</label>--><br />
+          <div class="form-check form-check-inline">
+            @if($dados->ListaEspera === 'Sim')
+            <input class="form-check-input" name="inputListaEspera" type="checkbox" value="{{ $dados->ListaEspera }}" checked>
+            @else
+            <input class="form-check-input" name="inputListaEspera" type="checkbox" value="Sim">
+            @endif
+            <label class="form-check-label" for="inputListaEspera">Lista de Espera</label>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="row">
       <div class="col">

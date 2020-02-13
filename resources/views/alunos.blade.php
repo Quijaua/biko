@@ -76,7 +76,7 @@
           <tr>
             <th scope="col">Foto</th>
             <th scope="col">Nome</th>
-            <th scope="col">CPF</th>
+            <th scope="col">Lista de Espera</th>
             <th scope="col">Núcleo</th>
             <th scope="col">Situação</th>
             <th scope="col">Ações</th>
@@ -91,7 +91,11 @@
             @else
             <td>{{ $aluno->NomeSocial}}</td>
             @endif
-            <td>{{ $aluno->CPF }}</td>
+            @if($aluno->ListaEspera === 'Sim')
+            <td>Sim</td>
+            @else
+            <td>Não</td>
+            @endif
             @php $nomeNucleo = \App\Nucleo::where('id', $aluno->id_nucleo)->get('NomeNucleo'); @endphp
             @if($nomeNucleo->isEmpty())
             <td></td>

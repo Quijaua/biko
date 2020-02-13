@@ -71,6 +71,12 @@
             <input type="text" class="form-control" id="inputWhatsapp" name="inputWhatsapp" aria-describedby="inputWhatsappHelp"  placeholder="Informe a URL do WhatsApp">
           </div>
         </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputRegiao">Região</label>
+            <input type="text" class="form-control" id="inputRegiao" name="inputRegiao" aria-describedby="inputRegiaoHelp"  placeholder="ex.: Grande SP, Interior, etc.">
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="col">

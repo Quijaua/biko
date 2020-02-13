@@ -105,6 +105,7 @@ class RegisterController extends Controller
             'FoneCelular' => $user->phone,
             'Email' => $data['email'],
             'id_nucleo' => $nucleo,
+            'ListaEspera' => 'Sim',
         ]);
 
         return User::find($user->id);

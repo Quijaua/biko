@@ -136,6 +136,7 @@ class AlunosController extends Controller
         'id_nucleo' => $request->input('inputNucleo'),
         'NomeNucleo' => $nome_nucleo->NomeNucleo,
         'Foto' => $foto,
+        'ListaEspera' => $request->input('inputListaEspera'),
         'CPF' => $request->input('inputCPF'),
         'RG' => $request->input('inputRG'),
         'Email' => $request->input('inputEmail'),
@@ -249,6 +250,7 @@ class AlunosController extends Controller
       }else{
         $dados->CPF = $dados->CPF;
       }
+      $dados->ListaEspera = $request->input('inputListaEspera');
       $dados->RG = $request->input('inputRG');
       $dados->Email = $request->input('inputEmail');
       $dados->Raca = $request->input('inputRaca');

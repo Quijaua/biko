@@ -26,6 +26,7 @@ class AlunosExport implements FromQuery, WithHeadings
       return [
           'Nome',
           'Status (1-ativo)',
+          'Lista de Espera',
           'Núcleo',
           'CPF',
           'RG',
@@ -90,6 +91,7 @@ class AlunosExport implements FromQuery, WithHeadings
       return Aluno::query()->select([
         'NomeAluno',
         'Status',
+        'ListaEspera',
         'NomeNucleo',
         'CPF',
         'RG',

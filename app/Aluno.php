@@ -14,6 +14,7 @@ class Aluno extends Model
       'id_user',
       'id_nucleo',
       'Foto',
+      'ListaEspera',
       'CPF',
       'RG',
       'Email',

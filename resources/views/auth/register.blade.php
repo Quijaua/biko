@@ -58,12 +58,12 @@
 
                         <div class="form-group row">
                           <label class="col-md-4 col-form-label text-md-right" for="inputNucleo">Núcleo</label>
-                            <?php $nucleos = DB::table('nucleos')->where('status', 1)->get(); ?>
+                            <?php $nucleos = DB::table('nucleos')->where('status', 1)->orderBy('Regiao','asc')->get(); ?>
                             <div class="col-md-6">
                               <select name="inputNucleo" class="custom-select" required>
                                 <option selected>Selecione</option>
                                 @foreach($nucleos as $nucleo)
-                                <option value="{{ $nucleo->id }}">{{ $nucleo->NomeNucleo }} - {{ $nucleo->InfoInscricao }}</option>
+                                <option value="{{ $nucleo->id }}">{{ $nucleo->Regiao }} - {{ $nucleo->NomeNucleo }} - {{ $nucleo->InfoInscricao }}</option>
                                 @endforeach
                               </select>
                                 <small id="nucleoHelp" class="form-text text-muted">Por favor, informe o núcleo do seu interesse.</small>

@@ -96,6 +96,7 @@ class NucleoController extends Controller
         'InicioAtividades' => $request->input('inputInicioAtividades'),
         'Status' => $request->input('inputStatus'),
         'whatsapp_url' => $request->input('inputWhatsapp'),
+        'Regiao' => $request->input('inputRegiao'),
       ]);
 
       return back()->with('success', 'DADOS SALVOS COM SUCESSO.');
@@ -126,6 +127,7 @@ class NucleoController extends Controller
       $nucleo->InscricaoTo = $request->input('inputInscricaoTo');
       $nucleo->InicioAtividades = $request->input('inputInicioAtividades');
       $nucleo->whatsapp_url = $request->input('inputWhatsapp');
+      $nucleo->Regiao = $request->input('inputRegiao');
 
       $nucleo->save();
 
