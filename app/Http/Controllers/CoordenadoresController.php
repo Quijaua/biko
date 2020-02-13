@@ -342,6 +342,7 @@ class CoordenadoresController extends Controller
 
     public function search(Request $request)
     {
+      $user = Auth::user();
       $status = $request->input('status');
       $cpf = $request->input('cpf');
 
@@ -355,7 +356,7 @@ class CoordenadoresController extends Controller
       }
 
       if($status === '0'){
-        $user = Auth::user();
+        //$user = Auth::user();
         $result = Coordenadores::where('Status', 0)->get();
         if($result->isEmpty()){
           return redirect('coordenadores')->with([
@@ -370,7 +371,7 @@ class CoordenadoresController extends Controller
       }
 
       if($status === '1'){
-        $user = Auth::user();
+        //$user = Auth::user();
         $result = Coordenadores::where('Status', 1)->get();
         if($result->isEmpty()){
           return redirect('coordenadores')->with([
@@ -390,7 +391,10 @@ class CoordenadoresController extends Controller
       if($results->isEmpty()){
         return back()->with('error', 'Nenhum resultado encontrado.');
       }else{
-        return view('coordenadores')->with('coordenadores', $results);
+        return view('coordenadores')->with([
+          'user' => $user,
+          'coordenadores' => $results
+        ]);
       }
     }
 

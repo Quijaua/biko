@@ -58,9 +58,11 @@ class AlunosController extends Controller
       if($user->role === 'coordenador'){
         //dd($user);
         $nucleo = Coordenadores::where('id_user', $user->id)->get('id_nucleo');
+        $idNucleo = $nucleo[0]['id_nucleo'];
         $alunos = Aluno::where('id_nucleo', $nucleo[0]['id_nucleo'])->where('Status', 1)->get();
 
         return view('alunos')->with([
+          'idNucleo' => $idNucleo,
           'alunos' => $alunos,
           'user' => $user,
         ]);

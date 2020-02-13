@@ -153,6 +153,7 @@ class AlunosExport implements FromQuery, WithHeadings
     return Aluno::query()->where('id_nucleo', $this->nucleo)->select([
       'NomeAluno',
       'Status',
+      'ListaEspera',
       'NomeNucleo',
       'CPF',
       'RG',
