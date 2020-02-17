@@ -60,7 +60,6 @@ class ResetPassword extends Notification
             ->subject(Lang::get('Redefinir notificação de senha'))
             ->line(Lang::get('Você está recebendo este e-mail porque recebemos uma solicitação de redefinição de senha para sua conta.'))
             ->action(Lang::get('Redefinir senha'), url(config('app.url').route('password.reset', ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()], false)))
-            ->line(Lang::get('Esse link de redefinição de senha expirará em :count minutos.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
             ->line(Lang::get('Se você não solicitou uma redefinição de senha, nenhuma ação adicional será necessária.'));
     }
 
