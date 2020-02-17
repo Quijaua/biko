@@ -46,11 +46,11 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-                                <small id="emailHelp" class="form-text text-muted">Um e-mail válido. Todos os e-mails do sistema serão enviados para este endereço. O endereço de e-mail não será divulgado e será usado apenas se você solicitar uma nova senha ou notificações específicas por e-mail.</small>
+                               <small id="emailHelp" class="form-text text-muted">Todos os e-mails do sistema serão enviados para este endereço.</small>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ $message }} <a href="/password/reset/">Clique aqui</a> para cadastrar ou alterar a sua senha no sistema.</strong>
                                     </span>
                                 @enderror
                             </div>
