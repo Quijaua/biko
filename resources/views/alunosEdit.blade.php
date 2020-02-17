@@ -468,7 +468,7 @@
             <label class="form-check-label" for="inputTaxaInscricao1">Sim</label>
           </div>
           <div class="form-check form-check-inline">
-            <input <?php if($dados->AuxGoverno == 'nao'or $dados->AuxGoverno == NULL){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno2" value="nao" onclick="hideAuxInput('#AuxTipo')">
+            <input <?php if($dados->AuxGoverno == 'nao'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno2" value="nao" onclick="hideAuxInput('#AuxTipo')">
             <label class="form-check-label" for="inputTaxaInscricao2">Não</label>
           </div>
         </div>
@@ -561,7 +561,7 @@
             <label class="form-check-label" for="inputVestibular1">Sim</label>
           </div>
           <div class="form-check form-check-inline">
-            <input <?php if($dados->Vestibular == 'nao' or $dados->Vestibular == NULL){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputVestibular" id="inputVestibular2" value="nao" onclick="hideInput('.dados-faculdade')">
+            <input <?php if($dados->Vestibular == 'nao'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputVestibular" id="inputVestibular2" value="nao" onclick="hideInput('.dados-faculdade')">
             <label class="form-check-label" for="inputVestibular2">Não</label>
           </div>
         </div>

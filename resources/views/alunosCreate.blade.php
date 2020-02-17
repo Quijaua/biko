@@ -40,7 +40,7 @@
       <div class="col">
         <div class="form-group">
           <label for="inputNomeSocial">Nome Social do aluno</label>
-          <input type="text" class="form-control" id="inputNomeSocial" name="inputNomeSocial" aria-describedby="inputNomeSocialHelp" placeholder="Nome social do aluno" required>
+          <input type="text" class="form-control" id="inputNomeSocial" name="inputNomeSocial" aria-describedby="inputNomeSocialHelp" placeholder="Nome social do aluno">
         </div>
       </div>
       <div class="col">

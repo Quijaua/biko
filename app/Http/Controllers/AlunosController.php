@@ -134,7 +134,7 @@ class AlunosController extends Controller
         'id_user' => $user->id,
         'Status' => $request->input('inputStatus'),
         'NomeAluno' => $request->input('inputNomeAluno'),
-        'NomeSocial' => $request->iput('inputNomeSocial'),
+        'NomeSocial' => $request->input('inputNomeSocial'),
         'id_nucleo' => $request->input('inputNucleo'),
         'NomeNucleo' => $nome_nucleo->NomeNucleo,
         'Foto' => $foto,
