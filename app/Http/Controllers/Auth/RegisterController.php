@@ -96,6 +96,7 @@ class RegisterController extends Controller
         $my_token = app('auth.password.broker')->createToken($user);
 
         $nucleo = $data['inputNucleo'];
+        $myNucleo = Nucleo::find($nucleo);
         Session::put('verified',$user->email_verified_at);
 
         $aluno = Aluno::create([
@@ -105,6 +106,7 @@ class RegisterController extends Controller
             'FoneCelular' => $user->phone,
             'Email' => $data['email'],
             'id_nucleo' => $nucleo,
+            'NomeNucleo' => $myNucleo->NomeNucleo,
             'ListaEspera' => 'Sim',
         ]);
 
