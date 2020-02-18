@@ -721,5 +721,9 @@
     </div>
   </div>
 
+<hr />
+Pré-cadastro feito em {{ $dados->created_at }}<br />
+Atualizado em {{ $dados->updated_at }}
+
 </div>
 @endsection
