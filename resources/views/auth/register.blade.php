@@ -63,7 +63,7 @@
                               <select name="inputNucleo" class="custom-select" required>
                                 <option value="">Selecione</option>
                                 @foreach($nucleos as $nucleo)
-                                <option value="{{ $nucleo->id }}">{{ $nucleo->Regiao }} - {{ $nucleo->NomeNucleo }} - {{ $nucleo->InfoInscricao }}></option>
+                                <option value="{{ $nucleo->id }}">{{ $nucleo->Regiao }} - {{ $nucleo->NomeNucleo }} - {{ $nucleo->InfoInscricao }}</option>
                                 @endforeach
                               </select>
                                 <small id="nucleoHelp" class="form-text text-muted">Por favor, informe o núcleo do seu interesse.</small>
