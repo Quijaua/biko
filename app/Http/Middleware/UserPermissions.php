@@ -104,6 +104,7 @@ class UserPermissions
       if($role === 'coordenador'){
         $currentPath = $request->path();
         $allowedAlunosIndex = 'alunos';
+        $allowedAlunosCreate = 'alunos/add';
         $allowedAlunosSearch = 'alunos/search';
         $allowedAlunosSearchByNucleo = 'alunos/nucleo/search';
         $allowedAlunosDetails = 'alunos/details/';
@@ -122,10 +123,12 @@ class UserPermissions
         $allowedNucleosIndex = 'nucleos';
         $allowedNucleosDetails = 'nucleos/details/';
         $allowedNucleosEdit = 'nucleos/edit/';
-        $allowedNucleosInactive = 'nucleos/disable/';
 
         //RULES FOR ALUNOS ROUTES
         if($currentPath === $allowedAlunosIndex){
+          return $next($request);
+        }
+        if($currentPath === $allowedAlunosCreate){
           return $next($request);
         }
         if($currentPath === $allowedAlunosSearch){
@@ -183,9 +186,6 @@ class UserPermissions
           return $next($request);
         }
         if(strpos($currentPath, $allowedNucleosDetails) === 0){
-          return $next($request);
-        }
-        if(strpos($currentPath, $allowedNucleosInactive) === 0){
           return $next($request);
         }
 
