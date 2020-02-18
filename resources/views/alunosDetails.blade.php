@@ -54,8 +54,10 @@
       <div class="form-group">
         <!--<label for="inputListaEspera">Lista de Espera</label>--><br />
         <div class="form-check form-check-inline">
+          @if($user->role === 'administrador' || $user->role === 'coordenador')
           <input class="form-check-input" name="inputListaEspera" type="checkbox" value="Sim" checked disabled>
           <label class="form-check-label" for="inputListaEspera">Lista de Espera</label>
+          @endif
         </div>
       </div>
     </div>

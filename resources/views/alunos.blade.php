@@ -63,7 +63,7 @@
     <a class="btn btn-primary" href="/alunos">Ver alunos ativos</a>
     @endif
     @if($user->role === 'coordenador')
-    <a class="btn btn-primary" href="{{ route('alunos/export/') }}/?nucleo={{ $idNucleo }}">Exportar</a>
+    <a class="btn btn-primary" href="{{ route('alunos/export/') }}/?nucleo={{ $nucleo }}">Exportar</a>
     @else
     <a class="btn btn-primary" href="{{ route('alunos/export/') }}/?nucleo=0">Exportar</a>
     @endif

@@ -110,91 +110,83 @@ class UserPermissions
         $allowedAlunosEdit = 'alunos/edit/';
         $allowedAlunosInactive = 'alunos/disable/';
         $allowedAlunosActive = 'alunos/enable/';
-        $allowedCoordenadoresIndex = 'coordenadores';
+        $allowedCoordenadoresList = 'coordenadores';
         $allowedCoordenadoresDetails = 'coordenadores/details/';
         $allowedCoordenadoresEdit = 'coordenadores/edit/'.$user->coordenador->id;
         $allowedProfessoresIndex = 'professores';
         $allowedProfessoresCreate = 'professores/add';
+        $allowedProfessoresDetails = 'professores/details/';
         $allowedProfessoresEdit = 'professores/edit/';
         $allowedProfessoresDisable = 'professores/disable/';
         $allowedProfessoresEnable = 'professores/enable/';
         $allowedNucleosIndex = 'nucleos';
         $allowedNucleosDetails = 'nucleos/details/';
-        $allowedNucleosCreate = 'nucleos/create/';
         $allowedNucleosEdit = 'nucleos/edit/';
         $allowedNucleosInactive = 'nucleos/disable/';
-        $allowedProfessoresDetails = 'professores/details/'.$user->coordenador->id;
-        $allowedCoordenadoresList = 'coordenadores';
-        $allowedCoordenadoresEdit = 'coordenadores/edit/'.$user->coordenador->id;
-        $allowedInactive = 'professores/disable/';
 
-        //dd(strpos($currentPath, $allowedAlunosEdit));
+        //RULES FOR ALUNOS ROUTES
+        if($currentPath === $allowedAlunosIndex){
+          return $next($request);
+        }
+        if($currentPath === $allowedAlunosSearch){
+          return $next($request);
+        }
+        if($currentPath === $allowedAlunosSearchByNucleo){
+          return $next($request);
+        }
+        if(strpos($currentPath, $allowedAlunosDetails) === 0){
+          return $next($request);
+        }
+        if(strpos($currentPath, $allowedAlunosEdit) === 0){
+          return $next($request);
+        }
+        if(strpos($currentPath, $allowedAlunosInactive) === 0){
+          return $next($request);
+        }
+        if(strpos($currentPath, $allowedAlunosActive) === 0){
+          return $next($request);
+        }
 
-        if($allowedAlunosIndex === $currentPath){
+        //RULES FOR COORDENADORES ROUTES
+        if($currentPath === $allowedCoordenadoresList){
           return $next($request);
         }
-        if(strpos($currentPath, $allowedAlunosSearch) !== false){
+        if(strpos($currentPath, $allowedCoordenadoresDetails) === 0){
           return $next($request);
         }
-        if(strpos($currentPath, $allowedAlunosSearchByNucleo) !== false){
+        if($currentPath === $allowedCoordenadoresEdit){
           return $next($request);
         }
-        if(strpos($currentPath, $allowedAlunosDetails) !== false){
+
+        //RULES FOR PROFESSORES ROUTES
+        if($currentPath === $allowedProfessoresIndex){
           return $next($request);
         }
-        /*if(strpos($currentPath, $allowedAlunosEdit) !== false){
-          return $next($request);
-        }*/
-        if(strpos($currentPath, $allowedAlunosEdit) == 0){
+        if($currentPath === $allowedProfessoresCreate){
           return $next($request);
         }
-        if(strpos($currentPath, $allowedAlunosInactive) !== false){
+        if(strpos($currentPath, $allowedProfessoresDetails) === 0){
           return $next($request);
         }
-        if(strpos($currentPath, $allowedAlunosActive) !== false){
+        if(strpos($currentPath, $allowedProfessoresEdit) === 0){
           return $next($request);
         }
-        if($allowedProfessoresIndex === $currentPath){
+        if(strpos($currentPath, $allowedProfessoresDisable) === 0){
           return $next($request);
         }
-        if($allowedProfessoresCreate === $currentPath){
+        if(strpos($currentPath, $allowedProfessoresEnable) === 0){
           return $next($request);
         }
-        /*if(strpos($currentPath, $allowedProfessoresEdit) !== false){
-          return $next($request);
-        }*/
-        if(strpos($currentPath, $allowedProfessoresEdit) == 0){
-          return $next($request);
-        }
-        if(strpos($currentPath, $allowedProfessoresDisable) !== false){
+
+        //RULES FOR NUCLEOS ROUTES
+        if($currentPath === $allowedNucleosIndex){
           return $next($request);
         }
-        if(strpos($currentPath, $allowedProfessoresEnable) !== false){
+        if(strpos($currentPath, $allowedNucleosDetails) === 0){
           return $next($request);
         }
-        if($allowedCoordenadoresIndex === $currentPath){
+        if(strpos($currentPath, $allowedNucleosInactive) === 0){
           return $next($request);
-        }
-        if(strpos($currentPath, $allowedCoordenadoresDetails) !== false){
-          return $next($request);
-        }
-        if(strpos($currentPath, $allowedCoordenadoresEdit) !== false){
-          return $next($request);
-        }
-        if($allowedCoordenadoresEdit === $currentPath){
-          return $next($request);
-        }
-        if($allowedNucleosIndex === $currentPath){
-          return $next($request);
-        }
-        if(strpos($currentPath, $allowedNucleosDetails) !== false){
-          return $next($request);
-        }
-        if($allowedNucleosCreate === $currentPath){
-          return back();
-        }
-        if($allowedNucleosInactive === $currentPath){
-          return back();
         }
 
         return back();
