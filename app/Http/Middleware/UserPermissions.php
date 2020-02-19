@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Support\Facades\Auth;
 use App\Nucleo;
 use App\Aluno;
+use App\Coordenadores;
 
 class UserPermissions
 {
@@ -102,6 +103,7 @@ class UserPermissions
       }
 
       if($role === 'coordenador'){
+        //dd($user->coordenador->id_nucleo);
         $currentPath = $request->path();
         $allowedAlunosIndex = 'alunos';
         $allowedAlunosCreate = 'alunos/add';
@@ -122,7 +124,7 @@ class UserPermissions
         $allowedProfessoresEnable = 'professores/enable/';
         $allowedNucleosIndex = 'nucleos';
         $allowedNucleosDetails = 'nucleos/details/';
-        $allowedNucleosEdit = 'nucleos/edit/';
+        $allowedNucleosEdit = 'nucleos/edit/'.$user->coordenador->id_nucleo;
 
         //RULES FOR ALUNOS ROUTES
         if($currentPath === $allowedAlunosIndex){
@@ -186,6 +188,9 @@ class UserPermissions
           return $next($request);
         }
         if(strpos($currentPath, $allowedNucleosDetails) === 0){
+          return $next($request);
+        }
+        if(strpos($currentPath, $allowedNucleosEdit) === 0){
           return $next($request);
         }
 
