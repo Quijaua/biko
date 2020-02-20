@@ -34,8 +34,11 @@ class NucleoController extends Controller
 
       if($user->role === 'coordenador'){
         $nucleos = Nucleo::get();
+        $myNucleo = $user->coordenador->id_nucleo;
+        //dd($myNucleo);
 
         return view('nucleos')->with([
+          'myNucleo' => $myNucleo,
           'user' => $user,
           'nucleos' => $nucleos,
         ]);
