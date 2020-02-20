@@ -89,7 +89,13 @@ class AlunosController extends Controller
     public function showForm()
     {
       $user = Auth::user();
-      $nucleos = Nucleo::get()->where('Status', 1);
+
+      if($user->role === 'coordenador'){
+        $me = Coordenadores::where('id_user', $user->id)->first();
+        $nucleos = Nucleo::where('id', $me->id_nucleo)->get();
+      }else{
+        $nucleos = Nucleo::get()->where('Status', 1);
+      }
 
       return view ('alunosCreate')->with([
         'nucleos' => $nucleos,

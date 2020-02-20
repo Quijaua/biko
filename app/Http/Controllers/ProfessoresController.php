@@ -66,8 +66,8 @@ class ProfessoresController extends Controller
       $user = Auth::user();
 
       if($user->role === 'coordenador'){
-        $nucleoId = Coordenadores::where('id_user', $user->id)->get('id_nucleo');
-        $nucleos = Nucleo::where('id', $nucleoId[0]['id_nucleo'])->get();
+        $me = Coordenadores::where('id_user', $user->id)->first();
+        $nucleos = Nucleo::where('id', $me->id_nucleo)->get();
 
         return view('professoresCreate')->with([
           'nucleos' => $nucleos,
