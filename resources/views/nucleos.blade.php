@@ -99,7 +99,7 @@
             @if($nucleo->id === $user->coordenador->id_nucleo)
             <td class="text-center"><span class="badge badge-info p-2"><a class="text-light" href="{{ route('alunos/nucleo/search') }}?nucleo={{ $myNucleo ?? '' }}&status=1">{{ $nucleo->alunos->where('Status', 1)->count() }}</a></span></td>
             @else
-            <td class="text-center"><span class="badge badge-info p-2 text-light">{{ $nucleo->alunos->where('Status', 1)->count() }}</span></td>
+            <td class="text-center"><span class="badge badge-secondary p-2 text-light">{{ $nucleo->alunos->where('Status', 1)->count() }}</span></td>
             @endif
             @endif
             @if($user->role !== 'coordenador')
