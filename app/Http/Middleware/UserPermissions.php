@@ -105,7 +105,8 @@ class UserPermissions
       if($role === 'coordenador'){
         $currentPath = $request->path();
         $allowedAlunosIndex = 'alunos';
-        $allowedAlunosCreate = 'alunos/add';
+        $allowedAlunosAdd = 'alunos/add';
+        $allowedAlunosCreate = 'alunos/create';
         $allowedAlunosSearch = 'alunos/search';
         $allowedAlunosDetails = 'alunos/details/';
         $allowedAlunosEdit = 'alunos/edit/';
@@ -127,6 +128,9 @@ class UserPermissions
 
         //RULES FOR ALUNOS ROUTES
         if($currentPath === $allowedAlunosIndex){
+          return $next($request);
+        }
+        if($currentPath === $allowedAlunosAdd){
           return $next($request);
         }
         if($currentPath === $allowedAlunosCreate){
