@@ -110,6 +110,7 @@ class UserPermissions
         $allowedAlunosSearch = 'alunos/search';
         $allowedAlunosDetails = 'alunos/details/';
         $allowedAlunosEdit = 'alunos/edit/';
+        $allowedAlunosUpdate = 'alunos/update/';
         $allowedAlunosInactive = 'alunos/disable/';
         $allowedAlunosActive = 'alunos/enable/';
         $allowedCoordenadoresList = 'coordenadores';
@@ -143,6 +144,9 @@ class UserPermissions
           return $next($request);
         }
         if(strpos($currentPath, $allowedAlunosEdit) === 0){
+          return $next($request);
+        }
+        if(strpos($currentPath, $allowedAlunosUpdate) === 0){
           return $next($request);
         }
         if(strpos($currentPath, $allowedAlunosInactive) === 0){
