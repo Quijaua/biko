@@ -102,7 +102,7 @@ class RegisterController extends Controller
         $aluno = Aluno::create([
             'NomeAluno' => $user->name,
             'id_user' => $user->id,
-            'Status' => 1,
+            'Status' => 0,
             'FoneCelular' => $user->phone,
             'Email' => $data['email'],
             'id_nucleo' => $nucleo,
