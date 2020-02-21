@@ -120,6 +120,7 @@ class UserPermissions
         $allowedProfessoresCreate = 'professores/add';
         $allowedProfessoresDetails = 'professores/details/';
         $allowedProfessoresEdit = 'professores/edit/';
+        $allowedProfessoresUpdate = 'professores/update/';
         $allowedProfessoresDisable = 'professores/disable/';
         $allowedProfessoresEnable = 'professores/enable/';
         $allowedNucleosIndex = 'nucleos';
@@ -179,6 +180,9 @@ class UserPermissions
           return $next($request);
         }
         if(strpos($currentPath, $allowedProfessoresEdit) === 0){
+          return $next($request);
+        }
+        if(strpos($currentPath, $allowedProfessoresUpdate) === 0){
           return $next($request);
         }
         if(strpos($currentPath, $allowedProfessoresDisable) === 0){
