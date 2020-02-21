@@ -80,9 +80,10 @@
           <tr>
             <th scope="col">Foto</th>
             <th scope="col">Nome</th>
-            <th scope="col">Lista de Espera</th>
+            <!--<th scope="col">Lista de Espera</th>-->
             <th scope="col">Núcleo</th>
             <th scope="col">Situação</th>
+            <th scope="col">Lista de Espera</th>
             <th scope="col">Ações</th>
           </tr>
         </thead>
@@ -95,11 +96,11 @@
             @else
             <td>{{ $aluno->NomeSocial}}</td>
             @endif
-            @if($aluno->ListaEspera === 'Sim')
+            <!--@if($aluno->ListaEspera === 'Sim')
             <td>Sim</td>
             @else
             <td>Não</td>
-            @endif
+            @endif-->
             @php $nomeNucleo = \App\Nucleo::where('id', $aluno->id_nucleo)->get('NomeNucleo'); @endphp
             @if($nomeNucleo->isEmpty())
             <td></td>
@@ -113,6 +114,11 @@
               <span class="badge badge-danger p-2">INATIVO</span>
               @endif
             </td>
+            @if($aluno->ListaEspera === 'Sim')
+            <td>Sim</td>
+            @else
+            <td>Não</td>
+            @endif
             <td>
               <a class="btn btn-info text-light" href="/alunos/details/{{ $aluno->id }}">Detalhes</a>
               <a class="btn btn-primary" href="/alunos/edit/{{ $aluno->id }}">Editar</a>
