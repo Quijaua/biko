@@ -126,6 +126,7 @@ class UserPermissions
         $allowedNucleosDetails = 'nucleos/details/';
         $allowedNucleosEdit = 'nucleos/edit/'.$user->coordenador->id_nucleo;
         $allowedNucleosUpdate = 'nucleos/update/'.$user->coordenador->id_nucleo;
+        $allowedNucleosSearch = 'alunos/nucleo/search';
 
         //RULES FOR ALUNOS ROUTES
         if($currentPath === $allowedAlunosIndex){
@@ -198,6 +199,9 @@ class UserPermissions
           return $next($request);
         }
         if(strpos($currentPath, $allowedNucleosUpdate) === 0){
+          return $next($request);
+        }
+        if(strpos($currentPath, $allowedNucleosSearch) === 0){
           return $next($request);
         }
 
