@@ -42,7 +42,8 @@ class AlunosController extends Controller
           ]);
         }
       }else{
-        $alunos = Aluno::where('Status', 1)->get();
+        //$alunos = Aluno::where('Status', 1)->get();
+        $alunos = Aluno::get();
       }
 
       if($user->role === 'professor'){
@@ -58,7 +59,8 @@ class AlunosController extends Controller
       if($user->role === 'coordenador'){
         $me = Coordenadores::where('id_user',$user->id)->first();
         $nucleo = Nucleo::find($me->id_nucleo);
-        $alunos = Aluno::where('id_nucleo', $nucleo->id)->where('Status', 1)->get();
+        //$alunos = Aluno::where('id_nucleo', $nucleo->id)->where('Status', 1)->get();
+        $alunos = Aluno::where('id_nucleo', $nucleo->id)->get();
 
         return view('alunos')->with([
           'nucleo' => $nucleo->id,

@@ -96,11 +96,6 @@
             @else
             <td>{{ $aluno->NomeSocial}}</td>
             @endif
-            <!--@if($aluno->ListaEspera === 'Sim')
-            <td>Sim</td>
-            @else
-            <td>Não</td>
-            @endif-->
             @php $nomeNucleo = \App\Nucleo::where('id', $aluno->id_nucleo)->get('NomeNucleo'); @endphp
             @if($nomeNucleo->isEmpty())
             <td></td>
