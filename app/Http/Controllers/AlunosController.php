@@ -437,6 +437,7 @@ class AlunosController extends Controller
       $user = Auth::user();
       $nucleo = $request->input('nucleo');
       $status = $request->input('status');
+      //$alunos = Aluno::where('id_nucleo', $nucleo)->where('Status', $status)->get();
       $alunos = Aluno::where('id_nucleo', $nucleo)->where('Status', $status)->get();
 
       if($alunos->isEmpty()){
