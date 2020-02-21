@@ -116,6 +116,7 @@ class UserPermissions
         $allowedCoordenadoresList = 'coordenadores';
         $allowedCoordenadoresDetails = 'coordenadores/details/';
         $allowedCoordenadoresEdit = 'coordenadores/edit/'.$user->coordenador->id;
+        $allowedCoordenadoresUpdate = 'coordenadores/update/';
         $allowedProfessoresIndex = 'professores';
         $allowedProfessoresCreate = 'professores/add';
         $allowedProfessoresDetails = 'professores/details/';
@@ -166,6 +167,9 @@ class UserPermissions
           return $next($request);
         }
         if($currentPath === $allowedCoordenadoresEdit){
+          return $next($request);
+        }
+        if(strpos($currentPath, $allowedCoordenadoresUpdate) === 0){
           return $next($request);
         }
 
