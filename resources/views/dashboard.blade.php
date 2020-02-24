@@ -22,6 +22,12 @@ body {
   height: 450px;
 }
 
+#chartdiv2 {
+  width: 800px;
+  height: 250px;
+	padding-top:50px
+}
+
     </style>
 
 
@@ -32,6 +38,7 @@ body {
 <script src="https://www.amcharts.com/lib/4/charts.js"></script>
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
+
         <div class="flex-center position-ref full-height" style="margin-left: 150px">
 
             <div class="content">
@@ -41,8 +48,9 @@ body {
 
 
     @php
-    $cadastros = DB::select('Select count(*) as qtd, DATE_FORMAT(created_at,"%Y-%m-%d") as dia FROM users GROUP BY dia');
-    $generos = DB::select('Select count(*) as qtd, IF(Raca IS NULL or Raca = "", "Sem definição", Raca) as raca FROM alunos GROUP BY raca');
+    $cadastros = DB::select('select count(*) as qtd, DATE_FORMAT(created_at,"%Y-%m-%d") as dia FROM users GROUP BY dia');
+    $generos = DB::select('select count(*) as qtd, IF(Raca IS NULL or Raca = "", "Sem definição", Raca) as raca FROM alunos GROUP BY raca');
+    $meses = DB::select('select count(*) as qtd, DATE_FORMAT(created_at,"%Y-%m") as mes FROM users GROUP BY mes');
     @endphp
 
 
@@ -121,36 +129,16 @@ dateAxis.keepSelection = true;
   </script>
 
 
-
-
-
+<h1>Por Raça</h1>
 <div id="chart-genero"></div>
 <script id="INLINE_PEN_JS_ID">
-    /**
- * ---------------------------------------
- * This demo was created using amCharts 4.
- * 
- * For more information visit:
- * https://www.amcharts.com/
- * 
- * Documentation is available at:
- * https://www.amcharts.com/docs/v4/
- * ---------------------------------------
- */
-
-// Themes begin
 am4core.useTheme(am4themes_animated);
-// Themes end
-
-// Create chart instance
 var chart = am4core.create("chart-genero", am4charts.PieChart);
 
-// Add and configure Series
 var pieSeries = chart.series.push(new am4charts.PieSeries());
 pieSeries.dataFields.value = "litres";
 pieSeries.dataFields.category = "country";
 
-// Let's cut a hole in our Pie chart the size of 30% the radius
 chart.innerRadius = am4core.percent(30);
 
 // Put a thick white border around each Slice
@@ -158,35 +146,13 @@ pieSeries.slices.template.stroke = am4core.color("#fff");
 pieSeries.slices.template.strokeWidth = 2;
 pieSeries.slices.template.strokeOpacity = 1;
 pieSeries.slices.template
-// change the cursor on hover to make it apparent the object can be interacted with
 .cursorOverStyle = [
 {
   "property": "cursor",
   "value": "pointer" }];
 
-
-
-pieSeries.alignLabels = false;
-pieSeries.labels.template.bent = true;
-pieSeries.labels.template.radius = 3;
-pieSeries.labels.template.padding(0, 0, 0, 0);
-
-pieSeries.ticks.template.disabled = true;
-
-// Create a base filter effect (as if it's not there) for the hover to return to
-var shadow = pieSeries.slices.template.filters.push(new am4core.DropShadowFilter());
-shadow.opacity = 0;
-
-// Create hover state
-var hoverState = pieSeries.slices.template.states.getKey("hover"); // normally we have to create the hover state, in this case it already exists
-
-// Slightly shift the shadow and make it more prominent on hover
-var hoverShadow = hoverState.filters.push(new am4core.DropShadowFilter());
-hoverShadow.opacity = 0.7;
-hoverShadow.blur = 5;
-
-// Add a legend
-chart.legend = new am4charts.Legend();
+//chart.legend = new am4charts.Legend();
+chart.exporting.menu = new am4core.ExportMenu();
 
 chart.data = [
             <?php
@@ -198,8 +164,79 @@ chart.data = [
 ];
   </script>
 
+<h1>Por mês</h1>
+<div id="chartdiv2"></div>
+
+<script>
+      am4core.useTheme(am4themes_animated);
+      var chart = am4core.create("chart-mes", am4charts.XYChart);
+      // Add data
+	chart.data = [
+            <?php
+            foreach($meses as $mes){
+                echo "{'year':'" . $mes->mes . "','value':'" . $mes->qtd . "'},";
+            };
+            ?>
+	];
+
+//      chart.dateFormatter.inputDateFormat = "yyyy-MM";
+
+      var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+      categoryAxis.dataFields.category = "year";
+      categoryAxis.renderer.minGridDistance = 30;
+
+      /* Create value axis */
+      var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+      /* Create series */
+      var columnSeries = chart.series.push(new am4charts.ColumnSeries());
+      columnSeries.name = "Income";
+      columnSeries.dataFields.valueY = "value";
+      columnSeries.dataFields.categoryX = "year";
+
+      var labelBullet = columnSeries.bullets.push(new am4charts.LabelBullet());
+      labelBullet.label.text = "{value}";
+      labelBullet.label.dy = -20;
+
+    }
+  });
+  </script>
 
 
+
+<!-- Chart code -->
+<script>
+am4core.useTheme(am4themes_animated);
+var chart = am4core.create("chartdiv2", am4charts.XYChart);
+chart.data = [
+            <?php
+            foreach($meses as $mes){ 
+                echo "{'year':'" . $mes->mes . "','value':'" . $mes->qtd . "'},";
+            };
+            ?>
+
+];
+
+var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+categoryAxis.dataFields.category = "year";
+categoryAxis.renderer.grid.template.location = 0;
+categoryAxis.renderer.minGridDistance = 30;
+
+var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+var series = chart.series.push(new am4charts.ColumnSeries());
+series.dataFields.valueY = "value";
+series.dataFields.categoryX = "year";
+series.name = "Visits";
+series.columns.template.tooltipText = "{categoryX}: [bold]{valueY}[/]";
+series.columns.template.fillOpacity = .8;
+
+var columnTemplate = series.columns.template;
+columnTemplate.strokeWidth = 2;
+columnTemplate.strokeOpacity = 1;
+
+
+</script>
 
 </body>
 </html>
