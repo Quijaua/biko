@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -6,15 +10,18 @@
 
 <meta charset='UTF-8'>
 <meta name="robots" content="noindex">
-<style class="INLINE_PEN_STYLESHEET_ID">
+<style>
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
-
-
-#chartdiv {
+#chart-dia {
   width: 800px;
   height: 350px;
+}
+
+#chart-mes {
+  width: 800px;
+  height: 250px;
 }
 
 #chart-genero {
@@ -22,13 +29,11 @@ body {
   height: 450px;
 }
 
-#chartdiv2 {
+#chart-raca {
   width: 800px;
-  height: 250px;
-	padding-top:50px
+  height: 450px;
 }
-
-    </style>
+</style>
 
 
 
@@ -38,31 +43,70 @@ body {
 <script src="https://www.amcharts.com/lib/4/charts.js"></script>
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
-
-        <div class="flex-center position-ref full-height" style="margin-left: 150px">
+    <div class="container">
+       <div class="row">
 
             <div class="content">
-                <div class="title m-b-md">
-                    {{ env('APP_NAME') }}
-                </div>
-
-
     @php
     $cadastros = DB::select('select count(*) as qtd, DATE_FORMAT(created_at,"%Y-%m-%d") as dia FROM users GROUP BY dia');
-    $generos = DB::select('select count(*) as qtd, IF(Raca IS NULL or Raca = "", "Sem definição", Raca) as raca FROM alunos GROUP BY raca');
     $meses = DB::select('select count(*) as qtd, DATE_FORMAT(created_at,"%Y-%m") as mes FROM users GROUP BY mes');
+    $racas = DB::select('select count(*) as qtd, IF(Raca IS NULL or Raca = "", "Sem definição", Raca) as raca FROM alunos GROUP BY raca');
+    $generos = DB::select('select count(*) as qtd, IF(Genero IS NULL or Genero = "", "Sem definição", Genero) as genero FROM alunos GROUP BY genero');
+    $alunos = DB::table('alunos')->count();
+    $alunos0 = DB::table('alunos')->where('Status', '0')->count();
+    $alunos1 = DB::table('alunos')->where('Status', '1')->count();
+    $alunosoff = DB::table('alunos')->where('ListaEspera', 'Sim')->count();
+    $professores = DB::table('professores')->count();
+    $coordenadores = DB::table('coordenadores')->count();
+    $nucleos = DB::table('nucleos')->count();
     @endphp
 
 
-<h1>Dias de alunos fizeram seus cadastros</h1>
-<div id="chartdiv"></div>
-<script id="INLINE_PEN_JS_ID">
+    <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <h1><?php echo $alunos; ?></h1> Alunos
+        <p><strong><?php echo $alunos1 ?></strong> Ativos / <strong><?php echo $alunos0 ?></strong> Inativos</p>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="form-group">
+        <h1><?php echo $alunosoff; ?></h1> Lista de espera
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="form-group">
+        <h1><?php echo $professores; ?></h1> Professores
+
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+      <h1><?php echo $coordenadores; ?></h1>Coordenadores
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+      <h1><?php echo $nucleos; ?></h1>Núcleos
+      </div>
+    </div>
+
+
+</div>
+
+
+
+<h1>Cadastros por dia</h1>
+<div id="chart-dia"></div>
+<script>
 // Themes begin
 am4core.useTheme(am4themes_animated);
 // Themes end
 
 // Create chart instance
-var chart = am4core.create("chartdiv", am4charts.XYChart);
+var chart = am4core.create("chart-dia", am4charts.XYChart);
 
 // Add data
 chart.data = [
@@ -126,88 +170,17 @@ chart.scrollbarX.parent = chart.bottomAxesContainer;
 
 dateAxis.start = 0.79;
 dateAxis.keepSelection = true;
-  </script>
 
-
-<h1>Por Raça</h1>
-<div id="chart-genero"></div>
-<script id="INLINE_PEN_JS_ID">
-am4core.useTheme(am4themes_animated);
-var chart = am4core.create("chart-genero", am4charts.PieChart);
-
-var pieSeries = chart.series.push(new am4charts.PieSeries());
-pieSeries.dataFields.value = "litres";
-pieSeries.dataFields.category = "country";
-
-chart.innerRadius = am4core.percent(30);
-
-// Put a thick white border around each Slice
-pieSeries.slices.template.stroke = am4core.color("#fff");
-pieSeries.slices.template.strokeWidth = 2;
-pieSeries.slices.template.strokeOpacity = 1;
-pieSeries.slices.template
-.cursorOverStyle = [
-{
-  "property": "cursor",
-  "value": "pointer" }];
-
-//chart.legend = new am4charts.Legend();
 chart.exporting.menu = new am4core.ExportMenu();
-
-chart.data = [
-            <?php
-            foreach($generos as $genero){
-                echo "{'country':'" . $genero->raca . "','litres':'" . $genero->qtd . "'},";
-            };
-            ?>
-
-];
   </script>
+
 
 <h1>Por mês</h1>
-<div id="chartdiv2"></div>
+<div id="chart-mes"></div>
 
-<script>
-      am4core.useTheme(am4themes_animated);
-      var chart = am4core.create("chart-mes", am4charts.XYChart);
-      // Add data
-	chart.data = [
-            <?php
-            foreach($meses as $mes){
-                echo "{'year':'" . $mes->mes . "','value':'" . $mes->qtd . "'},";
-            };
-            ?>
-	];
-
-//      chart.dateFormatter.inputDateFormat = "yyyy-MM";
-
-      var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-      categoryAxis.dataFields.category = "year";
-      categoryAxis.renderer.minGridDistance = 30;
-
-      /* Create value axis */
-      var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-
-      /* Create series */
-      var columnSeries = chart.series.push(new am4charts.ColumnSeries());
-      columnSeries.name = "Income";
-      columnSeries.dataFields.valueY = "value";
-      columnSeries.dataFields.categoryX = "year";
-
-      var labelBullet = columnSeries.bullets.push(new am4charts.LabelBullet());
-      labelBullet.label.text = "{value}";
-      labelBullet.label.dy = -20;
-
-    }
-  });
-  </script>
-
-
-
-<!-- Chart code -->
 <script>
 am4core.useTheme(am4themes_animated);
-var chart = am4core.create("chartdiv2", am4charts.XYChart);
+var chart = am4core.create("chart-mes", am4charts.XYChart);
 chart.data = [
             <?php
             foreach($meses as $mes){ 
@@ -235,8 +208,87 @@ var columnTemplate = series.columns.template;
 columnTemplate.strokeWidth = 2;
 columnTemplate.strokeOpacity = 1;
 
+chart.exporting.menu = new am4core.ExportMenu();
 
 </script>
 
+
+
+
+<h1>Por Raça</h1>
+<div id="chart-raca"></div>
+<script>
+am4core.useTheme(am4themes_animated);
+var chart = am4core.create("chart-raca", am4charts.PieChart);
+
+var pieSeries = chart.series.push(new am4charts.PieSeries());
+pieSeries.dataFields.value = "qtd";
+pieSeries.dataFields.category = "raca";
+
+chart.innerRadius = am4core.percent(30);
+
+// Put a thick white border around each Slice
+pieSeries.slices.template.stroke = am4core.color("#fff");
+pieSeries.slices.template.strokeWidth = 2;
+pieSeries.slices.template.strokeOpacity = 1;
+pieSeries.slices.template
+.cursorOverStyle = [
+{
+  "property": "cursor",
+  "value": "pointer" }];
+
+//chart.legend = new am4charts.Legend();
+chart.exporting.menu = new am4core.ExportMenu();
+
+chart.data = [
+            <?php
+            foreach($racas as $raca){
+                echo "{'raca':'" . $raca->raca . "','qtd':'" . $raca->qtd . "'},";
+            };
+            ?>
+
+];
+  </script>
+
+
+<h1>Por Gênero</h1>
+<div id="chart-genero"></div>
+<script>
+am4core.useTheme(am4themes_animated);
+var chart = am4core.create("chart-genero", am4charts.PieChart);
+
+var pieSeries = chart.series.push(new am4charts.PieSeries());
+pieSeries.dataFields.value = "qtd";
+pieSeries.dataFields.category = "genero";
+
+chart.innerRadius = am4core.percent(30);
+
+// Put a thick white border around each Slice
+pieSeries.slices.template.stroke = am4core.color("#fff");
+pieSeries.slices.template.strokeWidth = 2;
+pieSeries.slices.template.strokeOpacity = 1;
+pieSeries.slices.template
+.cursorOverStyle = [
+{
+  "property": "cursor",
+  "value": "pointer" }];
+
+//chart.legend = new am4charts.Legend();
+chart.exporting.menu = new am4core.ExportMenu();
+
+chart.data = [
+            <?php
+            foreach($generos as $genero){
+                echo "{'genero':'" . $genero->genero . "','qtd':'" . $genero->qtd . "'},";
+            };
+            ?>
+];
+  </script>
+
+</div></div></div>
+
+
 </body>
 </html>
+
+@endsection
