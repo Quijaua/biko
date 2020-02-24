@@ -16,9 +16,13 @@ use Session;
 use Carbon\Carbon;
 use App\Exports\AlunosExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Traits\ActionLogTrait;
 
 class AlunosController extends Controller
 {
+
+    use ActionLogTrait;
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -338,6 +342,12 @@ class AlunosController extends Controller
 
       $dados->save();
 
+      $url = $request->path();
+      $user = Auth::user();
+      $userId = $user->id;
+      $userName = $user->name;
+      $this->logAction($url,$userId, $userName);
+
       return back()->with([
         'success' => 'DADOS SALVOS COM SUCESSO.',
       ]);
@@ -497,4 +507,5 @@ class AlunosController extends Controller
 
       return (new AlunosExport($nucleo))->download('alunos.xlsx');
     }
+
 }

@@ -193,7 +193,6 @@ class CoordenadoresController extends Controller
     public function edit($id)
     {
       $dados = Coordenadores::find($id);
-      //dd($dados);
       $nucleos = Nucleo::get()->where('Status', 1);
 
       return view('coordenadoresEdit')->with([
