@@ -62,8 +62,8 @@
     <a class="btn btn-primary" href="/alunos/search/?status=1&nucleo={{$user->coordenador->id_nucleo}}">Ver alunos ativos</a>
     <a class="btn btn-primary" href="{{ route('alunos/export/') }}/?nucleo={{ $nucleo ?? '' }}">Exportar</a>
     @else
-    <a class="btn btn-danger" href="/alunos/search/?status=0&nucleo={{$nucleo ?? ''}}">Ver alunos inativos</a>
-    <a class="btn btn-primary" href="/alunos/search/?status=1&nucleo={{$nucleo ?? ''}}">Ver alunos ativos</a>
+    <a class="btn btn-danger" href="/alunos/search/?status=0&nucleo={{ $nucleo ?? '' }}">Ver alunos inativos</a>
+    <a class="btn btn-primary" href="/alunos/search/?status=1&nucleo={{ $nucleo ?? '' }}">Ver alunos ativos</a>
     <a class="btn btn-primary" href="{{ route('alunos/export/') }}/?nucleo=0">Exportar</a>
     @endif
   </div>
