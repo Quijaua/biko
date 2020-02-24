@@ -70,7 +70,7 @@ class AlunosController extends Controller
       }
 
       if($user->role === 'administrador'){
-        $alunos = Aluno::where('Status', 1)->get();
+        $alunos = Aluno::get();
 
         return view('alunos')->with([
           'alunos' => $alunos,
@@ -366,7 +366,7 @@ class AlunosController extends Controller
       $user = Auth::user();
       $cpf = $request->input('cpf');
       $status = $request->input('status');
-      //$nucleo = $request->input('nucleo');
+
       if($user->role === 'coordenador'){
         $myNucleo = Nucleo::find($user->coordenador->id_nucleo);
         $nucleo = $myNucleo->id;
@@ -379,21 +379,16 @@ class AlunosController extends Controller
       }else{
         $nucleo = $request->input('nucleo');
       }
-      //var_dump($nucleo);
-      //var_dump($status);
+
       if($status === NULL && $nucleo === NULL){
         echo ('STATUS E NUCLEO NULL');
         $result = Aluno::get();
-        dd($result);
       }else if($status === NULL){
         echo 'STATUS NULL';
         $result = Aluno::where('id_nucleo', $nucleo)->get();
-        dd($result);
       }else if($nucleo === NULL){
-        echo 'NUCLEO NULL';
         $result = Aluno::where('Status', $status)->get();
-        dd($result);
-        return redirect('alunos')->with([
+        return view('alunos')->with([
           'user' => $user,
           'alunos' => $result,
         ]);
@@ -420,37 +415,6 @@ class AlunosController extends Controller
           return \Response::json(false);
         }
       }
-
-      /*if($status != ''){
-        $result = Aluno::where('Status', 0)->get();
-        if($result->isEmpty()){
-          return redirect('alunos')->with([
-            'result' => $result,
-            'error' => 'Não há alunos inativos no momento.',
-          ]);
-        }
-
-        return view('alunos')->with([
-          'user' => $user,
-          'alunos' => $result,
-        ]);
-      }
-
-      if($nucleo != ''){
-
-        $result = Aluno::where('id_nucleo', $nucleo)->where('status', 1)->get();
-        if($result->isEmpty()){
-          return back()->with([
-            'result' => $result,
-            'error' => 'Sem registros para exibir.',
-          ]);
-        };
-
-        return view('alunos')->with([
-          'user' => $user,
-          'alunos' => $result,
-        ]);
-      }*/
 
       $query = $request->input('inputQuery');
       if($user->role === 'coordenador'){
