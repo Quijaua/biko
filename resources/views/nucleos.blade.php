@@ -119,7 +119,11 @@
         </tbody>
       </table>
       @endif
-
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      {{ $nucleos->links() }}
     </div>
   </div>
 </div>

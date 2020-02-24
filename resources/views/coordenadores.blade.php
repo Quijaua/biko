@@ -118,5 +118,10 @@
     </div>
   </div>
   @endif
+  <div class="row">
+    <div class="col">
+      {{ $coordenadores->links() }}
+    </div>
+  </div>
 </div>
 @endsection

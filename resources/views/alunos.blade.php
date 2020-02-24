@@ -133,5 +133,10 @@
       @endif
     </div>
   </div>
+  <div class="row">
+    <div class="col">
+      {{ $alunos->links() }}
+    </div>
+  </div>
 </div>
 @endsection

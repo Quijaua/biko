@@ -31,7 +31,8 @@ class ProfessoresController extends Controller
       }
 
       if($user->role === 'professor'){
-        $professores = Professores::get();
+        //$professores = Professores::get();
+        $professores = Professores::paginate(25);
 
         return view('professores')->with([
           'professores' => $professores,
@@ -41,7 +42,8 @@ class ProfessoresController extends Controller
 
       if($user->role === 'coordenador'){
         $me = Coordenadores::where('id_user', $user->id)->first();
-        $professores = Professores::where('id_nucleo', $me->id_nucleo)->get();
+        //$professores = Professores::where('id_nucleo', $me->id_nucleo)->get();
+        $professores = Professores::where('id_nucleo', $me->id_nucleo)->paginate(25);
 
         return view('professores')->with([
           'professores' => $professores,
@@ -51,7 +53,8 @@ class ProfessoresController extends Controller
 
       if($user->role === 'administrador'){
         $user = Auth::user();
-        $professores = Professores::where('Status', 1)->get();
+        //$professores = Professores::where('Status', 1)->get();
+        $professores = Professores::where('Status', 1)->paginate(25);
 
         return view('professores')->with([
           'user' => $user,

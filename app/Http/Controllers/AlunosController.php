@@ -30,7 +30,7 @@ class AlunosController extends Controller
       Session::put('verified', $user->email_verified_at);
 
       if($user->role === 'aluno'){
-        $alunos = $user->aluno()->get();
+        $alunos = $user->aluno()->paginate(25);
         if($alunos[0]['CPF'] === null){
           return redirect('alunos/edit/'.$alunos[0]['id'])->with([
             'user' => $user,
@@ -42,13 +42,14 @@ class AlunosController extends Controller
           ]);
         }
       }else{
-        //$alunos = Aluno::where('Status', 1)->get();
-        $alunos = Aluno::get();
+        //$alunos = Aluno::get();
+        $alunos = Aluno::paginate(25);
       }
 
       if($user->role === 'professor'){
         $nucleo = Professores::where('id_user', $user->id)->get('id_nucleo');
-        $alunos = Aluno::where('id_nucleo', $nucleo[0]['id_nucleo'])->get();
+        //$alunos = Aluno::where('id_nucleo', $nucleo[0]['id_nucleo'])->get();
+        $alunos = Aluno::where('id_nucleo', $nucleo[0]['id_nucleo'])->paginate(25);
 
         return view('alunos')->with([
           'alunos' => $alunos,
@@ -59,8 +60,8 @@ class AlunosController extends Controller
       if($user->role === 'coordenador'){
         $me = Coordenadores::where('id_user',$user->id)->first();
         $nucleo = Nucleo::find($me->id_nucleo);
-        //$alunos = Aluno::where('id_nucleo', $nucleo->id)->where('Status', 1)->get();
-        $alunos = Aluno::where('id_nucleo', $nucleo->id)->get();
+        //$alunos = Aluno::where('id_nucleo', $nucleo->id)->get();
+        $alunos = Aluno::where('id_nucleo', $nucleo->id)->paginate(25);
 
         return view('alunos')->with([
           'nucleo' => $nucleo->id,
@@ -70,7 +71,7 @@ class AlunosController extends Controller
       }
 
       if($user->role === 'administrador'){
-        $alunos = Aluno::get();
+        $alunos = Aluno::paginate(25);
 
         return view('alunos')->with([
           'alunos' => $alunos,
@@ -79,7 +80,8 @@ class AlunosController extends Controller
       }
 
       if($alunos->isEmpty()){
-        $alunos = Aluno::get()->where('Status', 0);
+        //$alunos = Aluno::where('Status', 0)->get();
+        $alunos = Aluno::where('Status', 0)->paginate(25);
         if($alunos->isEmpty()){
           return redirect('alunos/add');
         }

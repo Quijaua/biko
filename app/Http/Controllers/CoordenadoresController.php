@@ -28,7 +28,8 @@ class CoordenadoresController extends Controller
       }
 
       if($user->role === 'professor'){
-        $coordenadores = Coordenadores::get();
+        //$coordenadores = Coordenadores::get();
+        $coordenadores = Coordenadores::paginate(25);
 
         return view('coordenadores')->with([
           'coordenadores' => $coordenadores,
@@ -37,7 +38,8 @@ class CoordenadoresController extends Controller
       }
 
       if($user->role === 'coordenador'){
-        $coordenadores = Coordenadores::get();
+        //$coordenadores = Coordenadores::get();
+        $coordenadores = Coordenadores::paginate(25);
 
         return view('coordenadores')->with([
           'coordenadores' => $coordenadores,
@@ -47,9 +49,11 @@ class CoordenadoresController extends Controller
 
       if($user->role === 'administrador'){
         $user = Auth::user();
-        $coordenadores = Coordenadores::where('Status', 1)->get();
+        //$coordenadores = Coordenadores::where('Status', 1)->get();
+        $coordenadores = Coordenadores::where('Status', 1)->paginate(25);
         if($coordenadores->isEmpty()){
-          $coordenadores = Coordenadores::where('Status', 0)->get();
+          //$coordenadores = Coordenadores::where('Status', 0)->get();
+          $coordenadores = Coordenadores::where('Status', 0)->paginate(25);
         }
 
         return view('coordenadores')->with([

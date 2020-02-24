@@ -24,7 +24,8 @@ class NucleoController extends Controller
       }
 
       if($user->role === 'professor'){
-        $nucleos = Nucleo::get();
+        //$nucleos = Nucleo::get();
+        $nucleos = Nucleo::paginate(25);
 
         return view('nucleos')->with([
           'nucleos' => $nucleos,
@@ -33,9 +34,8 @@ class NucleoController extends Controller
       }
 
       if($user->role === 'coordenador'){
-        $nucleos = Nucleo::get();
+        $nucleos = Nucleo::paginate(25);
         $myNucleo = $user->coordenador->id_nucleo;
-        //dd($myNucleo);
 
         return view('nucleos')->with([
           'myNucleo' => $myNucleo,
@@ -46,7 +46,8 @@ class NucleoController extends Controller
 
       if($user->role === 'administrador'){
         $user = Auth::user();
-        $nucleos = Nucleo::where('Status', 1)->get();
+        //$nucleos = Nucleo::where('Status', 1)->get();
+        $nucleos = Nucleo::where('Status', 1)->paginate(25);
 
         return view('nucleos')->with([
           'user' => $user,
