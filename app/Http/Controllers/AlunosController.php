@@ -381,14 +381,23 @@ class AlunosController extends Controller
       }
 
       if($status === NULL && $nucleo === NULL){
-        echo ('STATUS E NUCLEO NULL');
         $result = Aluno::get();
+        return view('alunos')->with([
+          'nucleo' => $nucleo,
+          'user' => $user,
+          'alunos' => $result,
+        ]);
       }else if($status === NULL){
-        echo 'STATUS NULL';
         $result = Aluno::where('id_nucleo', $nucleo)->get();
+        return view('alunos')->with([
+          'nucleo' => $nucleo,
+          'user' => $user,
+          'alunos' => $result,
+        ]);
       }else if($nucleo === NULL){
         $result = Aluno::where('Status', $status)->get();
         return view('alunos')->with([
+          'nucleo' => $nucleo,
           'user' => $user,
           'alunos' => $result,
         ]);
@@ -396,11 +405,13 @@ class AlunosController extends Controller
         $result = Aluno::where('Status', $status)->where('id_nucleo', $nucleo)->get();
         if($result->isEmpty()){
           return redirect('alunos')->with([
+            'nucleo' => $nucleo,
             'alunos' => $result,
             'error' => 'Não há alunos inativos no momento.',
           ]);
         }else{
           return view('alunos')->with([
+            'nucleo' => $nucleo,
             'user' => $user,
             'alunos' => $result,
           ]);
