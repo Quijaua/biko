@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+
+
 // ROUTES FOR NUCLEOS MANAGEMENT
 Route::get('nucleos', 'NucleoController@index')->middleware('permissions');
 Route::get('nucleos/details/{id}', 'NucleoController@details')->middleware('permissions');
@@ -66,3 +71,4 @@ Route::any('professores/search', 'ProfessoresController@search')->middleware('pe
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+
