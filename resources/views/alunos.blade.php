@@ -57,8 +57,8 @@
   @if($user->role != 'aluno' && $user->role != 'professor')
   <div class="col mt-4 text-center">
     <a class="btn btn-success" href="/alunos/add">Adicionar novo aluno</a>
-    <a class="btn btn-danger" href="/alunos/search/?status=0">Ver alunos inativos</a>
-    <a class="btn btn-primary" href="/alunos">Ver alunos ativos</a>
+    <a class="btn btn-danger" href="/alunos/search/?status=0&nucleo={{$user->coordenador->id_nucleo}}">Ver alunos inativos</a>
+    <a class="btn btn-primary" href="/alunos/search/?status=1&nucleo={{$user->coordenador->id_nucleo}}">Ver alunos ativos</a>
     @if($user->role === 'coordenador')
     <a class="btn btn-primary" href="{{ route('alunos/export/') }}/?nucleo={{ $nucleo ?? '' }}">Exportar</a>
     @else

@@ -364,9 +364,53 @@ class AlunosController extends Controller
     public function search(Request $request)
     {
       $user = Auth::user();
-      $status = $request->input('status');
       $cpf = $request->input('cpf');
-      $nucleo = $request->input('nucleo');
+      $status = $request->input('status');
+      //$nucleo = $request->input('nucleo');
+      if($user->role === 'coordenador'){
+        $myNucleo = Nucleo::find($user->coordenador->id_nucleo);
+        $nucleo = $myNucleo->id;
+      }else if($user->role === 'professor'){
+        $myNucleo = Nucleo::find($user->professor->id_nucleo);
+        $nucleo = $myNucleo->id;
+      }else if($user->role === 'aluno'){
+        $myNucleo = Nucleo::find($user->aluno->id_nucleo);
+        $nucleo = $myNucleo->id;
+      }else{
+        $nucleo = $request->input('nucleo');
+      }
+      //var_dump($nucleo);
+      //var_dump($status);
+      if($status === NULL && $nucleo === NULL){
+        echo ('STATUS E NUCLEO NULL');
+        $result = Aluno::get();
+        dd($result);
+      }else if($status === NULL){
+        echo 'STATUS NULL';
+        $result = Aluno::where('id_nucleo', $nucleo)->get();
+        dd($result);
+      }else if($nucleo === NULL){
+        echo 'NUCLEO NULL';
+        $result = Aluno::where('Status', $status)->get();
+        dd($result);
+        return redirect('alunos')->with([
+          'user' => $user,
+          'alunos' => $result,
+        ]);
+      }else{
+        $result = Aluno::where('Status', $status)->where('id_nucleo', $nucleo)->get();
+        if($result->isEmpty()){
+          return redirect('alunos')->with([
+            'alunos' => $result,
+            'error' => 'Não há alunos inativos no momento.',
+          ]);
+        }else{
+          return view('alunos')->with([
+            'user' => $user,
+            'alunos' => $result,
+          ]);
+        };
+      }
 
       if($cpf != ''){
         $result = Aluno::where('CPF', $cpf)->count();
@@ -377,7 +421,7 @@ class AlunosController extends Controller
         }
       }
 
-      if($status != ''){
+      /*if($status != ''){
         $result = Aluno::where('Status', 0)->get();
         if($result->isEmpty()){
           return redirect('alunos')->with([
@@ -406,7 +450,7 @@ class AlunosController extends Controller
           'user' => $user,
           'alunos' => $result,
         ]);
-      }
+      }*/
 
       $query = $request->input('inputQuery');
       if($user->role === 'coordenador'){
