@@ -393,28 +393,32 @@ class AlunosController extends Controller
       }
 
       if($status === NULL && $nucleo === NULL){
-        $result = Aluno::get();
+        //$result = Aluno::get();
+        $result = Aluno::paginate(25);
         return view('alunos')->with([
           'nucleo' => $nucleo,
           'user' => $user,
           'alunos' => $result,
         ]);
       }else if($status === NULL){
-        $result = Aluno::where('id_nucleo', $nucleo)->get();
+        //$result = Aluno::where('id_nucleo', $nucleo)->get();
+        $result = Aluno::where('id_nucleo', $nucleo)->paginate(25);
         return view('alunos')->with([
           'nucleo' => $nucleo,
           'user' => $user,
           'alunos' => $result,
         ]);
       }else if($nucleo === NULL){
-        $result = Aluno::where('Status', $status)->get();
+        //$result = Aluno::where('Status', $status)->get();
+        $result = Aluno::where('Status', $status)->paginate(25);
         return view('alunos')->with([
           'nucleo' => $nucleo,
           'user' => $user,
           'alunos' => $result,
         ]);
       }else{
-        $result = Aluno::where('Status', $status)->where('id_nucleo', $nucleo)->get();
+        //$result = Aluno::where('Status', $status)->where('id_nucleo', $nucleo)->get();
+        $result = Aluno::where('Status', $status)->where('id_nucleo', $nucleo)->paginate(25);
         if($result->isEmpty()){
           return redirect('alunos')->with([
             'nucleo' => $nucleo,
@@ -442,13 +446,16 @@ class AlunosController extends Controller
       $query = $request->input('inputQuery');
       if($user->role === 'coordenador'){
         $me = Coordenadores::where('id_user', $user->id)->first();
-        $results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->get();
+        //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->get();
+        $results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->paginate(25);
       }elseif($user->role === 'professor'){
         $me = Professores::where('id_user', $user->id)->first();
-        $results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->get();
+        //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->get();
+        $results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->paginate(25);
       }else{
         $query = $request->input('inputQuery');
-        $results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->get();
+        //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->get();
+        $results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->paginate(25);
       }
       //$query = $request->input('inputQuery');
       //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->get();
