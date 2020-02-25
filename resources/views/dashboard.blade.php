@@ -2,14 +2,6 @@
 
 @section('content')
 
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-
-        <title>{{ env('APP_NAME') }}</title>
-
-<meta charset='UTF-8'>
-<meta name="robots" content="noindex">
 <style>
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -45,22 +37,23 @@ body {
 }
 
 #chart-escola {
+  width: 520px;
+  height: 200px;
+}
+
+#chart-ecivil {
   width: 400px;
   height: 200px;
 }
 
 #chart-nucleo {
-  width: 400px;
+  width: 900px;
   height: 500px;
 }
 
 
 </style>
 
-
-
-</head>
-<body>
 <script src="https://www.amcharts.com/lib/4/core.js"></script>
 <script src="https://www.amcharts.com/lib/4/charts.js"></script>
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
@@ -89,11 +82,13 @@ body {
     $faixas = DB::select("SELECT t.age_group, COUNT(*) AS age_count FROM ( SELECT CASE WHEN TIMESTAMPDIFF(YEAR, Nascimento, CURDATE()) BETWEEN 20 AND 25 THEN '20-25' WHEN TIMESTAMPDIFF(YEAR, Nascimento, CURDATE()) BETWEEN 26 AND 35 THEN '26-35'  WHEN TIMESTAMPDIFF(YEAR, Nascimento, CURDATE()) BETWEEN 36 AND 45 THEN '36-45' WHEN TIMESTAMPDIFF(YEAR, Nascimento, CURDATE()) BETWEEN 46 AND 55 THEN '46-55' WHEN TIMESTAMPDIFF(YEAR, Nascimento, CURDATE()) > 55 THEN '46-55' ELSE 'Outros' END AS age_group FROM alunos ) t GROUP BY t.age_group");
     $curso1s = DB::select('select count(*) as qtd, IF(OpcoesVestibular1 IS NULL or OpcoesVestibular1 = "", "Outros", OpcoesVestibular1) as OpcoesVestibular1 from alunos group by OpcoesVestibular1');
     $curso2s = DB::select('select count(*) as qtd, IF(OpcoesVestibular2 IS NULL or OpcoesVestibular2 = "", "Outros", OpcoesVestibular2) as OpcoesVestibular2 from alunos group by OpcoesVestibular2');
-    $pornucleos = DB::select('select count(*) as qtd, NomeNucleo from alunos group by NomeNucleo');
+    $pornucleos = DB::select('select count(*) as qtd, NomeNucleo from alunos group by NomeNucleo order by qtd');
+    $ecivis = DB::select('select count(*) as qtd, IF(EstadoCivil IS NULL or EstadoCivil = "", "Outros", EstadoCivil) as ecivil from alunos group by ecivil');
+    $escolas = DB::select('SELECT CASE WHEN EnsFundamental = "[\"particular sem bolsa\"]" THEN "Particular sem bolsa" WHEN EnsFundamental = "[\"rede publica\",\"particular sem bolsa\"]" THEN "Rede pública e particular sem bolsa" WHEN EnsFundamental = "[\"rede publica\"]" THEN "Rede Pública" ELSE "Outros" END AS EnsFundamental, COUNT(*) AS qtd FROM alunos GROUP BY EnsFundamental');
     @endphp
 
 
-    <div class="row">
+  <div class="row">
     <div class="col" style="text-align: center">
       <div class="form-group">
         <h1><?php echo $alunos; ?></h1> Alunos
@@ -110,44 +105,48 @@ body {
     <div class="col" style="text-align: center">
       <div class="form-group">
         <h1><?php echo $professores; ?></h1> Professores
-
       </div>
     </div>
     <div class="col" style="text-align: center">
       <div class="form-group">
-      <h1><?php echo $coordenadores; ?></h1>Coordenadores
+        <h1><?php echo $coordenadores; ?></h1>Coordenadores
       </div>
     </div>
     <div class="col" style="text-align: center">
       <div class="form-group">
-      <h1><?php echo $nucleos; ?></h1>Núcleos
-      <p><strong><?php echo $nucleosoff ?></strong> Inativos</p>
+        <h1><?php echo $nucleos; ?></h1>Núcleos
+        <p><strong><?php echo $nucleosoff ?></strong> Inativos</p>
       </div>
     </div>
+  </div>
 
+  <div class="row">
+    <div class="col" style="text-align: center">
+      <h1>Cadastros por dia</h1>
+      <div id="chart-dia"></div>
+    </div>
+  </div>
 
-</div>
-
-<h1>Cadastros por dia</h1>
-<div id="chart-dia"></div>
+  <div class="row" style="margin-top:40px">
+    <div class="col">
+      <h2>Por mês</h2>
+      <div id="chart-mes"></div>
+    </div>
+    <div class="col">
+      <h2>Por teste</h2>
+      <div id="chart-nucleo2"></div>
+    </div>
+  </div>
 
 <div class="row" style="margin-top:40px">
-    <div class="col">
-
-    <h2>Por mês</h2>
-    <div id="chart-mes"></div>
-
-    </div>
-    <div class="col">
-      <h2>Por núcleo</h2>
-      <div id="chart-nucleo"></div>
-    </div>
-    </div>
+  <div class="col">
+    <h2>Por núcleo</h2>
+    <div id="chart-nucleo"></div>
+  </div>
 </div>
 
 
-
-<div class="container" style="margin-top:50px">
+<div class="container" style="margin-top:100px">
   <div class="row">
     <div class="col">
       <h2 style="text-align: center">Por Raça</h2>
@@ -158,7 +157,7 @@ body {
       <div id="chart-genero"></div>
     </div>
   </div>
-    <div class="row" style="margin-top:40px">
+  <div class="row" style="margin-top:100px">
     <div class="col">
       <h2 style="text-align: center">Faxa etária</h2>
       <div id="chart-etaria"></div>
@@ -167,24 +166,21 @@ body {
       <h2 style="text-align: center">Como Soube</h2>
       <div id="chart-soube"></div>
     </div>
-    </div>
+  </div>
 
-<div class="row" style="margin-top:40px">
+  <div class="row" style="margin-top:100px">
     <div class="col">
-
-    <h2 style="text-align: center">Escola Públicas ou Privada</h2>
-    <div id="chart-escola"></div>
-
+      <h2 style="text-align: center">Escola Públicas ou Privada</h2>
+      <div id="chart-escola"></div>
     </div>
     <div class="col">
-      <h2 style="text-align: center">Por geral</h2>
-      <div id="chart-nucleo2"></div>
+      <h2 style="text-align: center">Por estado civil</h2>
+      <div id="chart-ecivil"></div>
     </div>
-    </div>
-</div>
-</div>
+  </div>
 
-<h2>Para qual (quais) curso(s) pretende prestar vestibular?</h2>
+
+<h2 style="margin-top:100px;text-align:center">Para qual (quais) curso(s) pretende prestar vestibular?</h2>
 <div class="row" style="margin-top:40px">
   
     <div class="col">
@@ -215,7 +211,6 @@ chart.data = [
             ?>
 
 ];
-
 
 // Set input format for the dates
 chart.dateFormatter.inputDateFormat = "yyyy-MM-dd";
@@ -270,7 +265,7 @@ dateAxis.start = 0.79;
 dateAxis.keepSelection = true;
 
 chart.exporting.menu = new am4core.ExportMenu();
-  </script>
+ </script>
 
 
 <script>
@@ -447,6 +442,73 @@ chart.data = [
   </script>
 
 <script>
+// ESCOLAS
+am4core.useTheme(am4themes_animated);
+var chart = am4core.create("chart-escola", am4charts.PieChart);
+
+var pieSeries = chart.series.push(new am4charts.PieSeries());
+pieSeries.dataFields.value = "qtd";
+pieSeries.dataFields.category = "tipo";
+
+chart.innerRadius = am4core.percent(30);
+
+// Put a thick white border around each Slice
+pieSeries.slices.template.stroke = am4core.color("#fff");
+pieSeries.slices.template.strokeWidth = 2;
+pieSeries.slices.template.strokeOpacity = 1;
+pieSeries.slices.template
+.cursorOverStyle = [
+{
+  "property": "cursor",
+  "value": "pointer" }];
+
+//chart.legend = new am4charts.Legend();
+chart.exporting.menu = new am4core.ExportMenu();
+
+chart.data = [
+            <?php
+            foreach($escolas as $escola){
+                echo "{'tipo':'" . $escola->EnsFundamental . "','qtd':'" . $escola->qtd . "'},";
+            };
+            ?>
+            ];
+  </script>
+
+
+<script>
+// ESTADO CIVIL
+am4core.useTheme(am4themes_animated);
+var chart = am4core.create("chart-ecivil", am4charts.PieChart);
+
+var pieSeries = chart.series.push(new am4charts.PieSeries());
+pieSeries.dataFields.value = "qtd";
+pieSeries.dataFields.category = "tipo";
+
+chart.innerRadius = am4core.percent(30);
+
+// Put a thick white border around each Slice
+pieSeries.slices.template.stroke = am4core.color("#fff");
+pieSeries.slices.template.strokeWidth = 2;
+pieSeries.slices.template.strokeOpacity = 1;
+pieSeries.slices.template
+.cursorOverStyle = [
+{
+  "property": "cursor",
+  "value": "pointer" }];
+
+//chart.legend = new am4charts.Legend();
+chart.exporting.menu = new am4core.ExportMenu();
+
+chart.data = [
+            <?php
+            foreach($ecivis as $ecivil){
+                echo "{'tipo':'" . $ecivil->ecivil . "','qtd':'" . $ecivil->qtd . "'},";
+            };
+            ?>
+];
+  </script>
+
+<script>
 // curso mais desejados 1
 var tabledata = [
   <?php
@@ -475,8 +537,6 @@ var table = new Tabulator("#cursos1", {
 	 	{title:"Quantidade", field:"qtd", align:"left", formatter:"progress"},
 
  	],
-
-
 });
 </script>
 
@@ -510,8 +570,6 @@ var table = new Tabulator("#cursos2", {
 	 	{title:"Quantidade", field:"qtd", align:"left", formatter:"progress"},
 
  	],
-
-
 });
 </script>
 
@@ -535,7 +593,6 @@ chart.data = [
 
 ];
 
-
 // Create axes
 var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
 categoryAxis.dataFields.category = "nucleo";
@@ -555,7 +612,7 @@ var series = chart.series.push(new am4charts.ColumnSeries());
 series.sequencedInterpolation = true;
 series.dataFields.valueY = "value";
 series.dataFields.categoryX = "nucleo";
-series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
+series.tooltipText = "{categoryX}: [bold]{valueY}[/]";
 series.columns.template.strokeWidth = 0;
 
 series.tooltip.pointerOrientation = "vertical";
@@ -573,7 +630,6 @@ hoverState.properties.fillOpacity = 1;
 series.columns.template.adapter.add("fill", function(fill, target) {
   return chart.colors.getIndex(target.dataItem.index);
 });
-
 // Cursor
 chart.cursor = new am4charts.XYCursor();
 
@@ -581,10 +637,6 @@ chart.exporting.menu = new am4core.ExportMenu();
 
 </script>
 
-</div></div></div>
-
-
-</body>
-</html>
+</div></div>
 
 @endsection
