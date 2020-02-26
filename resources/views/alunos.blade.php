@@ -135,7 +135,7 @@
   </div>
   <div class="row">
     <div class="col">
-      {{ $alunos->links() }}
+      {{ $alunos->appends(request()->input())->links() }}
     </div>
   </div>
 </div>

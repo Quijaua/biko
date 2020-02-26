@@ -158,3 +158,22 @@ function checkCPF(){
 function clone(){
 	$('#item').clone().appendTo('.stage');
 }
+
+function sendParents(){
+	data = $('#parentesForm').serialize();
+	$.ajax({
+			url: '/alunos/familiares/add',
+			type: 'post',
+			data: data,
+			success: function(response)
+			{
+				if(response == true){
+					//alert('CPF Cadastrado!');
+					//$('#inputCPF').val('');
+					console.log(response);
+				}else if(response == false){
+					console.log(response);
+				}
+			},
+	});
+}
