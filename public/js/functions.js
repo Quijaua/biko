@@ -189,7 +189,6 @@ function updateParents(id){
 			{
 				if(response = true){
 					alert('Item atualizado com sucesso.');
-					$("#updateParents"+id).load(location.href + " #updateParents"+id);
 				}else if(response = false){
 					alert('Erro na atualização do item.');
 				}

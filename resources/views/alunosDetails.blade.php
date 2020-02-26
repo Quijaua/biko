@@ -544,7 +544,6 @@
             </div>
           </div>
         </div>
-        <hr>
       </div>
     </div>
     @endforeach
