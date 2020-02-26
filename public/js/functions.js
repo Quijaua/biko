@@ -167,13 +167,33 @@ function sendParents(){
 			data: data,
 			success: function(response)
 			{
-				if(response == true){
-					//alert('CPF Cadastrado!');
-					//$('#inputCPF').val('');
-					console.log(response);
-				}else if(response == false){
-					console.log(response);
+				if(response = true){
+					alert('Item cadastrado com sucesso.');
+					$('#parentesForm').each(function(){
+					    this.reset();
+					});
+				}else if(response = false){
+					alert('Erro no cadastro do item.');
 				}
 			},
 	});
+}
+
+function updateParents(id){
+	data = $("#updateParents"+id).serialize();
+	$.ajax({
+			url: '/alunos/familiares/update/'+id,
+			type: 'post',
+			data: data,
+			success: function(response)
+			{
+				if(response = true){
+					alert('Item atualizado com sucesso.');
+					$("#updateParents"+id).load(location.href + " #updateParents"+id);
+				}else if(response = false){
+					alert('Erro na atualização do item.');
+				}
+			},
+	});
+
 }

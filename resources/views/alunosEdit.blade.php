@@ -23,6 +23,9 @@
   </div>
   @endif
 
+  @foreach($familiares as $parente)
+  <form id="updateParents{{ $parente->id }}" method="POST" action="/alunos/familiares/update/{{ $parente->id }}">@csrf</form>
+  @endforeach
   <form method="POST" action="/alunos/update/{{ $dados->id }}" enctype="multipart/form-data">
     @csrf
     <h3>DADOS PESSOAIS</h3>
@@ -46,9 +49,9 @@
             <option selected>Selecione</option>
             @foreach($nucleos as $nucleo)
             @if($user->role === 'aluno')
-            <option  <?php if($nucleo->id == $dados->id_nucleo){ echo 'selected=selected';} ?> value="{{ $nucleo->id }}">{{ $nucleo->NomeNucleo }} - {{ $nucleo->InfoInscricao }}</option>
+            <option <?php if($nucleo->id == $dados->id_nucleo){ echo 'selected=selected';} ?> value="{{ $nucleo->id }}">{{ $nucleo->NomeNucleo }} - {{ $nucleo->InfoInscricao }}</option>
             @else
-            <option  <?php if($nucleo->id == $dados->id_nucleo){ echo 'selected=selected';} ?> value="{{ $nucleo->id }}">{{ $nucleo->NomeNucleo }}</option>
+            <option <?php if($nucleo->id == $dados->id_nucleo){ echo 'selected=selected';} ?> value="{{ $nucleo->id }}">{{ $nucleo->NomeNucleo }}</option>
             @endif
             @endforeach
           </select>
@@ -499,6 +502,91 @@
         @endif
       </div>
     </div>
+
+    <div id="info" class="row">
+      <div class="col-12 mt-2"><h3>INFORMAÇÕES FAMILIARES</h3></div>
+      @foreach($familiares as $parente)
+
+      <div class="container-fluid p-3">
+        <div id="item" class="stage">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="inputGrauParentesco">Grau de Parentesco</label>
+                <select name="inputGrauParentesco" class="custom-select" form="updateParents<?php echo $parente->id; ?>">
+                  <option selected>Selecione</option>
+                  <option <?php if($parente->GrauParentesco === 'pai'){echo 'selected=selected';} ?> value="pai">Pai</option>
+                  <option <?php if($parente->GrauParentesco === 'mae'){echo 'selected=selected';} ?> value="mae">Mãe</option>
+                  <option <?php if($parente->GrauParentesco === 'madrasta'){echo 'selected=selected';} ?> value="madrasta">Madrasta</option>
+                  <option <?php if($parente->GrauParentesco === 'padrasto'){echo 'selected=selected';} ?> value="padrasto">Padrasto</option>
+                  <option <?php if($parente->GrauParentesco === 'irmao_a'){echo 'selected=selected';} ?> value="irmao_a">Irmão/ã</option>
+                  <option <?php if($parente->GrauParentesco === 'avo'){echo 'selected=selected';} ?> value="avo">Avô/Avó</option>
+                  <option <?php if($parente->GrauParentesco === 'primo_a'){echo 'selected=selected';} ?> value="primo_a">Primo/a</option>
+                  <option <?php if($parente->GrauParentesco === 'sobrinho_a'){echo 'selected=selected';} ?> value="sobrinho_a">Sobrinho/a</option>
+                  <option <?php if($parente->GrauParentesco === 'tio_a'){echo 'selected=selected';} ?> value="tio_a">Tio/a</option>
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="inputIdade">Idade</label>
+                <input type="number" class="form-control" id="inputIdade" name="inputIdade" aria-describedby="inputIdadeHelp" value="{{ $parente->Idade }}" form="updateParents<?php echo $parente->id; ?>">
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="inputEstadoCivil">Estado Civil</label>
+                <select name="inputEstadoCivil" class="custom-select" form="updateParents<?php echo $parente->id; ?>">
+                  <option selected>Selecione</option>
+                  <option <?php if($parente->EstadoCivil === 'solteiro_a'){echo 'selected=selected';} ?> value="solteiro_a">Solteiro(a)</option>
+                  <option <?php if($parente->EstadoCivil === 'casado_a'){echo 'selected=selected';} ?> value="casado_a">Casado(a)</option>
+                  <option <?php if($parente->EstadoCivil === 'uniao_estavel'){echo 'selected=selected';} ?> value="uniao_estavel">União Estável</option>
+                  <option <?php if($parente->EstadoCivil === 'divorciado_a'){echo 'selected=selected';} ?> value="divorciado_a">Divorciado(a)</option>
+                  <option value="viuvo_a">Viúvo(a)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="inputEscolaridade">Escolaridade</label>
+                <select name="inputEscolaridade" class="custom-select" form="updateParents<?php echo $parente->id; ?>">
+                  <option selected>Selecione</option>
+                  <option <?php if($parente->Escolaridade === 'fundamental_completo'){echo 'selected=selected';} ?> value="fundamental_completo">Ensino Fundamental Completo</option>
+                  <option <?php if($parente->Escolaridade === 'fundamental_incompleto'){echo 'selected=selected';} ?> value="fundamental_incompleto">Ensino Fundamental Incompleto</option>
+                  <option <?php if($parente->Escolaridade === 'medio_completo'){echo 'selected=selected';} ?> value="medio_completo">Ensino Médio Completo</option>
+                  <option <?php if($parente->Escolaridade === 'medio_incompleto'){echo 'selected=selected';} ?> value="medio_incompleto">Ensino Médio Incompleto</option>
+                  <option <?php if($parente->Escolaridade === 'superior_completo'){echo 'selected=selected';} ?> value="superior_completo">Ensino Superior Completo</option>
+                  <option <?php if($parente->Escolaridade === 'superior_incompleto'){echo 'selected=selected';} ?> value="superior_incompleto">Ensino Superior Incompleto</option>
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="inputProfissao">Profissão</label>
+                <input type="text" class="form-control" id="inputProfissao" name="inputProfissao" aria-describedby="inputProfissaoHelp" value="{{ $parente->Profissao }}" form="updateParents<?php echo $parente->id; ?>">
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="inputRenda">Renda Mensal R$</label>
+                <input type="number" class="form-control" id="inputRenda" name="inputRenda" aria-describedby="inputRendaHelp" value="{{ $parente->Renda }}" form="updateParents<?php echo $parente->id; ?>">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <button class="btn-update btn btn-success btn-block" type="button" name="button" onclick="updateParents(<?php echo $parente->id ?>)">Salvar Item</button>
+            </div>
+          </div>
+          <hr>
+        </div>
+
+      </div>
+      @endforeach
+    </div>
+
     <div class="row">
       <div class="col">
         <button type="button" class="btn btn-lg btn-block btn-primary" data-toggle="modal" data-backdrop="true" data-keyboard="true" data-target=".modal-dados-familia">INFORMAÇÕES DA FAMÍLIA <strong>(OBRIGATÓRIO)</strong></button>
@@ -809,7 +897,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="POST" action="/alunos/familiares/add">
+        <form id="parentesForm" method="POST" action="/alunos/familiares/add">
           @csrf
           <input type="hidden" name="inputIdUser" value="{{ $dados->id_user }}">
           <input type="hidden" name="inputIdAluno" value="{{ $dados->id }}">
@@ -819,7 +907,7 @@
                 <div class="col">
                   <div class="form-group">
                     <label for="inputGrauParentesco">Grau de Parentesco</label>
-                    <select name="inputGrauParentesco[]" class="custom-select">
+                    <select name="inputGrauParentesco" class="custom-select">
                       <option selected>Selecione</option>
                       <option value="pai">Pai</option>
                       <option value="mae">Mãe</option>
@@ -836,13 +924,13 @@
                 <div class="col">
                   <div class="form-group">
                     <label for="inputIdade">Idade</label>
-                    <input type="number" class="form-control" id="inputIdade" name="inputIdade[]" aria-describedby="inputIdadeHelp" placeholder="Idade">
+                    <input type="number" class="form-control" id="inputIdade" name="inputIdade" aria-describedby="inputIdadeHelp" placeholder="Idade">
                   </div>
                 </div>
                 <div class="col">
                   <div class="form-group">
                     <label for="inputEstadoCivil">Estado Civil</label>
-                    <select name="inputEstadoCivil[]" class="custom-select">
+                    <select name="inputEstadoCivil" class="custom-select">
                       <option selected>Selecione</option>
                       <option value="solteiro_a">Solteiro(a)</option>
                       <option value="casado_a">Casado(a)</option>
@@ -857,7 +945,7 @@
                 <div class="col">
                   <div class="form-group">
                     <label for="inputEscolaridade">Escolaridade</label>
-                    <select name="inputEscolaridade[]" class="custom-select">
+                    <select name="inputEscolaridade" class="custom-select">
                       <option selected>Selecione</option>
                       <option value="fundamental_completo">Ensino Fundamental Completo</option>
                       <option value="fundamental_incompleto">Ensino Fundamental Incompleto</option>
@@ -871,13 +959,13 @@
                 <div class="col">
                   <div class="form-group">
                     <label for="inputProfissao">Profissão</label>
-                    <input type="text" class="form-control" id="inputProfissao" name="inputProfissao[]" aria-describedby="inputProfissaoHelp" placeholder="Profissão">
+                    <input type="text" class="form-control" id="inputProfissao" name="inputProfissao" aria-describedby="inputProfissaoHelp" placeholder="Profissão">
                   </div>
                 </div>
                 <div class="col">
                   <div class="form-group">
                     <label for="inputRenda">Renda Mensal R$</label>
-                    <input type="number" class="form-control" id="inputRenda" name="inputRenda[]" aria-describedby="inputRendaHelp" placeholder="Renda em R$">
+                    <input type="number" class="form-control" id="inputRenda" name="inputRenda" aria-describedby="inputRendaHelp" placeholder="Renda em R$">
                   </div>
                 </div>
               </div>
@@ -885,11 +973,13 @@
             </div>
             <div class="row">
               <div class="col-6 m-auto">
-                <a class="btn btn-block btn-success" href="#" onclick="clone()">Adicionar outro item</a>
+                <button type="button" class="btn btn-primary btn-block" onclick="sendParents()">Salvar Item</button>
+              </div>
+              <div class="col-6 m-auto">
+                <button type="button" class="btn btn-danger btn-block" data-dismiss="modal" aria-label="Close">Fechar Aba</button>
               </div>
             </div>
             <hr>
-            <button type="submit" class="btn btn-primary">Salvar Dados</button>
           </div>
         </form>
       </div>

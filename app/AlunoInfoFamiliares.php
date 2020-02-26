@@ -17,14 +17,14 @@ class AlunoInfoFamiliares extends Model
       'id_aluno',
     ];
 
-    protected $casts = [
+    /*protected $casts = [
       'GrauParentesco' => 'collection',
       'Idade' => 'collection',
       'EstadoCivil' => 'collection',
       'Escolaridade' => 'collection',
       'Profissao' => 'collection',
       'Renda' => 'collection',
-    ];
+    ];*/
 
     public function aluno()
     {

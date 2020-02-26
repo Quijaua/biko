@@ -230,11 +230,13 @@ class AlunosController extends Controller
       $user = Auth::user();
       $dados = Aluno::find($id);
       $nucleos = Nucleo::get()->where('Status', 1);
+      $familiares = AlunoInfoFamiliares::where('id_aluno', $dados->id)->get();
 
       return view('alunosEdit')->with([
         'dados' => $dados,
         'nucleos' => $nucleos,
         'user' => $user,
+        'familiares' => $familiares,
     ]);
     }
 
@@ -506,7 +508,6 @@ class AlunosController extends Controller
     public function export(Request $request)
     {
       $nucleo = $request->input('nucleo');
-      //dd($nucleo);
 
       if($nucleo === null){
         return (new AlunosExport())->download('alunos.xlsx');

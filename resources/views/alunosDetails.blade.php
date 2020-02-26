@@ -475,48 +475,78 @@
   <div class="row">
     <div class="col-12 mt-2"><h3>INFORMAÇÕES FAMILIARES</h3></div>
     @foreach($familiares as $parente)
-      <?php
-      $counter = count($parente->GrauParentesco);
-      //echo '<div class="col-12 mt-2"><h3>INFORMAÇÕES FAMILIARES</h3></div>';
-      for($i = 0; $i < $counter; $i++){
-        echo '<div class="col">';
-        echo '<div class="card" style="width: 18rem;">';
-        echo '<div class="card-body">';
 
-        if($parente->GrauParentesco[$i] === 'pai'){echo '<h5 class="card-title">Parentesco: Pai</h5>';}
-        if($parente->GrauParentesco[$i] === 'mae'){echo '<h5 class="card-title">Parentesco: Mãe</h5>';}
-        if($parente->GrauParentesco[$i] === 'madrasta'){echo '<h5 class="card-title">Parentesco: Madrasta</h5>';}
-        if($parente->GrauParentesco[$i] === 'padrasto'){echo '<h5 class="card-title">Parentesco: Padrasto</h5>';}
-        if($parente->GrauParentesco[$i] === 'irmao_a'){echo '<h5 class="card-title">Parentesco: Irmão(ã)</h5>';}
-        if($parente->GrauParentesco[$i] === 'avo'){echo '<h5 class="card-title">Parentesco: Avô(ó)</h5>';}
-        if($parente->GrauParentesco[$i] === 'primo_a'){echo '<h5 class="card-title">Parentesco: Primo(a)</h5>';}
-        if($parente->GrauParentesco[$i] === 'sobrinho_a'){echo '<h5 class="card-title">Parentesco: Sobrinho(a)</h5>';}
-        if($parente->GrauParentesco[$i] === 'tio_a'){echo '<h5 class="card-title">Parentesco: Tio(a)</h5>';}
-
-        echo '<p class="card-text">Idade: '.$parente->Idade[$i].'</p>';
-
-        if($parente->EstadoCivil[$i] === 'solteiro_a'){echo '<p class="card-text">Estado Civil: Solteiro(a)</p>';}
-        if($parente->EstadoCivil[$i] === 'casado_a'){echo '<p class="card-text">Estado Civil: Casado(a)</p>';}
-        if($parente->EstadoCivil[$i] === 'uniao_estavel'){echo '<p class="card-text">Estado Civil: União Estável</p>';}
-        if($parente->EstadoCivil[$i] === 'divorciado_a'){echo '<p class="card-text">Estado Civil: Divorciado(a)</p>';}
-        if($parente->EstadoCivil[$i] === 'viuvo_a'){echo '<p class="card-text">Estado Civil: Viúvo(a)</p>';}
-
-        if($parente->Escolaridade[$i] === 'fundamental_completo'){echo '<p class="card-text">Escolaridade: Ens. Fund. Completo</p>';}
-        if($parente->Escolaridade[$i] === 'fundamental_incompleto'){echo '<p class="card-text">Escolaridade: Ens. Fund. Incompleto</p>';}
-        if($parente->Escolaridade[$i] === 'medio_completo'){echo '<p class="card-text">Escolaridade: Ens. Méd. Completo</p>';}
-        if($parente->Escolaridade[$i] === 'medio_incompleto'){echo '<p class="card-text">Escolaridade: Ens. Méd. Incompleto</p>';}
-        if($parente->Escolaridade[$i] === 'superior_completo'){echo '<p class="card-text">Escolaridade: Ens. Sup. Completo</p>';}
-        if($parente->Escolaridade[$i] === 'superior_incompleto'){echo '<p class="card-text">Escolaridade: Ens. Sup. Incompleto</p>';}
-
-        if($parente->Profissao[$i] === null){echo '<p class="card-text">Profissão: Não informado</p>';}else{echo '<p class="card-text">Profissão: '.$parente->Profissao[$i].'</p>';}
-
-        if($parente->Renda[$i] === null){echo '<p class="card-text">Renda: Não informado</p>';}else{echo '<p class="card-text">Renda: R$ ' . number_format($parente->Renda[$i],2,',','') . '</p>';}
-
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
-      }
-      ?>
+    <div class="container-fluid p-3">
+      <div id="item" class="stage">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="inputGrauParentesco">Grau de Parentesco</label>
+              <select name="inputGrauParentesco" class="custom-select" disabled>
+                <option selected>Selecione</option>
+                <option <?php if($parente->GrauParentesco === 'pai'){echo 'selected=selected';} ?> value="pai">Pai</option>
+                <option <?php if($parente->GrauParentesco === 'mae'){echo 'selected=selected';} ?> value="mae">Mãe</option>
+                <option <?php if($parente->GrauParentesco === 'madrasta'){echo 'selected=selected';} ?> value="madrasta">Madrasta</option>
+                <option <?php if($parente->GrauParentesco === 'padrasto'){echo 'selected=selected';} ?> value="padrasto">Padrasto</option>
+                <option <?php if($parente->GrauParentesco === 'irmao_a'){echo 'selected=selected';} ?> value="irmao_a">Irmão/ã</option>
+                <option <?php if($parente->GrauParentesco === 'avo'){echo 'selected=selected';} ?> value="avo">Avô/Avó</option>
+                <option <?php if($parente->GrauParentesco === 'primo_a'){echo 'selected=selected';} ?> value="primo_a">Primo/a</option>
+                <option <?php if($parente->GrauParentesco === 'sobrinho_a'){echo 'selected=selected';} ?> value="sobrinho_a">Sobrinho/a</option>
+                <option <?php if($parente->GrauParentesco === 'tio_a'){echo 'selected=selected';} ?> value="tio_a">Tio/a</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="inputIdade">Idade</label>
+              <input type="number" class="form-control" id="inputIdade" name="inputIdade" aria-describedby="inputIdadeHelp" value="{{ $parente->Idade }}" disabled>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="inputEstadoCivil">Estado Civil</label>
+              <select name="inputEstadoCivil" class="custom-select" disabled>
+                <option selected>Selecione</option>
+                <option <?php if($parente->EstadoCivil === 'solteiro_a'){echo 'selected=selected';} ?> value="solteiro_a">Solteiro(a)</option>
+                <option <?php if($parente->EstadoCivil === 'casado_a'){echo 'selected=selected';} ?> value="casado_a">Casado(a)</option>
+                <option <?php if($parente->EstadoCivil === 'uniao_estavel'){echo 'selected=selected';} ?> value="uniao_estavel">União Estável</option>
+                <option <?php if($parente->EstadoCivil === 'divorciado_a'){echo 'selected=selected';} ?> value="divorciado_a">Divorciado(a)</option>
+                <option value="viuvo_a">Viúvo(a)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="inputEscolaridade">Escolaridade</label>
+              <select name="inputEscolaridade" class="custom-select" disabled>
+                <option selected>Selecione</option>
+                <option <?php if($parente->Escolaridade === 'fundamental_completo'){echo 'selected=selected';} ?> value="fundamental_completo">Ensino Fundamental Completo</option>
+                <option <?php if($parente->Escolaridade === 'fundamental_incompleto'){echo 'selected=selected';} ?> value="fundamental_incompleto">Ensino Fundamental Incompleto</option>
+                <option <?php if($parente->Escolaridade === 'medio_completo'){echo 'selected=selected';} ?> value="medio_completo">Ensino Médio Completo</option>
+                <option <?php if($parente->Escolaridade === 'medio_incompleto'){echo 'selected=selected';} ?> value="medio_incompleto">Ensino Médio Incompleto</option>
+                <option <?php if($parente->Escolaridade === 'superior_completo'){echo 'selected=selected';} ?> value="superior_completo">Ensino Superior Completo</option>
+                <option <?php if($parente->Escolaridade === 'superior_incompleto'){echo 'selected=selected';} ?> value="superior_incompleto">Ensino Superior Incompleto</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="inputProfissao">Profissão</label>
+              <input type="text" class="form-control" id="inputProfissao" name="inputProfissao" aria-describedby="inputProfissaoHelp" value="{{ $parente->Profissao }}" disabled>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="inputRenda">Renda Mensal R$</label>
+              <input type="number" class="form-control" id="inputRenda" name="inputRenda" aria-describedby="inputRendaHelp" value="{{ $parente->Renda }}" disabled>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
     @endforeach
   </div>
   <hr>

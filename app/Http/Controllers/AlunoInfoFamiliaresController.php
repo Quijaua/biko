@@ -29,4 +29,18 @@ class AlunoInfoFamiliaresController extends Controller
         'success' => 'DADOS SALVOS COM SUCESSO.',
       ]);
     }
+
+    public function update(Request $request, $id)
+    {
+      $infos = AlunoInfoFamiliares::find($id);
+
+      $infos->GrauParentesco = $request->input('inputGrauParentesco');
+      $infos->Idade = $request->input('inputIdade');
+      $infos->EstadoCivil = $request->input('inputEstadoCivil');
+      $infos->Escolaridade = $request->input('inputEscolaridade');
+      $infos->Profissao = $request->input('inputProfissao');
+      $infos->Renda = $request->input('inputRenda');
+
+      $infos->save();
+    }
 }

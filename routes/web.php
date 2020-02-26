@@ -43,6 +43,7 @@ Route::get('alunos/enable/{id}', 'AlunosController@enable')->middleware('permiss
 Route::any('alunos/search', 'AlunosController@search')->middleware('permissions')->name('alunos/search');
 Route::any('alunos/nucleo/search', 'AlunosController@searchByNucleo')->middleware('permissions')->name('alunos/nucleo/search');
 Route::post('alunos/familiares/add', 'AlunoInfoFamiliaresController@add')->name('alunos/familiares/add');
+Route::post('alunos/familiares/update/{id}', 'AlunoInfoFamiliaresController@update')->name('alunos/familiares/update');
 Route::get('alunos/export/', 'AlunosController@export')->name('alunos/export/');
 
 // ROUTES FOR COORDENADORES MANAGEMENT
@@ -71,4 +72,3 @@ Route::any('professores/search', 'ProfessoresController@search')->middleware('pe
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
-
