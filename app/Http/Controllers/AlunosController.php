@@ -380,6 +380,58 @@ class AlunosController extends Controller
       $user = Auth::user();
       $cpf = $request->input('cpf');
       $status = $request->input('status');
+      $query = $request->input('inputQuery');
+
+      if($query){
+        if($user->role === 'coordenador'){
+          $me = Coordenadores::where('id_user', $user->id)->first();
+          //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->get();
+          $results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->paginate(25);
+          if($results->isEmpty()){
+            return back()->with('error', 'Nenhum resultado encontrado.');
+          }else{
+            return view('alunos')->with([
+              'user' => $user,
+              'alunos' => $results,
+            ]);
+          }
+        }elseif($user->role === 'professor'){
+          $me = Professores::where('id_user', $user->id)->first();
+          //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->get();
+          $results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->paginate(25);
+          if($results->isEmpty()){
+            return back()->with('error', 'Nenhum resultado encontrado.');
+          }else{
+            return view('alunos')->with([
+              'user' => $user,
+              'alunos' => $results,
+            ]);
+          }
+        }else{
+          $query = $request->input('inputQuery');
+          //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->get();
+          $results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->paginate(25);
+          if($results->isEmpty()){
+            return back()->with('error', 'Nenhum resultado encontrado.');
+          }else{
+            return view('alunos')->with([
+              'user' => $user,
+              'alunos' => $results,
+            ]);
+          }
+        }
+      }
+
+      if($cpf){
+        if($cpf != ''){
+          $result = Aluno::where('CPF', $cpf)->count();
+          if($result > 0){
+            return \Response::json(true);
+          }elseif($result === 0){
+            return \Response::json(false);
+          }
+        }
+      }
 
       if($user->role === 'coordenador'){
         $myNucleo = Nucleo::find($user->coordenador->id_nucleo);
@@ -436,40 +488,6 @@ class AlunosController extends Controller
         };
       }
 
-      if($cpf != ''){
-        $result = Aluno::where('CPF', $cpf)->count();
-        if($result > 0){
-          return \Response::json(true);
-        }elseif($result === 0){
-          return \Response::json(false);
-        }
-      }
-
-      $query = $request->input('inputQuery');
-      if($user->role === 'coordenador'){
-        $me = Coordenadores::where('id_user', $user->id)->first();
-        //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->get();
-        $results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->paginate(25);
-      }elseif($user->role === 'professor'){
-        $me = Professores::where('id_user', $user->id)->first();
-        //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->get();
-        $results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->paginate(25);
-      }else{
-        $query = $request->input('inputQuery');
-        //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->get();
-        $results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->paginate(25);
-      }
-      //$query = $request->input('inputQuery');
-      //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->get();
-
-      if($results->isEmpty()){
-        return back()->with('error', 'Nenhum resultado encontrado.');
-      }else{
-        return view('alunos')->with([
-          'user' => $user,
-          'alunos' => $results
-        ]);
-      }
     }
 
     public function searchByNucleo(Request $request)
