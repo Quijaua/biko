@@ -346,17 +346,123 @@ class CoordenadoresController extends Controller
     public function search(Request $request)
     {
       $user = Auth::user();
-      $status = $request->input('status');
       $cpf = $request->input('cpf');
+      $status = $request->input('status');
+      $query = $request->input('inputQuery');
 
-      if($cpf != ''){
-        $result = Coordenadores::where('CPF', $cpf)->count();
-        if($result > 0){
-          return \Response::json(true);
-        }elseif($result === 0){
-          return \Response::json(false);
+      if($query){
+        if($user->role === 'coordenador'){
+          $me = Coordenadores::where('id_user', $user->id)->first();
+          //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->get();
+          $results = Coordenadores::where('NomeCoordenador','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->paginate(25);
+          if($results->isEmpty()){
+            return back()->with('error', 'Nenhum resultado encontrado.');
+          }else{
+            return view('coordenadores')->with([
+              'user' => $user,
+              'coordenadores' => $results,
+            ]);
+          }
+        }elseif($user->role === 'professor'){
+          $me = Professores::where('id_user', $user->id)->first();
+          //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->get();
+          $results = Coordenadores::where('NomeCoordenador','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->paginate(25);
+          if($results->isEmpty()){
+            return back()->with('error', 'Nenhum resultado encontrado.');
+          }else{
+            return view('coordenadores')->with([
+              'user' => $user,
+              'coordenadores' => $results,
+            ]);
+          }
+        }else{
+          $query = $request->input('inputQuery');
+          //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->get();
+          $results = Coordenadores::where('NomeCoordenador','LIKE','%'.$query.'%')->paginate(25);
+          if($results->isEmpty()){
+            return back()->with('error', 'Nenhum resultado encontrado.');
+          }else{
+            return view('coordenadores')->with([
+              'user' => $user,
+              'coordenadores' => $results,
+            ]);
+          }
         }
       }
+
+      if($cpf){
+        if($cpf != ''){
+          $result = Coordenadores::where('CPF', $cpf)->count();
+          if($result > 0){
+            return \Response::json(true);
+          }elseif($result === 0){
+            return \Response::json(false);
+          }
+        }
+      }
+
+      if($user->role === 'coordenador'){
+        $myNucleo = Nucleo::find($user->coordenador->id_nucleo);
+        $nucleo = $myNucleo->id;
+      }else if($user->role === 'professor'){
+        $myNucleo = Nucleo::find($user->professor->id_nucleo);
+        $nucleo = $myNucleo->id;
+      }else if($user->role === 'aluno'){
+        $myNucleo = Nucleo::find($user->aluno->id_nucleo);
+        $nucleo = $myNucleo->id;
+      }else{
+        $nucleo = $request->input('nucleo');
+      }
+
+      if($status === NULL && $nucleo === NULL){
+        //$result = Aluno::get();
+        $result = Coordenadores::paginate(25);
+        return view('alunos')->with([
+          'nucleo' => $nucleo,
+          'user' => $user,
+          'alunos' => $result,
+        ]);
+      }else if($status === NULL){
+        //$result = Aluno::where('id_nucleo', $nucleo)->get();
+        $result = Coordenadores::where('id_nucleo', $nucleo)->paginate(25);
+        return view('alunos')->with([
+          'nucleo' => $nucleo,
+          'user' => $user,
+          'alunos' => $result,
+        ]);
+      }else if($nucleo === NULL){
+        //$result = Aluno::where('Status', $status)->get();
+        $result = Coordenadores::where('Status', $status)->paginate(25);
+        return view('alunos')->with([
+          'nucleo' => $nucleo,
+          'user' => $user,
+          'alunos' => $result,
+        ]);
+      }else{
+        //$result = Aluno::where('Status', $status)->where('id_nucleo', $nucleo)->get();
+        $result = Coordenadores::where('Status', $status)->where('id_nucleo', $nucleo)->paginate(25);
+        if($result->isEmpty()){
+          return redirect('alunos')->with([
+            'nucleo' => $nucleo,
+            'alunos' => $result,
+            'error' => 'Não há alunos inativos no momento.',
+          ]);
+        }else{
+          return view('alunos')->with([
+            'nucleo' => $nucleo,
+            'user' => $user,
+            'alunos' => $result,
+          ]);
+        };
+      }
+
+
+
+
+dd($user);
+
+
+
 
       if($status === '0'){
         //$user = Auth::user();

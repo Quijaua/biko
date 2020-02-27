@@ -419,15 +419,58 @@ class ProfessoresController extends Controller
     public function search(Request $request)
     {
       $user = Auth::user();
-      $status = $request->input('status');
       $cpf = $request->input('cpf');
+      $status = $request->input('status');
+      $query = $request->input('inputQuery');
 
-      if($cpf != ''){
-        $result = Professores::where('CPF', $cpf)->count();
-        if($result > 0){
-          return \Response::json(true);
-        }elseif($result === 0){
-          return \Response::json(false);
+      if($query){
+        if($user->role === 'coordenador'){
+          $me = Coordenadores::where('id_user', $user->id)->first();
+          //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->get();
+          $results = Professores::where('NomeProfessor','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->paginate(25);
+          if($results->isEmpty()){
+            return back()->with('error', 'Nenhum resultado encontrado.');
+          }else{
+            return view('professores')->with([
+              'user' => $user,
+              'professores' => $results,
+            ]);
+          }
+        }elseif($user->role === 'professor'){
+          $me = Professores::where('id_user', $user->id)->first();
+          //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->get();
+          $results = Professores::where('NomeProfessor','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->paginate(25);
+          if($results->isEmpty()){
+            return back()->with('error', 'Nenhum resultado encontrado.');
+          }else{
+            return view('professores')->with([
+              'user' => $user,
+              'professores' => $results,
+            ]);
+          }
+        }else{
+          $query = $request->input('inputQuery');
+          //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->get();
+          $results = Professores::where('NomeProfessor','LIKE','%'.$query.'%')->paginate(25);
+          if($results->isEmpty()){
+            return back()->with('error', 'Nenhum resultado encontrado.');
+          }else{
+            return view('professores')->with([
+              'user' => $user,
+              'professores' => $results,
+            ]);
+          }
+        }
+      }
+
+      if($cpf){
+        if($cpf != ''){
+          $result = Professores::where('CPF', $cpf)->count();
+          if($result > 0){
+            return \Response::json(true);
+          }elseif($result === 0){
+            return \Response::json(false);
+          }
         }
       }
 
@@ -445,17 +488,6 @@ class ProfessoresController extends Controller
         ]);
       }
 
-      $query = $request->input('inputQuery');
-      $results = Professores::where('NomeProfessor','LIKE','%'.$query.'%')->get();
-
-      if($results->isEmpty()){
-        return back()->with('error', 'Nenhum resultado encontrado.');
-      }else{
-        return view('professores')->with([
-          'user' => $user,
-          'professores' => $results,
-        ]);
-      }
     }
 
     public function details($id)
