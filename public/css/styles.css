@@ -1,3 +1,7 @@
+.w25p {
+  width: 25%;
+}
+
 @media print {
   @page {
     margin: 2cm;

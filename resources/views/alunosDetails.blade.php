@@ -545,10 +545,10 @@
           </div>
         </div>
       </div>
+      <hr>
     </div>
     @endforeach
   </div>
-  <hr>
   <h3>DADOS ACADÊMICOS</h3>
   <div class="row">
     <div class="col">

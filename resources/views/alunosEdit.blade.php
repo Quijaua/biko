@@ -508,7 +508,7 @@
       @foreach($familiares as $parente)
 
       <div class="container-fluid p-3">
-        <div id="item" class="stage">
+        <div id="item-{{$parente->id}}" class="stage">
           <div class="row">
             <div class="col">
               <div class="form-group">
@@ -579,10 +579,12 @@
             <div class="col-4">
               <button class="btn-update btn btn-success btn-block" type="button" name="button" onclick="updateParents(<?php echo $parente->id ?>)">Salvar Item</button>
             </div>
+            <div class="col-4">
+              <button class="btn-delete btn btn-danger btn-block" type="button" name="button" onclick="deleteParents(<?php echo $parente->id; ?>)">Remover Item</button>
+            </div>
           </div>
           <hr>
         </div>
-
       </div>
       @endforeach
     </div>
@@ -988,4 +990,11 @@
   <!-- FAMILIA INFO MODAL END -->
 
 </div>
+<script>
+$(document).ready(function(){
+  $("#modal-dados-familia").on('hidden.bs.modal', function(){
+    location.reload();
+  });
+});
+</script>
 @endsection

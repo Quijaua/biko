@@ -43,4 +43,9 @@ class AlunoInfoFamiliaresController extends Controller
 
       $infos->save();
     }
+
+    public function delete($id)
+    {
+      AlunoInfoFamiliares::destroy($id);
+    }
 }

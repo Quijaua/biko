@@ -194,5 +194,22 @@ function updateParents(id){
 				}
 			},
 	});
+}
 
+function deleteParents(id){
+	data = $("#updateParents"+id).serialize();
+	$.ajax({
+			url: '/alunos/familiares/delete/'+id,
+			type: 'post',
+			data: data,
+			success: function(response)
+			{
+				if(response = true){
+					$('#item-'+id).remove();
+					alert('Item removido com sucesso.');
+				}else if(response = false){
+					alert('Erro na remoção do item.');
+				}
+			},
+	});
 }

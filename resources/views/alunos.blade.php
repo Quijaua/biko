@@ -79,7 +79,6 @@
           <tr>
             <th scope="col">Foto</th>
             <th scope="col">Nome</th>
-            <!--<th scope="col">Lista de Espera</th>-->
             <th scope="col">Núcleo</th>
             <th scope="col">Situação</th>
             <th scope="col">Lista de Espera</th>
@@ -95,9 +94,9 @@
             <td><img class="rounded-circle" src="{{ asset('images') }}/user.png" alt="Avatar" width="25%"></td>
             @endif
             @if($aluno->NomeSocial === null)
-            <td>{{ $aluno->NomeAluno}}</td>
+            <td class="w25p">{{ $aluno->NomeAluno}}</td>
             @else
-            <td>{{ $aluno->NomeSocial}}</td>
+            <td class="w25p">{{ $aluno->NomeSocial}}</td>
             @endif
             @php $nomeNucleo = \App\Nucleo::where('id', $aluno->id_nucleo)->get('NomeNucleo'); @endphp
             @if($nomeNucleo->isEmpty())

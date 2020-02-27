@@ -484,14 +484,14 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <!--<div class="row">
       <div class="col">
         <button type="button" class="btn btn-lg btn-block btn-primary" data-toggle="modal" data-backdrop="true" data-keyboard="true" data-target=".modal-dados-familia">INFORMAÇÕES DA FAMÍLIA <strong>(OBRIGATÓRIO)</strong></button>
         <div class="text-center">
           <small>Relacione aqui todas as pessoas que residem em sua casa, incluindo você (em caso de pais separados, se houver pensão relacione-o também).</small>
         </div>
       </div>
-    </div>
+    </div>-->
     <hr>
     <h3>DADOS ACADÊMICOS</h3>
     <div class="row">
@@ -694,7 +694,7 @@
   </form>
 
   <!-- FAMILIA INFO MODAL -->
-  <div id="modal-dados-familia" class="modal fade modal-dados-familia" tabindex="-1" role="dialog" aria-labelledby="ModalFamilyInfoLabel" aria-hidden="true">
+  <!--<div id="modal-dados-familia" class="modal fade modal-dados-familia" tabindex="-1" role="dialog" aria-labelledby="ModalFamilyInfoLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
@@ -783,7 +783,7 @@
         </form>
       </div>
     </div>
-  </div>
+  </div>-->
   <!-- FAMILIA INFO MODAL END -->
 
 </div>

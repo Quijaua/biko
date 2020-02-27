@@ -44,6 +44,7 @@ Route::any('alunos/search', 'AlunosController@search')->middleware('permissions'
 Route::any('alunos/nucleo/search', 'AlunosController@searchByNucleo')->middleware('permissions')->name('alunos/nucleo/search');
 Route::post('alunos/familiares/add', 'AlunoInfoFamiliaresController@add')->name('alunos/familiares/add');
 Route::post('alunos/familiares/update/{id}', 'AlunoInfoFamiliaresController@update')->name('alunos/familiares/update');
+Route::post('alunos/familiares/delete/{id}', 'AlunoInfoFamiliaresController@delete')->name('alunos/familiares/delete');
 Route::get('alunos/export/', 'AlunosController@export')->name('alunos/export/');
 
 // ROUTES FOR COORDENADORES MANAGEMENT
