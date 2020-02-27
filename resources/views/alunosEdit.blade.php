@@ -971,7 +971,7 @@
                 <div class="col">
                   <div class="form-group">
                     <label for="inputRenda">Renda Mensal R$</label>
-                    <input type="number" class="form-control" id="inputRenda" name="inputRenda" aria-describedby="inputRendaHelp" placeholder="Renda em R$">
+                    <input type="number" class="form-control" id="inputRenda" name="inputRenda" aria-describedby="inputRendaHelp" placeholder="Ex: 1.200,00">
                   </div>
                 </div>
               </div>
