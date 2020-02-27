@@ -164,8 +164,10 @@ class NucleoController extends Controller
     {
       $user = Auth::user();
       $status = $request->input('status');
+
       if($status != ''){
-        $result = Nucleo::where('Status', 0)->get();
+        //$result = Nucleo::where('Status', 0)->get();
+        $result = Nucleo::where('Status', 0)->paginate(25);
         if($result->isEmpty()){
           return redirect('nucleos')->with([
             'error' => 'Não há núcleos inativos no momento.',
@@ -179,7 +181,8 @@ class NucleoController extends Controller
       }
 
       $query = $request->input('inputQuery');
-      $results = Nucleo::where('NomeNucleo','LIKE','%'.$query.'%')->get();
+      //$results = Nucleo::where('NomeNucleo','LIKE','%'.$query.'%')->get();
+      $results = Nucleo::where('NomeNucleo','LIKE','%'.$query.'%')->paginate(25);
 
       if($results->isEmpty()){
         return back()->with('error', 'Nenhum resultado encontrado.');
