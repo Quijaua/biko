@@ -83,7 +83,13 @@
         <tbody>
           @foreach($coordenadores as $coordenador)
           <tr>
+            @if($coordenador->Foto)
             <td><img class="rounded-circle" src="{{ asset('storage') }}/{{ $coordenador->Foto }}" alt="{{ $coordenador->Foto }}" width="25%"></td>
+            @else
+            <td><img class="rounded-circle" src="{{ asset('images') }}/user.png" alt="Avatar" width="25%"></td>
+            @endif
+
+
             @if($coordenador->NomeSocial === null)
             <td>{{ $coordenador->NomeCoordenador }}</td>
             @else

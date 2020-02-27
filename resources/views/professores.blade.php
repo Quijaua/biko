@@ -83,7 +83,11 @@
         <tbody>
           @foreach($professores as $professor)
           <tr>
+            @if($professor->Foto)
             <td><img class="rounded-circle" src="{{ asset('storage') }}/{{ $professor->Foto }}" alt="{{ $professor->Foto }}" width="25%"></td>
+            @else
+            <td><img class="rounded-circle" src="{{ asset('images') }}/user.png" alt="Avatar" width="25%"></td>
+            @endif
             @if($professor->NomeSocial === null)
             <td>{{ $professor->NomeProfessor }}</td>
             @else

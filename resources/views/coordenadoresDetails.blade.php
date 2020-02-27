@@ -10,7 +10,11 @@
   </div>
   <div class="row">
     <div class="col text-center">
-      <img class="rounded-circle" src="{{ asset('storage') }}/{{ $dados->Foto }}" alt="{{ $dados->Foto }}">
+       @if($dados->Foto)
+       <img class="rounded-circle" src="{{ asset('storage') }}/{{ $dados->Foto }}" alt="{{ $dados->Foto }}">
+       @else
+       <img class="rounded-circle" src="{{ asset('images') }}/user.png" alt="Avatar">
+       @endif
     </div>
   </div>
 
