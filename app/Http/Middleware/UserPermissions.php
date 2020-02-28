@@ -118,6 +118,7 @@ class UserPermissions
         $allowedCoordenadoresEdit = 'coordenadores/edit/'.$user->coordenador->id;
         $allowedCoordenadoresUpdate = 'coordenadores/update/';
         $allowedProfessoresIndex = 'professores';
+        $allowedProfessoresSearch = 'professores/search';
         $allowedProfessoresCreate = 'professores/add';
         $allowedProfessoresDetails = 'professores/details/';
         $allowedProfessoresEdit = 'professores/edit/';
@@ -175,6 +176,9 @@ class UserPermissions
 
         //RULES FOR PROFESSORES ROUTES
         if($currentPath === $allowedProfessoresIndex){
+          return $next($request);
+        }
+        if($currentPath === $allowedProfessoresSearch){
           return $next($request);
         }
         if($currentPath === $allowedProfessoresCreate){
