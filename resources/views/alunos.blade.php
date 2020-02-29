@@ -89,9 +89,9 @@
           @foreach($alunos as $aluno)
           <tr>
             @if($aluno->Foto)
-            <td><img class="rounded-circle" src="{{ asset('storage') }}/{{ $aluno->Foto }}" alt="{{ $aluno->Foto }}" width="25%"></td>
+            <td class="avatar"><img class="rounded-circle" src="{{ asset('storage') }}/{{ $aluno->Foto }}" alt="{{ $aluno->NomeAluno }}"></td>
             @else
-            <td><img class="rounded-circle" src="{{ asset('images') }}/user.png" alt="Avatar" width="25%"></td>
+            <td class="avatar"><img class="rounded-circle" src="{{ asset('images') }}/user.png" alt="{{ $aluno->NomeAluno }}"></td>
             @endif
             @if($aluno->NomeSocial === null)
             <td class="w25p">{{ $aluno->NomeAluno}}</td>
