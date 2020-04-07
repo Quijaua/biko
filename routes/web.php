@@ -42,6 +42,7 @@ Route::get('alunos/disable/{id}', 'AlunosController@disable')->middleware('permi
 Route::get('alunos/enable/{id}', 'AlunosController@enable')->middleware('permissions');
 Route::any('alunos/search', 'AlunosController@search')->middleware('permissions')->name('alunos/search');
 Route::any('alunos/nucleo/search', 'AlunosController@searchByNucleo')->middleware('permissions')->name('alunos/nucleo/search');
+Route::any('api/alunos/nucleo/search', 'AlunosController@searchByNucleoAPI')->middleware('permissions')->name('alunos/nucleo/search.api');
 Route::post('alunos/familiares/add', 'AlunoInfoFamiliaresController@add')->name('alunos/familiares/add');
 Route::post('alunos/familiares/update/{id}', 'AlunoInfoFamiliaresController@update')->name('alunos/familiares/update');
 Route::post('alunos/familiares/delete/{id}', 'AlunoInfoFamiliaresController@delete')->name('alunos/familiares/delete');

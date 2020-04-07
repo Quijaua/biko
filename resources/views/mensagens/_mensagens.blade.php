@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <ul class="list-unstyled">
                             <li class="pb-2 pt-2 border-bottom">
-                                <a href="#" class="text-black-50">
+                                <a href="{{ route('messages.index') }}" class="text-black-50">
                                     <i class="fas fa-inbox"></i>
                                     Entrada
                                 </a>

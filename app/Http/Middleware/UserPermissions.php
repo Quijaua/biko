@@ -84,7 +84,11 @@ class UserPermissions
             $allowedProfessoresUpdate = 'professores/update/' . $user->professor->id;
             $allowedCoordenadoresList = 'coordenadores';
             $allowedInactive = 'professores/disable/';
+            $allowedNucleosSearchApi = 'api/alunos/nucleo/search';
 
+            if ($allowedNucleosSearchApi === $currentPath) {
+                return $next($request);
+            }
             if ($allowedProfessoresIndex === $currentPath) {
                 return $next($request);
             }
@@ -150,6 +154,7 @@ class UserPermissions
             $allowedNucleosEdit = 'nucleos/edit/' . $user->coordenador->id_nucleo;
             $allowedNucleosUpdate = 'nucleos/update/' . $user->coordenador->id_nucleo;
             $allowedNucleosSearch = 'alunos/nucleo/search';
+            $allowedNucleosSearchApi = 'api/alunos/nucleo/search';
 
             //RULES FOR ALUNOS ROUTES
             if ($currentPath === $allowedAlunosIndex) {
@@ -162,6 +167,9 @@ class UserPermissions
                 return $next($request);
             }
             if ($currentPath === $allowedAlunosSearch) {
+                return $next($request);
+            }
+            if ($currentPath === $allowedNucleosSearchApi) {
                 return $next($request);
             }
             if (strpos($currentPath, $allowedAlunosDetails) === 0) {

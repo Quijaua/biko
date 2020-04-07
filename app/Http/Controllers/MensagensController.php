@@ -19,7 +19,7 @@ class MensagensController extends Controller
 
     public function create()
     {
-        $nucleos = Nucleo::all();
+        $nucleos = Nucleo::whereStatus()->get();
         return view('mensagens.create', compact('nucleos'));
     }
 
