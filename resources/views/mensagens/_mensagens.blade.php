@@ -55,3 +55,7 @@
     </div>
 
 @endsection
+
+@section('js')
+    <script src="{{ asset('js/mensagens.js') }}" defer></script>
+@endsection

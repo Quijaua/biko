@@ -15,10 +15,12 @@
     <script src="{{ asset('js/jquery.mask.min.js') }}" defer></script>
     <script src="{{ asset('js/jquery.maskMoney.min.js') }}" defer></script>
     <script src="{{ asset('js/jquery.cpf-validate.1.0.min.js') }}" defer></script>
+    <script src="{{ asset('js/select2.min.js') }}" defer></script>
     <script src="{{ asset('js/functions.js') }}" defer></script>
 
     <!-- FontsAwesome -->
     <link href="{{ asset('css/fontawesome.min.css') }}" rel="stylesheet"> <!--load all styles -->
+    <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet"> <!--load all styles -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

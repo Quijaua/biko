@@ -8,19 +8,28 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        <label for="inputPara">Para</label>
-                        <select name="inputPara" id="inputPara" class="custom-select">
-                            <option selected>Todos os núcleos</option>
+                        <label for="inputPara">Para o núcleos:</label>
+                        <select name="inputPara" id="inputPara" class="custom-select" multiple>
+                            <option value="null" selected>Todos os núcleos</option>
                             @foreach($nucleos as $nucleo)
                                 <option value="{{ $nucleo->id }}">{{ $nucleo->NomeNucleo }}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
-                <div class="col d-none">
 
-                    teste
-
+            </div>
+            <div class="row d-none" id="divAluno">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="inputPara">Aluno</label>
+                        <select name="inputPara" id="inputPara" class="custom-select">
+                            <option value="null" selected>Todos os núcleos</option>
+                            @foreach($nucleos as $nucleo)
+                                <option value="{{ $nucleo->id }}">{{ $nucleo->NomeNucleo }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
