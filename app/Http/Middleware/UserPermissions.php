@@ -32,9 +32,13 @@ class UserPermissions
             $currentPath = $request->path();
             $allowedMensagensIndex = 'mensagens';
             $allowedMensagensCreate = 'mensagens/create';
+            $allowedMensagensStore = 'mensagens/store';
 
             if ($user->allowed_send_email) {
                 if ($currentPath === $allowedMensagensCreate) {
+                    return $next($request);
+                }
+                if ($currentPath === $allowedMensagensStore) {
                     return $next($request);
                 }
             }

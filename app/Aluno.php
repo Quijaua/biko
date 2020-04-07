@@ -90,4 +90,9 @@ class Aluno extends Model
     {
         return self::query()->where('Status', $value);
     }
+
+    public static function whereNucleo($nucleo)
+    {
+        return self::query()->where('id_nucleo', $nucleo);
+    }
 }
