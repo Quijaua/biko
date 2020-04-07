@@ -69,6 +69,10 @@ Route::get('professores/disable/{id}', 'ProfessoresController@disable')->middlew
 Route::get('professores/enable/{id}', 'ProfessoresController@enable')->middleware('permissions');
 Route::any('professores/search', 'ProfessoresController@search')->middleware('permissions')->name('professores/search');
 
+// ROUTES FOR MESSAGE MANAGEMENT
+Route::get('mensagens', 'MensagensController@index')->middleware('permissions')->name('messages.index');
+Route::get('mensagens/create', 'MensagensController@create')->middleware('permissions')->name('messages.create');
+
 // PROTECTED ROUTES
 Auth::routes(['verify' => true]);
 

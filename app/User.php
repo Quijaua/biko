@@ -16,7 +16,12 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role', 'email_verified_at', 'phone'
+        'name',
+        'email',
+        'password',
+        'role',
+        'email_verified_at',
+        'phone'
     ];
 
     /**
@@ -25,7 +30,8 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**
@@ -35,6 +41,10 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+    ];
+
+    protected $appends = [
+        'allowed_send_email',
     ];
 
     public function aluno()
@@ -50,6 +60,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function coordenador()
     {
       return $this->hasOne('App\Coordenadores', 'id_user');
+    }
+
+    public function getAllowedSendEmailAttribute()
+    {
+        return in_array($this->role, ['professor', 'coordenador']);
     }
 
 }

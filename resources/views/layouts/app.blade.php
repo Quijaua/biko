@@ -77,7 +77,7 @@
                             @endif
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/mensagens">{{ __('MENSAGENS') }}</a>
+                                <a class="nav-link" href="{{ route('messages.index') }}">{{ __('MENSAGENS') }}</a>
                             </li>
                       @endauth
                     </ul>
@@ -123,6 +123,8 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        @yield('js')
     </div>
 </body>
 </html>
