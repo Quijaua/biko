@@ -40,39 +40,46 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                      @guest
-                      @else
-                      @if(Session::get('role') === 'aluno')
-                      @if(Session::get('cpf') === 'OK')
-                      <li class="nav-item">
-                          <a class="nav-link" href="/alunos">{{ __('MEUS DADOS') }}</a>
-                      </li>
-                      @endif
-                      @if(Session::get('cpf') === 'null')
-                      <li class="nav-item">
-                          <a class="nav-link btn-danger text-light" href="/alunos">{{ __('INFORME SEUS DADOS') }}</a>
-                      </li>
-                      @endif
-                      @endif
-                      @if(Session::get('role') !== 'aluno')
-                      @if(Session::get('verified'))
-                      <li class="nav-item">
-                          <a class="nav-link" href="/alunos">{{ __('ALUNOS') }}</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="/professores">{{ __('PROFESSORES') }}</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="/coordenadores">{{ __('COORDENADORES') }}</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="/nucleos">{{ __('NÚCLEOS') }}</a>
-                      </li>
-                      @endif
-                      @endif
-                      @endguest
+                        @auth
+                            @if(Session::get('role') === 'aluno')
+                                @if(Session::get('cpf') === 'OK')
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/alunos">
+                                            {{ __('MEUS DADOS') }}
+                                        </a>
+                                    </li>
+                                @endif
+                                @if(Session::get('cpf') === 'null')
+                                    <li class="nav-item">
+                                        <a class="nav-link btn-danger text-light" href="/alunos">
+                                            {{ __('INFORME SEUS DADOS') }}
+                                        </a>
+                                    </li>
+                                @endif
+                            @endif
+
+                            @if(Session::get('role') !== 'aluno')
+                                @if(Session::get('verified'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/alunos">{{ __('ALUNOS') }}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/professores">{{ __('PROFESSORES') }}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/coordenadores">{{ __('COORDENADORES') }}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/nucleos">{{ __('NÚCLEOS') }}</a>
+                                    </li>
+                                @endif
+                            @endif
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/mensagens">{{ __('MENSAGENS') }}</a>
+                            </li>
+                      @endauth
                     </ul>
 
 
