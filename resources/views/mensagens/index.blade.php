@@ -17,11 +17,17 @@
                 @if(\Illuminate\Support\Facades\Auth::user()->allowed_send_email)
                     @forelse($mensagens as $mensagem)
                         <tr>
-                            <th width="65%" scope="row">
+                            <th scope="row">
                                 <a href="{{ route('messages.show', $mensagem->id) }}">
                                     {{ $mensagem->titulo }}
                                 </a>
                             </th>
+                            <td>
+                                {{ $mensagem->nucleos_formatted }}
+                            </td>
+                            <td>
+                                {{ $mensagem->alunos_formatted }}
+                            </td>
                             <td>
                                 {{ \Carbon\Carbon::parse($mensagem->created_at)->format('d/m/Y h:i') }}
                             </td>

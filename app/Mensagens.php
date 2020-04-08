@@ -17,6 +17,11 @@ class Mensagens extends Model
         'mensagem',
     ];
 
+    protected $appends = [
+        'nucleos_formatted',
+        'alunos_formatted',
+    ];
+
     protected $casts = [
         'nucleos' => 'array'
     ];
@@ -29,6 +34,24 @@ class Mensagens extends Model
     public function remetente()
     {
         return $this->belongsTo(User::class, 'remetente_id');
+    }
+
+    public function getNucleosFormattedAttribute()
+    {
+        if ($this->nucleos === null) {
+            return 'Todos os núcleos';
+        }
+
+        return Nucleo::query()
+            ->whereIn('id', $this->nucleos)
+            ->get()
+            ->pluck('NomeNucleo')
+            ->join(', ');
+    }
+
+    public function getAlunosFormattedAttribute()
+    {
+        return $this->mensagensAluno->pluck('aluno.NomeAluno')->join(', ');
     }
 
     public static function create(array $attributes = [])
