@@ -66,7 +66,7 @@
     const editor = new Quill('#editor', {
         modules: {
             toolbar: [
-                ['bold', 'italic', 'underline', 'strike'],
+                ['bold', 'link', 'italic', 'underline', 'strike'],
                 ['blockquote', 'code-block'],
                 [{'header': 1}, {'header': 2}],
                 [{'list': 'ordered'}, {'list': 'bullet'}],
