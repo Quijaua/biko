@@ -42,6 +42,7 @@ Route::get('alunos/disable/{id}', 'AlunosController@disable')->middleware('permi
 Route::get('alunos/enable/{id}', 'AlunosController@enable')->middleware('permissions');
 Route::any('alunos/search', 'AlunosController@search')->middleware('permissions')->name('alunos/search');
 Route::any('alunos/nucleo/search', 'AlunosController@searchByNucleo')->middleware('permissions')->name('alunos/nucleo/search');
+Route::any('api/alunos/nucleo/search', 'AlunosController@searchByNucleoAPI')->middleware('permissions')->name('alunos/nucleo/search.api');
 Route::post('alunos/familiares/add', 'AlunoInfoFamiliaresController@add')->name('alunos/familiares/add');
 Route::post('alunos/familiares/update/{id}', 'AlunoInfoFamiliaresController@update')->name('alunos/familiares/update');
 Route::post('alunos/familiares/delete/{id}', 'AlunoInfoFamiliaresController@delete')->name('alunos/familiares/delete');
@@ -68,6 +69,14 @@ Route::post('professores/update/{id}', 'ProfessoresController@update')->middlewa
 Route::get('professores/disable/{id}', 'ProfessoresController@disable')->middleware('permissions');
 Route::get('professores/enable/{id}', 'ProfessoresController@enable')->middleware('permissions');
 Route::any('professores/search', 'ProfessoresController@search')->middleware('permissions')->name('professores/search');
+
+// ROUTES FOR MESSAGE MANAGEMENT
+Route::get('mensagens', 'MensagensController@index')->middleware('permissions')->name('messages.index');
+Route::get('mensagens/removed', 'MensagensController@removed')->middleware('permissions')->name('messages.removed');
+Route::get('mensagens/create', 'MensagensController@create')->middleware('permissions')->name('messages.create');
+Route::post('mensagens/store', 'MensagensController@store')->middleware('permissions')->name('messages.store');
+Route::get('mensagens/{mensagem}/show', 'MensagensController@show')->middleware('permissions')->name('messages.show');
+Route::delete('mensagens/{mensagem}/destroy', 'MensagensController@destroy')->middleware('permissions')->name('messages.destroy');
 
 // PROTECTED ROUTES
 Auth::routes(['verify' => true]);

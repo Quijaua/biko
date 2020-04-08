@@ -16,7 +16,12 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role', 'email_verified_at', 'phone'
+        'name',
+        'email',
+        'password',
+        'role',
+        'email_verified_at',
+        'phone'
     ];
 
     /**
@@ -25,7 +30,8 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**
@@ -37,19 +43,46 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    protected $appends = [
+        'allowed_send_email',
+        'is_professor_or_coordenador',
+        'is_professor',
+        'is_coordenador',
+    ];
+
     public function aluno()
     {
-      return $this->hasOne('App\Aluno', 'id_user');
+        return $this->hasOne('App\Aluno', 'id_user');
     }
 
     public function professor()
     {
-      return $this->hasOne('App\Professores', 'id_user');
+        return $this->hasOne('App\Professores', 'id_user');
     }
 
     public function coordenador()
     {
-      return $this->hasOne('App\Coordenadores', 'id_user');
+        return $this->hasOne('App\Coordenadores', 'id_user');
+    }
+
+    public function getAllowedSendEmailAttribute()
+    {
+        return in_array($this->role, ['professor', 'coordenador', 'administrador']);
+    }
+
+    public function getIsProfessorOrCoordenadorAttribute()
+    {
+        return $this->is_professor || $this->is_coordenador;
+    }
+
+    public function getIsProfessorAttribute()
+    {
+        return $this->professor !== null;
+    }
+
+    public function getIsCoordenadorAttribute()
+    {
+        return $this->coordenador !== null;
     }
 
 }

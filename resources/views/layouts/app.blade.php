@@ -15,10 +15,14 @@
     <script src="{{ asset('js/jquery.mask.min.js') }}" defer></script>
     <script src="{{ asset('js/jquery.maskMoney.min.js') }}" defer></script>
     <script src="{{ asset('js/jquery.cpf-validate.1.0.min.js') }}" defer></script>
+    <script src="{{ asset('js/select2.min.js') }}" defer></script>
+    <script src="{{ asset('js/quill.min.js') }}" defer></script>
     <script src="{{ asset('js/functions.js') }}" defer></script>
 
     <!-- FontsAwesome -->
     <link href="{{ asset('css/fontawesome.min.css') }}" rel="stylesheet"> <!--load all styles -->
+    <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet"> <!--load all styles -->
+    <link href="{{ asset('css/quill.snow.css') }}" rel="stylesheet"> <!--load all styles -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -40,39 +44,46 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                      @guest
-                      @else
-                      @if(Session::get('role') === 'aluno')
-                      @if(Session::get('cpf') === 'OK')
-                      <li class="nav-item">
-                          <a class="nav-link" href="/alunos">{{ __('MEUS DADOS') }}</a>
-                      </li>
-                      @endif
-                      @if(Session::get('cpf') === 'null')
-                      <li class="nav-item">
-                          <a class="nav-link btn-danger text-light" href="/alunos">{{ __('INFORME SEUS DADOS') }}</a>
-                      </li>
-                      @endif
-                      @endif
-                      @if(Session::get('role') !== 'aluno')
-                      @if(Session::get('verified'))
-                      <li class="nav-item">
-                          <a class="nav-link" href="/alunos">{{ __('ALUNOS') }}</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="/professores">{{ __('PROFESSORES') }}</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="/coordenadores">{{ __('COORDENADORES') }}</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="/nucleos">{{ __('NÚCLEOS') }}</a>
-                      </li>
-                      @endif
-                      @endif
-                      @endguest
+                        @auth
+                            @if(Session::get('role') === 'aluno')
+                                @if(Session::get('cpf') === 'OK')
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/alunos">
+                                            {{ __('MEUS DADOS') }}
+                                        </a>
+                                    </li>
+                                @endif
+                                @if(Session::get('cpf') === 'null')
+                                    <li class="nav-item">
+                                        <a class="nav-link btn-danger text-light" href="/alunos">
+                                            {{ __('INFORME SEUS DADOS') }}
+                                        </a>
+                                    </li>
+                                @endif
+                            @endif
+
+                            @if(Session::get('role') !== 'aluno')
+                                @if(Session::get('verified'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/alunos">{{ __('ALUNOS') }}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/professores">{{ __('PROFESSORES') }}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/coordenadores">{{ __('COORDENADORES') }}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/nucleos">{{ __('NÚCLEOS') }}</a>
+                                    </li>
+                                @endif
+                            @endif
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('messages.index') }}">{{ __('MENSAGENS') }}</a>
+                            </li>
+                      @endauth
                     </ul>
 
 
@@ -116,6 +127,8 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        @yield('js')
     </div>
 </body>
 </html>
