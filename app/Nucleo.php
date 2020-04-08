@@ -59,8 +59,10 @@ class Nucleo extends Model
     {
         return self::query()->when(Auth::user()->is_professor_or_coordenador, function (Builder $query) {
             return $query->whereHas('professores', function (Builder $query) {
-                if (Auth::user()->professor->OutrosNucleos) {
-                    $query->orWhereIn('id_user', Auth::user()->professor->OutrosNucleos);
+                if (Auth::user()->professor) {
+                    if (Auth::user()->professor->OutrosNucleos) {
+                        $query->orWhereIn('id_user', Auth::user()->professor->OutrosNucleos);
+                    }
                 }
 
                 return $query->where('id_user', Auth::user()->id);
