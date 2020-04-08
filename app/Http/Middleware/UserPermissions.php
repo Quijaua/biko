@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Mensagens;
+use App\MensagensAluno;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use App\Nucleo;
@@ -45,6 +47,12 @@ class UserPermissions
 
             if ($currentPath === $allowedMensagensIndex) {
                 return $next($request);
+            }
+
+            if ($request->routeIs('messages.show')) {
+                if ($request->mensagem->mensagensAluno()->where('aluno_id', Auth::user()->id)->exists()) {
+                    return $next($request);
+                }
             }
         }
 

@@ -23,6 +23,7 @@ class StoreMessageRequest extends FormRequest
         $nucleos = collect($this->nucleos);
         if ($nucleos->first() === 'null') {
             $this->merge(['nucleos' => null]);
+            $this->merge(['alunos' => null]);
         }
     }
 
@@ -35,8 +36,9 @@ class StoreMessageRequest extends FormRequest
     {
         return [
             'nucleos' => 'nullable',
-            'alunos' => 'array|sometimes',
-            'mensagem' => 'required',
+            'alunos' => 'nullable',
+            'titulo' => 'required|string',
+            'mensagem' => 'required|string',
         ];
     }
 }

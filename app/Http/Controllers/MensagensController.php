@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Aluno;
 use App\Http\Requests\StoreMessageRequest;
 use App\Mensagens;
 use App\MensagensAluno;
-use App\Models\ChecagemDocumentacao;
 use App\Nucleo;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class MensagensController extends Controller
@@ -20,12 +19,17 @@ class MensagensController extends Controller
 
     public function index()
     {
-        return view('mensagens.index');
+        $mensagensAluno = MensagensAluno::query()
+            ->where('aluno_id', Auth::user()->id)
+            ->paginate(15);
+
+        return view('mensagens.index', compact('mensagensAluno'));
     }
 
     public function create()
     {
         $nucleos = Nucleo::whereStatus()->get();
+
         return view('mensagens.create', compact('nucleos'));
     }
 
@@ -44,6 +48,12 @@ class MensagensController extends Controller
         });
 
         return redirect()->route('messages.index')->with('success', 'Mensagem enviada com sucesso');
+    }
+
+    public function show(Mensagens $mensagem)
+    {
+        $mensagem->marcarComoLida();
+        return view('mensagens.show', compact('mensagem'));
     }
 
 }

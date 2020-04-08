@@ -16,6 +16,7 @@ class CreateMensagensTable extends Migration
         Schema::create('mensagens', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('remetente');
+            $table->string('titulo');
             $table->text('nucleos')->nullable();
             $table->text('mensagem');
             $table->timestamps();

@@ -33,6 +33,14 @@
                 </div>
                 <div class="row">
                     <div class="col">
+                        <div class="form-group @if ($errors->has('titulo')) has-error @endif">
+                            <label for="titulo">Titulo:</label>
+                            <input type="text" id="titulo" name="titulo" class="custom-select" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
                         <div class="form-group @if ($errors->has('mensagem')) has-error @endif">
                             <label for="editor">Mensagem:</label>
                             <div id="editor"></div>

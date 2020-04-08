@@ -74,6 +74,7 @@ Route::any('professores/search', 'ProfessoresController@search')->middleware('pe
 Route::get('mensagens', 'MensagensController@index')->middleware('permissions')->name('messages.index');
 Route::get('mensagens/create', 'MensagensController@create')->middleware('permissions')->name('messages.create');
 Route::post('mensagens/store', 'MensagensController@store')->middleware('permissions')->name('messages.store');
+Route::get('mensagens/{mensagem}/show', 'MensagensController@show')->middleware('permissions')->name('messages.show');
 
 // PROTECTED ROUTES
 Auth::routes(['verify' => true]);

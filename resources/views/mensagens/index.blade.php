@@ -2,10 +2,46 @@
 
 @section('content_message')
     <div class="card">
-        <div class="card-header">Caixa de Entrada</div>
+        <div class="card-header">
+            @if(\Illuminate\Support\Facades\Auth::user()->allowed_send_email)
+                Mensagens enviadas
+            @else
+                Caixa de Entrada
+            @endif
+        </div>
 
-        <div class="card-body">
-            FIXME
+        <div class="card-body table-responsive">
+            <table class="table table-striped">
+                <tbody>
+                @forelse($mensagensAluno as $mensagemAluno)
+                    <tr>
+                        <td>
+                            <i class="fas {{ $mensagemAluno->is_visualizado ? 'fa-envelope-open' : 'fa-envelope' }}"></i>
+
+                        </td>
+                        <th width="55%" scope="row">
+                            <a href="{{ route('messages.show', $mensagemAluno->mensagem->id) }}">
+                                {{ $mensagemAluno->mensagem->titulo }}
+                            </a>
+                        </th>
+                        <td>
+                            {{ \Carbon\Carbon::parse($mensagemAluno->mensagem->created_at)->format('d/m/Y h:i') }}
+                        </td>
+                        <td>
+                            <a
+                                href="{{ route('messages.show', $mensagemAluno->mensagem->id) }}"
+                                class="btn btn-sm btn-success"
+                            >
+                                Visualizar
+                            </a>
+                            <a class="btn btn-sm btn-danger">Remover</a>
+                        </td>
+                    </tr>
+                @else
+                    <p>Nenhuma mensagem encontrada</p>
+                @endforelse
+                </tbody>
+            </table>
         </div>
     </div>
 @endsection

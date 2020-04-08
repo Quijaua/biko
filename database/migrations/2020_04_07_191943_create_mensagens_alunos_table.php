@@ -15,12 +15,12 @@ class CreateMensagensAlunoTable extends Migration
     {
         Schema::create('mensagens_alunos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('mensagem_id');
+            $table->unsignedBigInteger('mensagens_id');
             $table->unsignedBigInteger('aluno_id');
             $table->dateTime('visualizado_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('mensagem_id')->references('id')->on('mensagens');
+            $table->foreign('mensagens_id')->references('id')->on('mensagens');
             $table->foreign('aluno_id')->references('id')->on('alunos');
         });
     }

@@ -2,19 +2,26 @@
 
 namespace App;
 
+use App\Events\MessageCreated;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Translation\MessageSelector;
 
 class MensagensAluno extends Model
 {
     use SoftDeletes;
 
     protected $fillable = [
-        'mensagem_id',
+        'mensagens_id',
         'aluno_id',
         'visualizado_at',
+    ];
+
+    protected $appends = [
+        'is_visualizado',
     ];
 
     public function aluno()
@@ -24,7 +31,12 @@ class MensagensAluno extends Model
 
     public function mensagem()
     {
-        return $this->belongsTo(Mensagens::class, 'mensagem_id');
+        return $this->belongsTo(Mensagens::class, 'mensagens_id');
+    }
+
+    public function getIsVisualizadoAttribute()
+    {
+        return $this->visualizado_at !== null;
     }
 
     public static function enviarParaNucleos(Collection $nucleos, $mensagem)
@@ -36,17 +48,17 @@ class MensagensAluno extends Model
             });
         })->collapse();
 
-        return self::query()->insert($mensagens->toArray());
+        return self::saveMany($mensagens->toArray());
     }
 
     public static function enviarParaAlunos(Collection $alunos, $mensagem)
     {
-        $alunos = Aluno::whereIn('id', $alunos->toArray())->get();
+        $alunos = Aluno::query()->whereIn('id', $alunos->toArray())->get();
         $mensagens = $alunos->map(function (Aluno $aluno) use ($mensagem) {
             return self::convert($mensagem->id, $aluno->id);
         })->collapse();
 
-        return self::query()->insert($mensagens->toArray());
+        return self::saveMany($mensagens->toArray());
     }
 
     private static function convert($mensagemId, $alunoId)
@@ -57,6 +69,18 @@ class MensagensAluno extends Model
             'created_at' => Date::now(),
             'updated_at' => Date::now(),
         ];
+    }
+
+    public static function saveMany(array $values)
+    {
+        return DB::transaction(static function () use ($values) {
+            return collect($values)->map(function ($value) {
+                $message = self::query()->create($value);
+                event(new MessageCreated($message));
+
+                return $message;
+            });
+        });
     }
 
 }
