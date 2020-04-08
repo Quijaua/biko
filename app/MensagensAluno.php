@@ -3,12 +3,12 @@
 namespace App;
 
 use App\Events\MessageCreated;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Translation\MessageSelector;
 
 class MensagensAluno extends Model
 {
@@ -56,7 +56,7 @@ class MensagensAluno extends Model
         $alunos = Aluno::query()->whereIn('id', $alunos->toArray())->get();
         $mensagens = $alunos->map(function (Aluno $aluno) use ($mensagem) {
             return self::convert($mensagem->id, $aluno->id);
-        })->collapse();
+        });
 
         return self::saveMany($mensagens->toArray());
     }
