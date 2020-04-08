@@ -64,7 +64,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getAllowedSendEmailAttribute()
     {
-        return in_array($this->role, ['professor', 'coordenador']);
+        return in_array($this->role, ['professor', 'coordenador', 'administrador']);
     }
 
 }
