@@ -34,13 +34,6 @@
                             >
                                 Visualizar
                             </a>
-
-                            <form action="{{ route('messages.destroy', $mensagemAluno->mensagem->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-
-                                <button class="btn btn-sm btn-danger">Remover</button>
-                            </form>
                         </td>
                     </tr>
                 @empty

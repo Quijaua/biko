@@ -39,11 +39,7 @@ class Mensagens extends Model
 
     public function marcarComoLida()
     {
-        $mensagemAluno = MensagensAluno::query()
-            ->where('aluno_id', Auth::user()->id)
-            ->where('mensagens_id', $this->id)
-            ->firstOrFail();
-
+        $mensagemAluno = $this->mensagensAluno->where('aluno_id', Auth::user()->id)->first();
         if ($mensagemAluno->is_visualizado === false) {
             $mensagemAluno->update([
                 'visualizado_at' => Date::now(),

@@ -21,7 +21,16 @@ class MensagensController extends Controller
     {
         $mensagensAluno = MensagensAluno::query()
             ->where('aluno_id', Auth::user()->id)
-            ->paginate(15);
+            ->paginate(10);
+
+        return view('mensagens.index', compact('mensagensAluno'));
+    }
+
+    public function removed()
+    {
+        $mensagensAluno = MensagensAluno::onlyTrashed()
+            ->where('aluno_id', Auth::user()->id)
+            ->paginate(10);
 
         return view('mensagens.index', compact('mensagensAluno'));
     }
@@ -47,13 +56,23 @@ class MensagensController extends Controller
             return MensagensAluno::enviarParaNucleos($nucleos, $mensagem);
         });
 
-        return redirect()->route('messages.index')->with('success', 'Mensagem enviada com sucesso');
+        return redirect()->route('messages.index')->with('success', 'Mensagem enviada com sucesso!');
     }
 
     public function show(Mensagens $mensagem)
     {
         $mensagem->marcarComoLida();
         return view('mensagens.show', compact('mensagem'));
+    }
+
+    public function destroy(Mensagens $mensagem)
+    {
+        try {
+            $mensagem->mensagensAluno->where('aluno_id', Auth::user()->id)->first()->delete();
+            return redirect()->route('messages.index')->with('success', 'Mensagem removida com sucesso!');
+        } catch (\Exception $e) {
+            return redirect()->route('messages.index')->with('error', 'Ocorreu um erro para remover a mensagem!');
+        }
     }
 
 }

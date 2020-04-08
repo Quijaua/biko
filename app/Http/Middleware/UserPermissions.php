@@ -33,6 +33,7 @@ class UserPermissions
         if (in_array($role, ['aluno', 'professor', 'coordenador'])) {
             $currentPath = $request->path();
             $allowedMensagensIndex = 'mensagens';
+            $allowedMensagensRemoved = 'mensagens/removed';
             $allowedMensagensCreate = 'mensagens/create';
             $allowedMensagensStore = 'mensagens/store';
 
@@ -49,8 +50,12 @@ class UserPermissions
                 return $next($request);
             }
 
-            if ($request->routeIs('messages.show')) {
-                if ($request->mensagem->mensagensAluno()->where('aluno_id', Auth::user()->id)->exists()) {
+            if ($currentPath === $allowedMensagensRemoved) {
+                return $next($request);
+            }
+
+            if ($request->routeIs('messages.show') || $request->routeIs('messages.destroy')) {
+                if ($request->mensagem->mensagensAluno->where('aluno_id', Auth::user()->id)->first()) {
                     return $next($request);
                 }
             }

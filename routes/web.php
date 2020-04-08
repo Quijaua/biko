@@ -72,9 +72,11 @@ Route::any('professores/search', 'ProfessoresController@search')->middleware('pe
 
 // ROUTES FOR MESSAGE MANAGEMENT
 Route::get('mensagens', 'MensagensController@index')->middleware('permissions')->name('messages.index');
+Route::get('mensagens/removed', 'MensagensController@removed')->middleware('permissions')->name('messages.removed');
 Route::get('mensagens/create', 'MensagensController@create')->middleware('permissions')->name('messages.create');
 Route::post('mensagens/store', 'MensagensController@store')->middleware('permissions')->name('messages.store');
 Route::get('mensagens/{mensagem}/show', 'MensagensController@show')->middleware('permissions')->name('messages.show');
+Route::delete('mensagens/{mensagem}/destroy', 'MensagensController@destroy')->middleware('permissions')->name('messages.destroy');
 
 // PROTECTED ROUTES
 Auth::routes(['verify' => true]);

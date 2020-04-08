@@ -8,6 +8,16 @@
             </div>
         </div>
 
+        @if(\Session::has('success'))
+            <div class="row mt-2">
+                <div class="col-6 m-auto">
+                    <div class="alert alert-success text-center" role="alert">
+                        {!! \Session::get('success') !!}
+                    </div>
+                </div>
+            </div>
+        @endif
+
         <div class="row">
             <div class="col-md-3 col-lg-3">
                 <div class="card">
@@ -26,14 +36,14 @@
                                     @endif
                                 </a>
                             </li>
-                            @if(!\Illuminate\Support\Facades\Auth::user()->allowed_send_email)
+{{--                            @if(!\Illuminate\Support\Facades\Auth::user()->allowed_send_email)--}}
                                 <li class="pb-2 pt-2 border-bottom">
-                                    <a href="#" class="text-black-50">
+                                    <a href="{{ route('messages.removed') }}" class="text-black-50">
                                         <i class="fas fa-trash-alt"></i>
                                         Removidas
                                     </a>
                                 </li>
-                            @endif
+{{--                            @endif--}}
                         </ul>
 
                         @if(\Illuminate\Support\Facades\Auth::user()->allowed_send_email)
