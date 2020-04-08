@@ -36,14 +36,14 @@
                                     @endif
                                 </a>
                             </li>
-{{--                            @if(!\Illuminate\Support\Facades\Auth::user()->allowed_send_email)--}}
+                            @if(!\Illuminate\Support\Facades\Auth::user()->allowed_send_email)
                                 <li class="pb-2 pt-2 border-bottom">
                                     <a href="{{ route('messages.removed') }}" class="text-black-50">
                                         <i class="fas fa-trash-alt"></i>
                                         Removidas
                                     </a>
                                 </li>
-{{--                            @endif--}}
+                            @endif
                         </ul>
 
                         @if(\Illuminate\Support\Facades\Auth::user()->allowed_send_email)

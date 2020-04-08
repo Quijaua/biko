@@ -29,7 +29,7 @@ class SendMessageAlunoEmail
         $mensagemAluno = $event->getMensagensAluno();
 
         Mail::to($mensagemAluno->aluno->Email)
-            ->cc($mensagemAluno->mensagem->remetente['email'])
+            ->cc($mensagemAluno->mensagem->remetente->email)
             ->queue(new MessageAlunoMail($mensagemAluno));
     }
 }

@@ -15,7 +15,7 @@ class CreateMensagensTable extends Migration
     {
         Schema::create('mensagens', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('remetente');
+            $table->unsignedBigInteger('remetente_id');
             $table->string('titulo');
             $table->text('nucleos')->nullable();
             $table->text('mensagem');

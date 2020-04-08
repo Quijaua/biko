@@ -19,11 +19,17 @@ class MensagensController extends Controller
 
     public function index()
     {
-        $mensagensAluno = MensagensAluno::query()
-            ->where('aluno_id', Auth::user()->id)
-            ->paginate(10);
+        if (Auth::user()->allowed_send_email) {
+            $mensagens = Mensagens::query()
+                ->where('remetente_id', Auth::user()->id)
+                ->paginate(10);
+        } else {
+            $mensagens = MensagensAluno::query()
+                ->where('aluno_id', Auth::user()->id)
+                ->paginate(10);
+        }
 
-        return view('mensagens.index', compact('mensagensAluno'));
+        return view('mensagens.index', compact('mensagens'));
     }
 
     public function removed()
@@ -32,7 +38,7 @@ class MensagensController extends Controller
             ->where('aluno_id', Auth::user()->id)
             ->paginate(10);
 
-        return view('mensagens.index', compact('mensagensAluno'));
+        return view('mensagens.removed', compact('mensagensAluno'));
     }
 
     public function create()

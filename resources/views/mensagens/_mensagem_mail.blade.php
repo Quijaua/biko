@@ -1,6 +1,6 @@
 @component('mail::message')
 
-Ola {{ $aluno->NomeAluno }}, você recebeu mensagem do {{ $mensagem->remetente['name'] }}:
+Ola {{ $aluno->NomeAluno }}, você recebeu mensagem do {{ $mensagem->remetente->name }}:
 
 {!! Illuminate\Mail\Markdown::parse($mensagem->mensagem) !!}
 

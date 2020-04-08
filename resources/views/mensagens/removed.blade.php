@@ -3,11 +3,7 @@
 @section('content_message')
     <div class="card">
         <div class="card-header">
-            @if(\Illuminate\Support\Facades\Auth::user()->allowed_send_email)
-                Mensagens enviadas
-            @else
-                Caixa de Entrada
-            @endif
+            Mensagens removidas
         </div>
 
         <div class="card-body table-responsive">

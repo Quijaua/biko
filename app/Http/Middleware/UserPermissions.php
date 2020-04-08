@@ -55,7 +55,10 @@ class UserPermissions
             }
 
             if ($request->routeIs('messages.show') || $request->routeIs('messages.destroy')) {
-                if ($request->mensagem->mensagensAluno->where('aluno_id', Auth::user()->id)->first()) {
+                $mensagemAluno = $request->mensagem->mensagensAluno()->withTrashed()->where('aluno_id', Auth::user()->id)->first();
+                $mensagemProfessor = $request->mensagem->remetente_id === Auth::user()->id;
+
+                if ($mensagemAluno || $mensagemProfessor) {
                     return $next($request);
                 }
             }

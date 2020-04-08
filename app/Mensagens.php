@@ -10,41 +10,42 @@ class Mensagens extends Model
 {
 
     protected $fillable = [
-        'remetente',
+        'remetente_id',
         'titulo',
         'nucleos',
         'mensagem',
     ];
 
     protected $casts = [
-        'remetente' => 'array',
         'nucleos' => 'array'
     ];
 
-    public function mensagensAluno(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function mensagensAluno()
     {
         return $this->hasMany(MensagensAluno::class, 'mensagens_id');
     }
 
+    public function remetente()
+    {
+        return $this->belongsTo(User::class, 'remetente_id');
+    }
+
     public static function create(array $attributes = [])
     {
-        $attributes['remetente'] = [
-            'id' => Auth::user()->id,
-            'role' => Auth::user()->role,
-            'email' => Auth::user()->email,
-            'name' => Auth::user()->name
-        ];
+        $attributes['remetente_id'] = Auth::user()->id;
         return parent::query()->create($attributes);
     }
 
     public function marcarComoLida()
     {
-        $mensagemAluno = $this->mensagensAluno->where('aluno_id', Auth::user()->id)->first();
-        if ($mensagemAluno->is_visualizado === false) {
-            $mensagemAluno->update([
-                'visualizado_at' => Date::now(),
-            ]);
-        }
+        try {
+            $mensagemAluno = $this->mensagensAluno()->where('aluno_id', Auth::user()->id)->firstOrFail();
+            if ($mensagemAluno->is_visualizado === false) {
+                $mensagemAluno->update([
+                    'visualizado_at' => Date::now(),
+                ]);
+            }
+        } catch (\Exception $e) {}
     }
 
 }

@@ -64,7 +64,7 @@ class MensagensAluno extends Model
     private static function convert($mensagemId, $alunoId)
     {
         return [
-            'mensagem_id' => $mensagemId,
+            'mensagens_id' => $mensagemId,
             'aluno_id' => $alunoId,
             'created_at' => Date::now(),
             'updated_at' => Date::now(),

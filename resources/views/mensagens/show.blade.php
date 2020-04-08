@@ -5,9 +5,15 @@
         <div class="card-header">{{ $mensagem->titulo }}</div>
 
         <div class="card-body">
-            <p><strong>Enviado por:</strong> {{ $mensagem->remetente['name'] }}</p>
+
+            @if(\Illuminate\Support\Facades\Auth::user()->allowed_send_email)
+                <p><strong>Enviado para:</strong> {{ $mensagem->mensagensAluno->pluck('aluno.NomeAluno')->join(', ') }}</p>
+            @else
+                <p><strong>Enviado por:</strong> {{ $mensagem->remetente->name }}</p>
+            @endif
+
             <p><strong>Data:</strong> {{ \Carbon\Carbon::parse($mensagem->created_at)->format('d/m/Y h:i') }}</p>
-            <hr />
+            <hr/>
 
             <div class="clearfix">
                 {!! $mensagem->mensagem !!}
