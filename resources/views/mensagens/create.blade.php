@@ -51,7 +51,7 @@
                 <div class="row">
                     <div class="col-md-4 offset-md-8 text-right">
                         <a class="btn btn-danger" href="{{ url()->previous() }}">Voltar</a>
-                        <button type="submit" class="btn btn-success">Salvar Dados</button>
+                        <button type="submit" class="btn btn-success">Enviar mensagem</button>
                     </div>
                 </div>
             </form>
