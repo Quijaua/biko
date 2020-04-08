@@ -41,7 +41,7 @@ class MensagensAluno extends Model
 
     public static function enviarParaNucleos(Collection $nucleos, $mensagem)
     {
-        $nucleos = $nucleos->isNotEmpty() ? Nucleo::query()->whereIn('id', $nucleos)->get() : Nucleo::query()->get();
+        $nucleos = $nucleos->isNotEmpty() ? Nucleo::query()->whereIn('id', $nucleos)->get() : Nucleo::whereUserAtuacao()->get();
         $mensagens = $nucleos->map(function (Nucleo $nucleo) use ($mensagem) {
             return $nucleo->alunos->map(function (Aluno $aluno) use ($mensagem) {
                 return self::convert($mensagem->id, $aluno->id);

@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Builder;
 
 class Nucleo extends Model
 {
@@ -52,4 +54,20 @@ class Nucleo extends Model
     {
         return self::query()->where('Status', $value);
     }
+
+    public static function whereUserAtuacao()
+    {
+        return self::query()->when(Auth::user()->is_professor_or_coordenador, function (Builder $query) {
+            return $query->whereHas('professores', function (Builder $query) {
+                if (Auth::user()->professor->OutrosNucleos) {
+                    $query->orWhereIn('id_user', Auth::user()->professor->OutrosNucleos);
+                }
+
+                return $query->where('id_user', Auth::user()->id);
+            })->orWhereHas('coordenadores', function (Builder $query) {
+                return $query->where('id_user', Auth::user()->id);
+            });
+        })->where('Status', true);
+    }
+
 }

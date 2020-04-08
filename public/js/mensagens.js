@@ -26,7 +26,7 @@
         divAluno.removeClass('d-none');
     };
 
-    $('#inputParaNucleo').select2()
+    $('#inputParaNucleo').select2({width: '100%'})
         .on('select2:select', inputParaNucleoSelectFunction)
         .on('select2:select', clearInputNull);
 
