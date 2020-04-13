@@ -354,7 +354,9 @@ class CoordenadoresController extends Controller
         if($user->role === 'coordenador'){
           $me = Coordenadores::where('id_user', $user->id)->first();
           //$results = Aluno::where('NomeAluno','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->get();
-          $results = Coordenadores::where('NomeCoordenador','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->paginate(25);
+          //$results = Coordenadores::where('NomeCoordenador','LIKE','%'.$query.'%')->where('id_nucleo', $me->id_nucleo)->paginate(25);
+          $results = Coordenadores::where('NomeCoordenador','LIKE','%'.$query.'%')->paginate(25);
+          //dd($results);
           if($results->isEmpty()){
             return back()->with('error', 'Nenhum resultado encontrado.');
           }else{
