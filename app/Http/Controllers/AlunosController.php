@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use DB;
 use App\Aluno;
 use App\Nucleo;
 use App\Professores;
@@ -341,14 +342,16 @@ class AlunosController extends Controller
         }
 
         Session::put('cpf', 'OK');
-
+        //dd($dados);
         $dados->save();
 
         $url = $request->path();
         $user = Auth::user();
         $userId = $user->id;
         $userName = $user->name;
-        $this->logAction($url, $userId, $userName);
+        $alunoId = $dados->id;
+        $alunoNome = $dados->NomeAluno;
+        $this->logAction($url, $userId, $userName, $alunoId, $alunoNome);
 
         return back()->with([
             'success' => 'DADOS SALVOS COM SUCESSO.',
@@ -542,6 +545,15 @@ class AlunosController extends Controller
         }
 
         return (new AlunosExport($nucleo))->download('alunos.xlsx');
+    }
+
+    public function logActionView($id)
+    {
+      $dados = DB::table('action_log')->where('aluno_id', $id)->paginate(25);
+
+      return view('alunosActions')->with([
+        'dados' => $dados,
+      ]);
     }
 
 }

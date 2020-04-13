@@ -26,8 +26,13 @@
       <a class="btn btn-block btn-primary" href="/alunos"><i class="fas fa-arrow-left"></i> Voltar</a>
     </div>
     <div class="col-2">
-      <a class="btn btn-success text-light" href="javascript:window.print()"><i class="fas fa-print"></i> Imprimir</a>
+      <a class="btn btn-block btn-success text-light" href="javascript:window.print()"><i class="fas fa-print"></i> Imprimir</a>
     </div>
+    @if($user->role === 'administrador')
+    <div class="col-2">
+      <a class="btn btn-block btn-info text-light" href="/alunos/log/{{ $dados->id }}"><i class="fas fa-info-circle"></i> Registro de ações</a>
+    </div>
+    @endif
   </div>
   <h3>DADOS PESSOAIS</h3>
   <div class="row">
