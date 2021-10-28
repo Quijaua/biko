@@ -81,7 +81,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <!--<div class="col">
         <div class="form-group">
           <label for="inputCPF">CPF</label>
           <input type="text" class="form-control" id="inputCPF" name="inputCPF" aria-describedby="inputCPFHelp" data-mask="000.000.000-00" placeholder="xxx.xxx.xxx-xx" onblur="checkCPF()" required>
@@ -91,6 +91,27 @@
         <div class="form-group">
           <label for="inputRG">RG</label>
           <input type="text" class="form-control" id="inputRG" name="inputRG" aria-describedby="inputRGHelp" data-mask="00.000.000-00" placeholder="xx.xxx.xxx-x">
+        </div>
+      </div>-->
+      <div class="col">
+        <label for="temFilhos">Tem filhos?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="temFilhos" id="temFilhos1" value="1">
+          <label class="form-check-label" for="temFilhos1">
+            Sim
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="temFilhos" id="temFilhos2" value="0" checked>
+          <label class="form-check-label" for="temFilhos2">
+            Não
+          </label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="filhosQt">Quantos?</label>
+          <input class="form-control" type="number" id="filhosQt" name="filhosQt">
         </div>
       </div>
       <div class="col">
@@ -145,6 +166,33 @@
         <div class="form-group">
           <label for="inputNascimento">Data de Nascimento</label>
           <input type="date" class="form-control" id="inputNascimento" name="inputNascimento" aria-describedby="inputNascimentoHelp" onblur="getAge()" required>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputAuxGoverno">A família recebe algumn tipo de auxílio do Governo?</label>
+          <div id="AuxGoverno" class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno1" value="sim" onclick="showInput('#AuxTipo')">
+            <label class="form-check-label" for="inputTaxaInscricao1">Sim</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno2" value="nao" onclick="hideAuxInput('#AuxTipo')">
+            <label class="form-check-label" for="inputTaxaInscricao2">Não</label>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div id="AuxTipo" class="form-group" style="display:none;">
+          <label for="inputAuxTipo">Qual?</label>
+          <select name="inputAuxTipo" class="custom-select">
+            <option value="" selected>Selecione</option>
+            <option value="bolsa_familia">Programa Bolsa Família</option>
+            <option value="energia_eletrica">Tarifa Social de Energia Elétrica</option>
+            <option value="emergencial_financeiro">Auxílio Emergencial Financeiro</option>
+            <option value="bolsa_verde">Bolsa Verde</option>
+          </select>
         </div>
       </div>
     </div>
@@ -360,6 +408,7 @@
       </div>
     </div>
     <hr>
+    <!--
     <h3>DADOS FAMILIARES</h3>
     <div class="row">
       <div class="col">
@@ -484,15 +533,16 @@
         </div>
       </div>
     </div>
-    <!--<div class="row">
+    <div class="row">
       <div class="col">
         <button type="button" class="btn btn-lg btn-block btn-primary" data-toggle="modal" data-backdrop="true" data-keyboard="true" data-target=".modal-dados-familia">INFORMAÇÕES DA FAMÍLIA <strong>(OBRIGATÓRIO)</strong></button>
         <div class="text-center">
           <small>Relacione aqui todas as pessoas que residem em sua casa, incluindo você (em caso de pais separados, se houver pensão relacione-o também).</small>
         </div>
       </div>
-    </div>-->
+    </div>
     <hr>
+    -->
     <h3>DADOS ACADÊMICOS</h3>
     <div class="row">
       <div class="col">

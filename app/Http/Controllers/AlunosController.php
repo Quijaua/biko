@@ -270,6 +270,8 @@ class AlunosController extends Controller
         }
         $dados->ListaEspera = $request->input('inputListaEspera');
         $dados->RG = $request->input('inputRG');
+        $dados->temFilhos = $request->input('temFilhos');
+        $dados->filhosQt = $request->input('filhosQt');
         $dados->Email = $request->input('inputEmail');
         $dados->Raca = $request->input('inputRaca');
         $dados->Genero = $request->input('inputGenero');

@@ -17,6 +17,8 @@ class Aluno extends Model
         'ListaEspera',
         'CPF',
         'RG',
+        'temFilhos',
+        'filhosQt',
         'Email',
         'Raca',
         'Genero',
