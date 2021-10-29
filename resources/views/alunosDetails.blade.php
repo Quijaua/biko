@@ -72,7 +72,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col">
+    <!--<div class="col">
       <div class="form-group">
         <span for="inputCPF">CPF</span>
         <input type="text" class="form-control" id="inputCPF" name="inputCPF" aria-describedby="inputCPFHelp" data-mask="000.000.000-00" value="{{ $dados->CPF }}" disabled>
@@ -82,6 +82,27 @@
       <div class="form-group">
         <span for="inputRG">RG</span>
         <input type="text" class="form-control" id="inputRG" name="inputRG" aria-describedby="inputRGHelp" data-mask="00.000.000-00" value="{{ $dados->RG }}" disabled>
+      </div>
+    </div>-->
+    <div class="col">
+      <label for="temFilhos">Tem filhos?</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="temFilhos" id="temFilhos1" value="1" @if($dados->temFilhos === 1) {{ 'checked' }} @endif disabled>
+        <label class="form-check-label" for="temFilhos1">
+          Sim
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="temFilhos" id="temFilhos2" value="0" @if($dados->temFilhos === 0) {{ 'checked' }} @endif disabled>
+        <label class="form-check-label" for="temFilhos2">
+          Não
+        </label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="filhosQt">Quantos?</label>
+        <input class="form-control" type="number" id="filhosQt" name="filhosQt" value="{{ $dados->filhosQt }}" disabled>
       </div>
     </div>
     <div class="col">
@@ -137,6 +158,46 @@
         <span for="inputNascimento">Data de Nascimento</span>
         <input type="date" class="form-control" id="inputNascimento" name="inputNascimento" aria-describedby="inputNascimentoHelp" value="{{ $dados->Nascimento }}" onblur="getAge()" disabled>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="inputAuxGoverno">A família recebe algumn tipo de auxílio do Governo?</label>
+        <div id="AuxGoverno" class="form-check form-check-inline">
+          <input <?php if($dados->AuxGoverno == 'sim'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno1" value="sim" onclick="showInput('#AuxTipo')">
+          <label class="form-check-label" for="inputTaxaInscricao1">Sim</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input <?php if($dados->AuxGoverno == 'nao'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno2" value="nao" onclick="hideAuxInput('#AuxTipo')">
+          <label class="form-check-label" for="inputTaxaInscricao2">Não</label>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      @if($dados->AuxGoverno == 'nao' or $dados->AuxGoverno == NULL)
+      <div id="AuxTipo" class="form-group" style="display:none;">
+        <label for="inputAuxTipo">Qual?</label>
+        <select name="inputAuxTipo" class="custom-select">
+          <option value="" selected>Selecione</option>
+          <option value="bolsa_familia">Programa Bolsa Família</option>
+          <option value="energia_eletrica">Tarifa Social de Energia Elétrica</option>
+          <option value="emergencial_financeiro">Auxílio Emergencial Financeiro</option>
+          <option value="bolsa_verde">Bolsa Verde</option>
+        </select>
+      </div>
+      @else
+      <div id="AuxTipo" class="form-group">
+        <label for="inputAuxTipo">Qual?</label>
+        <select name="inputAuxTipo" class="custom-select">
+          <option value="">Selecione</option>
+          <option <?php if($dados->AuxTipo == 'bolsa_familia'){ echo 'selected=selected';} ?> value="bolsa_familia">Programa Bolsa Família</option>
+          <option <?php if($dados->AuxTipo == 'energia_eletrica'){ echo 'selected=selected';} ?> value="energia_eletrica">Tarifa Social de Energia Elétrica</option>
+          <option <?php if($dados->AuxTipo == 'emergencial_financeiro'){ echo 'selected=selected';} ?> value="emergencial_financeiro">Auxílio Emergencial Financeiro</option>
+          <option <?php if($dados->AuxTipo == 'bolsa_verde'){ echo 'selected=selected';} ?> value="bolsa_verde">Bolsa Verde</option>
+        </select>
+      </div>
+      @endif
     </div>
   </div>
   <hr>
@@ -351,6 +412,7 @@
     </div>
   </div>
   <hr>
+  <!--
   <h3>DADOS FAMILIARES</h3>
   <div class="row">
     <div class="col">
@@ -554,6 +616,7 @@
     </div>
     @endforeach
   </div>
+  -->
   <h3>DADOS ACADÊMICOS</h3>
   <div class="row">
     <div class="col">

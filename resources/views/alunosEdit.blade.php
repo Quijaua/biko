@@ -102,7 +102,6 @@
           <input type="text" class="form-control" id="inputRG" name="inputRG" aria-describedby="inputRGHelp" data-mask="00.000.000-00" value="{{ $dados->RG }}" placeholder="00.000.000-00">
         </div>
       </div>-->
-      <?php //dd($dados->temFilhos); ?>
       <div class="col">
         <label for="temFilhos">Tem filhos?</label>
         <div class="form-check">
