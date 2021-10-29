@@ -70,7 +70,7 @@ class ProfessoresController extends Controller
 
       if($user->role === 'coordenador'){
         $me = Coordenadores::where('id_user', $user->id)->first();
-        $nucleos = Nucleo::where('id', $me->id_nucleo)->get();
+        $nucleos = Nucleo::where('id', $me->id_nucleo)->where('Status', 1)->get();
 
         return view('professoresCreate')->with([
           'nucleos' => $nucleos,
@@ -78,7 +78,7 @@ class ProfessoresController extends Controller
       }
 
       if($user->role === 'administrador'){
-        $nucleos = Nucleo::get();
+        $nucleos = Nucleo::where('Status', 1)->get();
 
         return view('professoresCreate')->with([
           'nucleos' => $nucleos,
@@ -139,10 +139,15 @@ class ProfessoresController extends Controller
         'RG' => $request->input('inputRG'),
         'Raca' => $request->input('inputRaca'),
         'Genero' => $request->input('inputGenero'),
+        'concordaSexoDesignado' => $request->input('concordaSexoDesignado'),
         'EstadoCivil' => $request->input('inputEstadoCivil'),
         'Nascimento' => $request->input('inputNascimento'),
         'Disciplinas' => $Disciplinas,
         'OutrosNucleos' => $request->input('inputOutrosNucleos'),
+        'Escolaridade' => $request->input('inputEscolaridade'),
+        'FormacaoSuperior' => $request->input('inputFormacaoSuperior'),
+        'AnoInicioUneafro' => $request->input('inputAnoInicioUneafro'),
+        'aulasForaUneafro' => $request->input('aulasForaUneafro'),
         'DiasHorarios' => $request->input('inputDiasHorarios'),
         'GastoTransporte' => $request->input('inputGastoTransporte'),
         'TempoChegada' => $request->input('inputTempoChegada'),
@@ -210,7 +215,7 @@ class ProfessoresController extends Controller
 
       if($user->role === 'professor'){
         $dados = Professores::find($id);
-        $nucleos = Nucleo::get();
+        $nucleos = Nucleo::where('Status', 1)->get();
 
         return view('professoresEdit')->with([
           'dados' => $dados,
@@ -236,7 +241,7 @@ class ProfessoresController extends Controller
 
       if($user->role === 'administrador'){
         $dados = Professores::find($id);
-        $nucleos = Nucleo::get();
+        $nucleos = Nucleo::where('Status', 1)->get();
 
         return view('professoresEdit')->with([
           'dados' => $dados,
@@ -267,10 +272,15 @@ class ProfessoresController extends Controller
       $dados->RG = $request->input('inputRG');
       $dados->Raca = $request->input('inputRaca');
       $dados->Genero = $request->input('inputGenero');
+      $dados->concordaSexoDesignado = $request->input('concordaSexoDesignado');
       $dados->EstadoCivil = $request->input('inputEstadoCivil');
       $dados->Nascimento = $request->input('inputNascimento');
       $dados->Disciplinas = $Disciplinas;
       $dados->OutrosNucleos = $request->input('inputOutrosNucleos');
+      $dados->Escolaridade = $request->input('inputEscolaridade');
+      $dados->FormacaoSuperior = $request->input('inputFormacaoSuperior');
+      $dados->AnoInicioUneafro = $request->input('inputAnoInicioUneafro');
+      $dados->aulasForaUneafro = $request->input('aulasForaUneafro');
       $dados->DiasHorarios = $request->input('inputDiasHorarios');
       $dados->GastoTransporte = $request->input('inputGastoTransporte');
       $dados->TempoChegada = $request->input('inputTempoChegada');
@@ -493,7 +503,7 @@ class ProfessoresController extends Controller
     public function details($id)
     {
       $dados = Professores::find($id);
-      $nucleos = Nucleo::get()->where('Status', 1);
+      $nucleos = Nucleo::where('Status', 1)->get();
 
       return view('professoresDetails')->with([
         'dados' => $dados,
