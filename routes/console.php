@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Foundation\Inspiring;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,14 @@ use Illuminate\Foundation\Inspiring;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
+Artisan::command('generate-admin-token', function () {
+
+    $user = User::find(1);
+    $token = Str::random(80);
+
+    $user->update([
+      'api_token' => $token
+    ]);
+
+})->describe('Generate/Update Admin API Token');

@@ -10,12 +10,14 @@ class AdministradorSeeder extends Seeder
 
     public function run() {
         $role = 'administrador';
+        $token = Str::random(80);
 
         $data = [
             'Administrador' => [
                 'name' => 'Administrador',
                 'email' => 'admin@biko.edu',
                 'password' => 'admin@biko.edu',
+                'api_token' => $token,
                 'phone' => '6430000000',
                 'emailVerified' => Carbon::now(),
             ],
