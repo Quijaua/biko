@@ -130,7 +130,7 @@
       </div>
       <div class="col">
         <div class="form-group">
-          <label for="inputGenero">Gênero</label>
+          <label for="inputGenero">Identidade de Gênero</label>
           <select name="inputGenero" class="custom-select">
             <option selected>Selecione</option>
             <option <?php if(old('inputGenero') == 'mulher'){ echo 'selected=selected';} ?> value="mulher">Mulher</option>
@@ -138,6 +138,23 @@
             <option <?php if(old('inputGenero') == 'mulher_trans_cis'){ echo 'selected=selected';} ?> value="mulher_trans_cis">Mulher (Trans ou Cis)</option>
             <option <?php if(old('inputGenero') == 'homem_trans_cis'){ echo 'selected=selected';} ?> value="homem_trans_cis">Homem (Trans ou Cis)</option>
           </select>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="concordaSexoDesignado">Você se identifica com o sexo designado ao nascer?</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="concordaSexoDesignado" id="concordaSexoDesignado1" value="1" checked>
+            <label class="form-check-label" for="concordaSexoDesignado1">
+              Sim
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="concordaSexoDesignado" id="concordaSexoDesignado2" value="0">
+            <label class="form-check-label" for="concordaSexoDesignado2">
+              Não
+            </label>
+          </div>
         </div>
       </div>
     </div>
@@ -159,6 +176,48 @@
         <div class="form-group">
           <label for="inputNascimento">Data de Nascimento</label>
           <input type="date" class="form-control" id="inputNascimento" name="inputNascimento" aria-describedby="inputNascimentoHelp" onblur="getAge()" value="{{ old('inputNascimento') }}">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputEscolaridade">Qual a sua escolaridade</label>
+          <select name="inputEscolaridade" class="custom-select">
+            <option selected>Selecione</option>
+            <option value="Ensino Médio">Ensino Médio</option>
+            <option value="Ensino Superior Completo">Ensino Superior Completo</option>
+            <option value="Ensino Superior Cursando">Ensino Superior Cursando</option>
+            <option value="Ensino Superior Incompleto">Ensino Superior Incompleto</option>
+            <option value="Pós Graduação Completa/Incompleta/Cursando">Pós Graduação Completa/Incompleta/Cursando</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputFormacaoSuperior">Se você esteve/está no ensino superior, qual a sua formação?</label>
+          <input type="text" class="form-control" id="inputFormacaoSuperior" name="inputFormacaoSuperior" aria-describedby="inputFormacaoSuperiorHelp" placeholder="Sua formação no ensino superior">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputAnoInicioUneafro">Desde que ano você está na UNEAFRO?</label>
+          <br><br>
+          <input type="text" class="form-control" id="inputAnoInicioUneafro" name="inputAnoInicioUneafro" aria-describedby="inputAnoInicioUneafroHelp" placeholder="Ano em que iniciou na UNEAFRO">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="aulasForaUneafro">Fora da UNEAFRO, você dá aulas?</label>
+          <br><br>
+          <select name="aulasForaUneafro" class="custom-select">
+            <option selected>Selecione</option>
+            <option value="Não" selected>Não</option>
+            <option value="Sim, em escola regular">Sim, em escola regular</option>
+            <option value="Sim, em escola pública ou privada">Sim, em escola pública ou privada</option>
+          </select>
         </div>
       </div>
     </div>

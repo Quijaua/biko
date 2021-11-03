@@ -127,8 +127,13 @@ class CoordenadoresController extends Controller
         'RG' => $request->input('inputRG'),
         'Raca' => $request->input('inputRaca'),
         'Genero' => $request->input('inputGenero'),
+        'concordaSexoDesignado' => $request->input('concordaSexoDesignado'),
         'EstadoCivil' => $request->input('inputEstadoCivil'),
         'Nascimento' => $request->input('inputNascimento'),
+        'Escolaridade' => $request->input('inputEscolaridade'),
+        'FormacaoSuperior' => $request->input('inputFormacaoSuperior'),
+        'AnoInicioUneafro' => $request->input('inputAnoInicioUneafro'),
+        'aulasForaUneafro' => $request->input('aulasForaUneafro'),
         'Endereco' => $request->input('inputEndereco'),
         'Numero' => $request->input('inputNumero'),
         'Bairro' => $request->input('inputBairro'),
@@ -223,8 +228,13 @@ class CoordenadoresController extends Controller
       $dados->RG = $request->input('inputRG');
       $dados->Raca = $request->input('inputRaca');
       $dados->Genero = $request->input('inputGenero');
+      $dados->concordaSexoDesignado = $request->input('concordaSexoDesignado');
       $dados->EstadoCivil = $request->input('inputEstadoCivil');
       $dados->Nascimento = $request->input('inputNascimento');
+      $dados->Escolaridade = $request->input('inputEscolaridade');
+      $dados->FormacaoSuperior = $request->input('inputFormacaoSuperior');
+      $dados->AnoInicioUneafro = $request->input('inputAnoInicioUneafro');
+      $dados->aulasForaUneafro = $request->input('aulasForaUneafro');
       $dados->Endereco = $request->input('inputEndereco');
       $dados->Numero = $request->input('inputNumero');
       $dados->Bairro = $request->input('inputBairro');
