@@ -72,6 +72,7 @@ Route::post('professores/update/{id}', 'ProfessoresController@update')->middlewa
 Route::get('professores/disable/{id}', 'ProfessoresController@disable')->middleware('permissions');
 Route::get('professores/enable/{id}', 'ProfessoresController@enable')->middleware('permissions');
 Route::any('professores/search', 'ProfessoresController@search')->middleware('permissions')->name('professores/search');
+Route::get('professores/presences', 'ProfessoresController@presences')->name('professores/presences');
 
 // ROUTES FOR MESSAGE MANAGEMENT
 Route::get('mensagens', 'MensagensController@index')->middleware('permissions')->name('messages.index');

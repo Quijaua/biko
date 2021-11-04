@@ -78,6 +78,9 @@
                                         <a class="nav-link" href="/nucleos">{{ __('NÚCLEOS') }}</a>
                                     </li>
                                 @endif
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('professores/presences') }}">{{ __('LISTA DE PRESENÇA') }}</a>
+                                    </li>
                             @endif
 
                             <li class="nav-item">

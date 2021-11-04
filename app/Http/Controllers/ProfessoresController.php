@@ -510,4 +510,14 @@ class ProfessoresController extends Controller
         'nucleos' => $nucleos,
       ]);
     }
+
+    public function presences()
+    {
+      $professor = Professores::where('id_user', Auth::user()->id)->first();
+      $alunos = Nucleo::find($professor->id_nucleo)->alunos;
+
+      return view('lista-presenca')->with([
+        'alunos' => $alunos
+      ]);
+    }
 }
