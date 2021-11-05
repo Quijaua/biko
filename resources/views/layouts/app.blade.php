@@ -79,7 +79,7 @@
                                     </li>
                                 @endif
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('professores/presences') }}">{{ __('LISTA DE PRESENÇA') }}</a>
+                                        <a class="nav-link" href="{{ route('nucleo/presences') }}">{{ __('LISTA DE PRESENÇA') }}</a>
                                     </li>
                             @endif
 

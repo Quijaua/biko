@@ -50,6 +50,11 @@ class Nucleo extends Model
         return $this->hasMany('App\Coordenadores', 'id_nucleo');
     }
 
+    public function listas_presenca()
+    {
+      return $this->hasMany('App\ListaPresenca');
+    }
+
     public static function whereStatus($value = true)
     {
         return self::query()->where('Status', $value);

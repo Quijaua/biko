@@ -32,6 +32,9 @@ Route::post('nucleos/update/{id}', 'NucleoController@update')->middleware('permi
 Route::get('nucleos/disable/{id}', 'NucleoController@disable')->middleware('permissions');
 Route::get('nucleos/enable/{id}', 'NucleoController@enable')->middleware('permissions');
 Route::any('nucleos/search', 'NucleoController@search')->middleware('permissions');
+Route::get('nucleo/presences', 'NucleoController@presences_index')->name('nucleo/presences');
+Route::get('nucleo/presences/new', 'NucleoController@presences_new')->name('nucleo/presences/new');
+Route::post('nucleo/presences/create', 'NucleoController@presences_create')->name('nucleo/presences/create');
 
 // ROUTES FOR ALUNOS MANAGEMENT
 Route::get('alunos', 'AlunosController@index')->middleware('permissions');
@@ -72,7 +75,6 @@ Route::post('professores/update/{id}', 'ProfessoresController@update')->middlewa
 Route::get('professores/disable/{id}', 'ProfessoresController@disable')->middleware('permissions');
 Route::get('professores/enable/{id}', 'ProfessoresController@enable')->middleware('permissions');
 Route::any('professores/search', 'ProfessoresController@search')->middleware('permissions')->name('professores/search');
-Route::get('professores/presences', 'ProfessoresController@presences')->name('professores/presences');
 
 // ROUTES FOR MESSAGE MANAGEMENT
 Route::get('mensagens', 'MensagensController@index')->middleware('permissions')->name('messages.index');

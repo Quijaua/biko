@@ -4,7 +4,10 @@
 <div class="container">
   <div class="row">
       <div class="col-12 text-center">
-        <h1>LISTA DE PRESENÇA</h1>
+        <h1>LISTAS DE PRESENÇA</h1>
+      </div>
+      <div class="col-12 text-center">
+        <h2>({{ $nucleo->NomeNucleo }})</h2>
       </div>
   </div>
 </div>
@@ -30,30 +33,28 @@
   <div class="row">
     <div class="col-12 col-md-4">
       <div class="mb-3">
-        <label for="presenceDate" class="form-label">Data</label>
-        <input type="date" class="form-control" name="presenceDate" id="presenceDate">
+        <a class="btn btn-success" href="{{ route('nucleo/presences/new') }}">Nova Lista</a>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="col" id="presences_wrapper" style="display: none;">
+    <div class="col" id="presences_wrapper">
       <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col">Nome</th>
-            <th scope="col">Presente?</th>
-            <th scope="col">Situação</th>
+            <th scope="col">Data</th>
+            <th scope="col">Núcleo</th>
+            <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody>
-          @foreach($alunos as $aluno)
+          @foreach($nucleo->listas_presenca as $lista)
           <tr>
-            <td>{{ $aluno->NomeAluno }}</td>
+            <td>{{ $lista->date->format('d/m/Y') }}</td>
+            <td>{{ $nucleo->NomeNucleo }}</td>
             <td>
-              <button aria-label="{{ $aluno->id }}" class="btn btn-success btn-sm btn-present mb-2" type="button" name="button">Sim</button>
-              <button aria-label="{{ $aluno->id }}" class="btn btn-danger btn-sm btn-absent mb-2" type="button" name="button">Não</button>
+              <a class="btn btn-primary btn-sm btn-absent mb-2" href="{{ route('nucleo/presences/new') }}">Ver/Editar</a>
             </td>
-            <td id="{{ $aluno->id }}"></td>
           </tr>
           @endforeach
         </tbody>
@@ -61,31 +62,4 @@
     </div>
   </div>
 </div>
-@stop
-@section('js')
-<script type="text/javascript" src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
-<script>
-  $('#presenceDate').change(function() {
-    let presencesDate = $('#presenceDate').val();
-    console.log('presencesDate', presencesDate);
-    $('#presences_wrapper').fadeIn();
-  });
-
-  $('.btn-present').click(function() {
-    let alunoId = $(this).attr('aria-label');
-    let situation = 1;
-    $('td[id='+alunoId+']').html('<span class="badge bg-success">Presente</span>');
-    console.log('alunoId', alunoId);
-    console.log('situation', situation);
-  });
-
-  $('.btn-absent').click(function() {
-    let alunoId = $(this).attr('aria-label');
-    let situation = 0;
-    $('td[id='+alunoId+']').html('<span class="badge bg-danger text-light">Ausente</span>');
-    console.log('alunoId', alunoId);
-    console.log('situation', situation);
-  });
-
-</script>
 @stop

@@ -84,4 +84,9 @@ class Professores extends Model
     {
         return $this->hasOne('App\User');
     }
+
+    public function listas()
+    {
+      return $this->hasMany('App\ListaPresenca', 'professor_id');
+    }
 }

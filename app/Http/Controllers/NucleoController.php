@@ -4,8 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Nucleo;
 use Session;
+use \Carbon\Carbon;
+
+use App\Professores;
+use App\Nucleo;
+use App\ListaPresenca;
+use App\Frequencia;
+
 
 class NucleoController extends Controller
 {
@@ -206,5 +212,56 @@ class NucleoController extends Controller
         'representantes' => $representantes,
         'disciplinas' => $disciplinas,
       ]);
+    }
+
+    public function presences_index()
+    {
+      $professor = Professores::where('id_user', Auth::user()->id)->first();
+      $nucleo = Nucleo::find($professor->id_nucleo);
+      /*dd($nucleo->listas_presenca);*/
+      return view('lista-presenca')->with([
+        'nucleo' => $nucleo
+      ]);
+    }
+
+    public function presences_new()
+    {
+      $professor = Professores::where('id_user', Auth::user()->id)->first();
+      $alunos = Nucleo::find($professor->id_nucleo)->alunos;
+      $date = Carbon::now()->format('Y-m-d');
+
+      $lista = ListaPresenca::updateOrCreate(
+        ['nucleo_id' => $professor->id_nucleo, 'date' => $date],
+        [
+          'nucleo_id' => $professor->id_nucleo,
+          'professor_id' => $professor->id,
+          'date' => $date
+        ]
+      );
+
+      /*dd($lista);*/
+      /*dd($lista->frequencias);*/
+
+      return view('lista-presenca-create')->with([
+        'lista' => $lista,
+        'date' => $date,
+        'alunos' => $alunos
+      ]);
+    }
+
+    public function presences_create(Request $request)
+    {
+      $data = $request->all();
+
+      $frequencia = Frequencia::updateOrCreate(
+          ['lista_presenca_id' => $data['listaId'], 'aluno_id' => $data['alunoId']],
+          [
+            'lista_presenca_id' => $data['listaId'],
+            'aluno_id' => $data['alunoId'],
+            'is_present' => $data['situation']
+          ]
+      );
+
+      return response()->json($frequencia, 200);
     }
 }
