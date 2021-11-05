@@ -218,7 +218,7 @@ class NucleoController extends Controller
     {
       $professor = Professores::where('id_user', Auth::user()->id)->first();
       $nucleo = Nucleo::find($professor->id_nucleo);
-      /*dd($nucleo->listas_presenca);*/
+
       return view('lista-presenca')->with([
         'nucleo' => $nucleo
       ]);
@@ -238,9 +238,6 @@ class NucleoController extends Controller
           'date' => $date
         ]
       );
-
-      /*dd($lista);*/
-      /*dd($lista->frequencias);*/
 
       return view('lista-presenca-create')->with([
         'lista' => $lista,
