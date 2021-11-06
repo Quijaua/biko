@@ -8,6 +8,7 @@ use Session;
 use \Carbon\Carbon;
 
 use App\Professores;
+use App\Coordenadores;
 use App\Nucleo;
 use App\ListaPresenca;
 use App\Frequencia;
@@ -216,7 +217,14 @@ class NucleoController extends Controller
 
     public function presences_index()
     {
-      $professor = Professores::where('id_user', Auth::user()->id)->first();
+      $user = Auth::user();
+
+      if ( $user->role === 'professor' ) {
+        $professor = Professores::where('id_user', Auth::user()->id)->first();
+      } else if ( $user->role === 'coordenador' ) {
+        $professor = Coordenadores::where('id_user', Auth::user()->id)->first();
+      };
+
       $nucleo = Nucleo::find($professor->id_nucleo);
 
       return view('lista-presenca')->with([
@@ -224,11 +232,23 @@ class NucleoController extends Controller
       ]);
     }
 
-    public function presences_new()
+    public function presences_new(Request $request)
     {
-      $professor = Professores::where('id_user', Auth::user()->id)->first();
+      $user = Auth::user();
+
+      if ( $user->role === 'professor' ) {
+        $professor = Professores::where('id_user', Auth::user()->id)->first();
+      } else if ( $user->role === 'coordenador' ) {
+        $professor = Coordenadores::where('id_user', Auth::user()->id)->first();
+      };
+
       $alunos = Nucleo::find($professor->id_nucleo)->alunos;
-      $date = Carbon::now()->format('Y-m-d');
+
+      if ( $request->date ) {
+        $date = $request->date;
+      } else {
+        $date = Carbon::now()->format('Y-m-d');
+      }
 
       $lista = ListaPresenca::updateOrCreate(
         ['nucleo_id' => $professor->id_nucleo, 'date' => $date],

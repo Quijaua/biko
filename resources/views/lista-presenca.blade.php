@@ -53,7 +53,7 @@
             <td>{{ $lista->date->format('d/m/Y') }}</td>
             <td>{{ $nucleo->NomeNucleo }}</td>
             <td>
-              <a class="btn btn-primary btn-sm btn-absent mb-2" href="{{ route('nucleo/presences/new') }}">Ver/Editar</a>
+              <a class="btn btn-primary btn-sm btn-absent mb-2" href="{{ route('nucleo/presences/new', ['date' => $lista->date->format('Y-m-d')]) }}">Ver/Editar</a>
             </td>
           </tr>
           @endforeach
