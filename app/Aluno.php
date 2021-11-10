@@ -22,9 +22,19 @@ class Aluno extends Model
         'Email',
         'Raca',
         'Genero',
+
+        'concordaSexoDesignado',
+
         'IdentificaGenero',
         'EstadoCivil',
         'Nascimento',
+
+        'responsavelCuidadoOutraPessoa',
+
+        'temFilhos',
+
+        'filhosIdade',
+
         'CEP',
         'Endereco',
         'Numero',
@@ -35,6 +45,9 @@ class Aluno extends Model
         'FoneComercial',
         'FoneResidencial',
         'FoneCelular',
+
+        'Escolaridade',
+
         'Empresa',
         'CEPEmpresa',
         'EnderecoEmpresa',

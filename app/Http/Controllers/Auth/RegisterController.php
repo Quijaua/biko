@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             //'password' => ['required', 'string', 'min:8', 'confirmed'],
             'role' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'numeric', 'min:11']
+            'phone' => ['required', 'string', 'min:11']
         ]);
     }
 
@@ -68,6 +68,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+      //dd($data);
         /*
         return User::create([
             'name' => $data['name'],
@@ -101,13 +102,40 @@ class RegisterController extends Controller
 
         $aluno = Aluno::create([
             'NomeAluno' => $user->name,
+            'NomeSocial' => $data['NomeSocial'],
             'id_user' => $user->id,
             'Status' => 0,
             'FoneCelular' => $user->phone,
+            'Escolaridade' => $data['inputEscolaridade'],
             'Email' => $data['email'],
             'id_nucleo' => $nucleo,
             'NomeNucleo' => $myNucleo->NomeNucleo,
             'ListaEspera' => 'Sim',
+            'Raca' => $data['inputRaca'],
+            'Genero' => $data['inputGenero'],
+            'concordaSexoDesignado' => $data['concordaSexoDesignado'],
+            'Nascimento' => $data['inputNascimento'],
+            'responsavelCuidadoOutraPessoa' => $data['responsavelCuidadoOutraPessoa'],
+            'temFilhos' => $data['temFilhos'],
+            'filhosIdade' => $data['filhosIdade'],
+            'CEP' => $data['inputCEP'],
+            'Endereco' => $data['inputEndereco'],
+            'Numero' => $data['inputNumero'],
+            'Bairro' => $data['inputBairro'],
+            'Cidade' => $data['inputCidade'],
+            'Estado' => $data['inputEstado'],
+            'Complemento' => $data['inputComplemento'],
+            'EnsFundamental' => $data['inputEnsFundamental'],
+            'PorcentagemBolsa' => $data['inputPorcentagemBolsa'],
+            'EnsMedio' => $data['inputEnsMedio'],
+            'PorcentagemBolsaMedio' => $data['inputPorcentagemBolsaMedio'],
+            'Vestibular' => $data['inputVestibular'],
+            'Enem' => $data['inputEnem'],
+            'OpcoesVestibular1' => $data['inputOpcoesVestibular1'],
+            'OpcoesVestibular2' => $data['inputOpcoesVestibular2'],
+            'VestibularOutraCidade' => $data['inputVestibularOutraCidade'],
+            'ComoSoube' => $data['inputComoSoube'],
+            'ComoSoubeOutros' => $data['inputComoSoubeOutros'],
         ]);
 
         return User::find($user->id);

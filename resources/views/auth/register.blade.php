@@ -47,7 +47,7 @@
                           <div class="col-12 col-md-4">
                             <div class="form-group">
                               <label for="phone">{{ __('Celular') }}</label>
-                              <input id="phone" type="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                              <input id="phone" type="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" data-mask="(00) 0 0000-0000" required autocomplete="phone" autofocus>
                               <small id="phoneHelp" class="form-text text-muted">Por favor, informe o número do seu celular, com DDD</small>
                             </div>
                             @error('phone')
@@ -89,7 +89,7 @@
                               <label for="inputRaca">Raça / Cor</label>
                               <select name="inputRaca" class="custom-select" required>
                                 <option value="" selected>Selecione</option>
-                                <option value="negra">Negra</option>
+                                <option value="preta">Preta</option>
                                 <option value="branca">Branca</option>
                                 <option value="parda">Parda</option>
                                 <option value="amarela">Amarela</option>
@@ -106,6 +106,7 @@
                                 <option value="homem">Homem</option>
                                 <option value="mulher_trans_cis">Mulher (Trans ou Cis)</option>
                                 <option value="homem_trans_cis">Homem (Trans ou Cis)</option>
+                                <option value="nao_binarie">Não Binarie</option>
                               </select>
                             </div>
                           </div>
@@ -199,8 +200,8 @@
                         <div class="row">
                           <div class="col-12 col-md-6">
                             <div class="form-group">
-                              <label for="inputBairro">Bairro</label>
-                              <input type="text" class="form-control" id="inputBairro" name="inputBairro" aria-describedby="inputBairroHelp" placeholder="Bairro" required>
+                              <label for="inputBairro">Distrito</label>
+                              <input type="text" class="form-control" id="inputBairro" name="inputBairro" aria-describedby="inputBairroHelp" placeholder="Distrito" required>
                             </div>
                           </div>
                           <div class="col-12 col-md-6">
@@ -212,7 +213,7 @@
                         </div>
 
                         <div class="row">
-                          <div class="col-12 col-md-4">
+                          <div class="col-12 col-md-6">
                             <div class="form-group">
                               <label for="inputEstado">Estado</label>
                               <select id="inputEstado" name="inputEstado" class="custom-select" required>
@@ -248,16 +249,10 @@
                               </select>
                             </div>
                           </div>
-                          <div class="col-12 col-md-4">
+                          <div class="col-12 col-md-6">
                             <div class="form-group">
                               <label for="inputComplemento">Complemento</label>
                               <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" placeholder="Complemento">
-                            </div>
-                          </div>
-                          <div class="col-12 col-md-4">
-                            <div class="form-group">
-                              <label for="inputFoneCelular">Telefone Celular</label>
-                              <input type="text" class="form-control" id="inputFoneCelular" name="inputFoneCelular" aria-describedby="inputFoneCelularHelp" data-mask="(00) 0 0000-0000" placeholder="(xx)xxxx-xxxx" required>
                             </div>
                           </div>
                         </div>
@@ -275,9 +270,15 @@
                               <label for="inputEscolaridade">Qual a sua escolaridade</label>
                               <select name="inputEscolaridade" class="custom-select" required>
                                 <option selected>Selecione</option>
-                                <option value="Ensino fundamental completo / Incompleto/ Cursando">Ensino fundamental completo / Incompleto/ Cursando</option>
-                                <option value="Ensino médio completo/Incompleto/Cursando">Ensino médio completo/Incompleto/Cursando</option>
-                                <option value="Ensino Superior incompleto/ Ensino Superior Completo">Ensino Superior incompleto/ Ensino Superior Completo</option>
+                                <option value="Ensino fundamental completo">Ensino fundamental completo</option>
+                                <option value="Ensino fundamental incompleto">Ensino fundamental incompleto</option>
+                                <option value="Ensino fundamental cursando">Ensino fundamental cursando</option>
+                                <option value="Ensino médio completo">Ensino médio completo</option>
+                                <option value="Ensino médio incompleto">Ensino médio incompleto</option>
+                                <option value="Ensino médio cursando">Ensino médio cursando</option>
+                                <option value="Ensino Superior completo">Ensino Superior completo</option>
+                                <option value="Ensino Superior incompleto">Ensino Superior incompleto</option>
+                                <option value="Ensino Superior cursando">Ensino Superior cursando</option>
                               </select>
                             </div>
                           </div>
@@ -344,7 +345,7 @@
                           </div>
                           <div class="col-12 col-md-6">
                             <div class="form-group">
-                              <label for="inputVestibular">Já prestou Enem?</label>
+                              <label for="inputEnem">Já prestou Enem?</label>
                               <br>
                               <div id="enem" class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="inputEnem" id="inputEnem1" value="Sim">
