@@ -437,7 +437,7 @@
                         <input id="role" type="hidden" name="role" value="aluno">
 
                         <div class="form-group row mt-3 mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Cadastrar') }}
                                 </button>
