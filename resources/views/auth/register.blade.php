@@ -12,6 +12,12 @@
                         @csrf
 
                         <div class="row">
+                          <div class="col-12">
+                            <h2>Dados Pessoais</h2>
+                          </div>
+                        </div>
+
+                        <div class="row">
                           <div class="col-12 col-md-6">
                             <div class="form-group">
                               <label for="name">{{ __('Nome') }}</label>
@@ -163,6 +169,13 @@
                         </div>
 
                         <div class="row">
+                          <div class="col-12">
+                            <hr>
+                            <h2>Endereço</h2>
+                          </div>
+                        </div>
+
+                        <div class="row">
                           <div class="col-12 col-md-4">
                             <div class="form-group">
                               <label for="inputCEP">CEP (Somente números)</label>
@@ -246,6 +259,13 @@
                               <label for="inputFoneCelular">Telefone Celular</label>
                               <input type="text" class="form-control" id="inputFoneCelular" name="inputFoneCelular" aria-describedby="inputFoneCelularHelp" data-mask="(00) 0 0000-0000" placeholder="(xx)xxxx-xxxx" required>
                             </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12">
+                            <hr>
+                            <h2>Escolaridade</h2>
                           </div>
                         </div>
 
