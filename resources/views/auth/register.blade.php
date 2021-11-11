@@ -156,8 +156,8 @@
                             <div class="form-group">
                               <label for="temFilhos">Tem filhos?</label>
                               <select class="custom-select" name="temFilhos">
-                                <option value="Sim">Sim</option>
-                                <option value="Não">Não</option>
+                                <option value="1">Sim</option>
+                                <option value="0">Não</option>
                               </select>
                             </div>
                           </div>
@@ -348,11 +348,11 @@
                               <label for="inputEnem">Já prestou Enem?</label>
                               <br>
                               <div id="enem" class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inputEnem" id="inputEnem1" value="Sim">
+                                <input class="form-check-input" type="radio" name="inputEnem" id="inputEnem1" value="1">
                                 <label class="form-check-label" for="inputEnem1">Sim</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inputEnem" id="inputEnem2" value="Não">
+                                <input class="form-check-input" type="radio" name="inputEnem" id="inputEnem2" value="0">
                                 <label class="form-check-label" for="inputEnem2">Não</label>
                               </div>
                             </div>

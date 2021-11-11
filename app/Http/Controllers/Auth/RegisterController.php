@@ -68,7 +68,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-      //dd($data);
+      $remove = array("(", ")", "-", " ");
+      $phone = intval(str_replace($remove, "", $data['phone']));
+      $fundamental = isset($data['inputEnsFundamental']) ? json_encode($data['inputEnsFundamental']) : NULL;
+      $medio = isset($data['inputinputEnsMedio']) ? json_encode($data['inputinputEnsMedio']) : NULL;
+
         /*
         return User::create([
             'name' => $data['name'],
@@ -91,7 +95,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make(md5($data['email'])),
             'role' => $data['role'],
-            'phone' => $data['phone']
+            'phone' => $phone
         ]);
 
         $my_token = app('auth.password.broker')->createToken($user);
@@ -125,9 +129,9 @@ class RegisterController extends Controller
             'Cidade' => $data['inputCidade'],
             'Estado' => $data['inputEstado'],
             'Complemento' => $data['inputComplemento'],
-            'EnsFundamental' => $data['inputEnsFundamental'],
+            'EnsFundamental' => $fundamental,
             'PorcentagemBolsa' => $data['inputPorcentagemBolsa'],
-            'EnsMedio' => $data['inputEnsMedio'],
+            'EnsMedio' => $medio,
             'PorcentagemBolsaMedio' => $data['inputPorcentagemBolsaMedio'],
             'Vestibular' => $data['inputVestibular'],
             'Enem' => $data['inputEnem'],
