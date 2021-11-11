@@ -78,9 +78,12 @@
                                         <a class="nav-link" href="/nucleos">{{ __('NÚCLEOS') }}</a>
                                     </li>
                                 @endif
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('nucleo/presences') }}">{{ __('LISTA DE PRESENÇA') }}</a>
-                                    </li>
+                            @endif
+
+                            @if( Session::get('role') === 'professor' || Session::get('role') === 'coordenador' )
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('nucleo/presences') }}">{{ __('LISTA DE PRESENÇA') }}</a>
+                            </li>
                             @endif
 
                             <li class="nav-item">
