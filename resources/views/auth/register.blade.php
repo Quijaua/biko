@@ -163,8 +163,8 @@
                           </div>
                           <div class="col-12 col-md-6">
                             <div class="form-group">
-                              <label for="filhosIdade">Quantos anos eles tem?</label>
-                              <input class="form-control" type="text" name="filhosIdade">
+                              <label for="filhosQt">Quantos?</label>
+                              <input class="form-control" type="number" name="filhosQt">
                             </div>
                           </div>
                         </div>

@@ -71,7 +71,7 @@ class RegisterController extends Controller
       $remove = array("(", ")", "-", " ");
       $phone = intval(str_replace($remove, "", $data['phone']));
       $fundamental = isset($data['inputEnsFundamental']) ? json_encode($data['inputEnsFundamental']) : NULL;
-      $medio = isset($data['inputinputEnsMedio']) ? json_encode($data['inputinputEnsMedio']) : NULL;
+      $medio = isset($data['inputEnsMedio']) ? json_encode($data['inputEnsMedio']) : NULL;
 
         /*
         return User::create([
@@ -121,7 +121,8 @@ class RegisterController extends Controller
             'Nascimento' => $data['inputNascimento'],
             'responsavelCuidadoOutraPessoa' => $data['responsavelCuidadoOutraPessoa'],
             'temFilhos' => $data['temFilhos'],
-            'filhosIdade' => $data['filhosIdade'],
+            'filhosQt' => $data['filhosQt'],
+            /*'filhosIdade' => $data['filhosIdade'],*/
             'CEP' => $data['inputCEP'],
             'Endereco' => $data['inputEndereco'],
             'Numero' => $data['inputNumero'],
