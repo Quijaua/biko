@@ -25,7 +25,6 @@ class MaterialController extends Controller
       $files = Material::where('status', 1)->where('nucleo_id', $user->professor->id_nucleo)->get();
     } else {
       $user = Auth::user();
-      //dd($user->aluno->id_nucleo);
       $nucleos = NULL;
       $files = Material::where('status', 1)->where('nucleo_id', $user->aluno->id_nucleo)->get();
     }
