@@ -24,4 +24,9 @@ class Material extends Model
   {
     return $this->belongsTo('App\Nucleo');
   }
+
+  public function user()
+  {
+    return $this->belongsTo('App\User');
+  }
 }

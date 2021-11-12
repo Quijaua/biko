@@ -64,6 +64,7 @@
         <thead>
           <tr>
             <th scope="col">Título</th>
+            <th scope="col">Enviado por</th>
             <th scope="col">Núcleo</th>
             <th scope="col">Data de envio</th>
             <th scope="col">Status</th>
@@ -74,6 +75,7 @@
           @foreach( $files as $file )
           <tr>
             <th>{{ $file->name }}</th>
+            <th>{{ $file->user->name }}</th>
             <td>{{ $file->nucleo->NomeNucleo }}</td>
             <td>{{ $file->created_at->format('d/m/Y') }}</td>
             <td>@if( $file->status ) <span class="badge bg-success">disponível</span> @else <span class="badge bg-danger">indisponível</span> @endif</td>
