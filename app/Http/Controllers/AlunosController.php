@@ -275,6 +275,8 @@ class AlunosController extends Controller
         $dados->Email = $request->input('inputEmail');
         $dados->Raca = $request->input('inputRaca');
         $dados->Genero = $request->input('inputGenero');
+        $dados->concordaSexoDesignado = $request->input('concordaSexoDesignado');
+        $dados->responsavelCuidadoOutraPessoa = $request->input('responsavelCuidadoOutraPessoa');
         $dados->EstadoCivil = $request->input('inputEstadoCivil');
         $dados->Nascimento = $request->input('inputNascimento');
         $dados->Endereco = $request->input('inputEndereco');
@@ -287,6 +289,7 @@ class AlunosController extends Controller
         $dados->FoneComercial = $request->input('inputFoneComercial');
         $dados->FoneResidencial = $request->input('inputFoneResidencial');
         $dados->FoneCelular = $request->input('inputFoneCelular');
+        $dados->Escolaridade = $request->input('inputEscolaridade');
         $dados->Empresa = $request->input('inputEmpresa');
         $dados->EnderecoEmpresa = $request->input('inputEnderecoEmpresa');
         $dados->NumeroEmpresa = $request->input('inputNumeroEmpresa');
@@ -314,6 +317,7 @@ class AlunosController extends Controller
         $dados->PorcentagemBolsa = $request->input('inputPorcentagemBolsa');
         $dados->EnsMedio = $request->input('inputEnsMedio');
         $dados->PorcentagemBolsaMedio = $request->input('inputPorcentagemBolsaMedio');
+        $dados->Enem = $request->input('inputEnem');
         $dados->Vestibular = $request->input('inputVestibular');
         $dados->FaculdadeTipo = $request->input('inputFaculdadeTipo');
         $dados->NomeFaculdade = $request->input('inputNomeFaculdade');

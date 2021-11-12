@@ -214,7 +214,7 @@
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <label for="inputAuxGoverno">A família recebe algumn tipo de auxílio do Governo?</label>
+          <label for="inputAuxGoverno">A família recebe algum tipo de auxílio do Governo?</label>
           <div id="AuxGoverno" class="form-check form-check-inline">
             <input <?php if($dados->AuxGoverno == 'sim'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno1" value="sim" onclick="showInput('#AuxTipo')">
             <label class="form-check-label" for="inputTaxaInscricao1">Sim</label>
