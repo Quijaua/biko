@@ -36,6 +36,11 @@ Route::get('nucleo/presences', 'NucleoController@presences_index')->name('nucleo
 Route::get('nucleo/presences/new', 'NucleoController@presences_new')->name('nucleo/presences/new');
 Route::post('nucleo/presences/create', 'NucleoController@presences_create')->name('nucleo/presences/create');
 
+Route::get('nucleo/material', 'MaterialController@index')->name('nucleo.material');
+Route::post('nucleo/material/create', 'MaterialController@create')->name('nucleo.material.create');
+Route::get('nucleo/material/delete/{id}', 'MaterialController@delete')->name('nucleo.material.delete');
+Route::get('nucleo/material/restore/{id}', 'MaterialController@restore')->name('nucleo.material.restore');
+
 // ROUTES FOR ALUNOS MANAGEMENT
 Route::get('alunos', 'AlunosController@index')->middleware('permissions');
 Route::get('alunos/details/{id}', 'AlunosController@details')->middleware('permissions');

@@ -77,7 +77,7 @@ class Professores extends Model
 
     public function nucleo()
     {
-        return $this->belongTo('App\Nucleo');
+        return $this->belongsTo('App\Nucleo');
     }
 
     public function user()

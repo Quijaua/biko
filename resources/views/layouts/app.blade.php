@@ -87,6 +87,10 @@
                             @endif
 
                             <li class="nav-item">
+                              <a class="nav-link" href="{{ route('nucleo.material') }}">{{ __('MATERIAL') }}</a>
+                            </li>
+
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('messages.index') }}">{{ __('MENSAGENS') }}</a>
                             </li>
                       @endauth
