@@ -157,14 +157,16 @@
                               <label for="temFilhos">Tem filhos?</label>
                               <select class="custom-select" name="temFilhos">
                                 <option value="1">Sim</option>
-                                <option value="0">Não</option>
+                                <option value="0" selected>Não</option>
                               </select>
                             </div>
                           </div>
                           <div class="col-12 col-md-6">
-                            <div class="form-group">
-                              <label for="filhosQt">Quantos?</label>
-                              <input class="form-control" type="number" name="filhosQt">
+                            <div id="filhos_qt_wrapper" style="display: none;">
+                              <div class="form-group">
+                                <label for="filhosQt">Quantos?</label>
+                                <input class="form-control" type="number" name="filhosQt">
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -450,4 +452,18 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+<script>
+  $(document).ready(function () {
+    $('select[name=temFilhos').change(function(){
+      if( $(this).val() === '1' ) {
+        $('#filhos_qt_wrapper').fadeIn();
+      } else {
+        $('#filhos_qt_wrapper').fadeOut();
+      }
+    });
+  });
+</script>
 @endsection
