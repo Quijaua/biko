@@ -61,27 +61,6 @@
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputAnoIngresso">Ano de Ingresso</label>
-          <select name="inputAnoIngresso" class="custom-select">
-            <option selected>Selecione</option>
-            <option <?php if(old('inputAnoIngresso') == '2009'){ echo 'selected=selected';} ?> value="2009">2009</option>
-            <option <?php if(old('inputAnoIngresso') == '2010'){ echo 'selected=selected';} ?> value="2010">2010</option>
-            <option <?php if(old('inputAnoIngresso') == '2011'){ echo 'selected=selected';} ?> value="2011">2011</option>
-            <option <?php if(old('inputAnoIngresso') == '2012'){ echo 'selected=selected';} ?> value="2012">2012</option>
-            <option <?php if(old('inputAnoIngresso') == '2013'){ echo 'selected=selected';} ?> value="2013">2013</option>
-            <option <?php if(old('inputAnoIngresso') == '2014'){ echo 'selected=selected';} ?> value="2014">2014</option>
-            <option <?php if(old('inputAnoIngresso') == '2015'){ echo 'selected=selected';} ?> value="2015">2015</option>
-            <option <?php if(old('inputAnoIngresso') == '2016'){ echo 'selected=selected';} ?> value="2016">2016</option>
-            <option <?php if(old('inputAnoIngresso') == '2017'){ echo 'selected=selected';} ?> value="2017">2017</option>
-            <option <?php if(old('inputAnoIngresso') == '2018'){ echo 'selected=selected';} ?> value="2018">2018</option>
-            <option <?php if(old('inputAnoIngresso') == '2019'){ echo 'selected=selected';} ?> value="2019">2019</option>
-            <option <?php if(old('inputAnoIngresso') == '2020'){ echo 'selected=selected';} ?> value="2020">2020</option>
-            <option <?php if(old('inputAnoIngresso') == '2021'){ echo 'selected=selected';} ?> value="2021">2021</option>
-          </select>
-        </div>
-      </div>
-      <div class="col">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" name="inputRepresentanteCGU" id="inputRepresentanteCGU" value="sim">
           <label class="form-check-label" for="inputRepresentanteCGU">Representante no CGU</label>
@@ -137,6 +116,7 @@
             <option <?php if(old('inputGenero') == 'homem'){ echo 'selected=selected';} ?> value="homem">Homem</option>
             <option <?php if(old('inputGenero') == 'mulher_trans_cis'){ echo 'selected=selected';} ?> value="mulher_trans_cis">Mulher (Trans ou Cis)</option>
             <option <?php if(old('inputGenero') == 'homem_trans_cis'){ echo 'selected=selected';} ?> value="homem_trans_cis">Homem (Trans ou Cis)</option>
+            <option <?php if(old('inputGenero') == 'nao_binarie'){ echo 'selected=selected';} ?> value="nao_binarie">Não Binárie</option>
           </select>
         </div>
       </div>
@@ -189,7 +169,9 @@
             <option value="Ensino Superior Completo">Ensino Superior Completo</option>
             <option value="Ensino Superior Cursando">Ensino Superior Cursando</option>
             <option value="Ensino Superior Incompleto">Ensino Superior Incompleto</option>
-            <option value="Pós Graduação Completa/Incompleta/Cursando">Pós Graduação Completa/Incompleta/Cursando</option>
+            <option value="Pós Graduação Completa">Pós Graduação Completa</option>
+            <option value="Pós Graduação incompleta">Pós Graduação incompleta</option>
+            <option value="Pós Graduação Cursando">Pós Graduação Cursando</option>
           </select>
         </div>
       </div>
