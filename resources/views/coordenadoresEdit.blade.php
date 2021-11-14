@@ -202,7 +202,7 @@
         <div class="form-group">
           <label for="inputAnoInicioUneafro">Desde que ano você está na UNEAFRO?</label>
           <br><br>
-          <input type="text" class="form-control" id="inputAnoInicioUneafro" name="inputAnoInicioUneafro" aria-describedby="inputAnoInicioUneafroHelp" placeholder="Ano em que iniciou na UNEAFRO" value="{{ $dados->AnoInicioUneafro }}">
+          <input type="text" class="form-control" id="inputAnoInicioUneafro" name="inputAnoInicioUneafro" aria-describedby="inputAnoInicioUneafroHelp" placeholder="Ano em que iniciou na UNEAFRO" value="{{ $dados->AnoInicioUneafro }}" placeholder="4 dígitos (Ex. 2021)">
         </div>
       </div>
       <div class="col">
@@ -868,4 +868,12 @@
   </form>
 
 </div>
+@endsection
+
+@section('js')
+<script>
+  $(document).ready(function(){
+    $('#inputAnoInicioUneafro').mask('0000');
+  });
+</script>
 @endsection

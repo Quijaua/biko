@@ -335,7 +335,7 @@
         <div class="form-group">
           <label for="inputAnoInicioUneafro">Desde que ano você está na UNEAFRO?</label>
           <br><br>
-          <input type="text" class="form-control" id="inputAnoInicioUneafro" name="inputAnoInicioUneafro" aria-describedby="inputAnoInicioUneafroHelp" value="{{ $dados->AnoInicioUneafro }}">
+          <input type="text" class="form-control" id="inputAnoInicioUneafro" name="inputAnoInicioUneafro" aria-describedby="inputAnoInicioUneafroHelp" value="{{ $dados->AnoInicioUneafro }}" placeholder="4 dígitos (Ex. 2021)">
         </div>
       </div>
       <div class="col">
@@ -986,4 +986,12 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h">{{ $dados->DiasHora
   </form>
 
 </div>
+@endsection
+
+@section('js')
+<script>
+  $(document).ready(function(){
+    $('#inputAnoInicioUneafro').mask('0000');
+  });
+</script>
 @endsection
