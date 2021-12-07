@@ -305,7 +305,7 @@
                         <div class="row">
                           <div class="col-12 col-md-6">
                             <div class="form-group">
-                              <label for="inputEnsFundamental">Ensino Fundamental</label><br>
+                              <label for="inputEnsFundamental">Você cursou o Ensino Fundamental em:</label><br>
                               <div class="form-check form-check-inline">
                                 <input class="form-check-input" name="inputEnsFundamental[]" type="checkbox" id="rede_publica" value="rede publica">
                                 <label class="form-check-label" for="inputEnsFundamental1">Rede Pública</label>
@@ -327,7 +327,7 @@
                         <div class="row">
                           <div class="col-12 col-md-6">
                             <div class="form-group">
-                              <label for="inputEnsMedio">Ensino Médio</label><br>
+                              <label for="inputEnsMedio">Você cursou o Ensino Médio em:</label><br>
                               <div class="form-check form-check-inline">
                                 <input class="form-check-input" name="inputEnsMedio[]" type="checkbox" id="rede_publica" value="rede publica">
                                 <label class="form-check-label" for="inputEnsMedio1">Rede Pública</label>
