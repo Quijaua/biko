@@ -34,6 +34,7 @@
                             <div class="form-group">
                               <label for="NomeSocial">{{ __('Nome Social') }}</label>
                               <input id="NomeSocial" type="text" class="form-control @error('NomeSocial') is-invalid @enderror" name="NomeSocial" value="{{ old('NomeSocial') }}" autocomplete="NomeSocial" autofocus>
+                              <small id="NomeSocialHelp" class="form-text text-muted">Qual nome você gostaria que aparecesse na lista de chamada e fosse usado nas aulas?</small>
                             </div>
                             @error('NomeSocial')
                                 <span class="invalid-feedback" role="alert">
