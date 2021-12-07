@@ -183,7 +183,7 @@
                           <div class="col-12 col-md-4">
                             <div class="form-group">
                               <label for="inputCEP">CEP (Somente números)</label>
-                              <input type="text" class="form-control" id="inputCEP" name="inputCEP" aria-describedby="inputCEPHelp" data-mask="00000-000" placeholder="xx.xxx-xxx" onblur="checkCEP('#inputCEP')" required>
+                              <input type="text" class="form-control" id="inputCEP" name="inputCEP" aria-describedby="inputCEPHelp" data-mask="00000000" placeholder="xx.xxx-xxx" onblur="checkCEP('#inputCEP')" required>
                             </div>
                           </div>
                           <div class="col-12 col-md-4">
