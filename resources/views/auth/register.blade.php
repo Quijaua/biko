@@ -116,9 +116,9 @@
                         <div class="row">
                           <div class="col-12 col-md-6">
                             <div class="form-group">
-                              <label for="concordaSexoDesignado">Você se identifica com o sexo designado ao nascer?</label>
+                              <label for="concordaSexoDesignado">Você se identifica com o gênero designado ao nascer?</label>
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="concordaSexoDesignado" id="concordaSexoDesignado1" value="1" checked>
+                                <input class="form-check-input" type="radio" name="concordaSexoDesignado" id="concordaSexoDesignado1" value="1">
                                 <label class="form-check-label" for="concordaSexoDesignado1">
                                   Sim
                                 </label>
