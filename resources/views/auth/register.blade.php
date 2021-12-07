@@ -47,7 +47,7 @@
                         <div class="row">
                           <div class="col-12 col-md-4">
                             <div class="form-group">
-                              <label for="phone">{{ __('Celular') }}</label>
+                              <label for="phone">{{ __('Celular') }}</label><br><br>
                               <input id="phone" type="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" data-mask="(00) 0 0000-0000" required autocomplete="phone" autofocus>
                               <small id="phoneHelp" class="form-text text-muted">Por favor, informe o número do seu celular, com DDD</small>
                             </div>
@@ -59,7 +59,7 @@
                           </div>
                           <div class="col-12 col-md-4">
                             <div class="form-group">
-                              <label for="email">{{ __('E-Mail') }}</label>
+                              <label for="email">{{ __('E-Mail') }}</label><br><br>
                               <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                               <small id="emailHelp" class="form-text text-muted">Todos os e-mails do sistema serão enviados para este endereço.</small>
                             </div>
@@ -71,7 +71,7 @@
                           </div>
                           <div class="col-12 col-md-4">
                             <div class="form-group">
-                              <label for="inputNucleo">Núcleo</label>
+                              <label for="inputNucleo">Tem preferência por fazer as aulas em algum núcleo?</label>
                               <?php $nucleos = DB::table('nucleos')->where('status', 1)->orderBy('Regiao','asc')->get(); ?>
                               <select name="inputNucleo" class="custom-select" required>
                                 <option value="">Selecione</option>
