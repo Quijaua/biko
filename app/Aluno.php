@@ -40,9 +40,9 @@ class Aluno extends Model
         'FoneComercial',
         'FoneResidencial',
         'FoneCelular',
-
         'Escolaridade',
-
+        'RamoAtuacao',
+        'RamoAtuacaoOutros',
         'Empresa',
         'CEPEmpresa',
         'EnderecoEmpresa',

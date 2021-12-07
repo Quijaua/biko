@@ -353,14 +353,42 @@
     <hr>
     <h3>DADOS PROFISSIONAIS</h3>
     <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <label for="inputRamoAtuacao">Você trabalha no ramo da:</label>
+          <select id="inputRamoAtuacao" name="inputRamoAtuacao" class="custom-select">
+            <option value="Educação" @if( $dados->RamoAtuacao == 'Educação' ) {{ 'selected' }} @endif >Educação</option>
+            <option value="Pesquisa" @if( $dados->RamoAtuacao == 'Pesquisa' ) {{ 'selected' }} @endif >Pesquisa</option>
+            <option value="Telemarketing" @if( $dados->RamoAtuacao == 'Telemarketing' ) {{ 'selected' }} @endif >Telemarketing</option>
+            <option value="Comércio" @if( $dados->RamoAtuacao == 'Comércio' ) {{ 'selected' }} @endif >Comércio</option>
+            <option value="Indústria" @if( $dados->RamoAtuacao == 'Indústria' ) {{ 'selected' }} @endif >Indústria</option>
+            <option value="Construção Civil" @if( $dados->RamoAtuacao == 'Construção Civil' ) {{ 'selected' }} @endif >Construção Civil</option>
+            <option value="Beleza e Cuidados" @if( $dados->RamoAtuacao == 'Beleza e Cuidados' ) {{ 'selected' }} @endif >Beleza e Cuidados</option>
+            <option value="Serviços gerais" @if( $dados->RamoAtuacao == 'Serviços gerais' ) {{ 'selected' }} @endif >Serviços gerais</option>
+            <option value="Limpeza e Higiene" @if( $dados->RamoAtuacao == 'Limpeza e Higiene' ) {{ 'selected' }} @endif >Limpeza e Higiene</option>
+            <option value="Gastronomia/Alimentação" @if( $dados->RamoAtuacao == 'Gastronomia/Alimentação' ) {{ 'selected' }} @endif >Gastronomia/Alimentação</option>
+            <option value="Entrega/Delivery" @if( $dados->RamoAtuacao == 'Entrega/Delivery' ) {{ 'selected' }} @endif >Entrega/Delivery</option>
+            <option value="Saúde/Bem-Estar" @if( $dados->RamoAtuacao == 'Saúde/Bem-Estar' ) {{ 'selected' }} @endif >Saúde/Bem-Estar</option>
+            <option value="Segurança" @if( $dados->RamoAtuacao == 'Segurança' ) {{ 'selected' }} @endif >Segurança</option>
+            <option value="Transporte de pessoas/Aplicativos" @if( $dados->RamoAtuacao == 'Transporte de pessoas/Aplicativos' ) {{ 'selected' }} @endif >Transporte de pessoas/Aplicativos</option>
+            <option value="Outros" @if( $dados->RamoAtuacao == 'Outros' ) {{ 'selected' }} @endif >Outros</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <label for="inputRamoAtuacaoOutros">&nbsp;</label>
+        <input type="text" class="form-control" id="inputRamoAtuacaoOutros" name="inputRamoAtuacaoOutros" aria-describedby="inputRamoAtuacaoOutrosHelp" placeholder="Outros (Especifique)" value="{{ $dados->RamoAtuacaoOutros }}">
+      </div>
+    </div>
+    <!--<div class="row">
       <div class="col">
         <div class="form-group">
           <label for="inputEmpresa">Nome da Empresa</label>
           <input type="text" class="form-control" id="inputEmpresa" name="inputEmpresa" aria-describedby="inputEmpresaHelp" value="{{ $dados->Empresa }}">
         </div>
       </div>
-    </div>
-    <div class="row">
+    </div>-->
+    <!--<div class="row">
       <div class="col">
         <div class="form-group">
           <label for="inputCEPEmpresa">CEP</label>
@@ -379,8 +407,8 @@
           <input type="text" class="form-control" id="inputNumeroEmpresa" name="inputNumeroEmpresa" aria-describedby="inputNumeroEmpresaHelp" value="{{ $dados->NumeroEmpresa }}">
         </div>
       </div>
-    </div>
-    <div class="row">
+    </div>-->
+    <!--<div class="row">
       <div class="col">
         <div class="form-group">
           <label for="inputBairroEmpresa">Bairro</label>
@@ -435,16 +463,16 @@
           </select>
         </div>
       </div>
-    </div>
-    <div class="row">
+    </div>-->
+    <!--<div class="row">
       <div class="col">
         <div class="form-group">
           <label for="inputCargo">Cargo/Função</label>
           <input type="text" class="form-control" id="inputCargo" name="inputCargo" aria-describedby="inputCargoHelp" value="{{ $dados->Cargo }}">
         </div>
       </div>
-    </div>
-    <div class="row">
+    </div>-->
+    <!--<div class="row">
       <div class="col-12">
         <p>Horário de Trabalho</p>
       </div>
@@ -460,7 +488,7 @@
           <input type="time" class="form-control" id="inputHorarioTo" name="inputHorarioTo" aria-describedby="inputHorarioToHelp" value="{{ $dados->HorarioTo }}">
         </div>
       </div>
-    </div>
+    </div>-->
     <hr>
     <!--
     <h3>DADOS FAMILIARES</h3>

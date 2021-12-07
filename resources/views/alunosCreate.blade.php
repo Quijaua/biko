@@ -298,14 +298,42 @@
     <hr>
     <h3>DADOS PROFISSIONAIS</h3>
     <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <label for="inputRamoAtuacao">Você trabalha no ramo da:</label>
+          <select id="inputRamoAtuacao" name="inputRamoAtuacao" class="custom-select">
+            <option value="Educação">Educação</option>
+            <option value="Pesquisa">Pesquisa</option>
+            <option value="Telemarketing">Telemarketing</option>
+            <option value="Comércio">Comércio</option>
+            <option value="Indústria">Indústria</option>
+            <option value="Construção Civil">Construção Civil</option>
+            <option value="Beleza e Cuidados">Beleza e Cuidados</option>
+            <option value="Serviços gerais">Serviços gerais</option>
+            <option value="Limpeza e Higiene">Limpeza e Higiene</option>
+            <option value="Gastronomia/Alimentação">Gastronomia/Alimentação</option>
+            <option value="Entrega/Delivery">Entrega/Delivery</option>
+            <option value="Saúde/Bem-Estar">Saúde/Bem-Estar</option>
+            <option value="Segurança">Segurança</option>
+            <option value="Transporte de pessoas/Aplicativos">Transporte de pessoas/Aplicativos</option>
+            <option value="Outros">Outros</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <label for="inputRamoAtuacaoOutros">&nbsp;</label>
+        <input type="text" class="form-control" id="inputRamoAtuacaoOutros" name="inputRamoAtuacaoOutros" aria-describedby="inputRamoAtuacaoOutrosHelp" placeholder="Outros (Especifique)">
+      </div>
+    </div>
+    <!--<div class="row">
       <div class="col">
         <div class="form-group">
           <label for="inputEmpresa">Nome da Empresa</label>
           <input type="text" class="form-control" id="inputEmpresa" name="inputEmpresa" aria-describedby="inputEmpresaHelp" placeholder="Nome da empresa onde trabalha">
         </div>
       </div>
-    </div>
-    <div class="row">
+    </div>-->
+    <!--<div class="row">
       <div class="col">
         <div class="form-group">
           <label for="inputCEPEmpresa">CEP</label>
@@ -324,8 +352,8 @@
           <input type="text" class="form-control" id="inputNumeroEmpresa" name="inputNumeroEmpresa" aria-describedby="inputNumeroEmpresaHelp" placeholder="Número">
         </div>
       </div>
-    </div>
-    <div class="row">
+    </div>-->
+    <!--<div class="row">
       <div class="col">
         <div class="form-group">
           <label for="inputBairroEmpresa">Bairro</label>
@@ -380,16 +408,16 @@
           </select>
         </div>
       </div>
-    </div>
-    <div class="row">
+    </div>-->
+    <!--<div class="row">
       <div class="col">
         <div class="form-group">
           <label for="inputCargo">Cargo/Função</label>
           <input type="text" class="form-control" id="inputCargo" name="inputCargo" aria-describedby="inputCargoHelp" placeholder="Cargo ocupado na empresa">
         </div>
       </div>
-    </div>
-    <div class="row">
+    </div>-->
+    <!--<div class="row">
       <div class="col-12">
         <p>Horário de Trabalho</p>
       </div>
@@ -405,7 +433,7 @@
           <input type="time" class="form-control" id="inputHorarioTo" name="inputHorarioTo" aria-describedby="inputHorarioToHelp">
         </div>
       </div>
-    </div>
+    </div>-->
     <hr>
     <!--
     <h3>DADOS FAMILIARES</h3>

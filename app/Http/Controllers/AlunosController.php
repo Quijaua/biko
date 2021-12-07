@@ -170,6 +170,10 @@ class AlunosController extends Controller
             'FoneComercial' => $request->input('inputFoneComercial'),
             'FoneResidencial' => $request->input('inputFoneResidencial'),
             'FoneCelular' => $request->input('inputFoneCelular'),
+
+            'RamoAtuacao' => $request->input('inputRamoAtuacao'),
+            'RamoAtuacaoOutros' => $request->input('inputRamoAtuacaoOutros'),
+
             'Empresa' => $request->input('inputEmpresa'),
             'EnderecoEmpresa' => $request->input('inputEnderecoEmpresa'),
             'NumeroEmpresa' => $request->input('inputNumeroEmpresa'),
@@ -290,6 +294,10 @@ class AlunosController extends Controller
         $dados->FoneResidencial = $request->input('inputFoneResidencial');
         $dados->FoneCelular = $request->input('inputFoneCelular');
         $dados->Escolaridade = $request->input('inputEscolaridade');
+
+        $dados->RamoAtuacao = $request->input('inputRamoAtuacao');
+        $dados->RamoAtuacaoOutros = $request->input('inputRamoAtuacaoOutros');
+
         $dados->Empresa = $request->input('inputEmpresa');
         $dados->EnderecoEmpresa = $request->input('inputEnderecoEmpresa');
         $dados->NumeroEmpresa = $request->input('inputNumeroEmpresa');
