@@ -188,7 +188,7 @@
                           </div>
                           <div class="col-12 col-md-4">
                             <div class="form-group">
-                              <label for="inputEndereco">Rua</label>
+                              <label for="inputEndereco">Logradouro</label>
                               <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEndereco" name="inputEndereco" aria-describedby="inputEnderecoHelp" placeholder="Rua, Avenida, Logradoouro" required>
                             </div>
                           </div>
