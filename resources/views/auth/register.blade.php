@@ -222,7 +222,7 @@
                           <div class="col-12 col-md-6">
                             <div class="form-group">
                               <label for="inputCidade">Cidade</label>
-                              <input type="text" class="form-control" id="inputCidade" name="inputCidade" aria-describedby="inputCidadeHelp" placeholder="Cidade/Município" required>
+                              <input type="text" class="form-control" id="inputCidade" name="inputCidade" aria-describedby="inputCidadeHelp" required>
                             </div>
                           </div>
                         </div>
