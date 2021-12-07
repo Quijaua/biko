@@ -22,20 +22,15 @@ class Aluno extends Model
         'Email',
         'Raca',
         'Genero',
-
         'concordaSexoDesignado',
-
         'IdentificaGenero',
         'EstadoCivil',
         'Nascimento',
-
         'responsavelCuidadoOutraPessoa',
-
         'temFilhos',
-
         'filhosIdade',
-
         'CEP',
+        'CEPProprio',
         'Endereco',
         'Numero',
         'Bairro',

@@ -201,6 +201,18 @@
                         </div>
 
                         <div class="row">
+                          <div class="col-12">
+                            <div class="form-group">
+                              <label for="inputCEPProprio">Esse CEP é seu ou uma referência?</label>
+                              <select id="inputCEPProprio" name="inputCEPProprio" class="custom-select" required>
+                                <option value="1">Sim, é meu</option>
+                                <option value="0">Não, esse CEP é uma referência</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
                           <div class="col-12 col-md-6">
                             <div class="form-group">
                               <label for="inputBairro">Distrito</label>
