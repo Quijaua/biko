@@ -104,7 +104,7 @@
                               <select name="inputGenero" class="custom-select" required>
                                 <option value="" selected>Selecione</option>
                                 <option value="mulher">Mulher</option>
-                                <option value="homem">Homem</option>
+                                <!--<option value="homem">Homem</option>-->
                                 <option value="mulher_trans_cis">Mulher (Trans ou Cis)</option>
                                 <option value="homem_trans_cis">Homem (Trans ou Cis)</option>
                                 <option value="nao_binarie">Não Binarie</option>
