@@ -146,13 +146,12 @@
       </div>
       <div class="col">
         <div class="form-group">
-          <label for="inputGenero">Gênero</label>
+          <label for="inputGenero">Identidade de Gênero</label>
           <select name="inputGenero" class="custom-select">
             <option value="" selected>Selecione</option>
-            <option <?php if($dados->Genero == 'mulher'){ echo 'selected=selected';} ?> value="mulher">Mulher</option>
-            <option <?php if($dados->Genero == 'homem'){ echo 'selected=selected';} ?> value="homem">Homem</option>
-            <option <?php if($dados->Genero == 'mulher_trans_cis'){ echo 'selected=selected';} ?> value="mulher_trans_cis">Mulher (Trans ou Cis)</option>
-            <option <?php if($dados->Genero == 'homem_trans_cis'){ echo 'selected=selected';} ?> value="homem_trans_cis">Homem (Trans ou Cis)</option>
+            <option <?php if($dados->Genero == 'mulher' || $dados->Genero == 'mulher_trans_cis'){ echo 'selected=selected';} ?> value="mulher">Mulher (Cis/Trans)</option>
+            <option <?php if($dados->Genero == 'homem' || $dados->Genero == 'homem_trans_cis'){ echo 'selected=selected';} ?> value="homem">Homem (Cis/Trans)</option>
+            <option <?php if($dados->Genero == 'nao_binarie'){ echo 'selected=selected';} ?> value="mulher_trans_cis">Não Binárie</option>
           </select>
         </div>
       </div>
