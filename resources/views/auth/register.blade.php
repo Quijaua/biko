@@ -180,22 +180,31 @@
                         </div>
 
                         <div class="row">
-                          <div class="col-12 col-md-4">
+                          <div class="col-12 col-md-6">
                             <div class="form-group">
                               <label for="inputCEP">CEP (Somente números)</label>
                               <input type="text" class="form-control" id="inputCEP" name="inputCEP" aria-describedby="inputCEPHelp" data-mask="00000000" placeholder="xx.xxx-xxx" onblur="checkCEP('#inputCEP')" required>
                             </div>
                           </div>
-                          <div class="col-12 col-md-4">
+                          <div class="col-12 col-md-6">
                             <div class="form-group">
                               <label for="inputEndereco">Logradouro</label>
                               <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEndereco" name="inputEndereco" aria-describedby="inputEnderecoHelp" placeholder="Rua, Avenida, Logradoouro" required>
                             </div>
                           </div>
-                          <div class="col-12 col-md-4">
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12 col-md-6">
                             <div class="form-group">
                               <label for="inputNumero">Número</label>
                               <input type="number" class="form-control" id="inputNumero" name="inputNumero" aria-describedby="inputNumeroHelp" placeholder="Número" required>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-6">
+                            <div class="form-group">
+                              <label for="inputComplemento">Complemento</label>
+                              <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" placeholder="Complemento">
                             </div>
                           </div>
                         </div>
@@ -262,12 +271,6 @@
                                 <option value="TO">Tocantins</option>
                                 <option value="EX">Estrangeiro</option>
                               </select>
-                            </div>
-                          </div>
-                          <div class="col-12 col-md-6">
-                            <div class="form-group">
-                              <label for="inputComplemento">Complemento</label>
-                              <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" placeholder="Complemento">
                             </div>
                           </div>
                         </div>
