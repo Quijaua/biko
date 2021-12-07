@@ -257,7 +257,7 @@
   <div class="row">
     <div class="col">
       <div class="form-group">
-        <span for="inputBairro">Bairro</span>
+        <span for="inputBairro">Distrito</span>
         <input type="text" class="form-control" id="inputBairro" name="inputBairro" aria-describedby="inputBairroHelp" value="{{ $dados->Bairro }}" disabled>
       </div>
     </div>
