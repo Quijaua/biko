@@ -663,7 +663,7 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h" disabled>{{ $dados-
   <div class="row">
     <div class="col">
       <div class="form-group">
-        <label for="inputMotivoPrincipal">Qual foi o principal motivo que o/a levou a participar do Projeto?</label>
+        <label for="inputMotivoPrincipal">Qual foi o principal motivo que o/a levou a participar da Uneafro?</label>
         <br>
         <textarea class="form-control" name="inputMotivoPrincipal" rows="8" disabled>{{ $dados->MotivoPrincipal }}</textarea>
       </div>
