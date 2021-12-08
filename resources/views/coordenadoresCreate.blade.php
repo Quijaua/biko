@@ -638,6 +638,18 @@
       <input type="hidden" name="inputStatus" value="1">
     </div>
     <hr>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputFormacaoAcademicaRecente">Sua formação acadêmica mais recente é ou foi em instituição pública ou privada?</label>
+          <select id="inputFormacaoAcademicaRecente" name="inputFormacaoAcademicaRecente" class="custom-select">
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <hr>
 
     <h3>DADOS PROFISSIONAIS</h3>
     <div class="row">
