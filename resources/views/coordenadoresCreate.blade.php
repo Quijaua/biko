@@ -227,7 +227,7 @@
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <label for="inputBairro">Bairro</label>
+          <label for="inputBairro">Distrito</label>
           <input type="text" class="form-control" id="inputBairro" name="inputBairro" aria-describedby="inputBairroHelp" placeholder="Bairro" value="{{ old('inputBairro') }}">
         </div>
       </div>
@@ -347,7 +347,7 @@
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <label for="inputBairroEmpresa">Bairro</label>
+          <label for="inputBairroEmpresa">Distrito</label>
           <input type="text" class="form-control" id="inputBairroEmpresa" name="inputBairroEmpresa" aria-describedby="inputBairroEmpresaHelp" placeholder="Bairro da empresa onde trabalha" value="{{ old('inputBairroEmpresa') }}">
         </div>
       </div>
