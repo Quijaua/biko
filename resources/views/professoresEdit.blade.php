@@ -906,10 +906,10 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h">{{ $dados->DiasHora
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <label for="inputFormacaoAcademicaRecente">Sua formação acadêmica mais recente é ou foi em instituição pública ou privada?</label>
+          <label for="inputFormacaoAcademicaRecente">Sua formação acadêmica mais recente é ou foi em instituição:</label>
           <select id="inputFormacaoAcademicaRecente" name="inputFormacaoAcademicaRecente" class="custom-select">
-            <option value="Sim" @if( $dados->FormacaoAcademicaRecente == 'Sim' ) {{ 'selected' }} @endif >Sim</option>
-            <option value="Não" @if( $dados->FormacaoAcademicaRecente == 'Não' ) {{ 'selected' }} @endif >Não</option>
+            <option value="Pública" @if( $dados->FormacaoAcademicaRecente == 'Pública' ) {{ 'selected' }} @endif >Pública</option>
+            <option value="Privada" @if( $dados->FormacaoAcademicaRecente == 'Privada' ) {{ 'selected' }} @endif >Privada</option>
           </select>
         </div>
       </div>

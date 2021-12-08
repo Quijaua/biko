@@ -890,10 +890,10 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h"></textarea>-->
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <label for="inputFormacaoAcademicaRecente">Sua formação acadêmica mais recente é ou foi em instituição pública ou privada?</label>
+          <label for="inputFormacaoAcademicaRecente">Sua formação acadêmica mais recente é ou foi em instituição:</label>
           <select id="inputFormacaoAcademicaRecente" name="inputFormacaoAcademicaRecente" class="custom-select">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
+            <option value="Pública">Pública</option>
+            <option value="Privada">Privada</option>
           </select>
         </div>
       </div>
