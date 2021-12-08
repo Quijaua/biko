@@ -217,10 +217,18 @@
           <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEndereco" name="inputEndereco" aria-describedby="inputEnderecoHelp" placeholder="Rua, Avenida, Logradouro" value="{{ old('inputEndereco') }}">
         </div>
       </div>
+    </div>
+    <div class="row">
       <div class="col">
         <div class="form-group">
           <label for="inputNumero">Número</label>
           <input type="text" class="form-control" id="inputNumero" name="inputNumero" aria-describedby="inputNumeroHelp" placeholder="Número" value="{{ old('inputNumero') }}">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputComplemento">Complemento</label>
+          <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" placeholder="Complemento" value="{{ old('inputComplemento') }}">
         </div>
       </div>
     </div>
@@ -273,12 +281,6 @@
             <option <?php if(old('inputEstado') == 'TO'){ echo 'selected=selected';} ?> value="TO">Tocantins</option>
             <option <?php if(old('inputEstado') == 'EX'){ echo 'selected=selected';} ?> value="EX">Estrangeiro</option>
           </select>
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="inputComplemento">Complemento</label>
-          <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" placeholder="Complemento" value="{{ old('inputComplemento') }}">
         </div>
       </div>
     </div>
