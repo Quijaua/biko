@@ -299,235 +299,7 @@
     </div>
   </div>
   <hr>
-  <h3>DADOS PROFISSIONAIS</h3>
-  <div class="row">
-    <div class="col-12 col-md-6">
-      <div class="form-group">
-        <label for="inputRamoAtuacao">Você trabalha no ramo da:</label>
-        <select id="inputRamoAtuacao" name="inputRamoAtuacao" class="custom-select" disabled>
-          <option value="Educação" @if( $dados->RamoAtuacao == 'Educação' ) {{ 'selected' }} @endif >Educação</option>
-          <option value="Pesquisa" @if( $dados->RamoAtuacao == 'Pesquisa' ) {{ 'selected' }} @endif >Pesquisa</option>
-          <option value="Telemarketing" @if( $dados->RamoAtuacao == 'Telemarketing' ) {{ 'selected' }} @endif >Telemarketing</option>
-          <option value="Comércio" @if( $dados->RamoAtuacao == 'Comércio' ) {{ 'selected' }} @endif >Comércio</option>
-          <option value="Indústria" @if( $dados->RamoAtuacao == 'Indústria' ) {{ 'selected' }} @endif >Indústria</option>
-          <option value="Construção Civil" @if( $dados->RamoAtuacao == 'Construção Civil' ) {{ 'selected' }} @endif >Construção Civil</option>
-          <option value="Beleza e Cuidados" @if( $dados->RamoAtuacao == 'Beleza e Cuidados' ) {{ 'selected' }} @endif >Beleza e Cuidados</option>
-          <option value="Serviços gerais" @if( $dados->RamoAtuacao == 'Serviços gerais' ) {{ 'selected' }} @endif >Serviços gerais</option>
-          <option value="Limpeza e Higiene" @if( $dados->RamoAtuacao == 'Limpeza e Higiene' ) {{ 'selected' }} @endif >Limpeza e Higiene</option>
-          <option value="Gastronomia/Alimentação" @if( $dados->RamoAtuacao == 'Gastronomia/Alimentação' ) {{ 'selected' }} @endif >Gastronomia/Alimentação</option>
-          <option value="Entrega/Delivery" @if( $dados->RamoAtuacao == 'Entrega/Delivery' ) {{ 'selected' }} @endif >Entrega/Delivery</option>
-          <option value="Saúde/Bem-Estar" @if( $dados->RamoAtuacao == 'Saúde/Bem-Estar' ) {{ 'selected' }} @endif >Saúde/Bem-Estar</option>
-          <option value="Segurança" @if( $dados->RamoAtuacao == 'Segurança' ) {{ 'selected' }} @endif >Segurança</option>
-          <option value="Transporte de pessoas/Aplicativos" @if( $dados->RamoAtuacao == 'Transporte de pessoas/Aplicativos' ) {{ 'selected' }} @endif >Transporte de pessoas/Aplicativos</option>
-          <option value="Outros" @if( $dados->RamoAtuacao == 'Outros' ) {{ 'selected' }} @endif >Outros</option>
-        </select>
-      </div>
-    </div>
-    <div class="col-12 col-md-6">
-      <label for="inputRamoAtuacaoOutros">&nbsp;</label>
-      <input type="text" class="form-control" id="inputRamoAtuacaoOutros" name="inputRamoAtuacaoOutros" aria-describedby="inputRamoAtuacaoOutrosHelp" placeholder="Outros (Especifique)" value="{{ $dados->RamoAtuacaoOutros }}" disabled>
-    </div>
-  </div>
-  <!--<div class="row">
-    <div class="col">
-      <div class="form-group">
-        <label for="inputEmpresa">Nome da Empresa</label>
-        <input type="text" class="form-control" id="inputEmpresa" name="inputEmpresa" aria-describedby="inputEmpresaHelp" value="{{ $dados->Empresa }}" disabled>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="form-group">
-        <label for="inputCEPEmpresa">CEP</label>
-        <input type="text" class="form-control" id="inputCEPEmpresa" name="inputCEPEmpresa" aria-describedby="inputCEPEmpresaHelp" data-mask="00000-000" value="{{ $dados->CEPEmpresa }}" onblur="checkCEP('#inputCEPEmpresa')" disabled>
-      </div>
-    </div>
-    <div class="col">
-      <div class="form-group">
-        <label for="inputEnderecoEmpresa">Rua</label>
-        <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEnderecoEmpresa" name="inputEnderecoEmpresa" aria-describedby="inputEnderecoEmpresaHelp" value="{{ $dados->EnderecoEmpresa }}" disabled>
-      </div>
-    </div>
-    <div class="col">
-      <div class="form-group">
-        <label for="inputNumeroEmpresa">Número</label>
-        <input type="text" class="form-control" id="inputNumeroEmpresa" name="inputNumeroEmpresa" aria-describedby="inputNumeroEmpresaHelp" value="{{ $dados->NumeroEmpresa }}" disabled>
-      </div>
-    </div>
-    <div class="col">
-      <div class="form-group">
-        <label for="inputComplementoEmpresa">Complemento</label>
-        <input type="text" class="form-control" id="inputComplementoEmpresa" name="inputComplementoEmpresa" aria-describedby="inputComplementoEmpresaHelp" value="{{ $dados->ComplementoEmpresa }}" disabled>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="form-group">
-        <label for="inputBairroEmpresa">Distrito</label>
-        <input type="text" class="form-control" id="inputBairroEmpresa" name="inputBairroEmpresa" aria-describedby="inputBairroEmpresaHelp" value="{{ $dados->BairroEmpresa }}" disabled>
-      </div>
-    </div>
-    <div class="col">
-      <div class="form-group">
-        <label for="inputCidadeEmpresa">Cidade</label>
-        <input type="text" class="form-control" id="inputCidadeEmpresa" name="inputCidadeEmpresa" aria-describedby="inputCidadeEmpresaHelp" value="{{ $dados->CidadeEmpresa }}" disabled>
-      </div>
-    </div>
-    <div class="col">
-      <div class="form-group">
-        <label for="inputEstadoEmpresa">Estado</label>
-        <select id="inputEstadoEmpresa" name="inputEstadoEmpresa" class="custom-select" disabled>
-          <option selected>Selecione</option>
-          <option <?php if($dados->Estado == 'AC'){ echo 'selected=selected';} ?> value="AC">Acre</option>
-          <option <?php if($dados->Estado == 'AL'){ echo 'selected=selected';} ?> value="AL">Alagoas</option>
-          <option <?php if($dados->Estado == 'AP'){ echo 'selected=selected';} ?> value="AP">Amapá</option>
-          <option <?php if($dados->Estado == 'AM'){ echo 'selected=selected';} ?> value="AM">Amazonas</option>
-          <option <?php if($dados->Estado == 'BA'){ echo 'selected=selected';} ?> value="BA">Bahia</option>
-          <option <?php if($dados->Estado == 'CE'){ echo 'selected=selected';} ?> value="CE">Ceará</option>
-          <option <?php if($dados->Estado == 'DF'){ echo 'selected=selected';} ?> value="DF">Distrito Federal</option>
-          <option <?php if($dados->Estado == 'ES'){ echo 'selected=selected';} ?> value="ES">Espírito Santo</option>
-          <option <?php if($dados->Estado == 'GO'){ echo 'selected=selected';} ?> value="GO">Goiás</option>
-          <option <?php if($dados->Estado == 'MA'){ echo 'selected=selected';} ?> value="MA">Maranhão</option>
-          <option <?php if($dados->Estado == 'MT'){ echo 'selected=selected';} ?> value="MT">Mato Grosso</option>
-          <option <?php if($dados->Estado == 'MS'){ echo 'selected=selected';} ?> value="MS">Mato Grosso do Sul</option>
-          <option <?php if($dados->Estado == 'MG'){ echo 'selected=selected';} ?> value="MG">Minas Gerais</option>
-          <option <?php if($dados->Estado == 'PA'){ echo 'selected=selected';} ?> value="PA">Pará</option>
-          <option <?php if($dados->Estado == 'PB'){ echo 'selected=selected';} ?> value="PB">Paraíba</option>
-          <option <?php if($dados->Estado == 'PR'){ echo 'selected=selected';} ?> value="PR">Paraná</option>
-          <option <?php if($dados->Estado == 'PE'){ echo 'selected=selected';} ?> value="PE">Pernambuco</option>
-          <option <?php if($dados->Estado == 'PI'){ echo 'selected=selected';} ?> value="PI">Piauí</option>
-          <option <?php if($dados->Estado == 'RJ'){ echo 'selected=selected';} ?> value="RJ">Rio de Janeiro</option>
-          <option <?php if($dados->Estado == 'RN'){ echo 'selected=selected';} ?> value="RN">Rio Grande do Norte</option>
-          <option <?php if($dados->Estado == 'RS'){ echo 'selected=selected';} ?> value="RS">Rio Grande do Sul</option>
-          <option <?php if($dados->Estado == 'RO'){ echo 'selected=selected';} ?> value="RO">Rondônia</option>
-          <option <?php if($dados->Estado == 'RR'){ echo 'selected=selected';} ?> value="RR">Roraima</option>
-          <option <?php if($dados->Estado == 'SC'){ echo 'selected=selected';} ?> value="SC">Santa Catarina</option>
-          <option <?php if($dados->Estado == 'SP'){ echo 'selected=selected';} ?> value="SP">São Paulo</option>
-          <option <?php if($dados->Estado == 'SE'){ echo 'selected=selected';} ?> value="SE">Sergipe</option>
-          <option <?php if($dados->Estado == 'TO'){ echo 'selected=selected';} ?> value="TO">Tocantins</option>
-          <option <?php if($dados->Estado == 'EX'){ echo 'selected=selected';} ?> value="EX">Estrangeiro</option>
-        </select>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="form-group">
-        <label for="inputCargo">Cargo/Função</label>
-        <input type="text" class="form-control" id="inputCargo" name="inputCargo" aria-describedby="inputCargoHelp" value="{{ $dados->Cargo }}" disabled>
-      </div>
-    </div>
-  </div>
-  <div id="prt-brk-pnt"></div>
-  <div class="row">
-    <div class="col-12">
-      <p>Horário de Trabalho</p>
-    </div>
-    <div class="col">
-      <div class="form-group">
-        <label for="inputHorarioFrom">De</label>
-        <input type="time" class="form-control" id="inputHorarioFrom" name="inputHorarioFrom" aria-describedby="inputHorarioFromHelp" value="{{ $dados->HorarioFrom }}" disabled>
-      </div>
-    </div>
-    <div class="col">
-      <div class="form-group">
-        <label for="inputHorarioTo">Até</label>
-        <input type="time" class="form-control" id="inputHorarioTo" name="inputHorarioTo" aria-describedby="inputHorarioToHelp" value="{{ $dados->HorarioTo }}" disabled>
-      </div>
-    </div>
-  </div>-->
-  <hr>
-  <div class="row">
-    <div class="col-6">
-        <div class="form-group">
-          <label for="inputProjetosRealizados">Já realizou trabalhos em projetos educacionais/Coletivos/Movimentos Sociais?</label>
-          <div class="form-check form-check-inline">
-            <input <?php if($dados->ProjetosRealizados == 'sim'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputProjetosRealizados" id="inputProjetosRealizados1" value="sim" onclick="showInput('.projeto-dados')" disabled>
-            <label class="form-check-label" for="inputProjetosRealizados1">Sim</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input <?php if($dados->ProjetosRealizados == 'nao'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputProjetosRealizados" id="inputProjetosRealizados2" value="nao" onclick="hideInput('.projeto-dados')" disabled>
-            <label class="form-check-label" for="inputProjetosRealizados2">Não</label>
-          </div>
-        </div>
-    </div>
-    <div class="col-3">
-      @if($dados->ProjetosRealizados == 'sim')
-      <div class="form-group projeto-dados">
-        <label for="inputProjetosNome">Nome do projeto</label>
-        <input type="text" class="form-control" id="inputProjetosNome" name="inputProjetosNome" aria-describedby="inputProjetosNomeHelp" value="{{ $dados->ProjetosNome }}" disabled>
-      </div>
-      @else
-      <div class="form-group projeto-dados" style="display:none;">
-        <label for="inputProjetosNome">Nome do projeto</label>
-        <input type="text" class="form-control" id="inputProjetosNome" name="inputProjetosNome" aria-describedby="inputProjetosNomeHelp" value="{{ $dados->ProjetosNome }}" disabled>
-      </div>
-      @endif
-    </div>
-    <div class="col-3">
-      @if($dados->ProjetosRealizados == 'sim')
-      <div id="ProjetosQual" class="form-group projeto-dados">
-        <label for="inputProjetosFuncao">Função exercida</label>
-        <input type="text" class="form-control" id="inputProjetosFuncao" name="inputProjetosFuncao" aria-describedby="inputProjetosFuncaoHelp" value="{{ $dados->ProjetosFuncao }}" disabled>
-      </div>
-      @else
-      <div id="ProjetosQual" class="form-group projeto-dados" style="display:none;">
-        <label for="inputProjetosFuncao">Função exercida</label>
-        <input type="text" class="form-control" id="inputProjetosFuncao" name="inputProjetosFuncao" aria-describedby="inputProjetosFuncaoHelp" value="{{ $dados->ProjetosFuncao }}" disabled>
-      </div>
-      @endif
-    </div>
-    <div class="col-6">
-      <div class="form-group">
-        <label for="inputComoSoube">Como você ficou sabendo do cursinho pré-vestibular da UNEafro Brasil?</label>
-        <select id="comoSoube" name="inputComoSoube" class="custom-select" onchange="checkComosoube()" disabled>
-          <option selected>Selecione</option>
-          <option <?php if($dados->ComoSoube == 'internet'){ echo 'selected=selected';} ?> value="internet">Internet</option>
-          <option <?php if($dados->ComoSoube == 'panfleto'){ echo 'selected=selected';} ?> value="panfleto">Panfleto</option>
-          <option <?php if($dados->ComoSoube == 'amigos'){ echo 'selected=selected';} ?> value="amigos">Amigos</option>
-          <option <?php if($dados->ComoSoube == 'jornal'){ echo 'selected=selected';} ?> value="jornal">Jornal</option>
-          <option <?php if($dados->ComoSoube == 'outros'){ echo 'selected=selected';} ?> value="outros">Outros</option>
-        </select>
-      </div>
-    </div>
-    @if($dados->ComoSoube === 'outros')
-    <div class="col-6">
-      <div id="ComoSoubeOutros" class="form-group">
-        <label for="inputComoSoubeOutros">Qual?</label>
-        <input type="text" class="form-control" id="inputComoSoubeOutros" name="inputComoSoubeOutros" aria-describedby="inputComoSoubeOutrosHelp" value="{{ $dados->ComoSoubeOutros }}" disabled>
-      </div>
-    </div>
-    @endif
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="form-group">
-        <label for="inputMotivoPrincipal">Qual foi o principal motivo que o/a levou a participar do Uneafro?</label>
-        <br>
-        <textarea class="form-control" name="inputMotivoPrincipal" rows="8" disabled>{{ $dados->MotivoPrincipal }}</textarea>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 mb-2">
-      <span>Representantes no CGU</span>
-    </div>
-    <div class="col">
-      <div class="form-group">
-        <label for="inputRepresentantesCGU1">1º Representante</label>
-        <input type="text" class="form-control" id="inputRepresentantesCGU1" name="inputRepresentantesCGU1" aria-describedby="inputRepresentantesCGU1Help" value="{{ $dados->RepresentantesCGU1 }}" disabled>
-      </div>
-    </div>
-    <div class="col">
-      <div class="form-group">
-        <label for="inputRepresentantesCGU2">2º Representante</label>
-        <input type="text" class="form-control" id="inputRepresentantesCGU2" name="inputRepresentantesCGU2" aria-describedby="inputRepresentantesCGU2Help" value="{{ $dados->RepresentantesCGU2 }}" disabled>
-      </div>
-    </div>
-  </div>
-  <hr>
+
   <h3>DADOS ACADÊMICOS</h3>
   <div class="row">
     <div class="col">
@@ -852,6 +624,235 @@
       </div>
     </div>
   </div>
+  <hr>
 
+  <h3>DADOS PROFISSIONAIS</h3>
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <div class="form-group">
+        <label for="inputRamoAtuacao">Você trabalha no ramo da:</label>
+        <select id="inputRamoAtuacao" name="inputRamoAtuacao" class="custom-select" disabled>
+          <option value="Educação" @if( $dados->RamoAtuacao == 'Educação' ) {{ 'selected' }} @endif >Educação</option>
+          <option value="Pesquisa" @if( $dados->RamoAtuacao == 'Pesquisa' ) {{ 'selected' }} @endif >Pesquisa</option>
+          <option value="Telemarketing" @if( $dados->RamoAtuacao == 'Telemarketing' ) {{ 'selected' }} @endif >Telemarketing</option>
+          <option value="Comércio" @if( $dados->RamoAtuacao == 'Comércio' ) {{ 'selected' }} @endif >Comércio</option>
+          <option value="Indústria" @if( $dados->RamoAtuacao == 'Indústria' ) {{ 'selected' }} @endif >Indústria</option>
+          <option value="Construção Civil" @if( $dados->RamoAtuacao == 'Construção Civil' ) {{ 'selected' }} @endif >Construção Civil</option>
+          <option value="Beleza e Cuidados" @if( $dados->RamoAtuacao == 'Beleza e Cuidados' ) {{ 'selected' }} @endif >Beleza e Cuidados</option>
+          <option value="Serviços gerais" @if( $dados->RamoAtuacao == 'Serviços gerais' ) {{ 'selected' }} @endif >Serviços gerais</option>
+          <option value="Limpeza e Higiene" @if( $dados->RamoAtuacao == 'Limpeza e Higiene' ) {{ 'selected' }} @endif >Limpeza e Higiene</option>
+          <option value="Gastronomia/Alimentação" @if( $dados->RamoAtuacao == 'Gastronomia/Alimentação' ) {{ 'selected' }} @endif >Gastronomia/Alimentação</option>
+          <option value="Entrega/Delivery" @if( $dados->RamoAtuacao == 'Entrega/Delivery' ) {{ 'selected' }} @endif >Entrega/Delivery</option>
+          <option value="Saúde/Bem-Estar" @if( $dados->RamoAtuacao == 'Saúde/Bem-Estar' ) {{ 'selected' }} @endif >Saúde/Bem-Estar</option>
+          <option value="Segurança" @if( $dados->RamoAtuacao == 'Segurança' ) {{ 'selected' }} @endif >Segurança</option>
+          <option value="Transporte de pessoas/Aplicativos" @if( $dados->RamoAtuacao == 'Transporte de pessoas/Aplicativos' ) {{ 'selected' }} @endif >Transporte de pessoas/Aplicativos</option>
+          <option value="Outros" @if( $dados->RamoAtuacao == 'Outros' ) {{ 'selected' }} @endif >Outros</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <label for="inputRamoAtuacaoOutros">&nbsp;</label>
+      <input type="text" class="form-control" id="inputRamoAtuacaoOutros" name="inputRamoAtuacaoOutros" aria-describedby="inputRamoAtuacaoOutrosHelp" placeholder="Outros (Especifique)" value="{{ $dados->RamoAtuacaoOutros }}" disabled>
+    </div>
+  </div>
+  <!--<div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="inputEmpresa">Nome da Empresa</label>
+        <input type="text" class="form-control" id="inputEmpresa" name="inputEmpresa" aria-describedby="inputEmpresaHelp" value="{{ $dados->Empresa }}" disabled>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="inputCEPEmpresa">CEP</label>
+        <input type="text" class="form-control" id="inputCEPEmpresa" name="inputCEPEmpresa" aria-describedby="inputCEPEmpresaHelp" data-mask="00000-000" value="{{ $dados->CEPEmpresa }}" onblur="checkCEP('#inputCEPEmpresa')" disabled>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="inputEnderecoEmpresa">Rua</label>
+        <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEnderecoEmpresa" name="inputEnderecoEmpresa" aria-describedby="inputEnderecoEmpresaHelp" value="{{ $dados->EnderecoEmpresa }}" disabled>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="inputNumeroEmpresa">Número</label>
+        <input type="text" class="form-control" id="inputNumeroEmpresa" name="inputNumeroEmpresa" aria-describedby="inputNumeroEmpresaHelp" value="{{ $dados->NumeroEmpresa }}" disabled>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="inputComplementoEmpresa">Complemento</label>
+        <input type="text" class="form-control" id="inputComplementoEmpresa" name="inputComplementoEmpresa" aria-describedby="inputComplementoEmpresaHelp" value="{{ $dados->ComplementoEmpresa }}" disabled>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="inputBairroEmpresa">Distrito</label>
+        <input type="text" class="form-control" id="inputBairroEmpresa" name="inputBairroEmpresa" aria-describedby="inputBairroEmpresaHelp" value="{{ $dados->BairroEmpresa }}" disabled>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="inputCidadeEmpresa">Cidade</label>
+        <input type="text" class="form-control" id="inputCidadeEmpresa" name="inputCidadeEmpresa" aria-describedby="inputCidadeEmpresaHelp" value="{{ $dados->CidadeEmpresa }}" disabled>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="inputEstadoEmpresa">Estado</label>
+        <select id="inputEstadoEmpresa" name="inputEstadoEmpresa" class="custom-select" disabled>
+          <option selected>Selecione</option>
+          <option <?php if($dados->Estado == 'AC'){ echo 'selected=selected';} ?> value="AC">Acre</option>
+          <option <?php if($dados->Estado == 'AL'){ echo 'selected=selected';} ?> value="AL">Alagoas</option>
+          <option <?php if($dados->Estado == 'AP'){ echo 'selected=selected';} ?> value="AP">Amapá</option>
+          <option <?php if($dados->Estado == 'AM'){ echo 'selected=selected';} ?> value="AM">Amazonas</option>
+          <option <?php if($dados->Estado == 'BA'){ echo 'selected=selected';} ?> value="BA">Bahia</option>
+          <option <?php if($dados->Estado == 'CE'){ echo 'selected=selected';} ?> value="CE">Ceará</option>
+          <option <?php if($dados->Estado == 'DF'){ echo 'selected=selected';} ?> value="DF">Distrito Federal</option>
+          <option <?php if($dados->Estado == 'ES'){ echo 'selected=selected';} ?> value="ES">Espírito Santo</option>
+          <option <?php if($dados->Estado == 'GO'){ echo 'selected=selected';} ?> value="GO">Goiás</option>
+          <option <?php if($dados->Estado == 'MA'){ echo 'selected=selected';} ?> value="MA">Maranhão</option>
+          <option <?php if($dados->Estado == 'MT'){ echo 'selected=selected';} ?> value="MT">Mato Grosso</option>
+          <option <?php if($dados->Estado == 'MS'){ echo 'selected=selected';} ?> value="MS">Mato Grosso do Sul</option>
+          <option <?php if($dados->Estado == 'MG'){ echo 'selected=selected';} ?> value="MG">Minas Gerais</option>
+          <option <?php if($dados->Estado == 'PA'){ echo 'selected=selected';} ?> value="PA">Pará</option>
+          <option <?php if($dados->Estado == 'PB'){ echo 'selected=selected';} ?> value="PB">Paraíba</option>
+          <option <?php if($dados->Estado == 'PR'){ echo 'selected=selected';} ?> value="PR">Paraná</option>
+          <option <?php if($dados->Estado == 'PE'){ echo 'selected=selected';} ?> value="PE">Pernambuco</option>
+          <option <?php if($dados->Estado == 'PI'){ echo 'selected=selected';} ?> value="PI">Piauí</option>
+          <option <?php if($dados->Estado == 'RJ'){ echo 'selected=selected';} ?> value="RJ">Rio de Janeiro</option>
+          <option <?php if($dados->Estado == 'RN'){ echo 'selected=selected';} ?> value="RN">Rio Grande do Norte</option>
+          <option <?php if($dados->Estado == 'RS'){ echo 'selected=selected';} ?> value="RS">Rio Grande do Sul</option>
+          <option <?php if($dados->Estado == 'RO'){ echo 'selected=selected';} ?> value="RO">Rondônia</option>
+          <option <?php if($dados->Estado == 'RR'){ echo 'selected=selected';} ?> value="RR">Roraima</option>
+          <option <?php if($dados->Estado == 'SC'){ echo 'selected=selected';} ?> value="SC">Santa Catarina</option>
+          <option <?php if($dados->Estado == 'SP'){ echo 'selected=selected';} ?> value="SP">São Paulo</option>
+          <option <?php if($dados->Estado == 'SE'){ echo 'selected=selected';} ?> value="SE">Sergipe</option>
+          <option <?php if($dados->Estado == 'TO'){ echo 'selected=selected';} ?> value="TO">Tocantins</option>
+          <option <?php if($dados->Estado == 'EX'){ echo 'selected=selected';} ?> value="EX">Estrangeiro</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="inputCargo">Cargo/Função</label>
+        <input type="text" class="form-control" id="inputCargo" name="inputCargo" aria-describedby="inputCargoHelp" value="{{ $dados->Cargo }}" disabled>
+      </div>
+    </div>
+  </div>
+  <div id="prt-brk-pnt"></div>
+  <div class="row">
+    <div class="col-12">
+      <p>Horário de Trabalho</p>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="inputHorarioFrom">De</label>
+        <input type="time" class="form-control" id="inputHorarioFrom" name="inputHorarioFrom" aria-describedby="inputHorarioFromHelp" value="{{ $dados->HorarioFrom }}" disabled>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="inputHorarioTo">Até</label>
+        <input type="time" class="form-control" id="inputHorarioTo" name="inputHorarioTo" aria-describedby="inputHorarioToHelp" value="{{ $dados->HorarioTo }}" disabled>
+      </div>
+    </div>
+  </div>-->
+  <hr>
+  <div class="row">
+    <div class="col-6">
+        <div class="form-group">
+          <label for="inputProjetosRealizados">Já realizou trabalhos em projetos educacionais/Coletivos/Movimentos Sociais?</label>
+          <div class="form-check form-check-inline">
+            <input <?php if($dados->ProjetosRealizados == 'sim'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputProjetosRealizados" id="inputProjetosRealizados1" value="sim" onclick="showInput('.projeto-dados')" disabled>
+            <label class="form-check-label" for="inputProjetosRealizados1">Sim</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input <?php if($dados->ProjetosRealizados == 'nao'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputProjetosRealizados" id="inputProjetosRealizados2" value="nao" onclick="hideInput('.projeto-dados')" disabled>
+            <label class="form-check-label" for="inputProjetosRealizados2">Não</label>
+          </div>
+        </div>
+    </div>
+    <div class="col-3">
+      @if($dados->ProjetosRealizados == 'sim')
+      <div class="form-group projeto-dados">
+        <label for="inputProjetosNome">Nome do projeto</label>
+        <input type="text" class="form-control" id="inputProjetosNome" name="inputProjetosNome" aria-describedby="inputProjetosNomeHelp" value="{{ $dados->ProjetosNome }}" disabled>
+      </div>
+      @else
+      <div class="form-group projeto-dados" style="display:none;">
+        <label for="inputProjetosNome">Nome do projeto</label>
+        <input type="text" class="form-control" id="inputProjetosNome" name="inputProjetosNome" aria-describedby="inputProjetosNomeHelp" value="{{ $dados->ProjetosNome }}" disabled>
+      </div>
+      @endif
+    </div>
+    <div class="col-3">
+      @if($dados->ProjetosRealizados == 'sim')
+      <div id="ProjetosQual" class="form-group projeto-dados">
+        <label for="inputProjetosFuncao">Função exercida</label>
+        <input type="text" class="form-control" id="inputProjetosFuncao" name="inputProjetosFuncao" aria-describedby="inputProjetosFuncaoHelp" value="{{ $dados->ProjetosFuncao }}" disabled>
+      </div>
+      @else
+      <div id="ProjetosQual" class="form-group projeto-dados" style="display:none;">
+        <label for="inputProjetosFuncao">Função exercida</label>
+        <input type="text" class="form-control" id="inputProjetosFuncao" name="inputProjetosFuncao" aria-describedby="inputProjetosFuncaoHelp" value="{{ $dados->ProjetosFuncao }}" disabled>
+      </div>
+      @endif
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <label for="inputComoSoube">Como você ficou sabendo do cursinho pré-vestibular da UNEafro Brasil?</label>
+        <select id="comoSoube" name="inputComoSoube" class="custom-select" onchange="checkComosoube()" disabled>
+          <option selected>Selecione</option>
+          <option <?php if($dados->ComoSoube == 'internet'){ echo 'selected=selected';} ?> value="internet">Internet</option>
+          <option <?php if($dados->ComoSoube == 'panfleto'){ echo 'selected=selected';} ?> value="panfleto">Panfleto</option>
+          <option <?php if($dados->ComoSoube == 'amigos'){ echo 'selected=selected';} ?> value="amigos">Amigos</option>
+          <option <?php if($dados->ComoSoube == 'jornal'){ echo 'selected=selected';} ?> value="jornal">Jornal</option>
+          <option <?php if($dados->ComoSoube == 'outros'){ echo 'selected=selected';} ?> value="outros">Outros</option>
+        </select>
+      </div>
+    </div>
+    @if($dados->ComoSoube === 'outros')
+    <div class="col-6">
+      <div id="ComoSoubeOutros" class="form-group">
+        <label for="inputComoSoubeOutros">Qual?</label>
+        <input type="text" class="form-control" id="inputComoSoubeOutros" name="inputComoSoubeOutros" aria-describedby="inputComoSoubeOutrosHelp" value="{{ $dados->ComoSoubeOutros }}" disabled>
+      </div>
+    </div>
+    @endif
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="inputMotivoPrincipal">Qual foi o principal motivo que o/a levou a participar do Uneafro?</label>
+        <br>
+        <textarea class="form-control" name="inputMotivoPrincipal" rows="8" disabled>{{ $dados->MotivoPrincipal }}</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 mb-2">
+      <span>Representantes no CGU</span>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="inputRepresentantesCGU1">1º Representante</label>
+        <input type="text" class="form-control" id="inputRepresentantesCGU1" name="inputRepresentantesCGU1" aria-describedby="inputRepresentantesCGU1Help" value="{{ $dados->RepresentantesCGU1 }}" disabled>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="inputRepresentantesCGU2">2º Representante</label>
+        <input type="text" class="form-control" id="inputRepresentantesCGU2" name="inputRepresentantesCGU2" aria-describedby="inputRepresentantesCGU2Help" value="{{ $dados->RepresentantesCGU2 }}" disabled>
+      </div>
+    </div>
+  </div>
 </div>
 @endsection
