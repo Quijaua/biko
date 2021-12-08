@@ -146,6 +146,8 @@ class CoordenadoresController extends Controller
         'FoneCelular' => $request->input('inputFoneCelular'),
         'Email' => $request->input('inputEmail'),
         'Empresa' => $request->input('inputEmpresa'),
+        'RamoAtuacao' => $request->input('inputRamoAtuacao'),
+        'RamoAtuacaoOutros' => $request->input('inputRamoAtuacaoOutros'),
         'EnderecoEmpresa' => $request->input('inputEnderecoEmpresa'),
         'NumeroEmpresa' => $request->input('inputNumeroEmpresa'),
         'ComplementoEmpresa' => $request->input('inputComplementoEmpresa'),
@@ -247,6 +249,8 @@ class CoordenadoresController extends Controller
       $dados->FoneCelular = $request->input('inputFoneCelular');
       $dados->Email = $request->input('inputEmail');
       $dados->Empresa = $request->input('inputEmpresa');
+      $dados->RamoAtuacao = $request->input('inputRamoAtuacao');
+      $dados->RamoAtuacaoOutros = $request->input('inputRamoAtuacaoOutros');
       $dados->EnderecoEmpresa = $request->input('inputEnderecoEmpresa');
       $dados->NumeroEmpresa = $request->input('inputNumeroEmpresa');
       $dados->ComplementoEmpresa = $request->input('inputComplementoEmpresa');

@@ -38,6 +38,8 @@ class Coordenadores extends Model
       'FoneCelular',
       'Email',
       'Empresa',
+      'RamoAtuacao',
+      'RamoAtuacaoOutros',
       'EnderecoEmpresa',
       'NumeroEmpresa',
       'ComplementoEmpresa',
