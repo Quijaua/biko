@@ -282,11 +282,18 @@
         <label for="inputEscolaridade">Qual a sua escolaridade</label>
         <select name="inputEscolaridade" class="custom-select" disabled>
           <option selected>Selecione</option>
-          <option value="Ensino Médio" @if($dados->Escolaridade === 'Ensino Médio') {{ 'selected' }} @endif >Ensino Médio</option>
+          <option value="Ensino Médio Completo" @if($dados->Escolaridade === 'Ensino Médio Completo') {{ 'selected' }} @endif >Ensino Médio Completo</option>
+          <option value="Ensino Médio Cursando" @if($dados->Escolaridade === 'Ensino Médio Cursando') {{ 'selected' }} @endif >Ensino Médio Cursando</option>
+          <option value="Ensino Médio Incompleto" @if($dados->Escolaridade === 'Ensino Médio Incompleto') {{ 'selected' }} @endif >Ensino Médio Incompleto</option>
           <option value="Ensino Superior Completo" @if($dados->Escolaridade === 'Ensino Superior Completo') {{ 'selected' }} @endif >Ensino Superior Completo</option>
           <option value="Ensino Superior Cursando" @if($dados->Escolaridade === 'Ensino Superior Cursando') {{ 'selected' }} @endif >Ensino Superior Cursando</option>
           <option value="Ensino Superior Incompleto" @if($dados->Escolaridade === 'Ensino Superior Incompleto') {{ 'selected' }} @endif >Ensino Superior Incompleto</option>
-          <option value="Pós Graduação Completa/Incompleta/Cursando" @if($dados->Escolaridade === 'Pós Graduação Completa/Incompleta/Cursando') {{ 'selected' }} @endif >Pós Graduação Completa/Incompleta/Cursando</option>
+          <option value="Pós Graduação Completa" @if($dados->Escolaridade === 'Pós Graduação Completa') {{ 'selected' }} @endif >Pós Graduação Completa</option>
+          <option value="Pós Graduação Cursando" @if($dados->Escolaridade === 'Pós Graduação Cursando') {{ 'selected' }} @endif >Pós Graduação Cursando</option>
+          <option value="Pós Graduação Incompleta" @if($dados->Escolaridade === 'Pós Graduação Incompleta') {{ 'selected' }} @endif >Pós Graduação Incompleta</option>
+          <option value="Ensino Técnico Completo" @if($dados->Escolaridade === 'Ensino Técnico Completo') {{ 'selected' }} @endif >Ensino Técnico Completo</option>
+          <option value="Ensino Técnico Cursando" @if($dados->Escolaridade === 'Ensino Técnico Cursando') {{ 'selected' }} @endif >Ensino Técnico Cursando</option>
+          <option value="Ensino Técnico Incompleto" @if($dados->Escolaridade === 'Ensino Técnico Incompleto') {{ 'selected' }} @endif >Ensino Técnico Incompleto</option>
         </select>
       </div>
     </div>

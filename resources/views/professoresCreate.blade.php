@@ -295,11 +295,18 @@
           <label for="inputEscolaridade">Qual a sua escolaridade</label>
           <select name="inputEscolaridade" class="custom-select">
             <option selected>Selecione</option>
-            <option value="Ensino Médio">Ensino Médio</option>
+            <option value="Ensino Médio Completo">Ensino Médio Completo</option>
+            <option value="Ensino Médio Cursando">Ensino Médio Cursando</option>
+            <option value="Ensino Médio Incompleto">Ensino Médio Incompleto</option>
             <option value="Ensino Superior Completo">Ensino Superior Completo</option>
             <option value="Ensino Superior Cursando">Ensino Superior Cursando</option>
             <option value="Ensino Superior Incompleto">Ensino Superior Incompleto</option>
-            <option value="Pós Graduação Completa/Incompleta/Cursando">Pós Graduação Completa/Incompleta/Cursando</option>
+            <option value="Pós Graduação Completa">Pós Graduação Completa</option>
+            <option value="Pós Graduação Cursando">Pós Graduação Cursando</option>
+            <option value="Pós Graduação Incompleta">Pós Graduação Incompleta</option>
+            <option value="Ensino Técnico Completo">Ensino Técnico Completo</option>
+            <option value="Ensino Técnico Cursando">Ensino Técnico Cursando</option>
+            <option value="Ensino Técnico Incompleto">Ensino Técnico Incompleto</option>
           </select>
         </div>
       </div>
