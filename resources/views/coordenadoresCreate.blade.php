@@ -170,8 +170,11 @@
             <option value="Ensino Superior Cursando">Graduação Cursando</option>
             <option value="Ensino Superior Incompleto">Graduação Incompleta</option>
             <option value="Pós Graduação Completa">Pós Graduação Completa</option>
-            <option value="Pós Graduação incompleta">Pós Graduação incompleta</option>
             <option value="Pós Graduação Cursando">Pós Graduação Cursando</option>
+            <option value="Pós Graduação incompleta">Pós Graduação incompleta</option>
+            <option value="Ensino Técnico Completo">Ensino Técnico Completo</option>
+            <option value="Ensino Técnico Cursando">Ensino Técnico Cursando</option>
+            <option value="Ensino Técnico Incompleto">Ensino Técnico Incompleto</option>
           </select>
         </div>
       </div>
