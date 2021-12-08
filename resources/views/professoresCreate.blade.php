@@ -458,10 +458,18 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h"></textarea>-->
           <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEndereco" name="inputEndereco" aria-describedby="inputEnderecoHelp" placeholder="Rua, Avenida, Logradouro">
         </div>
       </div>
+    </div>
+    <div class="row">
       <div class="col">
         <div class="form-group">
           <label for="inputNumero">Número</label>
           <input type="text" class="form-control" id="inputNumero" name="inputNumero" aria-describedby="inputNumeroHelp" placeholder="Número">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputComplemento">Complemento</label>
+          <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" placeholder="Complemento">
         </div>
       </div>
     </div>
@@ -514,12 +522,6 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h"></textarea>-->
             <option value="TO">Tocantins</option>
             <option value="EX">Estrangeiro</option>
           </select>
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="inputComplemento">Complemento</label>
-          <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" placeholder="Complemento">
         </div>
       </div>
     </div>

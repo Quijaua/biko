@@ -388,10 +388,18 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h" disabled>{{ $dados-
         <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEndereco" name="inputEndereco" aria-describedby="inputEnderecoHelp" value="{{ $dados->Endereco }}" disabled>
       </div>
     </div>
+  </div>
+  <div class="row">
     <div class="col">
       <div class="form-group">
         <label for="inputNumero">Número</label>
         <input type="text" class="form-control" id="inputNumero" name="inputNumero" aria-describedby="inputNumeroHelp" value="{{ $dados->Numero }}" disabled>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="inputComplemento">Complemento</label>
+        <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" value="{{ $dados->Complemento }}" disabled>
       </div>
     </div>
   </div>
@@ -444,12 +452,6 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h" disabled>{{ $dados-
           <option <?php if($dados->Estado == 'TO'){ echo 'selected=selected';} ?> value="TO">Tocantins</option>
           <option <?php if($dados->Estado == 'EX'){ echo 'selected=selected';} ?> value="EX">Estrangeiro</option>
         </select>
-      </div>
-    </div>
-    <div class="col">
-      <div class="form-group">
-        <label for="inputComplemento">Complemento</label>
-        <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" value="{{ $dados->Complemento }}" disabled>
       </div>
     </div>
   </div>
