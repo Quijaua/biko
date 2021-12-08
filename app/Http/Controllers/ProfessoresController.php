@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Image;
+use Session;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 use App\Professores;
 use App\Nucleo;
 use App\User;
 use App\Aluno;
 use App\Coordenadores;
-use Illuminate\Support\Facades\Hash;
-use Image;
-use Session;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+use App\HorarioAula;
 
 class ProfessoresController extends Controller
 {
@@ -148,7 +150,7 @@ class ProfessoresController extends Controller
         'FormacaoSuperior' => $request->input('inputFormacaoSuperior'),
         'AnoInicioUneafro' => $request->input('inputAnoInicioUneafro'),
         'aulasForaUneafro' => $request->input('aulasForaUneafro'),
-        'DiasHorarios' => $request->input('inputDiasHorarios'),
+        /*'DiasHorarios' => $request->input('inputDiasHorarios'),*/
         'GastoTransporte' => $request->input('inputGastoTransporte'),
         'TempoChegada' => $request->input('inputTempoChegada'),
         'Endereco' => $request->input('inputEndereco'),
@@ -206,6 +208,101 @@ class ProfessoresController extends Controller
           ->save($path);
       }
 
+      //ROTINA DE PERSISTÊNCIA DOS HORÁRIOS DE AULA
+      foreach( $request->input('inputDiasHorarios') as $horarios ){
+
+        if($horarios['Segunda']){
+
+          $horario = HorarioAula::updateOrCreate(
+              ['professor_id' => $professor->id, 'nucleo_id' => $request->input('inputNucleo'), 'DiaSemana' => 'Segunda'],
+              [
+                'professor_id'  => $id,
+                'nucleo_id'     => $request->input('inputNucleo'),
+                'DiaSemana'     => 'Segunda',
+                'De'            => $horarios['Segunda']['de'],
+                'Ate'           => $horarios['Segunda']['ate']
+              ]
+          );
+
+        };
+
+        if($horarios['Terca']){
+
+          $horario = HorarioAula::updateOrCreate(
+              ['professor_id' => $professor->id, 'nucleo_id' => $request->input('inputNucleo'), 'DiaSemana' => 'Terça'],
+              [
+                'professor_id'  => $id,
+                'nucleo_id'     => $request->input('inputNucleo'),
+                'DiaSemana'     => 'Terça',
+                'De'            => $horarios['Terca']['de'],
+                'Ate'           => $horarios['Terca']['ate']
+              ]
+          );
+
+        };
+
+        if($horarios['Quarta']){
+
+          $horario = HorarioAula::updateOrCreate(
+              ['professor_id' => $professor->id, 'nucleo_id' => $request->input('inputNucleo'), 'DiaSemana' => 'Quarta'],
+              [
+                'professor_id'  => $id,
+                'nucleo_id'     => $request->input('inputNucleo'),
+                'DiaSemana'     => 'Quarta',
+                'De'            => $horarios['Quarta']['de'],
+                'Ate'           => $horarios['Quarta']['ate']
+              ]
+          );
+
+        };
+
+        if($horarios['Quinta']){
+
+          $horario = HorarioAula::updateOrCreate(
+              ['professor_id' => $professor->id, 'nucleo_id' => $request->input('inputNucleo'), 'DiaSemana' => 'Quinta'],
+              [
+                'professor_id'  => $id,
+                'nucleo_id'     => $request->input('inputNucleo'),
+                'DiaSemana'     => 'Quinta',
+                'De'            => $horarios['Quinta']['de'],
+                'Ate'           => $horarios['Quinta']['ate']
+              ]
+          );
+
+        };
+
+        if($horarios['Sexta']){
+
+          $horario = HorarioAula::updateOrCreate(
+              ['professor_id' => $professor->id, 'nucleo_id' => $request->input('inputNucleo'), 'DiaSemana' => 'Sexta'],
+              [
+                'professor_id'  => $id,
+                'nucleo_id'     => $request->input('inputNucleo'),
+                'DiaSemana'     => 'Sexta',
+                'De'            => $horarios['Sexta']['de'],
+                'Ate'           => $horarios['Sexta']['ate']
+              ]
+          );
+
+        };
+
+        if($horarios['Sabado']){
+
+          $horario = HorarioAula::updateOrCreate(
+              ['professor_id' => $professor->id, 'nucleo_id' => $request->input('inputNucleo'), 'DiaSemana' => 'Sábado'],
+              [
+                'professor_id'  => $id,
+                'nucleo_id'     => $request->input('inputNucleo'),
+                'DiaSemana'     => 'Sábado',
+                'De'            => $horarios['Sabado']['de'],
+                'Ate'           => $horarios['Sabado']['ate']
+              ]
+          );
+
+        };
+
+      };
+
       return back()->with('success', 'DADOS SALVOS COM SUCESSO.');
     }
 
@@ -241,11 +338,12 @@ class ProfessoresController extends Controller
 
       if($user->role === 'administrador'){
         $dados = Professores::find($id);
+        $dados->load('horarios');
         $nucleos = Nucleo::where('Status', 1)->get();
 
         return view('professoresEdit')->with([
-          'dados' => $dados,
-          'nucleos' => $nucleos,
+          'dados'     => $dados,
+          'nucleos'   => $nucleos,
         ]);
       }
 
@@ -253,6 +351,101 @@ class ProfessoresController extends Controller
 
     public function update(Request $request, $id)
     {
+      //dd($request->all());
+      /*      foreach( $request->input('inputDiasHorarios') as $horarios ){
+
+              if($horarios['Segunda']){
+
+                $horario = HorarioAula::updateOrCreate(
+                    ['professor_id' => $id, 'nucleo_id' => $request->input('inputNucleo')],
+                    [
+                      'professor_id'  => $id,
+                      'nucleo_id'     => $request->input('inputNucleo'),
+                      'DiaSemana'     => 'Segunda',
+                      'De'            => $horarios['Segunda']['de'],
+                      'Ate'           => $horarios['Segunda']['ate']
+                    ]
+                );
+
+              };
+
+              if($horarios['Terca']){
+
+                $horario = HorarioAula::updateOrCreate(
+                    ['professor_id' => $id, 'nucleo_id' => $request->input('inputNucleo')],
+                    [
+                      'professor_id'  => $id,
+                      'nucleo_id'     => $request->input('inputNucleo'),
+                      'DiaSemana'     => 'Terça',
+                      'De'            => $horarios['Terca']['de'],
+                      'Ate'           => $horarios['Terca']['ate']
+                    ]
+                );
+
+              };
+
+              if($horarios['Quarta']){
+
+                $horario = HorarioAula::updateOrCreate(
+                    ['professor_id' => $id, 'nucleo_id' => $request->input('inputNucleo')],
+                    [
+                      'professor_id'  => $id,
+                      'nucleo_id'     => $request->input('inputNucleo'),
+                      'DiaSemana'     => 'Quarta',
+                      'De'            => $horarios['Quarta']['de'],
+                      'Ate'           => $horarios['Quarta']['ate']
+                    ]
+                );
+
+              };
+
+              if($horarios['Quinta']){
+
+                $horario = HorarioAula::updateOrCreate(
+                    ['professor_id' => $id, 'nucleo_id' => $request->input('inputNucleo')],
+                    [
+                      'professor_id'  => $id,
+                      'nucleo_id'     => $request->input('inputNucleo'),
+                      'DiaSemana'     => 'Quinta',
+                      'De'            => $horarios['Quinta']['de'],
+                      'Ate'           => $horarios['Quinta']['ate']
+                    ]
+                );
+
+              };
+
+              if($horarios['Sexta']){
+
+                $horario = HorarioAula::updateOrCreate(
+                    ['professor_id' => $id, 'nucleo_id' => $request->input('inputNucleo')],
+                    [
+                      'professor_id'  => $id,
+                      'nucleo_id'     => $request->input('inputNucleo'),
+                      'DiaSemana'     => 'Sexta',
+                      'De'            => $horarios['Sexta']['de'],
+                      'Ate'           => $horarios['Sexta']['ate']
+                    ]
+                );
+
+              };
+
+              if($horarios['Sabado']){
+
+                $horario = HorarioAula::updateOrCreate(
+                    ['professor_id' => $id, 'nucleo_id' => $request->input('inputNucleo')],
+                    [
+                      'professor_id'  => $id,
+                      'nucleo_id'     => $request->input('inputNucleo'),
+                      'DiaSemana'     => 'Sábado',
+                      'De'            => $horarios['Sabado']['de'],
+                      'Ate'           => $horarios['Sabado']['ate']
+                    ]
+                );
+
+              };
+
+            };*/
+
       $dados = Professores::find($id);
       $Disc = $request->input('inputDisciplinas');
       $Disciplinas = json_encode($Disc);
@@ -281,7 +474,7 @@ class ProfessoresController extends Controller
       $dados->FormacaoSuperior = $request->input('inputFormacaoSuperior');
       $dados->AnoInicioUneafro = $request->input('inputAnoInicioUneafro');
       $dados->aulasForaUneafro = $request->input('aulasForaUneafro');
-      $dados->DiasHorarios = $request->input('inputDiasHorarios');
+      /*$dados->DiasHorarios = $request->input('inputDiasHorarios');*/
       $dados->GastoTransporte = $request->input('inputGastoTransporte');
       $dados->TempoChegada = $request->input('inputTempoChegada');
       $dados->Endereco = $request->input('inputEndereco');
@@ -362,6 +555,101 @@ class ProfessoresController extends Controller
             ]);
         }
       }
+
+      //ROTINA DE PERSISTÊNCIA DOS HORÁRIOS DE AULA
+      foreach( $request->input('inputDiasHorarios') as $horarios ){
+
+        if($horarios['Segunda']){
+
+          $horario = HorarioAula::updateOrCreate(
+              ['professor_id' => $id, 'nucleo_id' => $request->input('inputNucleo'), 'DiaSemana' => 'Segunda'],
+              [
+                'professor_id'  => $id,
+                'nucleo_id'     => $request->input('inputNucleo'),
+                'DiaSemana'     => 'Segunda',
+                'De'            => $horarios['Segunda']['de'],
+                'Ate'           => $horarios['Segunda']['ate']
+              ]
+          );
+
+        };
+
+        if($horarios['Terca']){
+
+          $horario = HorarioAula::updateOrCreate(
+              ['professor_id' => $id, 'nucleo_id' => $request->input('inputNucleo'), 'DiaSemana' => 'Terça'],
+              [
+                'professor_id'  => $id,
+                'nucleo_id'     => $request->input('inputNucleo'),
+                'DiaSemana'     => 'Terça',
+                'De'            => $horarios['Terca']['de'],
+                'Ate'           => $horarios['Terca']['ate']
+              ]
+          );
+
+        };
+
+        if($horarios['Quarta']){
+
+          $horario = HorarioAula::updateOrCreate(
+              ['professor_id' => $id, 'nucleo_id' => $request->input('inputNucleo'), 'DiaSemana' => 'Quarta'],
+              [
+                'professor_id'  => $id,
+                'nucleo_id'     => $request->input('inputNucleo'),
+                'DiaSemana'     => 'Quarta',
+                'De'            => $horarios['Quarta']['de'],
+                'Ate'           => $horarios['Quarta']['ate']
+              ]
+          );
+
+        };
+
+        if($horarios['Quinta']){
+
+          $horario = HorarioAula::updateOrCreate(
+              ['professor_id' => $id, 'nucleo_id' => $request->input('inputNucleo'), 'DiaSemana' => 'Quinta'],
+              [
+                'professor_id'  => $id,
+                'nucleo_id'     => $request->input('inputNucleo'),
+                'DiaSemana'     => 'Quinta',
+                'De'            => $horarios['Quinta']['de'],
+                'Ate'           => $horarios['Quinta']['ate']
+              ]
+          );
+
+        };
+
+        if($horarios['Sexta']){
+
+          $horario = HorarioAula::updateOrCreate(
+              ['professor_id' => $id, 'nucleo_id' => $request->input('inputNucleo'), 'DiaSemana' => 'Sexta'],
+              [
+                'professor_id'  => $id,
+                'nucleo_id'     => $request->input('inputNucleo'),
+                'DiaSemana'     => 'Sexta',
+                'De'            => $horarios['Sexta']['de'],
+                'Ate'           => $horarios['Sexta']['ate']
+              ]
+          );
+
+        };
+
+        if($horarios['Sabado']){
+
+          $horario = HorarioAula::updateOrCreate(
+              ['professor_id' => $id, 'nucleo_id' => $request->input('inputNucleo'), 'DiaSemana' => 'Sábado'],
+              [
+                'professor_id'  => $id,
+                'nucleo_id'     => $request->input('inputNucleo'),
+                'DiaSemana'     => 'Sábado',
+                'De'            => $horarios['Sabado']['de'],
+                'Ate'           => $horarios['Sabado']['ate']
+              ]
+          );
+
+        };
+
+      };
 
       $dados->save();
 
@@ -503,6 +791,7 @@ class ProfessoresController extends Controller
     public function details($id)
     {
       $dados = Professores::find($id);
+      $dados->load('horarios');
       $nucleos = Nucleo::where('Status', 1)->get();
 
       return view('professoresDetails')->with([

@@ -295,7 +295,7 @@
         <label for="inputOutrosNucleos">Você atua em mais de um núcleo? Qual?</label><br>
         @foreach($nucleos as $nucleo)
         <div class="form-check form-check-inline">
-          <input <?php if($dados->id_nucleo === $nucleo->id or strpos($dados->OutrosNucleos, strval($nucleo->id)) !== false){ echo "checked=checked"; } ?> class="form-check-input" name="inputOutrosNucleos[]" type="checkbox" id="artes" value="{{ $nucleo->id }}" disabled>
+          <input <?php if($dados->id_nucleo === $nucleo->id || $nucleo->id === $dados->OutrosNucleos){ echo "checked=checked"; } ?> class="form-check-input" name="inputOutrosNucleos[]" type="checkbox" id="artes" value="{{ $nucleo->id }}" disabled>
           <label class="form-check-label" for="inlineCheckbox1">{{ $nucleo->NomeNucleo }}</label>
         </div>
         @endforeach
@@ -333,10 +333,26 @@
     <div class="col">
       <div class="form-group">
         <label for="inputDiasHorarios">Quais são os dias e horários das suas aulas (por mês)?</label>
-        <br>
+        <div class="row">
+          @foreach( $dados->horarios as $horario )
+          <div class="col-4">
+            <br>
+            <input name="inputDiasHorarios[diaSemana][<?php if( $horario->DiaSemana == 'Terça' ) echo 'Terca'; elseif( $horario->DiaSemana == 'Sábado' ) echo 'Sabado'; else echo $horario->DiaSemana ?>]" type="text" class="form-control" value="{{ $horario->DiaSemana }}" readonly>
+          </div>
+          <div class="col-4">
+            Das
+            <input name="inputDiasHorarios[diaSemana][<?php if( $horario->DiaSemana == 'Terça' ) echo 'Terca'; elseif( $horario->DiaSemana == 'Sábado' ) echo 'Sabado'; else echo $horario->DiaSemana ?>][de]" type="time" class="form-control" value="{{ $horario->De }}" disabled>
+          </div>
+          <div class="col-4 mb-2">
+            Até as
+            <input name="inputDiasHorarios[diaSemana][<?php if( $horario->DiaSemana == 'Terça' ) echo 'Terca'; elseif( $horario->DiaSemana == 'Sábado' ) echo 'Sabado'; else echo $horario->DiaSemana ?>][ate]" type="time" class="form-control" value="{{ $horario->Ate }}" disabled>
+          </div>
+          @endforeach
+        </div>
+        <!--<br>
         <textarea class="form-control" name="inputDiasHorarios" rows="8" placeholder="Exemplos:
 Núcleo XX - 2 vezes por mês - segunda - das 19h às 20h30 / sábado - das 13h às 15h,
-Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h" disabled>{{ $dados->DiasHorarios }}</textarea>
+Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h" disabled>{{ $dados->DiasHorarios }}</textarea>-->
       </div>
     </div>
   </div>

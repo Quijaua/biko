@@ -89,4 +89,9 @@ class Professores extends Model
     {
       return $this->hasMany('App\ListaPresenca', 'professor_id');
     }
+
+    public function horarios()
+    {
+      return $this->hasMany('App\HorarioAula', 'professor_id');
+    }
 }

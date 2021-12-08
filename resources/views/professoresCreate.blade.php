@@ -346,10 +346,84 @@
       <div class="col">
         <div class="form-group">
           <label for="inputDiasHorarios">Quais são os dias e horários das suas aulas (por mês)?</label>
-          <br>
-          <textarea class="form-control" name="inputDiasHorarios" rows="8" placeholder="Exemplos:
+          <div class="row">
+            <div class="col-4">
+              <br>
+              <input name="inputDiasHorarios[diaSemana][Segunda]" type="text" class="form-control" value="Segunda" readonly>
+            </div>
+            <div class="col-4">
+              Das
+              <input name="inputDiasHorarios[diaSemana][Segunda][de]" type="time" class="form-control">
+            </div>
+            <div class="col-4 mb-2">
+              Até as
+              <input <input name="inputDiasHorarios[diaSemana][Segunda][ate]" type="time" class="form-control">
+            </div>
+            <div class="col-4">
+              <br>
+              <input name="inputDiasHorarios[diaSemana][Terca]" type="text" class="form-control" value="Terça" readonly>
+            </div>
+            <div class="col-4">
+              Das
+              <input name="inputDiasHorarios[diaSemana][Terca][de]" type="time" class="form-control">
+            </div>
+            <div class="col-4 mb-2">
+              Até as
+              <input name="inputDiasHorarios[diaSemana][Terca][ate]" type="time" class="form-control">
+            </div>
+            <div class="col-4">
+              <br>
+              <input name="inputDiasHorarios[diaSemana][Quarta]" type="text" class="form-control" value="Quarta" readonly>
+            </div>
+            <div class="col-4">
+              Das
+              <input name="inputDiasHorarios[diaSemana][Quarta][de]" type="time" class="form-control">
+            </div>
+            <div class="col-4 mb-2">
+              Até as
+              <input name="inputDiasHorarios[diaSemana][Quarta][ate]" type="time" class="form-control">
+            </div>
+            <div class="col-4">
+              <br>
+              <input name="inputDiasHorarios[diaSemana][Quinta]" type="text" class="form-control" value="Quinta" readonly>
+            </div>
+            <div class="col-4">
+              Das
+              <input name="inputDiasHorarios[diaSemana][Quinta][de]" type="time" class="form-control">
+            </div>
+            <div class="col-4 mb-2">
+              Até as
+              <input name="inputDiasHorarios[diaSemana][Quinta][ate]" type="time" class="form-control">
+            </div>
+            <div class="col-4">
+              <br>
+              <input name="inputDiasHorarios[diaSemana][Sexta]" type="text" class="form-control" value="Sexta" readonly>
+            </div>
+            <div class="col-4">
+              Das
+              <input name="inputDiasHorarios[diaSemana][Sexta][de]" type="time" class="form-control">
+            </div>
+            <div class="col-4 mb-2">
+              Até as
+              <input name="inputDiasHorarios[diaSemana][Sexta][ate]" type="time" class="form-control">
+            </div>
+            <div class="col-4">
+              <br>
+              <input name="inputDiasHorarios[diaSemana][Sabado]" type="text" class="form-control" value="Sábado" readonly>
+            </div>
+            <div class="col-4">
+              Das
+              <input name="inputDiasHorarios[diaSemana][Sabado][de]" type="time" class="form-control">
+            </div>
+            <div class="col-4 mb-2">
+              Até as
+              <input name="inputDiasHorarios[diaSemana][Sabado][ate]" type="time" class="form-control">
+            </div>
+          </div>
+          <!--<br>-->
+          <!--<textarea class="form-control" name="inputDiasHorarios" rows="8" placeholder="Exemplos:
 Núcleo XX - 2 vezes por mês - segunda - das 19h às 20h30 / sábado - das 13h às 15h,
-Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h"></textarea>
+Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h"></textarea>-->
         </div>
       </div>
     </div>

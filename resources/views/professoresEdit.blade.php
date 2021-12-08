@@ -351,14 +351,95 @@
         </div>
       </div>
     </div>
+    <?php
+      //dd($dados->horarios);
+    ?>
     <div class="row">
       <div class="col">
         <div class="form-group">
           <label for="inputDiasHorarios">Quais são os dias e horários das suas aulas (por mês)?</label>
-          <br>
+          <div class="row">
+            @foreach( $dados->horarios as $horario )
+            <div class="col-4">
+              <br>
+              <input name="inputDiasHorarios[diaSemana][<?php if( $horario->DiaSemana == 'Terça' ) echo 'Terca'; elseif( $horario->DiaSemana == 'Sábado' ) echo 'Sabado'; else echo $horario->DiaSemana ?>]" type="text" class="form-control" value="{{ $horario->DiaSemana }}" readonly>
+            </div>
+            <div class="col-4">
+              Das
+              <input name="inputDiasHorarios[diaSemana][<?php if( $horario->DiaSemana == 'Terça' ) echo 'Terca'; elseif( $horario->DiaSemana == 'Sábado' ) echo 'Sabado'; else echo $horario->DiaSemana ?>][de]" type="time" class="form-control" value="{{ $horario->De }}">
+            </div>
+            <div class="col-4 mb-2">
+              Até as
+              <input name="inputDiasHorarios[diaSemana][<?php if( $horario->DiaSemana == 'Terça' ) echo 'Terca'; elseif( $horario->DiaSemana == 'Sábado' ) echo 'Sabado'; else echo $horario->DiaSemana ?>][ate]" type="time" class="form-control" value="{{ $horario->Ate }}">
+            </div>
+            <!--
+            <div class="col-4">
+              <br>
+              <input name="inputDiasHorarios[diaSemana][Terca]" type="text" class="form-control" value="Terça" readonly>
+            </div>
+            <div class="col-4">
+              Das
+              <input name="inputDiasHorarios[diaSemana][Terca][de]" type="time" class="form-control">
+            </div>
+            <div class="col-4 mb-2">
+              Até as
+              <input name="inputDiasHorarios[diaSemana][Terca][ate]" type="time" class="form-control">
+            </div>
+            <div class="col-4">
+              <br>
+              <input type="text" name="inputDiasHorarios[diaSemana][Quarta]" class="form-control" value="Quarta" readonly>
+            </div>
+            <div class="col-4">
+              Das
+              <input name="inputDiasHorarios[diaSemana][Quarta][de]" type="time" class="form-control">
+            </div>
+            <div class="col-4 mb-2">
+              Até as
+              <input name="inputDiasHorarios[diaSemana][Quarta][ate]" type="time" class="form-control">
+            </div>
+            <div class="col-4">
+              <br>
+              <input name="inputDiasHorarios[diaSemana][Quinta]" type="text" class="form-control" value="Quinta" readonly>
+            </div>
+            <div class="col-4">
+              Das
+              <input name="inputDiasHorarios[diaSemana][Quinta][de]" type="time" class="form-control">
+            </div>
+            <div class="col-4 mb-2">
+              Até as
+              <input name="inputDiasHorarios[diaSemana][Quinta][ate]" type="time" class="form-control">
+            </div>
+            <div class="col-4">
+              <br>
+              <input name="inputDiasHorarios[diaSemana][Sexta]" type="text" class="form-control" value="Sexta" readonly>
+            </div>
+            <div class="col-4">
+              Das
+              <input name="inputDiasHorarios[diaSemana][Sexta][de]" type="time" class="form-control">
+            </div>
+            <div class="col-4 mb-2">
+              Até as
+              <input name="inputDiasHorarios[diaSemana][Sexta][ate]" type="time" class="form-control">
+            </div>
+            <div class="col-4">
+              <br>
+              <input name="inputDiasHorarios[diaSemana][Sabado]" type="text" class="form-control" value="Sábado" readonly>
+            </div>
+            <div class="col-4">
+              Das
+              <input name="inputDiasHorarios[diaSemana][Sabado][de]" type="time" class="form-control">
+            </div>
+            <div class="col-4 mb-2">
+              Até as
+              <input name="inputDiasHorarios[diaSemana][Sabado][ate]" type="time" class="form-control">
+            </div>
+            -->
+            @endforeach
+          </div>
+          <!--<br>
           <textarea class="form-control" name="inputDiasHorarios" rows="8" placeholder="Exemplos:
 Núcleo XX - 2 vezes por mês - segunda - das 19h às 20h30 / sábado - das 13h às 15h,
-Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h">{{ $dados->DiasHorarios }}</textarea>
+Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h">{{ $dados->DiasHorarios }}</textarea>-->
         </div>
       </div>
     </div>
