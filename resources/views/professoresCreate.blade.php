@@ -476,7 +476,7 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h"></textarea>-->
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <label for="inputBairro">Bairro</label>
+          <label for="inputBairro">Distrito</label>
           <input type="text" class="form-control" id="inputBairro" name="inputBairro" aria-describedby="inputBairroHelp" placeholder="Bairro">
         </div>
       </div>
@@ -590,7 +590,7 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h"></textarea>-->
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <label for="inputBairroEmpresa">Bairro</label>
+          <label for="inputBairroEmpresa">Distrito</label>
           <input type="text" class="form-control" id="inputBairroEmpresa" name="inputBairroEmpresa" aria-describedby="inputBairroEmpresaHelp" placeholder="Bairro da empresa onde trabalha">
         </div>
       </div>
