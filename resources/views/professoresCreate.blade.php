@@ -552,178 +552,7 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h"></textarea>-->
       </div>
     </div>
     <hr>
-    <h3>DADOS PROFISSIONAIS</h3>
-    <div class="row">
-      <div class="col-12 col-md-6">
-        <div class="form-group">
-          <label for="inputRamoAtuacao">Você trabalha no ramo da:</label>
-          <select id="inputRamoAtuacao" name="inputRamoAtuacao" class="custom-select">
-            <option value="Educação">Educação</option>
-            <option value="Pesquisa">Pesquisa</option>
-            <option value="Telemarketing">Telemarketing</option>
-            <option value="Comércio">Comércio</option>
-            <option value="Indústria">Indústria</option>
-            <option value="Construção Civil">Construção Civil</option>
-            <option value="Beleza e Cuidados">Beleza e Cuidados</option>
-            <option value="Serviços gerais">Serviços gerais</option>
-            <option value="Limpeza e Higiene">Limpeza e Higiene</option>
-            <option value="Gastronomia/Alimentação">Gastronomia/Alimentação</option>
-            <option value="Entrega/Delivery">Entrega/Delivery</option>
-            <option value="Saúde/Bem-Estar">Saúde/Bem-Estar</option>
-            <option value="Segurança">Segurança</option>
-            <option value="Transporte de pessoas/Aplicativos">Transporte de pessoas/Aplicativos</option>
-            <option value="Outros">Outros</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-12 col-md-6">
-        <label for="inputRamoAtuacaoOutros">&nbsp;</label>
-        <input type="text" class="form-control" id="inputRamoAtuacaoOutros" name="inputRamoAtuacaoOutros" aria-describedby="inputRamoAtuacaoOutrosHelp" placeholder="Outros (Especifique)">
-      </div>
-    </div>
-    <!--
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <label for="inputEmpresa">Nome da Empresa</label>
-          <input type="text" class="form-control" id="inputEmpresa" name="inputEmpresa" aria-describedby="inputEmpresaHelp" placeholder="Nome da empresa onde trabalha">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <label for="inputCEPEmpresa">CEP</label>
-          <input type="text" class="form-control" id="inputCEPEmpresa" name="inputCEPEmpresa" aria-describedby="inputCEPEmpresaHelp" data-mask="00000-000" placeholder="xxxxx-xxx" onblur="checkCEP('#inputCEPEmpresa')">
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="inputEnderecoEmpresa">Rua</label>
-          <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEnderecoEmpresa" name="inputEnderecoEmpresa" aria-describedby="inputEnderecoEmpresaHelp" placeholder="Rua, Avenida, Logradouro">
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="inputNumeroEmpresa">Número</label>
-          <input type="text" class="form-control" id="inputNumeroEmpresa" name="inputNumeroEmpresa" aria-describedby="inputNumeroEmpresaHelp" placeholder="Número">
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="inputComplementoEmpresa">Complemento</label>
-          <input type="text" class="form-control" id="inputComplementoEmpresa" name="inputComplementoEmpresa" aria-describedby="inputComplementoEmpresaHelp" placeholder="Complemento">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <label for="inputBairroEmpresa">Distrito</label>
-          <input type="text" class="form-control" id="inputBairroEmpresa" name="inputBairroEmpresa" aria-describedby="inputBairroEmpresaHelp" placeholder="Bairro da empresa onde trabalha">
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="inputCidadeEmpresa">Cidade da Empresa</label>
-          <input type="text" class="form-control" id="inputCidadeEmpresa" name="inputCidadeEmpresa" aria-describedby="inputCidadeEmpresaHelp" placeholder="Cidade da empresa onde trabalha">
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="inputEstadoEmpresa">Estado da Empresa</label>
-          <select id="inputEstadoEmpresa" name="inputEstadoEmpresa" class="custom-select">
-            <option value="" selected>Selecione</option>
-            <option value="AC">Acre</option>
-            <option value="AL">Alagoas</option>
-            <option value="AP">Amapá</option>
-            <option value="AM">Amazonas</option>
-            <option value="BA">Bahia</option>
-            <option value="CE">Ceará</option>
-            <option value="DF">Distrito Federal</option>
-            <option value="ES">Espírito Santo</option>
-            <option value="GO">Goiás</option>
-            <option value="MA">Maranhão</option>
-            <option value="MT">Mato Grosso</option>
-            <option value="MS">Mato Grosso do Sul</option>
-            <option value="MG">Minas Gerais</option>
-            <option value="PA">Pará</option>
-            <option value="PB">Paraíba</option>
-            <option value="PR">Paraná</option>
-            <option value="PE">Pernambuco</option>
-            <option value="PI">Piauí</option>
-            <option value="RJ">Rio de Janeiro</option>
-            <option value="RN">Rio Grande do Norte</option>
-            <option value="RS">Rio Grande do Sul</option>
-            <option value="RO">Rondônia</option>
-            <option value="RR">Roraima</option>
-            <option value="SC">Santa Catarina</option>
-            <option value="SP">São Paulo</option>
-            <option value="SE">Sergipe</option>
-            <option value="TO">Tocantins</option>
-            <option value="EX">Estrangeiro</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    -->
-    <hr>
-    <div class="row">
-      <div class="col-6">
-          <div class="form-group">
-            <label for="inputProjetosRealizados">Já realizou trabalhos em projetos educacionais/Coletivos/Movimentos Sociais?</label>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inputProjetosRealizados" id="inputProjetosRealizados1" value="sim" onclick="showInput('.projeto-dados')">
-              <label class="form-check-label" for="inputProjetosRealizados1">Sim</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inputProjetosRealizados" id="inputProjetosRealizados2" value="nao" onclick="hideInput('.projeto-dados')">
-              <label class="form-check-label" for="inputProjetosRealizados2">Não</label>
-            </div>
-          </div>
-      </div>
-      <div class="col-3">
-        <div class="form-group projeto-dados" style="display:none;">
-          <label for="inputProjetosNome">Nome do projeto</label>
-          <input type="text" class="form-control" id="inputProjetosNome" name="inputProjetosNome" aria-describedby="inputProjetosNomeHelp" placeholder="Nome do projeto">
-        </div>
-      </div>
-      <div class="col-3">
-        <div id="ProjetosQual" class="form-group projeto-dados" style="display:none;">
-          <label for="inputProjetosFuncao">Função exercida</label>
-          <input type="text" class="form-control" id="inputProjetosFuncao" name="inputProjetosFuncao" aria-describedby="inputProjetosFuncaoHelp" placeholder="Função exercida">
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="form-group">
-          <label for="inputComoSoube">Como você ficou sabendo do cursinho pré-vestibular da UNEafro Brasil?</label>
-          <select id="comoSoube" name="inputComoSoube" class="custom-select" onchange="checkComosoube()">
-            <option value="" selected>Selecione</option>
-            <option value="internet">Internet</option>
-            <option value="panfleto">Panfleto</option>
-            <option value="amigos">Amigos</option>
-            <option value="jornal">Jornal</option>
-            <option value="outros">Outros</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-6">
-        <div id="ComoSoubeOutros" class="form-group" style="display:none;">
-          <label for="inputComoSoubeOutros">Qual?</label>
-          <input type="text" class="form-control" id="inputComoSoubeOutros" name="inputComoSoubeOutros" aria-describedby="inputComoSoubeOutrosHelp" placeholder="Qual">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <label for="inputMotivoPrincipal">Qual foi o principal motivo que o/a levou a participar da Uneafro?</label>
-          <br>
-          <textarea class="form-control" name="inputMotivoPrincipal" rows="8"></textarea>
-        </div>
-      </div>
-    </div>
-    <hr>
+
     <h3>DADOS ACADÊMICOS</h3>
     <div class="row">
       <div class="col">
@@ -1049,6 +878,508 @@ Núcleo YY - 1 vez por mês - aos sábados - das 9h às 11h"></textarea>-->
       </div>
       <input type="hidden" name="inputStatus" value="1">
     </div>
+
+    <hr>
+
+    <h3>DADOS PROFISSIONAIS</h3>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <label for="inputRamoAtuacao">Você trabalha no ramo da:</label>
+          <select id="inputRamoAtuacao" name="inputRamoAtuacao" class="custom-select">
+            <option value="Educação">Educação</option>
+            <option value="Pesquisa">Pesquisa</option>
+            <option value="Telemarketing">Telemarketing</option>
+            <option value="Comércio">Comércio</option>
+            <option value="Indústria">Indústria</option>
+            <option value="Construção Civil">Construção Civil</option>
+            <option value="Beleza e Cuidados">Beleza e Cuidados</option>
+            <option value="Serviços gerais">Serviços gerais</option>
+            <option value="Limpeza e Higiene">Limpeza e Higiene</option>
+            <option value="Gastronomia/Alimentação">Gastronomia/Alimentação</option>
+            <option value="Entrega/Delivery">Entrega/Delivery</option>
+            <option value="Saúde/Bem-Estar">Saúde/Bem-Estar</option>
+            <option value="Segurança">Segurança</option>
+            <option value="Transporte de pessoas/Aplicativos">Transporte de pessoas/Aplicativos</option>
+            <option value="Outros">Outros</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <label for="inputRamoAtuacaoOutros">&nbsp;</label>
+        <input type="text" class="form-control" id="inputRamoAtuacaoOutros" name="inputRamoAtuacaoOutros" aria-describedby="inputRamoAtuacaoOutrosHelp" placeholder="Outros (Especifique)">
+      </div>
+    </div>
+    <!--
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputEmpresa">Nome da Empresa</label>
+          <input type="text" class="form-control" id="inputEmpresa" name="inputEmpresa" aria-describedby="inputEmpresaHelp" placeholder="Nome da empresa onde trabalha">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputCEPEmpresa">CEP</label>
+          <input type="text" class="form-control" id="inputCEPEmpresa" name="inputCEPEmpresa" aria-describedby="inputCEPEmpresaHelp" data-mask="00000-000" placeholder="xxxxx-xxx" onblur="checkCEP('#inputCEPEmpresa')">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputEnderecoEmpresa">Rua</label>
+          <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEnderecoEmpresa" name="inputEnderecoEmpresa" aria-describedby="inputEnderecoEmpresaHelp" placeholder="Rua, Avenida, Logradouro">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputNumeroEmpresa">Número</label>
+          <input type="text" class="form-control" id="inputNumeroEmpresa" name="inputNumeroEmpresa" aria-describedby="inputNumeroEmpresaHelp" placeholder="Número">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputComplementoEmpresa">Complemento</label>
+          <input type="text" class="form-control" id="inputComplementoEmpresa" name="inputComplementoEmpresa" aria-describedby="inputComplementoEmpresaHelp" placeholder="Complemento">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputBairroEmpresa">Distrito</label>
+          <input type="text" class="form-control" id="inputBairroEmpresa" name="inputBairroEmpresa" aria-describedby="inputBairroEmpresaHelp" placeholder="Bairro da empresa onde trabalha">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputCidadeEmpresa">Cidade da Empresa</label>
+          <input type="text" class="form-control" id="inputCidadeEmpresa" name="inputCidadeEmpresa" aria-describedby="inputCidadeEmpresaHelp" placeholder="Cidade da empresa onde trabalha">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputEstadoEmpresa">Estado da Empresa</label>
+          <select id="inputEstadoEmpresa" name="inputEstadoEmpresa" class="custom-select">
+            <option value="" selected>Selecione</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+            <option value="EX">Estrangeiro</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    -->
+    <hr>
+    <div class="row">
+      <div class="col-6">
+          <div class="form-group">
+            <label for="inputProjetosRealizados">Já realizou trabalhos em projetos educacionais/Coletivos/Movimentos Sociais?</label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inputProjetosRealizados" id="inputProjetosRealizados1" value="sim" onclick="showInput('.projeto-dados')">
+              <label class="form-check-label" for="inputProjetosRealizados1">Sim</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inputProjetosRealizados" id="inputProjetosRealizados2" value="nao" onclick="hideInput('.projeto-dados')">
+              <label class="form-check-label" for="inputProjetosRealizados2">Não</label>
+            </div>
+          </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group projeto-dados" style="display:none;">
+          <label for="inputProjetosNome">Nome do projeto</label>
+          <input type="text" class="form-control" id="inputProjetosNome" name="inputProjetosNome" aria-describedby="inputProjetosNomeHelp" placeholder="Nome do projeto">
+        </div>
+      </div>
+      <div class="col-3">
+        <div id="ProjetosQual" class="form-group projeto-dados" style="display:none;">
+          <label for="inputProjetosFuncao">Função exercida</label>
+          <input type="text" class="form-control" id="inputProjetosFuncao" name="inputProjetosFuncao" aria-describedby="inputProjetosFuncaoHelp" placeholder="Função exercida">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="inputComoSoube">Como você ficou sabendo do cursinho pré-vestibular da UNEafro Brasil?</label>
+          <select id="comoSoube" name="inputComoSoube" class="custom-select" onchange="checkComosoube()">
+            <option value="" selected>Selecione</option>
+            <option value="internet">Internet</option>
+            <option value="panfleto">Panfleto</option>
+            <option value="amigos">Amigos</option>
+            <option value="jornal">Jornal</option>
+            <option value="outros">Outros</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6">
+        <div id="ComoSoubeOutros" class="form-group" style="display:none;">
+          <label for="inputComoSoubeOutros">Qual?</label>
+          <input type="text" class="form-control" id="inputComoSoubeOutros" name="inputComoSoubeOutros" aria-describedby="inputComoSoubeOutrosHelp" placeholder="Qual">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputMotivoPrincipal">Qual foi o principal motivo que o/a levou a participar da Uneafro?</label>
+          <br>
+          <textarea class="form-control" name="inputMotivoPrincipal" rows="8"></textarea>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <!--
+    <h3>DADOS ACADÊMICOS</h3>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputEnsinoSuperior"><strong>Ensino Superior</strong></label>
+          <select name="inputEnsinoSuperior" class="custom-select">
+            <option value="" selected>Selecione</option>
+            <option value="em_curso">Em curso</option>
+            <option value="completo">Completo</option>
+            <option value="incompleto">Incompleto</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputInstituicaoSuperior">Instituição</label>
+          <input type="text" class="form-control" id="inputInstituicaoSuperior" name="inputInstituicaoSuperior" aria-describedby="inputInstituicaoSuperiorHelp" placeholder="Instituição em qual cursou">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputCursoSuperior1">Curso 1</label>
+          <input type="text" class="form-control" id="inputCursoSuperior1" name="inputCursoSuperior1" aria-describedby="inputCursoSuperior1Help" placeholder="Informe o curso">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputAnoCursoSuperior1">Ano</label>
+          <select name="inputAnoCursoSuperior1" class="custom-select">
+            <option selected>Selecione</option>
+            <option value="1972">1972</option>
+            <option value="1973">1973</option>
+            <option value="1974">1974</option>
+            <option value="1975">1975</option>
+            <option value="1976">1976</option>
+            <option value="1977">1977</option>
+            <option value="1978">1978</option>
+            <option value="1979">1979</option>
+            <option value="1980">1980</option>
+            <option value="1981">1981</option>
+            <option value="1982">1982</option>
+            <option value="1983">1983</option>
+            <option value="1984">1984</option>
+            <option value="1985">1985</option>
+            <option value="1986">1986</option>
+            <option value="1987">1987</option>
+            <option value="1988">1988</option>
+            <option value="1989">1989</option>
+            <option value="1990">1990</option>
+            <option value="1991">1991</option>
+            <option value="1992">1992</option>
+            <option value="1993">1993</option>
+            <option value="1994">1994</option>
+            <option value="1995">1995</option>
+            <option value="1996">1996</option>
+            <option value="1997">1997</option>
+            <option value="1998">1998</option>
+            <option value="1999">1999</option>
+            <option value="2000">2000</option>
+            <option value="2001">2001</option>
+            <option value="2002">2002</option>
+            <option value="2003">2003</option>
+            <option value="2004">2004</option>
+            <option value="2005">2005</option>
+            <option value="2006">2006</option>
+            <option value="2007">2007</option>
+            <option value="2008">2008</option>
+            <option value="2009">2009</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019" selected="selected">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputCursoSuperior2">Curso 2</label>
+          <input type="text" class="form-control" id="inputCursoSuperior2" name="inputCursoSuperior2" aria-describedby="inputCursoSuperior2Help" placeholder="Informe o curso">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputAnoCursoSuperior2">Ano</label>
+          <select name="inputAnoCursoSuperior2" class="custom-select">
+            <option selected>Selecione</option>
+            <option value="1972">1972</option>
+            <option value="1973">1973</option>
+            <option value="1974">1974</option>
+            <option value="1975">1975</option>
+            <option value="1976">1976</option>
+            <option value="1977">1977</option>
+            <option value="1978">1978</option>
+            <option value="1979">1979</option>
+            <option value="1980">1980</option>
+            <option value="1981">1981</option>
+            <option value="1982">1982</option>
+            <option value="1983">1983</option>
+            <option value="1984">1984</option>
+            <option value="1985">1985</option>
+            <option value="1986">1986</option>
+            <option value="1987">1987</option>
+            <option value="1988">1988</option>
+            <option value="1989">1989</option>
+            <option value="1990">1990</option>
+            <option value="1991">1991</option>
+            <option value="1992">1992</option>
+            <option value="1993">1993</option>
+            <option value="1994">1994</option>
+            <option value="1995">1995</option>
+            <option value="1996">1996</option>
+            <option value="1997">1997</option>
+            <option value="1998">1998</option>
+            <option value="1999">1999</option>
+            <option value="2000">2000</option>
+            <option value="2001">2001</option>
+            <option value="2002">2002</option>
+            <option value="2003">2003</option>
+            <option value="2004">2004</option>
+            <option value="2005">2005</option>
+            <option value="2006">2006</option>
+            <option value="2007">2007</option>
+            <option value="2008">2008</option>
+            <option value="2009">2009</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019" selected="selected">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputEspecializacao"><strong>Especialização</strong></label>
+          <select name="inputEspecializacao" class="custom-select">
+            <option value="" selected>Selecione</option>
+            <option value="em_curso">Em curso</option>
+            <option value="completo">Completo</option>
+            <option value="incompleto">Incompleto</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputInstEspecializacao">Instituição</label>
+          <input type="text" class="form-control" id="inputInstEspecializacao" name="inputInstEspecializacao" aria-describedby="inputInstEspecializacaoHelp" placeholder="Informe a instituição">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputCursoEspecializacao">Curso</label>
+          <input type="text" class="form-control" id="inputCursoEspecializacao" name="inputCursoEspecializacao" aria-describedby="inputCursoEspecializacaoHelp" placeholder="Informe o curso">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputAnoCursoEspecializacao">Ano de Conclusão</label>
+          <select name="inputAnoCursoEspecializacao" class="custom-select">
+            <option selected>Selecione</option>
+            <option value="1972">1972</option>
+            <option value="1973">1973</option>
+            <option value="1974">1974</option>
+            <option value="1975">1975</option>
+            <option value="1976">1976</option>
+            <option value="1977">1977</option>
+            <option value="1978">1978</option>
+            <option value="1979">1979</option>
+            <option value="1980">1980</option>
+            <option value="1981">1981</option>
+            <option value="1982">1982</option>
+            <option value="1983">1983</option>
+            <option value="1984">1984</option>
+            <option value="1985">1985</option>
+            <option value="1986">1986</option>
+            <option value="1987">1987</option>
+            <option value="1988">1988</option>
+            <option value="1989">1989</option>
+            <option value="1990">1990</option>
+            <option value="1991">1991</option>
+            <option value="1992">1992</option>
+            <option value="1993">1993</option>
+            <option value="1994">1994</option>
+            <option value="1995">1995</option>
+            <option value="1996">1996</option>
+            <option value="1997">1997</option>
+            <option value="1998">1998</option>
+            <option value="1999">1999</option>
+            <option value="2000">2000</option>
+            <option value="2001">2001</option>
+            <option value="2002">2002</option>
+            <option value="2003">2003</option>
+            <option value="2004">2004</option>
+            <option value="2005">2005</option>
+            <option value="2006">2006</option>
+            <option value="2007">2007</option>
+            <option value="2008">2008</option>
+            <option value="2009">2009</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019" selected="selected">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputMestrado"><strong>Mestrado</strong></label>
+          <select name="inputMestrado" class="custom-select">
+            <option value="" selected>Selecione</option>
+            <option value="em_curso">Em curso</option>
+            <option value="completo">Completo</option>
+            <option value="incompleto">Incompleto</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputInstMestrado">Instituição</label>
+          <input type="text" class="form-control" id="inputInstMestrado" name="inputInstMestrado" aria-describedby="inputInstMestradoHelp" placeholder="Informe a instituição">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputCursoMestrado">Curso</label>
+          <input type="text" class="form-control" id="inputCursoMestrado" name="inputCursoMestrado" aria-describedby="inputCursoMestradoHelp" placeholder="Informe o curso">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputAnoCursoMestrado">Ano de Conclusão</label>
+          <select name="inputAnoCursoMestrado" class="custom-select">
+            <option selected>Selecione</option>
+            <option value="1972">1972</option>
+            <option value="1973">1973</option>
+            <option value="1974">1974</option>
+            <option value="1975">1975</option>
+            <option value="1976">1976</option>
+            <option value="1977">1977</option>
+            <option value="1978">1978</option>
+            <option value="1979">1979</option>
+            <option value="1980">1980</option>
+            <option value="1981">1981</option>
+            <option value="1982">1982</option>
+            <option value="1983">1983</option>
+            <option value="1984">1984</option>
+            <option value="1985">1985</option>
+            <option value="1986">1986</option>
+            <option value="1987">1987</option>
+            <option value="1988">1988</option>
+            <option value="1989">1989</option>
+            <option value="1990">1990</option>
+            <option value="1991">1991</option>
+            <option value="1992">1992</option>
+            <option value="1993">1993</option>
+            <option value="1994">1994</option>
+            <option value="1995">1995</option>
+            <option value="1996">1996</option>
+            <option value="1997">1997</option>
+            <option value="1998">1998</option>
+            <option value="1999">1999</option>
+            <option value="2000">2000</option>
+            <option value="2001">2001</option>
+            <option value="2002">2002</option>
+            <option value="2003">2003</option>
+            <option value="2004">2004</option>
+            <option value="2005">2005</option>
+            <option value="2006">2006</option>
+            <option value="2007">2007</option>
+            <option value="2008">2008</option>
+            <option value="2009">2009</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019" selected="selected">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+          </select>
+        </div>
+      </div>
+      <input type="hidden" name="inputStatus" value="1">
+    </div>
+    -->
     <button type="submit" class="btn btn-primary">Salvar Dados</button>
   </form>
 
