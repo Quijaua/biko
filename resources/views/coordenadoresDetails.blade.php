@@ -154,9 +154,9 @@
         <select name="inputEscolaridade" class="custom-select" disabled>
           <option selected>Selecione</option>
           <option value="Ensino Médio">Ensino Médio</option>
-          <option value="Ensino Superior Completo" @if($dados->Escolaridade === 'Ensino Superior Completo') {{ 'selected' }} @endif >Ensino Superior Completo</option>
-          <option value="Ensino Superior Cursando" @if($dados->Escolaridade === 'Ensino Superior Cursando') {{ 'selected' }} @endif >Ensino Superior Cursando</option>
-          <option value="Ensino Superior Incompleto" @if($dados->Escolaridade === 'Ensino Superior Incompleto') {{ 'selected' }} @endif >Ensino Superior Incompleto</option>
+          <option value="Ensino Superior Completo" @if($dados->Escolaridade === 'Ensino Superior Completo') {{ 'selected' }} @endif >Graduação Completa</option>
+          <option value="Ensino Superior Cursando" @if($dados->Escolaridade === 'Ensino Superior Cursando') {{ 'selected' }} @endif >Graduação Cursando</option>
+          <option value="Ensino Superior Incompleto" @if($dados->Escolaridade === 'Ensino Superior Incompleto') {{ 'selected' }} @endif >Graduação Incompleta</option>
           <option value="Pós Graduação Completa" @if($dados->Escolaridade === 'Pós Graduação Completa') {{ 'selected' }} @endif >Pós Graduação Completa</option>
           <option value="Pós Graduação incompleta" @if($dados->Escolaridade === 'Pós Graduação incompleta') {{ 'selected' }} @endif >Pós Graduação incompleta</option>
           <option value="Pós Graduação Cursando" @if($dados->Escolaridade === 'Pós Graduação Cursando') {{ 'selected' }} @endif >Pós Graduação Cursando</option>

@@ -166,9 +166,9 @@
           <select name="inputEscolaridade" class="custom-select">
             <option selected>Selecione</option>
             <option value="Ensino Médio">Ensino Médio</option>
-            <option value="Ensino Superior Completo">Ensino Superior Completo</option>
-            <option value="Ensino Superior Cursando">Ensino Superior Cursando</option>
-            <option value="Ensino Superior Incompleto">Ensino Superior Incompleto</option>
+            <option value="Ensino Superior Completo">Graduação Completa</option>
+            <option value="Ensino Superior Cursando">Graduação Cursando</option>
+            <option value="Ensino Superior Incompleto">Graduação Incompleta</option>
             <option value="Pós Graduação Completa">Pós Graduação Completa</option>
             <option value="Pós Graduação incompleta">Pós Graduação incompleta</option>
             <option value="Pós Graduação Cursando">Pós Graduação Cursando</option>
