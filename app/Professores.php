@@ -40,6 +40,8 @@ class Professores extends Model
         'FoneResidencial',
         'FoneCelular',
         'Email',
+        'RamoAtuacao',
+        'RamoAtuacaoOutros',
         'Empresa',
         'EnderecoEmpresa',
         'NumeroEmpresa',
