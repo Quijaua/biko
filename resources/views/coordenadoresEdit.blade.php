@@ -538,7 +538,7 @@
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <label for="inputMotivoPrincipal">Qual foi o principal motivo que o/a levou a participar do Projeto?</label>
+          <label for="inputMotivoPrincipal">Qual foi o principal motivo que o/a levou a participar do Uneafro?</label>
           <br>
           <textarea class="form-control" name="inputMotivoPrincipal" rows="8">{{ $dados->MotivoPrincipal }}</textarea>
         </div>
