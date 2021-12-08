@@ -194,6 +194,7 @@ class ProfessoresController extends Controller
         'InstMestrado' => $request->input('inputInstMestrado'),
         'CursoMestrado' => $request->input('inputCursoMestrado'),
         'AnoCursoMestrado' => $request->input('inputAnoCursoMestrado'),
+        'FormacaoAcademicaRecente' => $request->input('inputFormacaoAcademicaRecente'),
       ]);
 
       if($Foto){
@@ -434,6 +435,7 @@ class ProfessoresController extends Controller
       $dados->InstMestrado = $request->input('inputInstMestrado');
       $dados->CursoMestrado = $request->input('inputCursoMestrado');
       $dados->AnoCursoMestrado = $request->input('inputAnoCursoMestrado');
+      $dados->FormacaoAcademicaRecente = $request->input('inputFormacaoAcademicaRecente');
 
       if($Foto){
         $filename = $Foto->getFilename().'.'.$Foto->getClientOriginalExtension();

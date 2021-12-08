@@ -70,6 +70,7 @@ class Professores extends Model
         'InstMestrado',
         'CursoMestrado',
         'AnoCursoMestrado',
+        'FormacaoAcademicaRecente',
     ];
 
     protected $casts = [
