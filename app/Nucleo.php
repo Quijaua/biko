@@ -59,7 +59,7 @@ class Nucleo extends Model
 
     public function listas_presenca()
     {
-      return $this->hasMany('App\ListaPresenca');
+      return $this->hasMany('App\ListaPresenca')->orderBy('date');
     }
 
     public static function whereStatus($value = true)

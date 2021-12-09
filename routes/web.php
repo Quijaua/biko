@@ -35,6 +35,7 @@ Route::any('nucleos/search', 'NucleoController@search')->middleware('permissions
 Route::get('nucleo/presences', 'NucleoController@presences_index')->name('nucleo/presences');
 Route::get('nucleo/presences/new', 'NucleoController@presences_new')->name('nucleo/presences/new');
 Route::post('nucleo/presences/create', 'NucleoController@presences_create')->name('nucleo/presences/create');
+Route::get('nucleo/presences/destroy', 'NucleoController@presences_destroy')->name('nucleo/presences/destroy');
 
 Route::get('nucleo/material', 'MaterialController@index')->name('nucleo.material');
 Route::post('nucleo/material/create', 'MaterialController@create')->name('nucleo.material.create');

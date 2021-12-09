@@ -285,4 +285,18 @@ class NucleoController extends Controller
 
       return response()->json($frequencia, 200);
     }
+
+    public function presences_destroy(Request $request)
+    {
+      $frequencias = Frequencia::where('lista_presenca_id', $request->id)->get();
+
+      if( $frequencias ) {
+        foreach( $frequencias as $frequencia ) {
+          Frequencia::destroy($frequencia->id);
+        }
+      }
+
+      ListaPresenca::destroy($request->id);
+      return redirect()->route('nucleo/presences');
+    }
 }

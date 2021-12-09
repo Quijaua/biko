@@ -30,13 +30,27 @@
 </div>
 @endif
 <div class="container">
-  <div class="row">
-    <div class="col-12 col-md-4">
-      <div class="mb-3">
-        <a class="btn btn-success" href="{{ route('nucleo/presences/new') }}">Nova Lista</a>
+
+  <form name="listaPresencaForm" action="{{ route('nucleo/presences/new') }}" method="get">
+    @csrf
+    <div class="row">
+      <div class="col-4">
+        <div class="form-group">
+          <div class="mb-3">
+            <input type="date" class="form-control" id="date" name="date" aria-describedby="dateHelp">
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group">
+          <div class="mb-3">
+            <button class="btn btn-success" type="submit">Nova Lista</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </form>
+
   <div class="row">
     <div class="col" id="presences_wrapper">
       <table class="table table-striped">
@@ -54,6 +68,7 @@
             <td>{{ $nucleo->NomeNucleo }}</td>
             <td>
               <a class="btn btn-primary btn-sm btn-absent mb-2" href="{{ route('nucleo/presences/new', ['date' => $lista->date->format('Y-m-d')]) }}">Ver/Editar</a>
+              <a class="btn btn-danger btn-sm btn-absent mb-2" href="{{ route('nucleo/presences/destroy', ['id' => $lista->id]) }}">Excluir</a>
             </td>
           </tr>
           @endforeach
