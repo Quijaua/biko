@@ -78,6 +78,12 @@
     </div>
   </div>
 
+  <div class="row mt-5">
+    <div class="col-12 text-center">
+      <h1>ALUNOS COM AUSÊNCIA</h1>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col">
       @foreach( $alunos as $aluno )
