@@ -225,6 +225,7 @@
             @else
             <div id="TaxaInscricaoValor" class="form-group" style="display:none;">
               <label for="inputTaxaInscricaoValor">Se sim, quanto?</label>
+              <br><br>
               <input type="number" class="form-control" id="inputTaxaInscricaoValor" name="inputTaxaInscricaoValor" aria-describedby="inputTaxaInscricaoValorHelp" value="{{ $dados->TaxaInscricaoValor }}">
             </div>
             @endif
@@ -232,7 +233,14 @@
           <div class="col">
             <div class="form-group">
               <label for="inputVagas">Número de vagas oferecidas este ano?</label>
+              <br><br>
               <input pattern="[0-9]{0,3}" type="text" class="form-control" id="inputVagas" name="inputVagas" aria-describedby="inputVagasHelp" value="{{ $dados->Vagas }}">
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="inputVagasPreenchidas">Vagas preenchidas no começo do ano letivo</label>
+              <input type="text" class="form-control" id="inputVagasPreenchidas" name="inputVagasPreenchidas" aria-describedby="inputVagasPreenchidasHelp" value="{{ count($dados->matriculas) }}" disabled>
             </div>
           </div>
         </div>

@@ -364,13 +364,21 @@
     <div class="col">
       <div class="form-group">
         <label for="inputTaxaInscricaoValor">Qual o valor da taxa?</label>
+        <br><br>
         <input type="text" class="form-control currency" id="inputTaxaInscricaoValor" name="inputTaxaInscricaoValor" aria-describedby="inputTaxaInscricaoValorHelp" value="{{ $dados->TaxaInscricaoValor }}" disabled>
       </div>
     </div>
     <div class="col">
       <div class="form-group">
         <label for="inputVagas">Número de vagas oferecidas este ano?</label>
+        <br><br>
         <input pattern="[0-9]{0,3}" type="text" class="form-control" id="inputVagas" name="inputVagas" aria-describedby="inputVagasHelp" value="{{ $dados->Vagas }}" disabled>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="inputVagasPreenchidas">Vagas preenchidas no começo do ano letivo</label>
+        <input type="text" class="form-control" id="inputVagasPreenchidas" name="inputVagasPreenchidas" aria-describedby="inputVagasPreenchidasHelp" value="{{ count($dados->matriculas) }}" disabled>
       </div>
     </div>
   </div>

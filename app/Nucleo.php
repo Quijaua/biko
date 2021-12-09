@@ -42,6 +42,11 @@ class Nucleo extends Model
         return $this->hasMany('App\Aluno', 'id_nucleo');
     }
 
+    public function matriculas()
+    {
+      return $this->hasMany('App\Aluno', 'id_nucleo')->where('ListaEspera', 'Sim')->where('Status', 1);
+    }
+
     public function professores()
     {
         return $this->hasMany('App\Professores', 'id_nucleo');

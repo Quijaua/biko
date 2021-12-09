@@ -210,13 +210,21 @@
         <div class="col">
           <div id="TaxaInscricaoValor" class="form-group" style="display:none;">
             <label for="inputTaxaInscricaoValor">Qual o valor da taxa?</label>
+            <br><br>
             <input type="text" class="form-control currency" id="inputTaxaInscricaoValor" name="inputTaxaInscricaoValor" aria-describedby="inputTaxaInscricaoValorHelp" data-thousands="." data-decimal="," data-prefix="R$ " placeholder="Informe o valor da taxa de inscrição em R$">
           </div>
         </div>
         <div class="col">
           <div class="form-group">
             <label for="inputVagas">Número de vagas oferecidas este ano?</label>
+            <br><br>
             <input pattern="[0-9]{0,3}" type="text" class="form-control" id="inputVagas" name="inputVagas" aria-describedby="inputVagasHelp" placeholder="Quantidade de vagas disponíveis">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputVagasPreenchidas">Vagas preenchidas no começo do ano letivo</label>
+            <input type="text" class="form-control" id="inputVagasPreenchidas" name="inputVagasPreenchidas" aria-describedby="inputVagasPreenchidasHelp" placeholder="0" disabled>
           </div>
         </div>
       </div>
