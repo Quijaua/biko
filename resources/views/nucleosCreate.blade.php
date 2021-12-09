@@ -61,8 +61,8 @@
       <div class="row">
         <div class="col">
           <div class="form-group">
-            <label for="inputEspacoInserido">Espaço em que está inserido</label>
-            <input type="text" class="form-control" id="inputEspacoInserido" name="inputEspacoInserido" aria-describedby="inputEspacoInseridoHelp" placeholder="Espaço em que está inserido">
+            <label for="inputEspacoInserido">A sede onde as aulas/encontros ocorrem pertence a:</label>
+            <input type="text" class="form-control" id="inputEspacoInserido" name="inputEspacoInserido" aria-describedby="inputEspacoInseridoHelp" placeholder="Sede onde ocorrem aulas/encontros">
           </div>
         </div>
         <div class="col">
