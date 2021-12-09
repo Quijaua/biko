@@ -232,7 +232,8 @@ class NucleoController extends Controller
       $nucleo = Nucleo::find($professor->id_nucleo);
 
       return view('lista-presenca')->with([
-        'nucleo' => $nucleo
+        'nucleo' => $nucleo,
+        'alunos' => $nucleo->alunos
       ]);
     }
 

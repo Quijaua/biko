@@ -98,6 +98,16 @@ class Aluno extends Model
         return $this->hasMany('App\AlunoInfoFamiliares', 'id_user');
     }
 
+    public function frequencia()
+    {
+      return $this->hasMany('App\Frequencia', 'aluno_id');
+    }
+
+    public function ausencias()
+    {
+      return $this->hasMany('App\Frequencia', 'aluno_id')->where('is_present', false);
+    }
+
     public static function whereStatus($value = true)
     {
         return self::query()->where('Status', $value);

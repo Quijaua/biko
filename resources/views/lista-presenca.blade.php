@@ -77,5 +77,18 @@
       </table>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col">
+      @foreach( $alunos as $aluno )
+        @if( count($aluno->ausencias) > 0 )
+          <p><b>Aluno: </b>{{ $aluno->NomeAluno }}</p>
+          <p><b>Faltas: </b>{{ count($aluno->ausencias) }}</p>
+          <hr>
+        @endif
+      @endforeach
+    </div>
+  </div>
+
 </div>
 @stop
