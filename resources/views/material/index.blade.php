@@ -81,7 +81,7 @@
             <td>@if( $file->status ) <span class="badge bg-success">disponível</span> @else <span class="badge bg-danger">indisponível</span> @endif</td>
             <td>
               @if( $user->role === 'professor' || $user->role === 'administrador' )
-                @if( $user->role === 'administrador' && $file->status )
+                @if( $user->role === 'administrador' && $file->status || $user->id === $file->user_id )
                 <a class="btn btn-sm btn-danger" href="{{ route('nucleo.material.delete', ['id' => $file->id]) }}">Excluir</a>
                 @elseif( $user->role === 'administrador' && !$file->status )
                 <a class="btn btn-sm btn-warning" href="{{ route('nucleo.material.restore', ['id' => $file->id]) }}">Restaurar</a>
