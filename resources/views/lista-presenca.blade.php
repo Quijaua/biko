@@ -37,7 +37,8 @@
       <div class="col-4">
         <div class="form-group">
           <div class="mb-3">
-            <input type="date" class="form-control" id="date" name="date" aria-describedby="dateHelp">
+            <?php $today = \Carbon\Carbon::now()->format('Y-m-d'); ?>
+            <input type="date" class="form-control" id="date" name="date" aria-describedby="dateHelp" max="{{ $today }}">
           </div>
         </div>
       </div>
