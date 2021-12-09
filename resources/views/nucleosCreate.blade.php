@@ -61,12 +61,6 @@
       <div class="row">
         <div class="col">
           <div class="form-group">
-            <label for="inputEspacoInserido">A sede onde as aulas/encontros ocorrem pertence a:</label>
-            <input type="text" class="form-control" id="inputEspacoInserido" name="inputEspacoInserido" aria-describedby="inputEspacoInseridoHelp" placeholder="Sede onde ocorrem aulas/encontros">
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-group">
             <label for="inputWhatsapp">WhatsApp</label>
             <input type="text" class="form-control" id="inputWhatsapp" name="inputWhatsapp" aria-describedby="inputWhatsappHelp"  placeholder="Informe a URL do WhatsApp">
           </div>
@@ -151,6 +145,14 @@
               <option value="TO">Tocantins</option>
               <option value="EX">Estrangeiro</option>
             </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="inputEspacoInserido">A sede onde as aulas/encontros ocorrem pertence a:</label>
+            <input type="text" class="form-control" id="inputEspacoInserido" name="inputEspacoInserido" aria-describedby="inputEspacoInseridoHelp" placeholder="Sede onde ocorrem aulas/encontros">
           </div>
         </div>
       </div>
