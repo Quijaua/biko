@@ -91,18 +91,18 @@
             <input type="text" class="form-control" id="inputNumero" name="inputNumero" aria-describedby="inputNumeroHelp" placeholder="Número">
           </div>
         </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputComplemento">Complemento</label>
+            <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" placeholder="Complemento">
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="col">
           <div class="form-group">
             <label for="inputBairro">Bairro</label>
             <input type="text" class="form-control" id="inputBairro" name="inputBairro" aria-describedby="inputBairroHelp" placeholder="Bairro">
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <label for="inputComplemento">Complemento</label>
-            <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" placeholder="Complemento">
           </div>
         </div>
         <div class="col">
