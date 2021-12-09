@@ -215,7 +215,7 @@
         </div>
         <div class="col">
           <div class="form-group">
-            <label for="inputVagas">Quantas vagas?</label>
+            <label for="inputVagas">Número de vagas oferecidas este ano?</label>
             <input pattern="[0-9]{0,3}" type="text" class="form-control" id="inputVagas" name="inputVagas" aria-describedby="inputVagasHelp" placeholder="Quantidade de vagas disponíveis">
           </div>
         </div>
