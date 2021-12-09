@@ -59,7 +59,7 @@
 
   <div class="row">
     <div class="col mt-4">
-
+      {{ $user->role }}
       <table class="table table-striped">
         <thead>
           <tr>
@@ -80,7 +80,7 @@
             <td>{{ $file->created_at->format('d/m/Y') }}</td>
             <td>@if( $file->status ) <span class="badge bg-success">disponível</span> @else <span class="badge bg-danger">indisponível</span> @endif</td>
             <td>
-              @if( $user->role === 'professor' || $user->role === 'administrador' )
+              @if( $user->role === 'professor' || $user->role === 'administrador' || $user->role === 'coordenador' )
                 @if( $user->role === 'administrador' && $file->status || $user->id === $file->user_id )
                 <a class="btn btn-sm btn-danger" href="{{ route('nucleo.material.delete', ['id' => $file->id]) }}">Excluir</a>
                 @elseif( $user->role === 'administrador' && !$file->status )
