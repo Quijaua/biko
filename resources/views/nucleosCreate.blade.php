@@ -179,8 +179,14 @@
         </div>
         <div class="col">
           <div class="form-group">
-            <label for="inputFacebook">Facebook</label>
-            <input type="text" class="form-control" id="inputFacebook" name="inputFacebook" aria-describedby="inputFacebookHelp" placeholder="Endereço do Facebook">
+            <label for="inputLinkSite">Link do Site</label>
+            <input type="text" class="form-control" id="inputLinkSite" name="inputLinkSite" aria-describedby="inputLinkSiteHelp" placeholder="Link do Site">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputRedeSocial">Link da principal rede social</label>
+            <input type="text" class="form-control" id="inputRedeSocial" name="inputRedeSocial" aria-describedby="inputRedeSocialHelp" placeholder="Link da principal rede social">
           </div>
         </div>
       </div>

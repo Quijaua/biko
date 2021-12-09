@@ -189,8 +189,14 @@
     </div>
     <div class="col">
       <div class="form-group">
-        <label for="inputFacebook">Facebook</label>
-        <input type="text" class="form-control" id="inputFacebook" name="inputFacebook" aria-describedby="inputFacebookHelp" value="{{ $dados->Facebook }}" disabled>
+        <label for="inputLinkSite">Link do Site</label>
+        <input type="text" class="form-control" id="inputLinkSite" name="inputLinkSite" aria-describedby="inputLinkSiteHelp" value="{{ $dados->LinkSite }}" disabled>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="inputRedeSocial">Link da principal rede social</label>
+        <input type="text" class="form-control" id="inputRedeSocial" name="inputRedeSocial" aria-describedby="inputRedeSocialHelp" value="{{ $dados->RedeSocial }}" disabled>
       </div>
     </div>
   </div>

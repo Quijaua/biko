@@ -25,6 +25,8 @@ class Nucleo extends Model
         'Email',
         'Fundacao',
         'Facebook',
+        'LinkSite',
+        'RedeSocial',
         'TaxaInscricao',
         'TaxaInscricaoValor',
         'Vagas',

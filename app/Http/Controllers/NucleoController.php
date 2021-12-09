@@ -99,6 +99,8 @@ class NucleoController extends Controller
         'Email' => $request->input('inputEmail'),
         'Fundacao' => $request->input('inputFundacao'),
         'Facebook' => $request->input('inputFacebook'),
+        'LinkSite' => $request->input('inputLinkSite'),
+        'RedeSocial' => $request->input('inputRedeSocial'),
         'TaxaInscricao' => $request->input('inputTaxaInscricao'),
         'TaxaInscricaoValor' => $request->input('inputTaxaInscricaoValor'),
         'Vagas' => $request->input('inputVagas'),
@@ -131,6 +133,8 @@ class NucleoController extends Controller
       $nucleo->Email = $request->input('inputEmail');
       $nucleo->Fundacao = $request->input('inputFundacao');
       $nucleo->Facebook = $request->input('inputFacebook');
+      $nucleo->LinkSite = $request->input('inputLinkSite');
+      $nucleo->RedeSocial = $request->input('inputRedeSocial');
       $nucleo->TaxaInscricao = $request->input('inputTaxaInscricao');
       $nucleo->TaxaInscricaoValor = $request->input('inputTaxaInscricaoValor');
       $nucleo->Vagas = $request->input('inputVagas');
