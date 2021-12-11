@@ -859,11 +859,11 @@
         <label for="inputEnem">Já prestou Enem?</label>
         <br>
         <div id="enem" class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inputEnem" id="inputEnem1" value="1" @if( $dados->Enem ) {{ 'checked' }} @endif disabled>
+          <input class="form-check-input" type="radio" name="inputEnem" id="inputEnem1" value="1" @if( $dados->Enem === 1 ) {{ 'checked' }} @endif disabled>
           <label class="form-check-label" for="inputEnem1">Sim</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inputEnem" id="inputEnem2" value="0" @if( !$dados->Enem ) {{ 'checked' }} @endif disabled >
+          <input class="form-check-input" type="radio" name="inputEnem" id="inputEnem2" value="0" @if( $dados->Enem === 0 ) {{ 'checked' }} @endif disabled >
           <label class="form-check-label" for="inputEnem2">Não</label>
         </div>
       </div>
