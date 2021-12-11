@@ -68,6 +68,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+      //dd($data);
       $remove = array("(", ")", "-", " ");
       $phone = intval(str_replace($remove, "", $data['phone']));
       $fundamental = isset($data['inputEnsFundamental']) ? json_encode($data['inputEnsFundamental']) : NULL;
@@ -135,8 +136,8 @@ class RegisterController extends Controller
             'PorcentagemBolsa' => $data['inputPorcentagemBolsa'],
             'EnsMedio' => $medio,
             'PorcentagemBolsaMedio' => $data['inputPorcentagemBolsaMedio'],
-            'Vestibular' => $data['inputVestibular'],
-            'Enem' => $data['inputEnem'],
+            'Vestibular' => isset($data['inputVestibular']) ? $data['inputVestibular'] : NULL,
+            'Enem' => isset($data['inputEnem']) ? $data['inputEnem'] : NULL,
             'OpcoesVestibular1' => $data['inputOpcoesVestibular1'],
             'OpcoesVestibular2' => $data['inputOpcoesVestibular2'],
             'VestibularOutraCidade' => $data['inputVestibularOutraCidade'],
