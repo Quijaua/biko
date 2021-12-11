@@ -127,8 +127,13 @@ class CoordenadoresController extends Controller
         'RG' => $request->input('inputRG'),
         'Raca' => $request->input('inputRaca'),
         'Genero' => $request->input('inputGenero'),
+        'concordaSexoDesignado' => $request->input('concordaSexoDesignado'),
         'EstadoCivil' => $request->input('inputEstadoCivil'),
         'Nascimento' => $request->input('inputNascimento'),
+        'Escolaridade' => $request->input('inputEscolaridade'),
+        'FormacaoSuperior' => $request->input('inputFormacaoSuperior'),
+        'AnoInicioUneafro' => $request->input('inputAnoInicioUneafro'),
+        'aulasForaUneafro' => $request->input('aulasForaUneafro'),
         'Endereco' => $request->input('inputEndereco'),
         'Numero' => $request->input('inputNumero'),
         'Bairro' => $request->input('inputBairro'),
@@ -141,6 +146,8 @@ class CoordenadoresController extends Controller
         'FoneCelular' => $request->input('inputFoneCelular'),
         'Email' => $request->input('inputEmail'),
         'Empresa' => $request->input('inputEmpresa'),
+        'RamoAtuacao' => $request->input('inputRamoAtuacao'),
+        'RamoAtuacaoOutros' => $request->input('inputRamoAtuacaoOutros'),
         'EnderecoEmpresa' => $request->input('inputEnderecoEmpresa'),
         'NumeroEmpresa' => $request->input('inputNumeroEmpresa'),
         'ComplementoEmpresa' => $request->input('inputComplementoEmpresa'),
@@ -171,6 +178,7 @@ class CoordenadoresController extends Controller
         'InstMestrado' => $request->input('inputInstMestrado'),
         'CursoMestrado' => $request->input('inputCursoMestrado'),
         'AnoCursoMestrado' => $request->input('inputAnoCursoMestrado'),
+        'FormacaoAcademicaRecente' => $request->input('inputFormacaoAcademicaRecente'),
       ]);
 
       if($Foto){
@@ -223,8 +231,13 @@ class CoordenadoresController extends Controller
       $dados->RG = $request->input('inputRG');
       $dados->Raca = $request->input('inputRaca');
       $dados->Genero = $request->input('inputGenero');
+      $dados->concordaSexoDesignado = $request->input('concordaSexoDesignado');
       $dados->EstadoCivil = $request->input('inputEstadoCivil');
       $dados->Nascimento = $request->input('inputNascimento');
+      $dados->Escolaridade = $request->input('inputEscolaridade');
+      $dados->FormacaoSuperior = $request->input('inputFormacaoSuperior');
+      $dados->AnoInicioUneafro = $request->input('inputAnoInicioUneafro');
+      $dados->aulasForaUneafro = $request->input('aulasForaUneafro');
       $dados->Endereco = $request->input('inputEndereco');
       $dados->Numero = $request->input('inputNumero');
       $dados->Bairro = $request->input('inputBairro');
@@ -237,6 +250,8 @@ class CoordenadoresController extends Controller
       $dados->FoneCelular = $request->input('inputFoneCelular');
       $dados->Email = $request->input('inputEmail');
       $dados->Empresa = $request->input('inputEmpresa');
+      $dados->RamoAtuacao = $request->input('inputRamoAtuacao');
+      $dados->RamoAtuacaoOutros = $request->input('inputRamoAtuacaoOutros');
       $dados->EnderecoEmpresa = $request->input('inputEnderecoEmpresa');
       $dados->NumeroEmpresa = $request->input('inputNumeroEmpresa');
       $dados->ComplementoEmpresa = $request->input('inputComplementoEmpresa');
@@ -276,6 +291,7 @@ class CoordenadoresController extends Controller
       $dados->InstMestrado = $request->input('inputInstMestrado');
       $dados->CursoMestrado = $request->input('inputCursoMestrado');
       $dados->AnoCursoMestrado = $request->input('inputAnoCursoMestrado');
+      $dados->FormacaoAcademicaRecente = $request->input('inputFormacaoAcademicaRecente');
 
       $cgu = $dados->RepresentanteCGU;
       if($cgu){

@@ -61,27 +61,6 @@
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputAnoIngresso">Ano de Ingresso</label>
-          <select name="inputAnoIngresso" class="custom-select">
-            <option selected>Selecione</option>
-            <option <?php if(old('inputAnoIngresso') == '2009'){ echo 'selected=selected';} ?> value="2009">2009</option>
-            <option <?php if(old('inputAnoIngresso') == '2010'){ echo 'selected=selected';} ?> value="2010">2010</option>
-            <option <?php if(old('inputAnoIngresso') == '2011'){ echo 'selected=selected';} ?> value="2011">2011</option>
-            <option <?php if(old('inputAnoIngresso') == '2012'){ echo 'selected=selected';} ?> value="2012">2012</option>
-            <option <?php if(old('inputAnoIngresso') == '2013'){ echo 'selected=selected';} ?> value="2013">2013</option>
-            <option <?php if(old('inputAnoIngresso') == '2014'){ echo 'selected=selected';} ?> value="2014">2014</option>
-            <option <?php if(old('inputAnoIngresso') == '2015'){ echo 'selected=selected';} ?> value="2015">2015</option>
-            <option <?php if(old('inputAnoIngresso') == '2016'){ echo 'selected=selected';} ?> value="2016">2016</option>
-            <option <?php if(old('inputAnoIngresso') == '2017'){ echo 'selected=selected';} ?> value="2017">2017</option>
-            <option <?php if(old('inputAnoIngresso') == '2018'){ echo 'selected=selected';} ?> value="2018">2018</option>
-            <option <?php if(old('inputAnoIngresso') == '2019'){ echo 'selected=selected';} ?> value="2019">2019</option>
-            <option <?php if(old('inputAnoIngresso') == '2020'){ echo 'selected=selected';} ?> value="2020">2020</option>
-            <option <?php if(old('inputAnoIngresso') == '2021'){ echo 'selected=selected';} ?> value="2021">2021</option>
-          </select>
-        </div>
-      </div>
-      <div class="col">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" name="inputRepresentanteCGU" id="inputRepresentanteCGU" value="sim">
           <label class="form-check-label" for="inputRepresentanteCGU">Representante no CGU</label>
@@ -130,14 +109,32 @@
       </div>
       <div class="col">
         <div class="form-group">
-          <label for="inputGenero">Gênero</label>
+          <label for="inputGenero">Identidade de Gênero</label>
           <select name="inputGenero" class="custom-select">
             <option selected>Selecione</option>
             <option <?php if(old('inputGenero') == 'mulher'){ echo 'selected=selected';} ?> value="mulher">Mulher</option>
             <option <?php if(old('inputGenero') == 'homem'){ echo 'selected=selected';} ?> value="homem">Homem</option>
             <option <?php if(old('inputGenero') == 'mulher_trans_cis'){ echo 'selected=selected';} ?> value="mulher_trans_cis">Mulher (Trans ou Cis)</option>
             <option <?php if(old('inputGenero') == 'homem_trans_cis'){ echo 'selected=selected';} ?> value="homem_trans_cis">Homem (Trans ou Cis)</option>
+            <option <?php if(old('inputGenero') == 'nao_binarie'){ echo 'selected=selected';} ?> value="nao_binarie">Não Binárie</option>
           </select>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="concordaSexoDesignado">Você se identifica com o sexo designado ao nascer?</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="concordaSexoDesignado" id="concordaSexoDesignado1" value="1" checked>
+            <label class="form-check-label" for="concordaSexoDesignado1">
+              Sim
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="concordaSexoDesignado" id="concordaSexoDesignado2" value="0">
+            <label class="form-check-label" for="concordaSexoDesignado2">
+              Não
+            </label>
+          </div>
         </div>
       </div>
     </div>
@@ -162,6 +159,52 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputEscolaridade">Qual a sua escolaridade</label>
+          <select name="inputEscolaridade" class="custom-select">
+            <option selected>Selecione</option>
+            <option value="Ensino Médio">Ensino Médio</option>
+            <option value="Ensino Superior Completo">Graduação Completa</option>
+            <option value="Ensino Superior Cursando">Graduação Cursando</option>
+            <option value="Ensino Superior Incompleto">Graduação Incompleta</option>
+            <option value="Pós Graduação Completa">Pós Graduação Completa</option>
+            <option value="Pós Graduação Cursando">Pós Graduação Cursando</option>
+            <option value="Pós Graduação incompleta">Pós Graduação incompleta</option>
+            <option value="Ensino Técnico Completo">Ensino Técnico Completo</option>
+            <option value="Ensino Técnico Cursando">Ensino Técnico Cursando</option>
+            <option value="Ensino Técnico Incompleto">Ensino Técnico Incompleto</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputFormacaoSuperior">Se você esteve/está no ensino superior, qual a sua formação?</label>
+          <input type="text" class="form-control" id="inputFormacaoSuperior" name="inputFormacaoSuperior" aria-describedby="inputFormacaoSuperiorHelp" placeholder="Sua formação no ensino superior">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputAnoInicioUneafro">Desde que ano você está na UNEAFRO?</label>
+          <br><br>
+          <input type="text" class="form-control" id="inputAnoInicioUneafro" name="inputAnoInicioUneafro" aria-describedby="inputAnoInicioUneafroHelp" placeholder="4 dígitos (Ex. 2021)">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="aulasForaUneafro">Fora da UNEAFRO, você dá aulas?</label>
+          <br><br>
+          <select name="aulasForaUneafro" class="custom-select">
+            <option selected>Selecione</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+          </select>
+        </div>
+      </div>
+    </div>
     <hr>
     <h3>ENDEREÇO</h3>
     <div class="row">
@@ -177,17 +220,25 @@
           <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEndereco" name="inputEndereco" aria-describedby="inputEnderecoHelp" placeholder="Rua, Avenida, Logradouro" value="{{ old('inputEndereco') }}">
         </div>
       </div>
+    </div>
+    <div class="row">
       <div class="col">
         <div class="form-group">
           <label for="inputNumero">Número</label>
           <input type="text" class="form-control" id="inputNumero" name="inputNumero" aria-describedby="inputNumeroHelp" placeholder="Número" value="{{ old('inputNumero') }}">
         </div>
       </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputComplemento">Complemento</label>
+          <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" placeholder="Complemento" value="{{ old('inputComplemento') }}">
+        </div>
+      </div>
     </div>
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <label for="inputBairro">Bairro</label>
+          <label for="inputBairro">Distrito</label>
           <input type="text" class="form-control" id="inputBairro" name="inputBairro" aria-describedby="inputBairroHelp" placeholder="Bairro" value="{{ old('inputBairro') }}">
         </div>
       </div>
@@ -235,12 +286,6 @@
           </select>
         </div>
       </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="inputComplemento">Complemento</label>
-          <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" placeholder="Complemento" value="{{ old('inputComplemento') }}">
-        </div>
-      </div>
     </div>
     <div class="row">
       <div class="col">
@@ -269,173 +314,7 @@
       </div>
     </div>
     <hr>
-    <h3>DADOS PROFISSIONAIS</h3>
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <label for="inputEmpresa">Nome da Empresa</label>
-          <input type="text" class="form-control" id="inputEmpresa" name="inputEmpresa" aria-describedby="inputEmpresaHelp" placeholder="Nome da empresa onde trabalha" value="{{ old('inputEmpresa') }}">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <label for="inputCEPEmpresa">CEP</label>
-          <input type="text" class="form-control" id="inputCEPEmpresa" name="inputCEPEmpresa" aria-describedby="inputCEPEmpresaHelp" data-mask="00000-000" placeholder="xxxxx-xxx" onblur="checkCEP('#inputCEPEmpresa')" value="{{ old('inputCEPEmpresa') }}">
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="inputEnderecoEmpresa">Rua</label>
-          <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEnderecoEmpresa" name="inputEnderecoEmpresa" aria-describedby="inputEnderecoEmpresaHelp" placeholder="Rua, Avenida, Logradouro" value="{{ old('inputEnderecoEmpresa') }}">
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="inputNumeroEmpresa">Número</label>
-          <input type="text" class="form-control" id="inputNumeroEmpresa" name="inputNumeroEmpresa" aria-describedby="inputNumeroEmpresaHelp" placeholder="Número da empresa" value="{{ old('inputNumeroEmpresa') }}">
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="inputComplementoEmpresa">Complemento</label>
-          <input type="text" class="form-control" id="inputComplementoEmpresa" name="inputComplementoEmpresa" aria-describedby="inputComplementoEmpresaHelp" placeholder="Complemento" value="{{ old('inputComplementoEmpresa') }}">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <label for="inputBairroEmpresa">Bairro</label>
-          <input type="text" class="form-control" id="inputBairroEmpresa" name="inputBairroEmpresa" aria-describedby="inputBairroEmpresaHelp" placeholder="Bairro da empresa onde trabalha" value="{{ old('inputBairroEmpresa') }}">
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="inputCidadeEmpresa">Cidade da Empresa</label>
-          <input type="text" class="form-control" id="inputCidadeEmpresa" name="inputCidadeEmpresa" aria-describedby="inputCidadeEmpresaHelp" placeholder="Cidade da empresa onde trabalha" value="{{ old('inputCidadeEmpresa') }}">
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="inputEstadoEmpresa">Estado da Empresa</label>
-          <select id="inputEstadoEmpresa" name="inputEstadoEmpresa" class="custom-select">
-            <option selected>Selecione</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'AC'){ echo 'selected=selected';} ?> value="AC">Acre</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'AL'){ echo 'selected=selected';} ?> value="AL">Alagoas</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'AP'){ echo 'selected=selected';} ?> value="AP">Amapá</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'AM'){ echo 'selected=selected';} ?> value="AM">Amazonas</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'BA'){ echo 'selected=selected';} ?> value="BA">Bahia</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'CE'){ echo 'selected=selected';} ?> value="CE">Ceará</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'DF'){ echo 'selected=selected';} ?> value="DF">Distrito Federal</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'ES'){ echo 'selected=selected';} ?> value="ES">Espírito Santo</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'GO'){ echo 'selected=selected';} ?> value="GO">Goiás</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'MA'){ echo 'selected=selected';} ?> value="MA">Maranhão</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'MT'){ echo 'selected=selected';} ?> value="MT">Mato Grosso</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'MS'){ echo 'selected=selected';} ?> value="MS">Mato Grosso do Sul</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'MG'){ echo 'selected=selected';} ?> value="MG">Minas Gerais</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'PA'){ echo 'selected=selected';} ?> value="PA">Pará</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'PB'){ echo 'selected=selected';} ?> value="PB">Paraíba</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'PR'){ echo 'selected=selected';} ?> value="PR">Paraná</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'PE'){ echo 'selected=selected';} ?> value="PE">Pernambuco</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'PI'){ echo 'selected=selected';} ?> value="PI">Piauí</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'RJ'){ echo 'selected=selected';} ?> value="RJ">Rio de Janeiro</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'RN'){ echo 'selected=selected';} ?> value="RN">Rio Grande do Norte</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'RS'){ echo 'selected=selected';} ?> value="RS">Rio Grande do Sul</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'RO'){ echo 'selected=selected';} ?> value="RO">Rondônia</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'RR'){ echo 'selected=selected';} ?> value="RR">Roraima</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'SC'){ echo 'selected=selected';} ?> value="SC">Santa Catarina</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'SP'){ echo 'selected=selected';} ?> value="SP">São Paulo</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'SE'){ echo 'selected=selected';} ?> value="SE">Sergipe</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'TO'){ echo 'selected=selected';} ?> value="TO">Tocantins</option>
-            <option <?php if(old('inputEstadoEmpresa') == 'EX'){ echo 'selected=selected';} ?> value="EX">Estrangeiro</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <label for="inputCargo">Cargo/Função</label>
-          <input type="text" class="form-control" id="inputCargo" name="inputCargo" aria-describedby="inputCargoHelp" placeholder="Cargo ocupado na empresa" value="{{ old('inputCargo') }}">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <p>Horário de Trabalho</p>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="inputHorarioFrom">De</label>
-          <input type="time" class="form-control" id="inputHorarioFrom" name="inputHorarioFrom" aria-describedby="inputHorarioFromHelp" value="{{ old('inputHorarioFrom') }}">
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="inputHorarioTo">Até</label>
-          <input type="time" class="form-control" id="inputHorarioTo" name="inputHorarioTo" aria-describedby="inputHorarioToHelp" value="{{ old('inputHorarioTo') }}">
-        </div>
-      </div>
-    </div>
-    <hr>
-    <div class="row">
-      <div class="col-6">
-          <div class="form-group">
-            <label for="inputProjetosRealizados">Já realizou trabalhos em projetos educacionais/Coletivos/Movimentos Sociais?</label>
-            <div class="form-check form-check-inline">
-              <input <?php if(old('inputProjetosRealizados') == 'sim'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputProjetosRealizados" id="inputProjetosRealizados1" value="sim" onclick="showInput('.projeto-dados')">
-              <label class="form-check-label" for="inputProjetosRealizados1">Sim</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input <?php if(old('inputProjetosRealizados') == 'nao'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputProjetosRealizados" id="inputProjetosRealizados2" value="nao" onclick="hideInput('.projeto-dados')">
-              <label class="form-check-label" for="inputProjetosRealizados2">Não</label>
-            </div>
-          </div>
-      </div>
-      <div class="col-3">
-        <div class="form-group projeto-dados" style="display:none;">
-          <label for="inputProjetosNome">Nome do projeto</label>
-          <input type="text" class="form-control" id="inputProjetosNome" name="inputProjetosNome" aria-describedby="inputProjetosNomeHelp" placeholder="Nome do projeto" value="{{ old('inputProjetosNome') }}">
-        </div>
-      </div>
-      <div class="col-3">
-        <div id="ProjetosQual" class="form-group projeto-dados" style="display:none;">
-          <label for="inputProjetosFuncao">Função exercida</label>
-          <input type="text" class="form-control" id="inputProjetosFuncao" name="inputProjetosFuncao" aria-describedby="inputProjetosFuncaoHelp" placeholder="Função exercida" value="{{ old('inputProjetosFuncao') }}">
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="form-group">
-          <label for="inputComoSoube">Como você ficou sabendo do cursinho pré-vestibular da UNEafro Brasil?</label>
-          <select id="comoSoube" name="inputComoSoube" class="custom-select" onchange="checkComosoube()">
-            <option value="" selected>Selecione</option>
-            <option <?php if(old('inputComoSoube') == 'internet'){ echo 'selected=selected';} ?> value="internet">Internet</option>
-            <option <?php if(old('inputComoSoube') == 'panfleto'){ echo 'selected=selected';} ?> value="panfleto">Panfleto</option>
-            <option <?php if(old('inputComoSoube') == 'amigos'){ echo 'selected=selected';} ?> value="amigos">Amigos</option>
-            <option <?php if(old('inputComoSoube') == 'jornal'){ echo 'selected=selected';} ?> value="jornal">Jornal</option>
-            <option <?php if(old('inputComoSoube') == 'outros'){ echo 'selected=selected';} ?> value="outros">Outros</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-6">
-        <div id="ComoSoubeOutros" class="form-group" style="display:none;">
-          <label for="inputComoSoubeOutros">Qual?</label>
-          <input type="text" class="form-control" id="inputComoSoubeOutros" name="inputComoSoubeOutros" aria-describedby="inputComoSoubeOutrosHelp" placeholder="Qual" value="{{ old('inputComoSoubeOutros') }}">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <label for="inputMotivoPrincipal">Qual foi o principal motivo que o/a levou a participar do Projeto?</label>
-          <br>
-          <textarea class="form-control" name="inputMotivoPrincipal" rows="8">{{ old('inputMotivoPrincipal') }}</textarea>
-        </div>
-      </div>
-    </div>
-    <hr>
+
     <h3>DADOS ACADÊMICOS</h3>
     <div class="row">
       <div class="col">
@@ -761,8 +640,225 @@
       </div>
       <input type="hidden" name="inputStatus" value="1">
     </div>
+    <hr>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputFormacaoAcademicaRecente">Sua formação acadêmica mais recente é ou foi em instituição pública ou privada?</label>
+          <select id="inputFormacaoAcademicaRecente" name="inputFormacaoAcademicaRecente" class="custom-select">
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <h3>DADOS PROFISSIONAIS</h3>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <label for="inputRamoAtuacao">Você trabalha no ramo da:</label>
+          <select id="inputRamoAtuacao" name="inputRamoAtuacao" class="custom-select">
+            <option value="Educação">Educação</option>
+            <option value="Pesquisa">Pesquisa</option>
+            <option value="Telemarketing">Telemarketing</option>
+            <option value="Comércio">Comércio</option>
+            <option value="Indústria">Indústria</option>
+            <option value="Construção Civil">Construção Civil</option>
+            <option value="Beleza e Cuidados">Beleza e Cuidados</option>
+            <option value="Serviços gerais">Serviços gerais</option>
+            <option value="Limpeza e Higiene">Limpeza e Higiene</option>
+            <option value="Gastronomia/Alimentação">Gastronomia/Alimentação</option>
+            <option value="Entrega/Delivery">Entrega/Delivery</option>
+            <option value="Saúde/Bem-Estar">Saúde/Bem-Estar</option>
+            <option value="Segurança">Segurança</option>
+            <option value="Transporte de pessoas/Aplicativos">Transporte de pessoas/Aplicativos</option>
+            <option value="Outros">Outros</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <label for="inputRamoAtuacaoOutros">&nbsp;</label>
+        <input type="text" class="form-control" id="inputRamoAtuacaoOutros" name="inputRamoAtuacaoOutros" aria-describedby="inputRamoAtuacaoOutrosHelp" placeholder="Outros (Especifique)">
+      </div>
+    </div>
+    <!--<div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputEmpresa">Nome da Empresa</label>
+          <input type="text" class="form-control" id="inputEmpresa" name="inputEmpresa" aria-describedby="inputEmpresaHelp" placeholder="Nome da empresa onde trabalha" value="{{ old('inputEmpresa') }}">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputCEPEmpresa">CEP</label>
+          <input type="text" class="form-control" id="inputCEPEmpresa" name="inputCEPEmpresa" aria-describedby="inputCEPEmpresaHelp" data-mask="00000-000" placeholder="xxxxx-xxx" onblur="checkCEP('#inputCEPEmpresa')" value="{{ old('inputCEPEmpresa') }}">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputEnderecoEmpresa">Rua</label>
+          <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEnderecoEmpresa" name="inputEnderecoEmpresa" aria-describedby="inputEnderecoEmpresaHelp" placeholder="Rua, Avenida, Logradouro" value="{{ old('inputEnderecoEmpresa') }}">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputNumeroEmpresa">Número</label>
+          <input type="text" class="form-control" id="inputNumeroEmpresa" name="inputNumeroEmpresa" aria-describedby="inputNumeroEmpresaHelp" placeholder="Número da empresa" value="{{ old('inputNumeroEmpresa') }}">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputComplementoEmpresa">Complemento</label>
+          <input type="text" class="form-control" id="inputComplementoEmpresa" name="inputComplementoEmpresa" aria-describedby="inputComplementoEmpresaHelp" placeholder="Complemento" value="{{ old('inputComplementoEmpresa') }}">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputBairroEmpresa">Distrito</label>
+          <input type="text" class="form-control" id="inputBairroEmpresa" name="inputBairroEmpresa" aria-describedby="inputBairroEmpresaHelp" placeholder="Bairro da empresa onde trabalha" value="{{ old('inputBairroEmpresa') }}">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputCidadeEmpresa">Cidade da Empresa</label>
+          <input type="text" class="form-control" id="inputCidadeEmpresa" name="inputCidadeEmpresa" aria-describedby="inputCidadeEmpresaHelp" placeholder="Cidade da empresa onde trabalha" value="{{ old('inputCidadeEmpresa') }}">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputEstadoEmpresa">Estado da Empresa</label>
+          <select id="inputEstadoEmpresa" name="inputEstadoEmpresa" class="custom-select">
+            <option selected>Selecione</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'AC'){ echo 'selected=selected';} ?> value="AC">Acre</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'AL'){ echo 'selected=selected';} ?> value="AL">Alagoas</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'AP'){ echo 'selected=selected';} ?> value="AP">Amapá</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'AM'){ echo 'selected=selected';} ?> value="AM">Amazonas</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'BA'){ echo 'selected=selected';} ?> value="BA">Bahia</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'CE'){ echo 'selected=selected';} ?> value="CE">Ceará</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'DF'){ echo 'selected=selected';} ?> value="DF">Distrito Federal</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'ES'){ echo 'selected=selected';} ?> value="ES">Espírito Santo</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'GO'){ echo 'selected=selected';} ?> value="GO">Goiás</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'MA'){ echo 'selected=selected';} ?> value="MA">Maranhão</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'MT'){ echo 'selected=selected';} ?> value="MT">Mato Grosso</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'MS'){ echo 'selected=selected';} ?> value="MS">Mato Grosso do Sul</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'MG'){ echo 'selected=selected';} ?> value="MG">Minas Gerais</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'PA'){ echo 'selected=selected';} ?> value="PA">Pará</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'PB'){ echo 'selected=selected';} ?> value="PB">Paraíba</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'PR'){ echo 'selected=selected';} ?> value="PR">Paraná</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'PE'){ echo 'selected=selected';} ?> value="PE">Pernambuco</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'PI'){ echo 'selected=selected';} ?> value="PI">Piauí</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'RJ'){ echo 'selected=selected';} ?> value="RJ">Rio de Janeiro</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'RN'){ echo 'selected=selected';} ?> value="RN">Rio Grande do Norte</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'RS'){ echo 'selected=selected';} ?> value="RS">Rio Grande do Sul</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'RO'){ echo 'selected=selected';} ?> value="RO">Rondônia</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'RR'){ echo 'selected=selected';} ?> value="RR">Roraima</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'SC'){ echo 'selected=selected';} ?> value="SC">Santa Catarina</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'SP'){ echo 'selected=selected';} ?> value="SP">São Paulo</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'SE'){ echo 'selected=selected';} ?> value="SE">Sergipe</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'TO'){ echo 'selected=selected';} ?> value="TO">Tocantins</option>
+            <option <?php if(old('inputEstadoEmpresa') == 'EX'){ echo 'selected=selected';} ?> value="EX">Estrangeiro</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputCargo">Cargo/Função</label>
+          <input type="text" class="form-control" id="inputCargo" name="inputCargo" aria-describedby="inputCargoHelp" placeholder="Cargo ocupado na empresa" value="{{ old('inputCargo') }}">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <p>Horário de Trabalho</p>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputHorarioFrom">De</label>
+          <input type="time" class="form-control" id="inputHorarioFrom" name="inputHorarioFrom" aria-describedby="inputHorarioFromHelp" value="{{ old('inputHorarioFrom') }}">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputHorarioTo">Até</label>
+          <input type="time" class="form-control" id="inputHorarioTo" name="inputHorarioTo" aria-describedby="inputHorarioToHelp" value="{{ old('inputHorarioTo') }}">
+        </div>
+      </div>
+    </div>-->
+    <hr>
+    <div class="row">
+      <div class="col-6">
+          <div class="form-group">
+            <label for="inputProjetosRealizados">Já realizou trabalhos em projetos educacionais/Coletivos/Movimentos Sociais?</label>
+            <div class="form-check form-check-inline">
+              <input <?php if(old('inputProjetosRealizados') == 'sim'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputProjetosRealizados" id="inputProjetosRealizados1" value="sim" onclick="showInput('.projeto-dados')">
+              <label class="form-check-label" for="inputProjetosRealizados1">Sim</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input <?php if(old('inputProjetosRealizados') == 'nao'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputProjetosRealizados" id="inputProjetosRealizados2" value="nao" onclick="hideInput('.projeto-dados')">
+              <label class="form-check-label" for="inputProjetosRealizados2">Não</label>
+            </div>
+          </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group projeto-dados" style="display:none;">
+          <label for="inputProjetosNome">Nome do projeto</label>
+          <input type="text" class="form-control" id="inputProjetosNome" name="inputProjetosNome" aria-describedby="inputProjetosNomeHelp" placeholder="Nome do projeto" value="{{ old('inputProjetosNome') }}">
+        </div>
+      </div>
+      <div class="col-3">
+        <div id="ProjetosQual" class="form-group projeto-dados" style="display:none;">
+          <label for="inputProjetosFuncao">Função exercida</label>
+          <input type="text" class="form-control" id="inputProjetosFuncao" name="inputProjetosFuncao" aria-describedby="inputProjetosFuncaoHelp" placeholder="Função exercida" value="{{ old('inputProjetosFuncao') }}">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="inputComoSoube">Como você ficou sabendo do cursinho pré-vestibular da UNEafro Brasil?</label>
+          <select id="comoSoube" name="inputComoSoube" class="custom-select" onchange="checkComosoube()">
+            <option value="" selected>Selecione</option>
+            <option <?php if(old('inputComoSoube') == 'internet'){ echo 'selected=selected';} ?> value="internet">Internet</option>
+            <option <?php if(old('inputComoSoube') == 'panfleto'){ echo 'selected=selected';} ?> value="panfleto">Panfleto</option>
+            <option <?php if(old('inputComoSoube') == 'amigos'){ echo 'selected=selected';} ?> value="amigos">Amigos</option>
+            <option <?php if(old('inputComoSoube') == 'jornal'){ echo 'selected=selected';} ?> value="jornal">Jornal</option>
+            <option <?php if(old('inputComoSoube') == 'outros'){ echo 'selected=selected';} ?> value="outros">Outros</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6">
+        <div id="ComoSoubeOutros" class="form-group" style="display:none;">
+          <label for="inputComoSoubeOutros">Qual?</label>
+          <input type="text" class="form-control" id="inputComoSoubeOutros" name="inputComoSoubeOutros" aria-describedby="inputComoSoubeOutrosHelp" placeholder="Qual" value="{{ old('inputComoSoubeOutros') }}">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputMotivoPrincipal">Qual foi o principal motivo que o/a levou a participar do Uneafro?</label>
+          <br>
+          <textarea class="form-control" name="inputMotivoPrincipal" rows="8">{{ old('inputMotivoPrincipal') }}</textarea>
+        </div>
+      </div>
+    </div>
+    <hr>
     <button type="submit" class="btn btn-primary">Salvar Dados</button>
   </form>
 
 </div>
+@endsection
+
+@section('js')
+<script>
+  $(document).ready(function(){
+    $('#inputAnoInicioUneafro').mask('0000');
+  });
+</script>
 @endsection

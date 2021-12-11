@@ -19,8 +19,13 @@ class Coordenadores extends Model
       'RG',
       'Raca',
       'Genero',
+      'concordaSexoDesignado',
       'EstadoCivil',
       'Nascimento',
+      'Escolaridade',
+      'FormacaoSuperior',
+      'AnoInicioUneafro',
+      'aulasForaUneafro',
       'Endereco',
       'Numero',
       'Bairro',
@@ -33,6 +38,8 @@ class Coordenadores extends Model
       'FoneCelular',
       'Email',
       'Empresa',
+      'RamoAtuacao',
+      'RamoAtuacaoOutros',
       'EnderecoEmpresa',
       'NumeroEmpresa',
       'ComplementoEmpresa',
@@ -64,6 +71,7 @@ class Coordenadores extends Model
       'InstMestrado',
       'CursoMestrado',
       'AnoCursoMestrado',
+      'FormacaoAcademicaRecente',
     ];
 
     public function nucleo()

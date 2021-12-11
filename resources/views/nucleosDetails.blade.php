@@ -50,21 +50,15 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <!--<div class="row">
     <div class="col">
       <div class="form-group">
         <label for="inputInfoInscricao">Informação de inscrição</label>
         <input type="text" class="form-control" id="inputInfoInscricao" name="inputInfoInscricao" aria-describedby="inputInfoInscricaoHelp" value="{{ $dados->InfoInscricao }}" disabled>
       </div>
     </div>
-  </div>
+  </div>-->
   <div class="row">
-    <div class="col">
-      <div class="form-group">
-        <label for="inputEspacoInserido">Espaço em que está inserido</label>
-        <input type="text" class="form-control" id="inputEspacoInserido" name="inputEspacoInserido" aria-describedby="inputEspacoInseridoHelp" value="{{ $dados->EspacoInserido }}" disabled>
-      </div>
-    </div>
     <div class="col">
       <div class="form-group">
         <label for="inputWhatsapp">WhatsApp</label>
@@ -107,18 +101,18 @@
         <input type="text" class="form-control" id="inputNumero" name="inputNumero" aria-describedby="inputNumeroHelp" value="{{ $dados->Numero }}" disabled>
       </div>
     </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="inputComplemento">Complemento</label>
+        <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" value="{{ $dados->Complemento }}" disabled>
+      </div>
+    </div>
   </div>
   <div class="row">
     <div class="col">
       <div class="form-group">
         <label for="inputBairro">Bairro</label>
         <input type="text" class="form-control" id="inputBairro" name="inputBairro" aria-describedby="inputBairroHelp" value="{{ $dados->Bairro }}" disabled>
-      </div>
-    </div>
-    <div class="col">
-      <div class="form-group">
-        <label for="inputComplemento">Complemento</label>
-        <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" value="{{ $dados->Complemento }}" disabled>
       </div>
     </div>
     <div class="col">
@@ -167,6 +161,14 @@
   <div class="row">
     <div class="col">
       <div class="form-group">
+        <label for="inputEspacoInserido">A sede onde as aulas/encontros ocorrem pertence a:</label>
+        <input type="text" class="form-control" id="inputEspacoInserido" name="inputEspacoInserido" aria-describedby="inputEspacoInseridoHelp" value="{{ $dados->EspacoInserido }}" disabled>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
         <label for="inputTelefone">Telefone</label>
         <input type="phone" class="form-control" id="inputTelefone" name="inputTelefone" aria-describedby="inputTelefoneHelp" data-mask="(00) 0000-0000" value="{{ $dados->Telefone }}" disabled>
       </div>
@@ -187,8 +189,14 @@
     </div>
     <div class="col">
       <div class="form-group">
-        <label for="inputFacebook">Facebook</label>
-        <input type="text" class="form-control" id="inputFacebook" name="inputFacebook" aria-describedby="inputFacebookHelp" value="{{ $dados->Facebook }}" disabled>
+        <label for="inputLinkSite">Link do Site</label>
+        <input type="text" class="form-control" id="inputLinkSite" name="inputLinkSite" aria-describedby="inputLinkSiteHelp" value="{{ $dados->LinkSite }}" disabled>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="inputRedeSocial">Link da principal rede social</label>
+        <input type="text" class="form-control" id="inputRedeSocial" name="inputRedeSocial" aria-describedby="inputRedeSocialHelp" value="{{ $dados->RedeSocial }}" disabled>
       </div>
     </div>
   </div>
@@ -356,13 +364,21 @@
     <div class="col">
       <div class="form-group">
         <label for="inputTaxaInscricaoValor">Qual o valor da taxa?</label>
+        <br><br>
         <input type="text" class="form-control currency" id="inputTaxaInscricaoValor" name="inputTaxaInscricaoValor" aria-describedby="inputTaxaInscricaoValorHelp" value="{{ $dados->TaxaInscricaoValor }}" disabled>
       </div>
     </div>
     <div class="col">
       <div class="form-group">
-        <label for="inputVagas">Quantas vagas?</label>
+        <label for="inputVagas">Número de vagas oferecidas este ano?</label>
+        <br><br>
         <input pattern="[0-9]{0,3}" type="text" class="form-control" id="inputVagas" name="inputVagas" aria-describedby="inputVagasHelp" value="{{ $dados->Vagas }}" disabled>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="inputVagasPreenchidas">Vagas preenchidas no começo do ano letivo</label>
+        <input type="text" class="form-control" id="inputVagasPreenchidas" name="inputVagasPreenchidas" aria-describedby="inputVagasPreenchidasHelp" value="{{ count($dados->matriculas) }}" disabled>
       </div>
     </div>
   </div>

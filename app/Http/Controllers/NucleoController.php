@@ -4,8 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Nucleo;
 use Session;
+use \Carbon\Carbon;
+
+use App\Professores;
+use App\Coordenadores;
+use App\Nucleo;
+use App\ListaPresenca;
+use App\Frequencia;
+
 
 class NucleoController extends Controller
 {
@@ -92,6 +99,8 @@ class NucleoController extends Controller
         'Email' => $request->input('inputEmail'),
         'Fundacao' => $request->input('inputFundacao'),
         'Facebook' => $request->input('inputFacebook'),
+        'LinkSite' => $request->input('inputLinkSite'),
+        'RedeSocial' => $request->input('inputRedeSocial'),
         'TaxaInscricao' => $request->input('inputTaxaInscricao'),
         'TaxaInscricaoValor' => $request->input('inputTaxaInscricaoValor'),
         'Vagas' => $request->input('inputVagas'),
@@ -124,6 +133,8 @@ class NucleoController extends Controller
       $nucleo->Email = $request->input('inputEmail');
       $nucleo->Fundacao = $request->input('inputFundacao');
       $nucleo->Facebook = $request->input('inputFacebook');
+      $nucleo->LinkSite = $request->input('inputLinkSite');
+      $nucleo->RedeSocial = $request->input('inputRedeSocial');
       $nucleo->TaxaInscricao = $request->input('inputTaxaInscricao');
       $nucleo->TaxaInscricaoValor = $request->input('inputTaxaInscricaoValor');
       $nucleo->Vagas = $request->input('inputVagas');
@@ -206,5 +217,87 @@ class NucleoController extends Controller
         'representantes' => $representantes,
         'disciplinas' => $disciplinas,
       ]);
+    }
+
+    public function presences_index()
+    {
+      $user = Auth::user();
+
+      if ( $user->role === 'professor' ) {
+        $professor = Professores::where('id_user', Auth::user()->id)->first();
+      } else if ( $user->role === 'coordenador' ) {
+        $professor = Coordenadores::where('id_user', Auth::user()->id)->first();
+      };
+
+      $nucleo = Nucleo::find($professor->id_nucleo);
+
+      return view('lista-presenca')->with([
+        'nucleo' => $nucleo,
+        'alunos' => $nucleo->alunos
+      ]);
+    }
+
+    public function presences_new(Request $request)
+    {
+      $user = Auth::user();
+
+      if ( $user->role === 'professor' ) {
+        $professor = Professores::where('id_user', Auth::user()->id)->first();
+      } else if ( $user->role === 'coordenador' ) {
+        $professor = Coordenadores::where('id_user', Auth::user()->id)->first();
+      };
+
+      $alunos = Nucleo::find($professor->id_nucleo)->alunos;
+
+      if ( $request->date ) {
+        $date = $request->date;
+      } else {
+        $date = Carbon::now()->format('Y-m-d');
+      }
+
+      $lista = ListaPresenca::updateOrCreate(
+        ['nucleo_id' => $professor->id_nucleo, 'date' => $date],
+        [
+          'nucleo_id' => $professor->id_nucleo,
+          'professor_id' => $professor->id,
+          'date' => $date
+        ]
+      );
+
+      return view('lista-presenca-create')->with([
+        'lista' => $lista,
+        'date' => $date,
+        'alunos' => $alunos
+      ]);
+    }
+
+    public function presences_create(Request $request)
+    {
+      $data = $request->all();
+
+      $frequencia = Frequencia::updateOrCreate(
+          ['lista_presenca_id' => $data['listaId'], 'aluno_id' => $data['alunoId']],
+          [
+            'lista_presenca_id' => $data['listaId'],
+            'aluno_id' => $data['alunoId'],
+            'is_present' => $data['situation']
+          ]
+      );
+
+      return response()->json($frequencia, 200);
+    }
+
+    public function presences_destroy(Request $request)
+    {
+      $frequencias = Frequencia::where('lista_presenca_id', $request->id)->get();
+
+      if( $frequencias ) {
+        foreach( $frequencias as $frequencia ) {
+          Frequencia::destroy($frequencia->id);
+        }
+      }
+
+      ListaPresenca::destroy($request->id);
+      return redirect()->route('nucleo/presences');
     }
 }

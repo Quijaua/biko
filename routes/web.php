@@ -15,8 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::middleware(['auth'])->group(function () {
+  Route::get('/dashboard', function () {
+      return view('dashboard');
+  });
 });
 
 
@@ -30,6 +32,15 @@ Route::post('nucleos/update/{id}', 'NucleoController@update')->middleware('permi
 Route::get('nucleos/disable/{id}', 'NucleoController@disable')->middleware('permissions');
 Route::get('nucleos/enable/{id}', 'NucleoController@enable')->middleware('permissions');
 Route::any('nucleos/search', 'NucleoController@search')->middleware('permissions');
+Route::get('nucleo/presences', 'NucleoController@presences_index')->name('nucleo/presences');
+Route::get('nucleo/presences/new', 'NucleoController@presences_new')->name('nucleo/presences/new');
+Route::post('nucleo/presences/create', 'NucleoController@presences_create')->name('nucleo/presences/create');
+Route::get('nucleo/presences/destroy', 'NucleoController@presences_destroy')->name('nucleo/presences/destroy');
+
+Route::get('nucleo/material', 'MaterialController@index')->name('nucleo.material');
+Route::post('nucleo/material/create', 'MaterialController@create')->name('nucleo.material.create');
+Route::get('nucleo/material/delete/{id}', 'MaterialController@delete')->name('nucleo.material.delete');
+Route::get('nucleo/material/restore/{id}', 'MaterialController@restore')->name('nucleo.material.restore');
 
 // ROUTES FOR ALUNOS MANAGEMENT
 Route::get('alunos', 'AlunosController@index')->middleware('permissions');

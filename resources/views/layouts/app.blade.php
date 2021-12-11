@@ -80,6 +80,16 @@
                                 @endif
                             @endif
 
+                            @if( Session::get('role') === 'professor' || Session::get('role') === 'coordenador' )
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('nucleo/presences') }}">{{ __('LISTA DE PRESENÇA') }}</a>
+                            </li>
+                            @endif
+
+                            <li class="nav-item">
+                              <a class="nav-link" href="{{ route('nucleo.material') }}">{{ __('MATERIAL') }}</a>
+                            </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('messages.index') }}">{{ __('MENSAGENS') }}</a>
                             </li>

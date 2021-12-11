@@ -17,12 +17,20 @@ class Aluno extends Model
         'ListaEspera',
         'CPF',
         'RG',
+        'temFilhos',
+        'filhosQt',
         'Email',
         'Raca',
         'Genero',
+        'concordaSexoDesignado',
+        'IdentificaGenero',
         'EstadoCivil',
         'Nascimento',
+        'responsavelCuidadoOutraPessoa',
+        'temFilhos',
+        'filhosIdade',
         'CEP',
+        'CEPProprio',
         'Endereco',
         'Numero',
         'Bairro',
@@ -32,6 +40,9 @@ class Aluno extends Model
         'FoneComercial',
         'FoneResidencial',
         'FoneCelular',
+        'Escolaridade',
+        'RamoAtuacao',
+        'RamoAtuacaoOutros',
         'Empresa',
         'CEPEmpresa',
         'EnderecoEmpresa',
@@ -59,6 +70,7 @@ class Aluno extends Model
         'PorcentagemBolsa',
         'EnsMedio',
         'PorcentagemBolsaMedio',
+        'Enem',
         'Vestibular',
         'FaculdadeTipo',
         'NomeFaculdade',
@@ -84,6 +96,16 @@ class Aluno extends Model
     public function familiares()
     {
         return $this->hasMany('App\AlunoInfoFamiliares', 'id_user');
+    }
+
+    public function frequencia()
+    {
+      return $this->hasMany('App\Frequencia', 'aluno_id');
+    }
+
+    public function ausencias()
+    {
+      return $this->hasMany('App\Frequencia', 'aluno_id')->where('is_present', false);
     }
 
     public static function whereStatus($value = true)

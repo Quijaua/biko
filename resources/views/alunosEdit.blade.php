@@ -90,7 +90,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <!--<div class="col">
         <div class="form-group">
           <label for="inputCPF">CPF</label>
           <input type="text" class="form-control" id="inputCPF" name="inputCPF" aria-describedby="inputCPFHelp" data-mask="000.000.000-00" value="{{ $dados->CPF }}" placeholder="000.000.000-00" onblur="checkCPF()">
@@ -100,6 +100,27 @@
         <div class="form-group">
           <label for="inputRG">RG</label>
           <input type="text" class="form-control" id="inputRG" name="inputRG" aria-describedby="inputRGHelp" data-mask="00.000.000-00" value="{{ $dados->RG }}" placeholder="00.000.000-00">
+        </div>
+      </div>-->
+      <div class="col">
+        <label for="temFilhos">Tem filhos?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="temFilhos" id="temFilhos1" value="1" @if($dados->temFilhos === 1) {{ 'checked' }} @endif >
+          <label class="form-check-label" for="temFilhos1">
+            Sim
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="temFilhos" id="temFilhos2" value="0" @if($dados->temFilhos === 0) {{ 'checked' }} @endif>
+          <label class="form-check-label" for="temFilhos2">
+            Não
+          </label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="filhosQt">Quantos?</label>
+          <input class="form-control" type="number" id="filhosQt" name="filhosQt" value="{{ $dados->filhosQt }}">
         </div>
       </div>
       <div class="col">
@@ -115,7 +136,7 @@
           <label for="inputRaca">Raça / Cor</label>
           <select name="inputRaca" class="custom-select">
             <option value="" selected>Selecione</option>
-            <option <?php if($dados->Raca == 'negra'){ echo 'selected=selected';} ?> value="negra">Negra</option>
+            <option <?php if($dados->Raca == 'negra'){ echo 'selected=selected';} ?> value="negra">Preta</option>
             <option <?php if($dados->Raca == 'branca'){ echo 'selected=selected';} ?> value="branca">Branca</option>
             <option <?php if($dados->Raca == 'parda'){ echo 'selected=selected';} ?> value="parda">Parda</option>
             <option <?php if($dados->Raca == 'amarela'){ echo 'selected=selected';} ?> value="amarela">Amarela</option>
@@ -125,13 +146,12 @@
       </div>
       <div class="col">
         <div class="form-group">
-          <label for="inputGenero">Gênero</label>
+          <label for="inputGenero">Identidade de Gênero</label>
           <select name="inputGenero" class="custom-select">
             <option value="" selected>Selecione</option>
-            <option <?php if($dados->Genero == 'mulher'){ echo 'selected=selected';} ?> value="mulher">Mulher</option>
-            <option <?php if($dados->Genero == 'homem'){ echo 'selected=selected';} ?> value="homem">Homem</option>
-            <option <?php if($dados->Genero == 'mulher_trans_cis'){ echo 'selected=selected';} ?> value="mulher_trans_cis">Mulher (Trans ou Cis)</option>
-            <option <?php if($dados->Genero == 'homem_trans_cis'){ echo 'selected=selected';} ?> value="homem_trans_cis">Homem (Trans ou Cis)</option>
+            <option <?php if($dados->Genero == 'mulher' || $dados->Genero == 'mulher_trans_cis'){ echo 'selected=selected';} ?> value="mulher">Mulher (Cis/Trans)</option>
+            <option <?php if($dados->Genero == 'homem' || $dados->Genero == 'homem_trans_cis'){ echo 'selected=selected';} ?> value="homem">Homem (Cis/Trans)</option>
+            <option <?php if($dados->Genero == 'nao_binarie'){ echo 'selected=selected';} ?> value="mulher_trans_cis">Não Binárie</option>
           </select>
         </div>
       </div>
@@ -155,6 +175,79 @@
           <label for="inputNascimento">Data de Nascimento</label>
           <input type="date" class="form-control" id="inputNascimento" name="inputNascimento" aria-describedby="inputNascimentoHelp" value="{{ $dados->Nascimento }}" onblur="getAge()">
         </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <label for="concordaSexoDesignado">Você se identifica com o gênero designado ao nascer?</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="concordaSexoDesignado" id="concordaSexoDesignado1" value="1" @if( $dados->concordaSexoDesignado ) {{ 'checked' }} @endif>
+            <label class="form-check-label" for="concordaSexoDesignado1">
+              Sim
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="concordaSexoDesignado" id="concordaSexoDesignado2" value="0" @if( !$dados->concordaSexoDesignado ) {{ 'checked' }} @endif >
+            <label class="form-check-label" for="concordaSexoDesignado2">
+              Não
+            </label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="responsavelCuidadoOutraPessoa">É responsável pelo cuidado de outra pessoa?</label>
+          <select name="responsavelCuidadoOutraPessoa" class="custom-select">
+            <option value="Não" @if( $dados->responsavelCuidadoOutraPessoa === 'Não' ) {{ 'selected' }} @endif >Não</option>
+            <option value="Sim, por uma criança" @if( $dados->responsavelCuidadoOutraPessoa === 'Sim, por uma criança' ) {{ 'selected' }} @endif >Sim, por uma criança</option>
+            <option value="Sim, por uma pessoa idosa ou pessoa adulta que demanda cuidados especiais" @if( $dados->responsavelCuidadoOutraPessoa === 'Sim, por uma pessoa idosa ou pessoa adulta que demanda cuidados especiais' ) {{ 'selected' }} @endif >Sim, por uma pessoa idosa ou pessoa adulta que demanda cuidados especiais</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputAuxGoverno">A família recebe algum tipo de auxílio do Governo?</label>
+          <div id="AuxGoverno" class="form-check form-check-inline">
+            <input <?php if($dados->AuxGoverno == 'sim'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno1" value="sim" onclick="showInput('#AuxTipo')">
+            <label class="form-check-label" for="inputTaxaInscricao1">Sim</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input <?php if($dados->AuxGoverno == 'nao'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno2" value="nao" onclick="hideAuxInput('#AuxTipo')">
+            <label class="form-check-label" for="inputTaxaInscricao2">Não</label>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        @if($dados->AuxGoverno == 'nao' or $dados->AuxGoverno == NULL)
+        <div id="AuxTipo" class="form-group" style="display:none;">
+          <label for="inputAuxTipo">Qual?</label>
+          <select name="inputAuxTipo" class="custom-select">
+            <option value="" selected>Selecione</option>
+            <option value="bolsa_familia">Programa Bolsa Família</option>
+            <option value="energia_eletrica">Tarifa Social de Energia Elétrica</option>
+            <option value="emergencial_financeiro">Auxílio Emergencial Financeiro</option>
+            <option value="bolsa_verde">Bolsa Verde</option>
+          </select>
+        </div>
+        @else
+        <div id="AuxTipo" class="form-group">
+          <label for="inputAuxTipo">Qual?</label>
+          <select name="inputAuxTipo" class="custom-select">
+            <option value="">Selecione</option>
+            <option <?php if($dados->AuxTipo == 'bolsa_familia'){ echo 'selected=selected';} ?> value="bolsa_familia">Programa Bolsa Família</option>
+            <option <?php if($dados->AuxTipo == 'energia_eletrica'){ echo 'selected=selected';} ?> value="energia_eletrica">Tarifa Social de Energia Elétrica</option>
+            <option <?php if($dados->AuxTipo == 'emergencial_financeiro'){ echo 'selected=selected';} ?> value="emergencial_financeiro">Auxílio Emergencial Financeiro</option>
+            <option <?php if($dados->AuxTipo == 'bolsa_verde'){ echo 'selected=selected';} ?> value="bolsa_verde">Bolsa Verde</option>
+          </select>
+        </div>
+        @endif
       </div>
     </div>
     <hr>
@@ -182,7 +275,7 @@
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <label for="inputBairro">Bairro</label>
+          <label for="inputBairro">Distrito</label>
           <input type="text" class="form-control" id="inputBairro" name="inputBairro" aria-describedby="inputBairroHelp" value="{{ $dados->Bairro }}">
         </div>
       </div>
@@ -260,14 +353,42 @@
     <hr>
     <h3>DADOS PROFISSIONAIS</h3>
     <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <label for="inputRamoAtuacao">Você trabalha no ramo da:</label>
+          <select id="inputRamoAtuacao" name="inputRamoAtuacao" class="custom-select">
+            <option value="Educação" @if( $dados->RamoAtuacao == 'Educação' ) {{ 'selected' }} @endif >Educação</option>
+            <option value="Pesquisa" @if( $dados->RamoAtuacao == 'Pesquisa' ) {{ 'selected' }} @endif >Pesquisa</option>
+            <option value="Telemarketing" @if( $dados->RamoAtuacao == 'Telemarketing' ) {{ 'selected' }} @endif >Telemarketing</option>
+            <option value="Comércio" @if( $dados->RamoAtuacao == 'Comércio' ) {{ 'selected' }} @endif >Comércio</option>
+            <option value="Indústria" @if( $dados->RamoAtuacao == 'Indústria' ) {{ 'selected' }} @endif >Indústria</option>
+            <option value="Construção Civil" @if( $dados->RamoAtuacao == 'Construção Civil' ) {{ 'selected' }} @endif >Construção Civil</option>
+            <option value="Beleza e Cuidados" @if( $dados->RamoAtuacao == 'Beleza e Cuidados' ) {{ 'selected' }} @endif >Beleza e Cuidados</option>
+            <option value="Serviços gerais" @if( $dados->RamoAtuacao == 'Serviços gerais' ) {{ 'selected' }} @endif >Serviços gerais</option>
+            <option value="Limpeza e Higiene" @if( $dados->RamoAtuacao == 'Limpeza e Higiene' ) {{ 'selected' }} @endif >Limpeza e Higiene</option>
+            <option value="Gastronomia/Alimentação" @if( $dados->RamoAtuacao == 'Gastronomia/Alimentação' ) {{ 'selected' }} @endif >Gastronomia/Alimentação</option>
+            <option value="Entrega/Delivery" @if( $dados->RamoAtuacao == 'Entrega/Delivery' ) {{ 'selected' }} @endif >Entrega/Delivery</option>
+            <option value="Saúde/Bem-Estar" @if( $dados->RamoAtuacao == 'Saúde/Bem-Estar' ) {{ 'selected' }} @endif >Saúde/Bem-Estar</option>
+            <option value="Segurança" @if( $dados->RamoAtuacao == 'Segurança' ) {{ 'selected' }} @endif >Segurança</option>
+            <option value="Transporte de pessoas/Aplicativos" @if( $dados->RamoAtuacao == 'Transporte de pessoas/Aplicativos' ) {{ 'selected' }} @endif >Transporte de pessoas/Aplicativos</option>
+            <option value="Outros" @if( $dados->RamoAtuacao == 'Outros' ) {{ 'selected' }} @endif >Outros</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <label for="inputRamoAtuacaoOutros">&nbsp;</label>
+        <input type="text" class="form-control" id="inputRamoAtuacaoOutros" name="inputRamoAtuacaoOutros" aria-describedby="inputRamoAtuacaoOutrosHelp" placeholder="Outros (Especifique)" value="{{ $dados->RamoAtuacaoOutros }}">
+      </div>
+    </div>
+    <!--<div class="row">
       <div class="col">
         <div class="form-group">
           <label for="inputEmpresa">Nome da Empresa</label>
           <input type="text" class="form-control" id="inputEmpresa" name="inputEmpresa" aria-describedby="inputEmpresaHelp" value="{{ $dados->Empresa }}">
         </div>
       </div>
-    </div>
-    <div class="row">
+    </div>-->
+    <!--<div class="row">
       <div class="col">
         <div class="form-group">
           <label for="inputCEPEmpresa">CEP</label>
@@ -286,8 +407,8 @@
           <input type="text" class="form-control" id="inputNumeroEmpresa" name="inputNumeroEmpresa" aria-describedby="inputNumeroEmpresaHelp" value="{{ $dados->NumeroEmpresa }}">
         </div>
       </div>
-    </div>
-    <div class="row">
+    </div>-->
+    <!--<div class="row">
       <div class="col">
         <div class="form-group">
           <label for="inputBairroEmpresa">Bairro</label>
@@ -342,16 +463,16 @@
           </select>
         </div>
       </div>
-    </div>
-    <div class="row">
+    </div>-->
+    <!--<div class="row">
       <div class="col">
         <div class="form-group">
           <label for="inputCargo">Cargo/Função</label>
           <input type="text" class="form-control" id="inputCargo" name="inputCargo" aria-describedby="inputCargoHelp" value="{{ $dados->Cargo }}">
         </div>
       </div>
-    </div>
-    <div class="row">
+    </div>-->
+    <!--<div class="row">
       <div class="col-12">
         <p>Horário de Trabalho</p>
       </div>
@@ -367,8 +488,9 @@
           <input type="time" class="form-control" id="inputHorarioTo" name="inputHorarioTo" aria-describedby="inputHorarioToHelp" value="{{ $dados->HorarioTo }}">
         </div>
       </div>
-    </div>
+    </div>-->
     <hr>
+    <!--
     <h3>DADOS FAMILIARES</h3>
     <div class="row">
       <div class="col">
@@ -602,7 +724,29 @@
       </div>
     </div>
     <hr>
+    -->
     <h3>DADOS ACADÊMICOS</h3>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="inputEscolaridade">Qual a sua escolaridade</label>
+          <select name="inputEscolaridade" class="custom-select">
+            <option selected>Selecione</option>
+            <option value="Ensino fundamental completo" @if( $dados->Escolaridade === 'Ensino fundamental completo' ) {{ 'selected' }} @endif >Ensino fundamental completo</option>
+            <option value="Ensino fundamental incompleto" @if( $dados->Escolaridade === 'Ensino fundamental incompleto' ) {{ 'selected' }} @endif >Ensino fundamental incompleto</option>
+            <option value="Ensino fundamental cursando" @if( $dados->Escolaridade === 'Ensino fundamental cursando' ) {{ 'selected' }} @endif >Ensino fundamental cursando</option>
+            <option value="Ensino médio completo" @if( $dados->Escolaridade === 'Ensino médio completo' ) {{ 'selected' }} @endif >Ensino médio completo</option>
+            <option value="Ensino médio incompleto" @if( $dados->Escolaridade === 'Ensino médio incompleto' ) {{ 'selected' }} @endif >Ensino médio incompleto</option>
+            <option value="Ensino médio cursando" @if( $dados->Escolaridade === 'Ensino médio cursando' ) {{ 'selected' }} @endif >Ensino médio cursando</option>
+            <option value="Ensino Superior completo" @if( $dados->Escolaridade === 'Ensino Superior completo' ) {{ 'selected' }} @endif >Ensino Superior completo</option>
+            <option value="Ensino Superior incompleto" @if( $dados->Escolaridade === 'Ensino Superior incompleto' ) {{ 'selected' }} @endif >Ensino Superior incompleto</option>
+            <option value="Ensino Superior cursando" @if( $dados->Escolaridade === 'Ensino Superior cursando' ) {{ 'selected' }} @endif >Ensino Superior cursando</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col">
         <div class="form-group">
@@ -651,11 +795,11 @@
           <label for="inputVestibular">Já prestou algum vestibular?</label>
           <br>
           <div id="Vestibular" class="form-check form-check-inline">
-            <input <?php if($dados->Vestibular == 'sim'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputVestibular" id="inputVestibular1" value="sim" onclick="showInput('.dados-faculdade')">
+            <input <?php if($dados->Vestibular == 'Sim'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputVestibular" id="inputVestibular1" value="Sim" onclick="showInput('.dados-faculdade')">
             <label class="form-check-label" for="inputVestibular1">Sim</label>
           </div>
           <div class="form-check form-check-inline">
-            <input <?php if($dados->Vestibular == 'nao'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputVestibular" id="inputVestibular2" value="nao" onclick="hideInput('.dados-faculdade')">
+            <input <?php if($dados->Vestibular == 'Não'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputVestibular" id="inputVestibular2" value="Não" onclick="hideInput('.dados-faculdade')">
             <label class="form-check-label" for="inputVestibular2">Não</label>
           </div>
         </div>
@@ -828,6 +972,24 @@
         @endif
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <label for="inputEnem">Já prestou Enem?</label>
+          <br>
+          <div id="enem" class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inputEnem" id="inputEnem1" value="1" @if( $dados->Enem === 1 ) {{ 'checked' }} @endif>
+            <label class="form-check-label" for="inputEnem1">Sim</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inputEnem" id="inputEnem2" value="0" @if( $dados->Enem === 0 ) {{ 'checked' }} @endif>
+            <label class="form-check-label" for="inputEnem2">Não</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-12">
         <p>Para qual (quais) curso(s) pretende prestar vestibular?</p>

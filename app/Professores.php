@@ -17,10 +17,15 @@ class Professores extends Model
         'RG',
         'Raca',
         'Genero',
+        'concordaSexoDesignado',
         'EstadoCivil',
         'Nascimento',
         'Disciplinas',
         'OutrosNucleos',
+        'Escolaridade',
+        'FormacaoSuperior',
+        'AnoInicioUneafro',
+        'aulasForaUneafro',
         'DiasHorarios',
         'GastoTransporte',
         'TempoChegada',
@@ -35,6 +40,8 @@ class Professores extends Model
         'FoneResidencial',
         'FoneCelular',
         'Email',
+        'RamoAtuacao',
+        'RamoAtuacaoOutros',
         'Empresa',
         'EnderecoEmpresa',
         'NumeroEmpresa',
@@ -63,6 +70,7 @@ class Professores extends Model
         'InstMestrado',
         'CursoMestrado',
         'AnoCursoMestrado',
+        'FormacaoAcademicaRecente',
     ];
 
     protected $casts = [
@@ -72,11 +80,21 @@ class Professores extends Model
 
     public function nucleo()
     {
-        return $this->belongTo('App\Nucleo');
+        return $this->belongsTo('App\Nucleo');
     }
 
     public function user()
     {
         return $this->hasOne('App\User');
+    }
+
+    public function listas()
+    {
+      return $this->hasMany('App\ListaPresenca', 'professor_id');
+    }
+
+    public function horarios()
+    {
+      return $this->hasMany('App\HorarioAula', 'professor_id');
     }
 }
