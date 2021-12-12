@@ -192,7 +192,7 @@
       </div>
       <div class="row">
         <div class="col-12 mt-2 mb-2 text-center">
-          <h4>Programação 2020</h4>
+          <h4>Programação 2022</h4>
         </div>
         <div class="col">
           <div class="form-group">
