@@ -330,7 +330,7 @@
         <select name="aulasForaUneafro" class="custom-select" disabled>
           <option selected>Selecione</option>
           <option value="Não" @if($dados->aulasForaUneafro === 'Não') {{ 'selected' }} @endif >Não</option>
-          <option value="Sim, em escola regular" @if($dados->aulasForaUneafro === 'Sim, em escola regular') {{ 'selected' }} @endif >Sim, em escola regular</option>
+          <option value="Sim, em cursos livres" @if($dados->aulasForaUneafro === 'Sim, em cursos livres') {{ 'selected' }} @endif >Sim, em cursos livres</option>
           <option value="Sim, em escola pública ou privada" @if($dados->aulasForaUneafro === 'Sim, em escola pública ou privada') {{ 'selected' }} @endif >Sim, em escola pública ou privada</option>
         </select>
       </div>

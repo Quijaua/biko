@@ -343,7 +343,7 @@
           <select name="aulasForaUneafro" class="custom-select">
             <option selected>Selecione</option>
             <option value="Não" selected>Não</option>
-            <option value="Sim, em escola regular">Sim, em escola regular</option>
+            <option value="Sim, em cursos livres">Sim, em cursos livres</option>
             <option value="Sim, em escola pública ou privada">Sim, em escola pública ou privada</option>
           </select>
         </div>
