@@ -118,7 +118,7 @@ class RegisterController extends Controller
             'ListaEspera' => 'Sim',
             'Raca' => $data['inputRaca'],
             'Genero' => $data['inputGenero'],
-            'concordaSexoDesignado' => $data['concordaSexoDesignado'],
+            'concordaSexoDesignado' => isset($data['concordaSexoDesignado']) ? $data['concordaSexoDesignado'] : NULL,
             'Nascimento' => $data['inputNascimento'],
             'responsavelCuidadoOutraPessoa' => $data['responsavelCuidadoOutraPessoa'],
             'temFilhos' => $data['temFilhos'],

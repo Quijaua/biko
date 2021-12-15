@@ -50,14 +50,14 @@
           </div>
         </div>
       </div>
-      <!--<div class="row">
+      <div class="row">
         <div class="col">
           <div class="form-group">
             <label for="inputInfoInscricao">Informação de inscrição</label>
             <input type="text" class="form-control" id="inputInfoInscricao" name="inputInfoInscricao" aria-describedby="inputInfoInscricaoHelp" value="{{ $dados->InfoInscricao }}">
           </div>
         </div>
-      </div>-->
+      </div>
       <div class="row">
         <div class="col">
           <div class="form-group">
