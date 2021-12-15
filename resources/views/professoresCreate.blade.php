@@ -87,7 +87,7 @@
           <label for="inputRaca">Raça / Cor</label>
           <select name="inputRaca" class="custom-select">
             <option selected>Selecione</option>
-            <option value="negra">Negra</option>
+            <option value="negra">Preta</option>
             <option value="branca">Branca</option>
             <option value="parda">Parda</option>
             <option value="amarela">Amarela</option>
