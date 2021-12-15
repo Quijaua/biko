@@ -103,7 +103,7 @@
                               <label for="inputGenero">Identidade de Gênero</label>
                               <select name="inputGenero" class="custom-select" required>
                                 <option value="" selected>Selecione</option>
-                                <option value="mulher">Mulher</option>
+                                <!--<option value="mulher">Mulher</option>-->
                                 <!--<option value="homem">Homem</option>-->
                                 <option value="mulher_trans_cis">Mulher (Trans ou Cis)</option>
                                 <option value="homem_trans_cis">Homem (Trans ou Cis)</option>
@@ -294,9 +294,9 @@
                                 <option value="Ensino médio completo">Ensino médio completo</option>
                                 <option value="Ensino médio incompleto">Ensino médio incompleto</option>
                                 <option value="Ensino médio cursando">Ensino médio cursando</option>
-                                <option value="Ensino Superior completo">Ensino Superior completo</option>
-                                <option value="Ensino Superior incompleto">Ensino Superior incompleto</option>
-                                <option value="Ensino Superior cursando">Ensino Superior cursando</option>
+                                <option value="Graduação completa">Graduação completa</option>
+                                <option value="Graduação incompleta">Graduação incompleta</option>
+                                <option value="Graduação cursanda">Graduação cursanda</option>
                               </select>
                             </div>
                           </div>

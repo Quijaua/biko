@@ -87,7 +87,7 @@
           <label for="inputRaca">Raça / Cor</label>
           <select name="inputRaca" class="custom-select">
             <option selected>Selecione</option>
-            <option value="negra">Negra</option>
+            <option value="negra">Preta</option>
             <option value="branca">Branca</option>
             <option value="parda">Parda</option>
             <option value="amarela">Amarela</option>
@@ -343,7 +343,7 @@
           <select name="aulasForaUneafro" class="custom-select">
             <option selected>Selecione</option>
             <option value="Não" selected>Não</option>
-            <option value="Sim, em escola regular">Sim, em escola regular</option>
+            <option value="Sim, em cursos livres">Sim, em cursos livres</option>
             <option value="Sim, em escola pública ou privada">Sim, em escola pública ou privada</option>
           </select>
         </div>
@@ -352,7 +352,7 @@
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <label for="inputDiasHorarios">Quais são os dias e horários das suas aulas (por mês)?</label>
+          <label for="inputDiasHorarios">Quais são os dias e horários das suas aulas (por mês) na Uneafro?</label>
           <div class="row">
             <div class="col-4">
               <br>

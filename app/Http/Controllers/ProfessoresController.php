@@ -219,7 +219,7 @@ class ProfessoresController extends Controller
           $horario = HorarioAula::updateOrCreate(
               ['professor_id' => $professor->id, 'nucleo_id' => $request->input('inputNucleo'), 'DiaSemana' => 'Segunda'],
               [
-                'professor_id'  => $id,
+                'professor_id'  => $professor->id,
                 'nucleo_id'     => $request->input('inputNucleo'),
                 'DiaSemana'     => 'Segunda',
                 'De'            => $horarios['Segunda']['de'],
