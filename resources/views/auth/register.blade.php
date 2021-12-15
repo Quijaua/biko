@@ -294,9 +294,9 @@
                                 <option value="Ensino médio completo">Ensino médio completo</option>
                                 <option value="Ensino médio incompleto">Ensino médio incompleto</option>
                                 <option value="Ensino médio cursando">Ensino médio cursando</option>
-                                <option value="Graduação completa">Ensino Superior completo</option>
-                                <option value="Graduação incompleta">Ensino Superior incompleto</option>
-                                <option value="Graduação cursanda">Ensino Superior cursando</option>
+                                <option value="Graduação completa">Graduação completa</option>
+                                <option value="Graduação incompleta">Graduação incompleta</option>
+                                <option value="Graduação cursanda">Graduação cursanda</option>
                               </select>
                             </div>
                           </div>
