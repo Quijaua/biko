@@ -339,7 +339,7 @@
   <div class="row">
     <div class="col">
       <div class="form-group">
-        <label for="inputDiasHorarios">Quais são os dias e horários das suas aulas (por mês)?</label>
+        <label for="inputDiasHorarios">Quais são os dias e horários das suas aulas (por mês) na Uneafro?</label>
         <div class="row">
           @foreach( $dados->horarios as $horario )
           <div class="col-4">
