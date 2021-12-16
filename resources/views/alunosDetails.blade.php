@@ -197,11 +197,11 @@
       <div class="form-group">
         <label for="inputAuxGoverno">A família recebe algumn tipo de auxílio do Governo?</label>
         <div id="AuxGoverno" class="form-check form-check-inline">
-          <input <?php if($dados->AuxGoverno == 'sim'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno1" value="sim" onclick="showInput('#AuxTipo')">
+          <input <?php if($dados->AuxGoverno == 'sim'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno1" value="sim" onclick="showInput('#AuxTipo')" disabled>
           <label class="form-check-label" for="inputTaxaInscricao1">Sim</label>
         </div>
         <div class="form-check form-check-inline">
-          <input <?php if($dados->AuxGoverno == 'nao'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno2" value="nao" onclick="hideAuxInput('#AuxTipo')">
+          <input <?php if($dados->AuxGoverno == 'nao'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno2" value="nao" onclick="hideAuxInput('#AuxTipo')" disabled>
           <label class="form-check-label" for="inputTaxaInscricao2">Não</label>
         </div>
       </div>

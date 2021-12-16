@@ -81,7 +81,9 @@ class AlunosExport implements FromQuery, WithHeadings
           'Curso Faculdade',
           'Ano Faculdade',
           'Como Soube (Outros)',
-          'Email'
+          'Email',
+          'Pré-cadastro feito em',
+          'Atualizado em'
       ];
   }
 
@@ -146,7 +148,9 @@ class AlunosExport implements FromQuery, WithHeadings
         'CursoFaculdade',
         'AnoFaculdade',
         'ComoSoubeOutros',
-        'Email'
+        'Email',
+        'created_at',
+        'updated_at'
       ]);
     };
 
@@ -208,7 +212,9 @@ class AlunosExport implements FromQuery, WithHeadings
       'CursoFaculdade',
       'AnoFaculdade',
       'ComoSoubeOutros',
-      'Email'
+      'Email',
+      'created_at',
+      'updated_at'
     ]);
   }
 }
