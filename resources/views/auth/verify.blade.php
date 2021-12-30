@@ -29,9 +29,9 @@
                     ?>
                     <p><?php echo '<a href="'.$url.'/password/reset/'.$my_token.'?email='.$user->email.'">Clique aqui</a> para cadastrar ou alterar a sua senha no sistema.'; ?></p>
                     @if($wa_url)
-                    <p>
+                    <!--<p>
                         <a class="btn btn-success" href="<?php echo $wa_url; ?>" target="_blank">Fale com o seu Núcleo via WhatsApp</a>
-                    </p>
+                    </p>-->
                     @endif
                     {{ __('Se você não recebeu o email') }},
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
