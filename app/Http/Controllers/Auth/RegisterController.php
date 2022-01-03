@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\User;
-use App\Aluno;
-use App\Nucleo;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Session;
+
+use App\User;
+use App\Aluno;
+use App\Nucleo;
+use App\Http\Repository\HcaptchaRepository;
 
 class RegisterController extends Controller
 {
@@ -41,6 +43,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->repository = new HcaptchaRepository;
     }
 
     /**
@@ -51,6 +54,8 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+
+      if( $this->repository->validate($data['h-captcha-response']) ) {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -58,6 +63,12 @@ class RegisterController extends Controller
             'role' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'min:11']
         ]);
+      };
+
+      return Validator::make($data, [
+        'hcaptcha' => ['required'],
+      ]);
+
     }
 
     /**
@@ -68,7 +79,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-      //dd($data);
       $remove = array("(", ")", "-", " ");
       $phone = intval(str_replace($remove, "", $data['phone']));
       $fundamental = isset($data['inputEnsFundamental']) ? json_encode($data['inputEnsFundamental']) : NULL;
