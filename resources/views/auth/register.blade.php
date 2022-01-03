@@ -42,13 +42,6 @@
                                 </span>
                             @enderror
 
-                            <div class="col-12 col-md-6" style="display:none">
-                              <div class="form-check form-check-inline">
-                                <label class="form-check-label" for="recentNews">Receber notícias recentes?</label>
-                                <input class="form-check-input" name="recentNews" type="checkbox" id="recentNews" value="1">
-                              </div>
-                            </div>
-
                           </div>
                         </div>
 
@@ -463,12 +456,11 @@
                         </div>-->
                         <input id="role" type="hidden" name="role" value="aluno">
 
+                        <div class="h-captcha" data-sitekey="{{ config('services.hcaptcha.site_key') }}"></div>
+
                         <div class="form-group row mt-3 mb-0">
                             <div class="col-md-6">
-                                <!--<button type="submit" class="btn btn-primary">
-                                    {{ __('Cadastrar') }}
-                                </button>-->
-                                <button id="btnSend" type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary">
                                     {{ __('Cadastrar') }}
                                 </button>
                             </div>
@@ -482,6 +474,7 @@
 @endsection
 
 @section('js')
+<script src='https://www.hCaptcha.com/1/api.js' async defer></script>
 <script>
   $(document).ready(function () {
 
@@ -491,24 +484,6 @@
       } else {
         $('#filhos_qt_wrapper').fadeOut();
       }
-    });
-
-    //FUNÇÃO ANTI-SPAM
-    const validator = () => {
-      let attribute = $('#recentNews').prop('checked');
-      return attribute;
-    };
-
-    $('#btnSend').click(function(e) {
-      if( validator() ) {
-        e.preventDefault();
-
-        let ip = '<?php echo $_SERVER['REMOTE_ADDR']?>';
-        console.log('IP:', ip);
-
-        let message = 'Dados enviados com sucesso!';
-        return message;
-      };
     });
 
   });
