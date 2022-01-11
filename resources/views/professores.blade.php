@@ -62,6 +62,9 @@
     @else
     <a class="btn btn-primary" href="/professores">Ver professores ativos</a>
     @endif
+    @if( $user->role === 'administrador' )
+    <a class="btn btn-primary" href="{{ route('professores/export/') }}/?nucleo=0">Exportar</a>
+    @endif
   </div>
   @endif
   @endif

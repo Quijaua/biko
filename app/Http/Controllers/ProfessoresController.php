@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Image;
 use Session;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use App\Exports\ProfessoresExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 use App\Professores;
 use App\Nucleo;
@@ -709,5 +711,16 @@ class ProfessoresController extends Controller
         'dados' => $dados,
         'nucleos' => $nucleos,
       ]);
+    }
+
+    public function export(Request $request)
+    {
+        $nucleo = $request->input('nucleo');
+
+        if ($nucleo === null) {
+            return (new ProfessoresExport())->download('professores.xlsx');
+        }
+
+        return (new ProfessoresExport($nucleo))->download('professores.xlsx');
     }
 }
