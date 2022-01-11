@@ -63,6 +63,9 @@
     @else
     <a class="btn btn-primary" href="/coordenadores/search/?status=1">Ver coordenadores ativos</a>
     @endif
+    @if( $user->role === 'administrador' )
+    <a class="btn btn-primary" href="{{ route('coordenadores/export/') }}/?nucleo=0">Exportar</a>
+    @endif
   </div>
   @endif
   @endif
