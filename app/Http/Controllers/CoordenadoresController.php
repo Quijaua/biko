@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Coordenadores;
-use App\Nucleo;
-use App\User;
 use Illuminate\Support\Facades\Hash;
 use Image;
 use Session;
+use App\Exports\CoordenadoresExport;
+use Maatwebsite\Excel\Facades\Excel;
+
+use App\Coordenadores;
+use App\Nucleo;
+use App\User;
 
 class CoordenadoresController extends Controller
 {
@@ -534,5 +537,16 @@ dd($user);
         'dados' => $dados,
         'nucleos' => $nucleos,
       ]);
+    }
+
+    public function export(Request $request)
+    {
+        $nucleo = $request->input('nucleo');
+
+        if ($nucleo === null) {
+            return (new CoordenadoresExport())->download('coordenadores.xlsx');
+        }
+
+        return (new CoordenadoresExport($nucleo))->download('coordenadores.xlsx');
     }
 }

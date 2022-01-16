@@ -63,6 +63,7 @@ Route::get('alunos/log/{id}', 'AlunosController@logActionView')->name('alunos/lo
 // ROUTES FOR COORDENADORES MANAGEMENT
 Route::get('coordenadores', 'CoordenadoresController@index')->middleware('permissions');
 Route::get('coordenadores/details/{id}', 'CoordenadoresController@details')->middleware('permissions');
+Route::get('coordenadores/export/', 'CoordenadoresController@export')->name('coordenadores/export/');
 Route::get('coordenadores/add', 'CoordenadoresController@showForm')->middleware('permissions');
 Route::post('coordenadores/create', 'CoordenadoresController@create')->middleware('permissions');
 Route::get('coordenadores/edit/{id}', 'CoordenadoresController@edit')->middleware('permissions');
@@ -74,6 +75,7 @@ Route::any('coordenadores/search', 'CoordenadoresController@search')->name('coor
 // ROUTES FOR PROFESSORES MANAGEMENT
 Route::get('professores', 'ProfessoresController@index')->middleware('permissions');
 Route::get('professores/details/{id}', 'ProfessoresController@details')->middleware('permissions');
+Route::get('professores/export/', 'ProfessoresController@export')->name('professores/export/');
 Route::get('professores/add', 'ProfessoresController@showForm')->middleware('permissions');
 Route::post('professores/create', 'ProfessoresController@create')->middleware('permissions');
 Route::get('professores/edit/{id}' , 'ProfessoresController@edit')->middleware('permissions');
@@ -81,6 +83,7 @@ Route::post('professores/update/{id}', 'ProfessoresController@update')->middlewa
 Route::get('professores/disable/{id}', 'ProfessoresController@disable')->middleware('permissions');
 Route::get('professores/enable/{id}', 'ProfessoresController@enable')->middleware('permissions');
 Route::any('professores/search', 'ProfessoresController@search')->middleware('permissions')->name('professores/search');
+
 
 // ROUTES FOR MESSAGE MANAGEMENT
 Route::get('mensagens', 'MensagensController@index')->middleware('permissions')->name('messages.index');
