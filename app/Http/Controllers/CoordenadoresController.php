@@ -438,41 +438,41 @@ class CoordenadoresController extends Controller
       if($status === NULL && $nucleo === NULL){
         //$result = Aluno::get();
         $result = Coordenadores::paginate(25);
-        return view('alunos')->with([
+        return view('coordenadores')->with([
           'nucleo' => $nucleo,
           'user' => $user,
-          'alunos' => $result,
+          'coordenadores' => $result,
         ]);
       }else if($status === NULL){
         //$result = Aluno::where('id_nucleo', $nucleo)->get();
         $result = Coordenadores::where('id_nucleo', $nucleo)->paginate(25);
-        return view('alunos')->with([
+        return view('coordenadores')->with([
           'nucleo' => $nucleo,
           'user' => $user,
-          'alunos' => $result,
+          'coordenadores' => $result,
         ]);
       }else if($nucleo === NULL){
         //$result = Aluno::where('Status', $status)->get();
         $result = Coordenadores::where('Status', $status)->paginate(25);
-        return view('alunos')->with([
+        return view('coordenadores')->with([
           'nucleo' => $nucleo,
           'user' => $user,
-          'alunos' => $result,
+          'coordenadores' => $result,
         ]);
       }else{
         //$result = Aluno::where('Status', $status)->where('id_nucleo', $nucleo)->get();
         $result = Coordenadores::where('Status', $status)->where('id_nucleo', $nucleo)->paginate(25);
         if($result->isEmpty()){
-          return redirect('alunos')->with([
+          return redirect('coordenadores')->with([
             'nucleo' => $nucleo,
-            'alunos' => $result,
-            'error' => 'Não há alunos inativos no momento.',
+            'coordenadores' => $result,
+            'error' => 'Não há coordenadores inativos no momento.',
           ]);
         }else{
-          return view('alunos')->with([
+          return view('coordenadores')->with([
             'nucleo' => $nucleo,
             'user' => $user,
-            'alunos' => $result,
+            'coordenadores' => $result,
           ]);
         };
       }
