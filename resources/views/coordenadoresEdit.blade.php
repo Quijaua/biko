@@ -57,7 +57,7 @@
         <div class="form-group">
           <label for="inputNucleo">Núcleo</label>
           <select name="inputNucleo" class="custom-select">
-            <option selected>Selecione</option>
+            <option selected value="0">Selecione</option>
             @foreach($nucleos as $nucleo)
             <option <?php if($nucleo->id == $dados->id_nucleo){ echo 'selected=selected';} ?> value="{{ $nucleo->id }}">{{ $nucleo->NomeNucleo }}</option>
             @endforeach
@@ -113,7 +113,7 @@
         <div class="form-group">
           <label for="inputRaca">Raça / Cor</label>
           <select name="inputRaca" class="custom-select">
-            <option selected>Selecione</option>
+            <option selected value="0">Selecione</option>
             <option <?php if($dados->Raca == 'negra'){ echo 'selected=selected';} ?> value="negra">Negra</option>
             <option <?php if($dados->Raca == 'branca'){ echo 'selected=selected';} ?> value="branca">Branca</option>
             <option <?php if($dados->Raca == 'parda'){ echo 'selected=selected';} ?> value="parda">Parda</option>
@@ -126,7 +126,7 @@
         <div class="form-group">
           <label for="inputGenero">Identidade de Gênero</label>
           <select name="inputGenero" class="custom-select">
-            <option selected>Selecione</option>
+            <option selected value="0">Selecione</option>
             <option <?php if($dados->Genero == 'mulher'){ echo 'selected=selected';} ?> value="mulher">Mulher</option>
             <option <?php if($dados->Genero == 'homem'){ echo 'selected=selected';} ?> value="homem">Homem</option>
             <option <?php if($dados->Genero == 'mulher_trans_cis'){ echo 'selected=selected';} ?> value="mulher_trans_cis">Mulher (Trans ou Cis)</option>
@@ -158,7 +158,7 @@
         <div class="form-group">
           <label for="inputEstadoCivil">Estado Civil</label>
           <select name="inputEstadoCivil" class="custom-select">
-            <option selected>Selecione</option>
+            <option selected value="0">Selecione</option>
             <option <?php if($dados->EstadoCivil == 'solteiro_a'){ echo 'selected=selected';} ?> value="solteiro_a">Solteiro(a)</option>
             <option <?php if($dados->EstadoCivil == 'casado_a'){ echo 'selected=selected';} ?> value="casado_a">Casado(a)</option>
             <option <?php if($dados->EstadoCivil == 'uniao_estavel'){ echo 'selected=selected';} ?> value="uniao_estavel">União Estável</option>
@@ -179,7 +179,7 @@
         <div class="form-group">
           <label for="inputEscolaridade">Qual a sua escolaridade</label>
           <select name="inputEscolaridade" class="custom-select">
-            <option selected>Selecione</option>
+            <option selected value="0">Selecione</option>
             <option value="Ensino Médio">Ensino Médio</option>
             <option value="Ensino Superior Completo" @if($dados->Escolaridade === 'Ensino Superior Completo') {{ 'selected' }} @endif >Graduação Completa</option>
             <option value="Ensino Superior Cursando" @if($dados->Escolaridade === 'Ensino Superior Cursando') {{ 'selected' }} @endif >Graduação Cursando</option>
@@ -213,7 +213,7 @@
           <label for="aulasForaUneafro">Fora da UNEAFRO, você dá aulas?</label>
           <br><br>
           <select name="aulasForaUneafro" class="custom-select">
-            <option selected>Selecione</option>
+            <option selected value="0">Selecione</option>
             <option value="Sim" @if($dados->aulasForaUneafro === 'Sim, em escola regular' || $dados->aulasForaUneafro === 'Sim') {{ 'selected' }} @endif >Sim</option>
             <option value="Não" @if($dados->aulasForaUneafro === 'Não') {{ 'selected' }} @endif >Não</option>
           </select>
@@ -269,7 +269,7 @@
         <div class="form-group">
           <label for="inputEstado">Estado</label>
           <select id="inputEstado" name="inputEstado" class="custom-select">
-            <option selected>Selecione</option>
+            <option selected value="0">Selecione</option>
             <option <?php if($dados->Estado == 'AC'){ echo 'selected=selected';} ?> value="AC">Acre</option>
             <option <?php if($dados->Estado == 'AL'){ echo 'selected=selected';} ?> value="AL">Alagoas</option>
             <option <?php if($dados->Estado == 'AP'){ echo 'selected=selected';} ?> value="AP">Amapá</option>
@@ -336,7 +336,7 @@
         <div class="form-group">
           <label for="inputEnsinoSuperior"><strong>Ensino Superior</strong></label>
           <select name="inputEnsinoSuperior" class="custom-select">
-            <option value="" selected>Selecione</option>
+            <option value="" selected value="0">Selecione</option>
             <option <?php if($dados->EnsinoSuperior == 'em_curso'){ echo 'selected=selected';} ?> value="em_curso">Em curso</option>
             <option <?php if($dados->EnsinoSuperior == 'completo'){ echo 'selected=selected';} ?> value="completo">Completo</option>
             <option <?php if($dados->EnsinoSuperior == 'incompleto'){ echo 'selected=selected';} ?> value="incompleto">Incompleto</option>
@@ -361,7 +361,7 @@
         <div class="form-group">
           <label for="inputAnoCursoSuperior1">Ano</label>
           <select name="inputAnoCursoSuperior1" class="custom-select">
-            <option value="" selected>Selecione</option>
+            <option value="0" selected>Selecione</option>
             <option <?php if($dados->AnoCursoSuperior1 == '1972'){ echo 'selected=selected';} ?> value="1972">1972</option>
             <option <?php if($dados->AnoCursoSuperior1 == '1973'){ echo 'selected=selected';} ?> value="1973">1973</option>
             <option <?php if($dados->AnoCursoSuperior1 == '1974'){ echo 'selected=selected';} ?> value="1974">1974</option>
@@ -427,7 +427,7 @@
         <div class="form-group">
           <label for="inputAnoCursoSuperior2">Ano</label>
           <select name="inputAnoCursoSuperior2" class="custom-select">
-            <option value="" selected>Selecione</option>
+            <option value="0" selected>Selecione</option>
             <option <?php if($dados->AnoCursoSuperior2 == '1972'){ echo 'selected=selected';} ?> value="1972">1972</option>
             <option <?php if($dados->AnoCursoSuperior2 == '1973'){ echo 'selected=selected';} ?> value="1973">1973</option>
             <option <?php if($dados->AnoCursoSuperior2 == '1974'){ echo 'selected=selected';} ?> value="1974">1974</option>
@@ -488,7 +488,7 @@
         <div class="form-group">
           <label for="inputEspecializacao"><strong>Especialização</strong></label>
           <select name="inputEspecializacao" class="custom-select">
-            <option value="" selected>Selecione</option>
+            <option value="0" selected>Selecione</option>
             <option <?php if($dados->Especializacao == 'em_curso'){ echo 'selected=selected';} ?> value="em_curso">Em curso</option>
             <option <?php if($dados->Especializacao == 'completo'){ echo 'selected=selected';} ?> value="completo">Completo</option>
             <option <?php if($dados->Especializacao == 'incompleto'){ echo 'selected=selected';} ?> value="incompleto">Incompleto</option>
@@ -513,7 +513,7 @@
         <div class="form-group">
           <label for="inputAnoCursoEspecializacao">Ano de Conclusão</label>
           <select name="inputAnoCursoEspecializacao" class="custom-select">
-            <option value="" selected>Selecione</option>
+            <option value="0" selected>Selecione</option>
             <option <?php if($dados->AnoCursoEspecializacao == '1972'){ echo 'selected=selected';} ?> value="1972">1972</option>
             <option <?php if($dados->AnoCursoEspecializacao == '1973'){ echo 'selected=selected';} ?> value="1973">1973</option>
             <option <?php if($dados->AnoCursoEspecializacao == '1974'){ echo 'selected=selected';} ?> value="1974">1974</option>
@@ -574,7 +574,7 @@
         <div class="form-group">
           <label for="inputMestrado"><strong>Mestrado</strong></label>
           <select name="inputMestrado" class="custom-select">
-            <option value="" selected>Selecione</option>
+            <option value="0" selected>Selecione</option>
             <option <?php if($dados->Mestrado == 'em_curso'){ echo 'selected=selected';} ?> value="em_curso">Em curso</option>
             <option <?php if($dados->Mestrado == 'completo'){ echo 'selected=selected';} ?> value="completo">Completo</option>
             <option <?php if($dados->Mestrado == 'incompleto'){ echo 'selected=selected';} ?> value="incompleto">Incompleto</option>
@@ -599,7 +599,7 @@
         <div class="form-group">
           <label for="inputAnoCursoMestrado">Ano de Conclusão</label>
           <select name="inputAnoCursoMestrado" class="custom-select">
-            <option value="" selected>Selecione</option>
+            <option value="0" selected>Selecione</option>
             <option <?php if($dados->AnoCursoMestrado == '1972'){ echo 'selected=selected';} ?> value="1972">1972</option>
             <option <?php if($dados->AnoCursoMestrado == '1973'){ echo 'selected=selected';} ?> value="1973">1973</option>
             <option <?php if($dados->AnoCursoMestrado == '1974'){ echo 'selected=selected';} ?> value="1974">1974</option>

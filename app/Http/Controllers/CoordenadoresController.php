@@ -223,7 +223,7 @@ class CoordenadoresController extends Controller
 
       $dados->NomeCoordenador = $request->input('inputNomeCoordenador');
       $dados->NomeSocial = $request->input('inputNomeSocial');
-      $dados->id_nucleo = $request->input('inputNucleo');
+      $dados->id_nucleo = $request->input('inputNucleo') ? $request->input('inputNucleo') : NULL;
       if($Foto){
         $dados->Foto = $Foto->getFilename() . '.' . $Extension;
       }
@@ -232,21 +232,21 @@ class CoordenadoresController extends Controller
       $dados->RepresentanteCGU = $request->input('inputRepresentanteCGU');
       $dados->CPF = $dados->CPF;
       $dados->RG = $request->input('inputRG');
-      $dados->Raca = $request->input('inputRaca');
-      $dados->Genero = $request->input('inputGenero');
+      $dados->Raca = $request->input('inputRaca') ? $request->input('inputRaca') : NULL;
+      $dados->Genero = $request->input('inputGenero') ? $request->input('inputGenero') : NULL;
       $dados->concordaSexoDesignado = $request->input('concordaSexoDesignado');
-      $dados->EstadoCivil = $request->input('inputEstadoCivil');
+      $dados->EstadoCivil = $request->input('inputEstadoCivil') ? $request->input('inputEstadoCivil') : NULL;
       $dados->Nascimento = $request->input('inputNascimento');
-      $dados->Escolaridade = $request->input('inputEscolaridade');
+      $dados->Escolaridade = $request->input('inputEscolaridade') ? $request->input('inputEscolaridade') : NULL;
       $dados->FormacaoSuperior = $request->input('inputFormacaoSuperior');
       $dados->AnoInicioUneafro = $request->input('inputAnoInicioUneafro');
-      $dados->aulasForaUneafro = $request->input('aulasForaUneafro');
+      $dados->aulasForaUneafro = $request->input('aulasForaUneafro') ? $request->input('aulasForaUneafro') : NULL;
       $dados->Endereco = $request->input('inputEndereco');
       $dados->Numero = $request->input('inputNumero');
       $dados->Bairro = $request->input('inputBairro');
       $dados->CEP = $request->input('inputCEP');
       $dados->Cidade = $request->input('inputCidade');
-      $dados->Estado = $request->input('inputEstado');
+      $dados->Estado = $request->input('inputEstado') ? $request->input('inputEstado') : NULL;
       $dados->Complemento = $request->input('inputComplemento');
       $dados->FoneComercial = $request->input('inputFoneComercial');
       $dados->FoneResidencial = $request->input('inputFoneResidencial');
@@ -280,20 +280,20 @@ class CoordenadoresController extends Controller
         $dados->ComoSoubeOutros = $request->input('inputComoSoubeOutros');
       }
       $dados->MotivoPrincipal = $request->input('inputMotivoPrincipal');
-      $dados->EnsinoSuperior = $request->input('inputEnsinoSuperior');
+      $dados->EnsinoSuperior = $request->input('inputEnsinoSuperior') ? $request->input('inputEnsinoSuperior') : NULL;
       $dados->InstituicaoSuperior = $request->input('inputInstituicaoSuperior');
       $dados->CursoSuperior1 = $request->input('inputCursoSuperior1');
-      $dados->AnoCursoSuperior1 = $request->input('inputAnoCursoSuperior1');
+      $dados->AnoCursoSuperior1 = $request->input('inputAnoCursoSuperior1') ? $request->input('inputAnoCursoSuperior1') : NULL;
       $dados->CursoSuperior2 = $request->input('inputCursoSuperior2');
-      $dados->AnoCursoSuperior2 = $request->input('inputAnoCursoSuperior2');
-      $dados->Especializacao = $request->input('inputEspecializacao');
+      $dados->AnoCursoSuperior2 = $request->input('inputAnoCursoSuperior2') ? $request->input('inputAnoCursoSuperior2') : NULL;
+      $dados->Especializacao = $request->input('inputEspecializacao') ? $request->input('inputEspecializacao') : NULL;
       $dados->InstEspecializacao = $request->input('inputInstEspecializacao');
       $dados->CursoEspecializacao = $request->input('inputCursoEspecializacao');
-      $dados->AnoCursoEspecializacao = $request->input('inputAnoCursoEspecializacao');
-      $dados->Mestrado = $request->input('inputMestrado');
-      $dados->InstMestrado = $request->input('inputInstMestrado');
+      $dados->AnoCursoEspecializacao = $request->input('inputAnoCursoEspecializacao') ? $request->input('inputAnoCursoEspecializacao') : NULL;
+      $dados->Mestrado = $request->input('inputMestrado') ? $request->input('inputMestrado') : NULL;
+      $dados->InstMestrado = $request->input('inputInstMestrado') ? $request->input('inputInstMestrado') : NULL;
       $dados->CursoMestrado = $request->input('inputCursoMestrado');
-      $dados->AnoCursoMestrado = $request->input('inputAnoCursoMestrado');
+      $dados->AnoCursoMestrado = $request->input('inputAnoCursoMestrado') ? $request->input('inputAnoCursoMestrado') : NULL;
       $dados->FormacaoAcademicaRecente = $request->input('inputFormacaoAcademicaRecente');
 
       $cgu = $dados->RepresentanteCGU;
@@ -438,41 +438,41 @@ class CoordenadoresController extends Controller
       if($status === NULL && $nucleo === NULL){
         //$result = Aluno::get();
         $result = Coordenadores::paginate(25);
-        return view('alunos')->with([
+        return view('coordenadores')->with([
           'nucleo' => $nucleo,
           'user' => $user,
-          'alunos' => $result,
+          'coordenadores' => $result,
         ]);
       }else if($status === NULL){
         //$result = Aluno::where('id_nucleo', $nucleo)->get();
         $result = Coordenadores::where('id_nucleo', $nucleo)->paginate(25);
-        return view('alunos')->with([
+        return view('coordenadores')->with([
           'nucleo' => $nucleo,
           'user' => $user,
-          'alunos' => $result,
+          'coordenadores' => $result,
         ]);
       }else if($nucleo === NULL){
         //$result = Aluno::where('Status', $status)->get();
         $result = Coordenadores::where('Status', $status)->paginate(25);
-        return view('alunos')->with([
+        return view('coordenadores')->with([
           'nucleo' => $nucleo,
           'user' => $user,
-          'alunos' => $result,
+          'coordenadores' => $result,
         ]);
       }else{
         //$result = Aluno::where('Status', $status)->where('id_nucleo', $nucleo)->get();
         $result = Coordenadores::where('Status', $status)->where('id_nucleo', $nucleo)->paginate(25);
         if($result->isEmpty()){
-          return redirect('alunos')->with([
+          return redirect('coordenadores')->with([
             'nucleo' => $nucleo,
-            'alunos' => $result,
-            'error' => 'Não há alunos inativos no momento.',
+            'coordenadores' => $result,
+            'error' => 'Não há coordenadores inativos no momento.',
           ]);
         }else{
-          return view('alunos')->with([
+          return view('coordenadores')->with([
             'nucleo' => $nucleo,
             'user' => $user,
-            'alunos' => $result,
+            'coordenadores' => $result,
           ]);
         };
       }
