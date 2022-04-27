@@ -214,7 +214,7 @@ class ProfessoresController extends Controller
       }
 
       //ROTINA DE PERSISTÊNCIA DOS HORÁRIOS DE AULA
-      foreach( $request->input('inputDiasHorarios') as $horarios ){
+      foreach( $request->input('inputDiasHorarios', []) as $horarios ){
 
         if($horarios['Segunda']){
 
@@ -470,7 +470,7 @@ class ProfessoresController extends Controller
       }
 
       //ROTINA DE PERSISTÊNCIA DOS HORÁRIOS DE AULA
-      foreach( $request->input('inputDiasHorarios') as $horarios ){
+      foreach( $request->input('inputDiasHorarios', []) as $horarios){
 
         if($horarios['Segunda']){
 
