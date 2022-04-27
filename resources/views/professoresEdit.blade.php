@@ -324,7 +324,7 @@
           <label for="inputOutrosNucleos">Você atua em mais de um núcleo? Qual?</label><br>
           @foreach($nucleos as $nucleo)
           <div class="form-check form-check-inline">
-            <input <?php if($dados->id_nucleo === $nucleo->id || in_array($nucleo->id, $dados->OutrosNucleos)){ echo "checked=checked"; } ?> class="form-check-input" name="inputOutrosNucleos[]" type="checkbox" id="inputOutrosNucleos{{ $nucleo->id }}" value="{{ $nucleo->id }}">
+            <input <?php if($dados->id_nucleo === $nucleo->id || in_array($nucleo->id, ($dados->OutrosNucleos ?? []))){ echo "checked=checked"; } ?> class="form-check-input" name="inputOutrosNucleos[]" type="checkbox" id="inputOutrosNucleos{{ $nucleo->id }}" value="{{ $nucleo->id }}">
             <label class="form-check-label" for="inputOutrosNucleos{{ $nucleo->id }}">{{ $nucleo->NomeNucleo }}</label>
           </div>
           @endforeach
