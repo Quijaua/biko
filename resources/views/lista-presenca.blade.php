@@ -87,8 +87,12 @@
             <td>{{ $lista->date->format('d/m/Y') }}</td>
             <td>{{ $nucleo->NomeNucleo }}</td>
             <td>
-              <a class="btn btn-primary btn-sm btn-absent mb-2" href="{{ route('nucleo/presences/new', ['date' => $lista->date->format('Y-m-d')]) }}">Ver/Editar</a>
-              <a class="btn btn-danger btn-sm btn-absent mb-2" href="{{ route('nucleo/presences/destroy', ['id' => $lista->id]) }}">Excluir</a>
+              @if(Session::get('role') === 'administrador')
+              -
+              @else
+                <a class="btn btn-primary btn-sm btn-absent mb-2" href="{{ route('nucleo/presences/new', ['date' => $lista->date->format('Y-m-d')]) }}">Ver/Editar</a>
+                <a class="btn btn-danger btn-sm btn-absent mb-2" href="{{ route('nucleo/presences/destroy', ['id' => $lista->id]) }}">Excluir</a>
+              @endif
             </td>
           </tr>
           @endforeach
