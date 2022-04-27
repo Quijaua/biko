@@ -229,11 +229,18 @@ class NucleoController extends Controller
         $professor = Coordenadores::where('id_user', Auth::user()->id)->first();
       };
 
-      $nucleo = Nucleo::find($professor->id_nucleo);
+      $nucleos = [];
+      if($user->role === 'administrador'){
+          $nucleos = Nucleo::where('Status', 1)->pluck('NomeNucleo', 'id')->all();
+          $nucleo = Nucleo::find(request('nid', head(array_keys($nucleos))));
+      }else {
+          $nucleo = Nucleo::find($professor->id_nucleo);
+      }
 
       return view('lista-presenca')->with([
-        'nucleo' => $nucleo,
-        'alunos' => $nucleo->alunos
+          'nucleos' => $nucleos,
+          'nucleo' => $nucleo,
+          'alunos' => $nucleo->alunos,
       ]);
     }
 

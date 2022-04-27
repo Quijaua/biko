@@ -34,6 +34,7 @@
   <form name="listaPresencaForm" action="{{ route('nucleo/presences/new') }}" method="get">
     @csrf
     <div class="row">
+      @if(Session::get('role') !== 'administrador')
       <div class="col-4">
         <div class="form-group">
           <div class="mb-3">
@@ -49,6 +50,24 @@
           </div>
         </div>
       </div>
+      @endif
+      @if(Session::get('role') === 'administrador')
+        <div class="col-12">
+          <div class="form-group float-right">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                {{ $nucleo->NomeNucleo }}
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                @foreach($nucleos as $nucleo_id => $nucleo_name)
+                <a class="dropdown-item" href="{{ route('nucleo/presences', ['nid' => $nucleo_id]) }}">{{ $nucleo_name }}</a>
+                  <input type="hidden" name="nid" value="{{ $nucleo_id }}">
+                @endforeach
+              </div>
+            </div>
+          </div>
+        </div>
+      @endif
     </div>
   </form>
 

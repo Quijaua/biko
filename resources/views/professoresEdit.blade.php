@@ -56,7 +56,7 @@
         <div class="form-group">
           <label for="inputNucleo">Núcleo</label>
           <select name="inputNucleo" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             @foreach($nucleos as $nucleo)
             <option <?php if($nucleo->id == $dados->id_nucleo){ echo 'selected=selected';} ?> value="{{ $nucleo->id }}">{{ $nucleo->NomeNucleo }}</option>
             @endforeach
@@ -95,7 +95,7 @@
         <div class="form-group">
           <label for="inputRaca">Raça / Cor</label>
           <select name="inputRaca" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option <?php if($dados->Raca == 'negra'){ echo 'selected=selected';} ?> value="negra">Preta</option>
             <option <?php if($dados->Raca == 'branca'){ echo 'selected=selected';} ?> value="branca">Branca</option>
             <option <?php if($dados->Raca == 'parda'){ echo 'selected=selected';} ?> value="parda">Parda</option>
@@ -108,7 +108,7 @@
         <div class="form-group">
           <label for="inputGenero">Identidade de Gênero</label>
           <select name="inputGenero" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option <?php if($dados->Genero == 'mulher'){ echo 'selected=selected';} ?> value="mulher">Mulher</option>
             <option <?php if($dados->Genero == 'homem'){ echo 'selected=selected';} ?> value="homem">Homem</option>
             <option <?php if($dados->Genero == 'mulher_trans_cis'){ echo 'selected=selected';} ?> value="mulher_trans_cis">Mulher (Trans ou Cis)</option>
@@ -139,7 +139,7 @@
         <div class="form-group">
           <label for="inputEstadoCivil">Estado Civil</label>
           <select name="inputEstadoCivil" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option <?php if($dados->EstadoCivil == 'solteiro_a'){ echo 'selected=selected';} ?> value="solteiro_a">Solteiro(a)</option>
             <option <?php if($dados->EstadoCivil == 'casado_a'){ echo 'selected=selected';} ?> value="casado_a">Casado(a)</option>
             <option <?php if($dados->EstadoCivil == 'uniao_estavel'){ echo 'selected=selected';} ?> value="uniao_estavel">União Estável</option>
@@ -161,139 +161,139 @@
           <label for="inputDisciplinas">Disciplinas Lecionadas</label><br>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'artes') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="artes" value="artes">
-            <label class="form-check-label" for="inlineCheckbox1">Artes</label>
+            <label class="form-check-label" for="artes">Artes</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'atualidades') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="atualidades" value="atualidades">
-            <label class="form-check-label" for="inlineCheckbox2">Atualidades</label>
+            <label class="form-check-label" for="atualidades">Atualidades</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'biologia') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="biologia" value="biologia">
-            <label class="form-check-label" for="inlineCheckbox2">Biologia</label>
+            <label class="form-check-label" for="biologia">Biologia</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'direitos_humanos') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="direitos_humanos" value="direitos_humanos">
-            <label class="form-check-label" for="inlineCheckbox2">Direitos humanos</label>
+            <label class="form-check-label" for="direitos_humanos">Direitos humanos</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'ecologia') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="ecologia" value="ecologia">
-            <label class="form-check-label" for="inlineCheckbox2">Ecologia</label>
+            <label class="form-check-label" for="ecologia">Ecologia</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'espanhol') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="espanhol" value="espanhol">
-            <label class="form-check-label" for="inlineCheckbox2">Espanhol</label>
+            <label class="form-check-label" for="espanhol">Espanhol</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'filosofia') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="filosofia" value="filosofia">
-            <label class="form-check-label" for="inlineCheckbox2">Filosofia</label>
+            <label class="form-check-label" for="filosofia">Filosofia</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'fisica') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="fisica" value="fisica">
-            <label class="form-check-label" for="inlineCheckbox2">Física</label>
+            <label class="form-check-label" for="fisica">Física</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'formacao_politica') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="formacao_politica" value="formacao_politica">
-            <label class="form-check-label" for="inlineCheckbox2">Formação política</label>
+            <label class="form-check-label" for="formacao_politica">Formação política</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'geografia_geral') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="geografia_geral" value="geografia_geral">
-            <label class="form-check-label" for="inlineCheckbox2">Geografia geral</label>
+            <label class="form-check-label" for="geografia_geral">Geografia geral</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'genetica') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="genetica" value="genetica">
-            <label class="form-check-label" for="inlineCheckbox2">Genética</label>
+            <label class="form-check-label" for="genetica">Genética</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'geografia_1') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="geografia" value="geografia_1">
-            <label class="form-check-label" for="inlineCheckbox2">Geografia</label>
+            <label class="form-check-label" for="geografia">Geografia</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'geografia_do_brasil') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="geografia_do_brasil" value="geografia_do_brasil">
-            <label class="form-check-label" for="inlineCheckbox2">Geografia do Brasil</label>
+            <label class="form-check-label" for="geografia_do_brasil">Geografia do Brasil</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'geometria') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="geometria" value="geometria">
-            <label class="form-check-label" for="inlineCheckbox2">Geometria</label>
+            <label class="form-check-label" for="geometria">Geometria</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'geopolitica') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="geopolitica" value="geopolitica">
-            <label class="form-check-label" for="inlineCheckbox2">Geopolítica</label>
+            <label class="form-check-label" for="geopolitica">Geopolítica</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'gramatica') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="gramatica" value="gramatica">
-            <label class="form-check-label" for="inlineCheckbox2">Gramática</label>
+            <label class="form-check-label" for="gramatica">Gramática</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'historia_1') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="historia" value="historia_1">
-            <label class="form-check-label" for="inlineCheckbox2">História</label>
+            <label class="form-check-label" for="historia">História</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'historia_da_africa') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="historia_da_africa" value="historia_da_africa">
-            <label class="form-check-label" for="inlineCheckbox2">História da África</label>
+            <label class="form-check-label" for="historia_da_africa">História da África</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'historia_da_arte') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="historia_da_arte" value="historia_da_arte">
-            <label class="form-check-label" for="inlineCheckbox2">História da Arte</label>
+            <label class="form-check-label" for="historia_da_arte">História da Arte</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'historia_do_brasil') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="historia_do_brasil" value="historia_do_brasil">
-            <label class="form-check-label" for="inlineCheckbox2">História do Brasil</label>
+            <label class="form-check-label" for="historia_do_brasil">História do Brasil</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'historia_geral') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="historia_geral" value="historia_geral">
-            <label class="form-check-label" for="inlineCheckbox2">História Geral</label>
+            <label class="form-check-label" for="historia_geral">História Geral</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'historia_latino_americana') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="historia_latino_americana" value="historia_latino_americana">
-            <label class="form-check-label" for="inlineCheckbox2">História Latino Americana</label>
+            <label class="form-check-label" for="historia_latino_americana">História Latino Americana</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'historia_moderna_e_contemporanea') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="historia_moderna_e_contemporanea" value="historia_moderna_e_contemporanea">
-            <label class="form-check-label" for="inlineCheckbox2">História Moderna e Contemporânea</label>
+            <label class="form-check-label" for="historia_moderna_e_contemporanea">História Moderna e Contemporânea</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'ingles') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="ingles" value="ingles">
-            <label class="form-check-label" for="inlineCheckbox2">Inglês</label>
+            <label class="form-check-label" for="ingles">Inglês</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'interpretacao_textual') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="interpretacao_textual" value="interpretacao_textual">
-            <label class="form-check-label" for="inlineCheckbox2">Interpretação textual</label>
+            <label class="form-check-label" for="interpretacao_textual">Interpretação textual</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'literatura_1') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="literatura" value="literatura_1">
-            <label class="form-check-label" for="inlineCheckbox2">Literatura</label>
+            <label class="form-check-label" for="literatura">Literatura</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'literatura_brasileira') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="literatura_brasileira" value="literatura_brasileira">
-            <label class="form-check-label" for="inlineCheckbox2">Literatura brasileira</label>
+            <label class="form-check-label" for="literatura_brasileira">Literatura brasileira</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'literatura_portuguesa') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="literatura_portuguesa" value="literatura_portuguesa">
-            <label class="form-check-label" for="inlineCheckbox2">Literatura Portuguesa</label>
+            <label class="form-check-label" for="literatura_portuguesa">Literatura Portuguesa</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'matematica') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="matematica" value="matematica">
-            <label class="form-check-label" for="inlineCheckbox2">Matemática</label>
+            <label class="form-check-label" for="matematica">Matemática</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'orientacao_profissional') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="orientacao_profissional" value="orientacao_profissional">
-            <label class="form-check-label" for="inlineCheckbox2">Orientação profissional</label>
+            <label class="form-check-label" for="orientacao_profissional">Orientação profissional</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'quimica_1') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="quimica" value="quimica_1">
-            <label class="form-check-label" for="inlineCheckbox2">Química</label>
+            <label class="form-check-label" for="quimica">Química</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'quimica_organica') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="quimica_organica" value="quimica_organica">
-            <label class="form-check-label" for="inlineCheckbox2">Química orgânica</label>
+            <label class="form-check-label" for="quimica_organica">Química orgânica</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'redacao') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="redacao" value="redacao">
-            <label class="form-check-label" for="inlineCheckbox2">Redação</label>
+            <label class="form-check-label" for="redacao">Redação</label>
           </div>
           <div class="form-check form-check-inline">
             <input <?php if(strpos($dados->Disciplinas, 'sociologia') !== false){echo "checked=checked";} ?> class="form-check-input" name="inputDisciplinas[]" type="checkbox" id="sociologia" value="sociologia">
-            <label class="form-check-label" for="inlineCheckbox2">Sociologia</label>
+            <label class="form-check-label" for="sociologia">Sociologia</label>
           </div>
         </div>
       </div>
@@ -303,7 +303,7 @@
         <div class="form-group">
           <label for="inputEscolaridade">Qual a sua escolaridade</label>
           <select name="inputEscolaridade" class="custom-select">
-            <option selected>Selecione</option>
+            <option value="" selected>Selecione</option>
             <option value="Ensino Médio Completo" @if($dados->Escolaridade === 'Ensino Médio Completo') {{ 'selected' }} @endif >Ensino Médio Completo</option>
             <option value="Ensino Médio Cursando" @if($dados->Escolaridade === 'Ensino Médio Cursando') {{ 'selected' }} @endif >Ensino Médio Cursando</option>
             <option value="Ensino Médio Incompleto" @if($dados->Escolaridade === 'Ensino Médio Incompleto') {{ 'selected' }} @endif >Ensino Médio Incompleto</option>
@@ -324,8 +324,8 @@
           <label for="inputOutrosNucleos">Você atua em mais de um núcleo? Qual?</label><br>
           @foreach($nucleos as $nucleo)
           <div class="form-check form-check-inline">
-            <input <?php if($dados->id_nucleo === $nucleo->id || $nucleo->id === $dados->OutrosNucleos){ echo "checked=checked"; } ?> class="form-check-input" name="inputOutrosNucleos[]" type="checkbox" id="artes" value="{{ $nucleo->id }}">
-            <label class="form-check-label" for="inlineCheckbox1">{{ $nucleo->NomeNucleo }}</label>
+            <input <?php if($dados->id_nucleo === $nucleo->id || in_array($nucleo->id, $dados->OutrosNucleos)){ echo "checked=checked"; } ?> class="form-check-input" name="inputOutrosNucleos[]" type="checkbox" id="inputOutrosNucleos{{ $nucleo->id }}" value="{{ $nucleo->id }}">
+            <label class="form-check-label" for="inputOutrosNucleos{{ $nucleo->id }}">{{ $nucleo->NomeNucleo }}</label>
           </div>
           @endforeach
         </div>
