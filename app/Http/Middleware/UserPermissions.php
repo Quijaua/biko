@@ -163,7 +163,8 @@ class UserPermissions
             $allowedCoordenadoresUpdate = 'coordenadores/update/';
             $allowedProfessoresIndex = 'professores';
             $allowedProfessoresSearch = 'professores/search';
-            $allowedProfessoresCreate = 'professores/add';
+            $allowedProfessoresAdd = 'professores/add';
+            $allowedProfessoresCreate = 'professores/create';
             $allowedProfessoresDetails = 'professores/details/';
             $allowedProfessoresEdit = 'professores/edit/';
             $allowedProfessoresUpdate = 'professores/update/';
@@ -227,6 +228,9 @@ class UserPermissions
                 return $next($request);
             }
             if ($currentPath === $allowedProfessoresSearch) {
+                return $next($request);
+            }
+            if ($currentPath === $allowedProfessoresAdd) {
                 return $next($request);
             }
             if ($currentPath === $allowedProfessoresCreate) {
