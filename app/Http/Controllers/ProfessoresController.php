@@ -236,7 +236,7 @@ class ProfessoresController extends Controller
           $horario = HorarioAula::updateOrCreate(
               ['professor_id' => $professor->id, 'nucleo_id' => $request->input('inputNucleo'), 'DiaSemana' => 'Terça'],
               [
-                'professor_id'  => $id,
+                'professor_id'  => $professor->id,
                 'nucleo_id'     => $request->input('inputNucleo'),
                 'DiaSemana'     => 'Terça',
                 'De'            => $horarios['Terca']['de'],
@@ -251,7 +251,7 @@ class ProfessoresController extends Controller
           $horario = HorarioAula::updateOrCreate(
               ['professor_id' => $professor->id, 'nucleo_id' => $request->input('inputNucleo'), 'DiaSemana' => 'Quarta'],
               [
-                'professor_id'  => $id,
+                'professor_id'  => $professor->id,
                 'nucleo_id'     => $request->input('inputNucleo'),
                 'DiaSemana'     => 'Quarta',
                 'De'            => $horarios['Quarta']['de'],
@@ -266,7 +266,7 @@ class ProfessoresController extends Controller
           $horario = HorarioAula::updateOrCreate(
               ['professor_id' => $professor->id, 'nucleo_id' => $request->input('inputNucleo'), 'DiaSemana' => 'Quinta'],
               [
-                'professor_id'  => $id,
+                'professor_id'  => $professor->id,
                 'nucleo_id'     => $request->input('inputNucleo'),
                 'DiaSemana'     => 'Quinta',
                 'De'            => $horarios['Quinta']['de'],
@@ -281,7 +281,7 @@ class ProfessoresController extends Controller
           $horario = HorarioAula::updateOrCreate(
               ['professor_id' => $professor->id, 'nucleo_id' => $request->input('inputNucleo'), 'DiaSemana' => 'Sexta'],
               [
-                'professor_id'  => $id,
+                'professor_id'  => $professor->id,
                 'nucleo_id'     => $request->input('inputNucleo'),
                 'DiaSemana'     => 'Sexta',
                 'De'            => $horarios['Sexta']['de'],
@@ -296,7 +296,7 @@ class ProfessoresController extends Controller
           $horario = HorarioAula::updateOrCreate(
               ['professor_id' => $professor->id, 'nucleo_id' => $request->input('inputNucleo'), 'DiaSemana' => 'Sábado'],
               [
-                'professor_id'  => $id,
+                'professor_id'  => $professor->id,
                 'nucleo_id'     => $request->input('inputNucleo'),
                 'DiaSemana'     => 'Sábado',
                 'De'            => $horarios['Sabado']['de'],
