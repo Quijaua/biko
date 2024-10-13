@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\Nucleo;
 use App\Coordenadores;
 use App\User;
