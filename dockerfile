@@ -63,16 +63,6 @@ RUN echo "\
         }\n\
     }\n" > /etc/nginx/sites-available/default
 
-#RUN echo "\
-#    #!/bin/sh\n\
-#    echo \"Starting services...\"\n\
-#    service php8.2-fpm start\n\
-#    nginx -g \"daemon off;\" &\n\
-#    service mysql start\n\
-#    echo \"Ready.\"\n\
-#    tail -s 1 /var/log/nginx/*.log -f\n\
-#    " > /start.sh
-
 # Install MySQL
 RUN apt install -y mysql-server
 
@@ -85,10 +75,6 @@ RUN chown -R www-data:www-data /var/www/html
 RUN mv .env_docker .env
 RUN mv /var/www/html/start.sh /.
 RUN chmod +x /start.sh
-
-#RUN mysql -u root < create_user_and_database.sql
-#RUN php artisan migrate
-#RUN php artisan db:seed
 
 RUN composer install
 
