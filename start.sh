@@ -1,4 +1,4 @@
-    #!/bin/sh\n\
+    #!/bin/sh
     echo "Starting services..."
     service php8.2-fpm start
     service mysql start
