@@ -10,6 +10,9 @@
         rm /var/www/html/fresh_install
     fi
     nginx -g "daemon off;" &
-    echo "Ready."
+    echo "Ready!"
+    echo "http://localhost:8000"
+    echo "Default username: admin@biko.edu"
+    echo "Default password: admin@biko.edu"
     tail -s 1 /var/log/nginx/*.log -f
     exit
