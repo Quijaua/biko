@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Session;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use App\Aluno;
 
 class HomeController extends Controller
@@ -39,7 +39,11 @@ class HomeController extends Controller
 
         Session::put('role', $user->role);
         Session::put('verified', $user->email_verified_at);
-        $nucleos = \DB::table('nucleos')->get();
+        $nucleos = DB::table('nucleos')->get();
+
+        if ($user->first_login) {
+            return view('first_login.change_password');
+        };
 
         return view('home')->with([
           'user' => $user,
