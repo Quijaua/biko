@@ -23,6 +23,7 @@ class AdministradorSeeder extends Seeder
                 'api_token' => $token,
                 'phone' => '6430000000',
                 'emailVerified' => Carbon::now(),
+                'first_login' => true,
             ],
         ];
 
@@ -34,6 +35,7 @@ class AdministradorSeeder extends Seeder
                 'role' => $role,
                 'phone' => $row['phone'],
                 'email_verified_at' => $row['emailVerified'],
+                'first_login' => $row['first_login'],
             ]);
         }
     }
