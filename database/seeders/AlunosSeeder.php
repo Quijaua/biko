@@ -1,35 +1,39 @@
 <?php
 
+namespace Database\Seeders;
+
+use App\Aluno;
 use App\Nucleo;
-use App\Professores;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
-class ProfessoresSeeder extends Seeder
+class AlunosSeeder extends Seeder
 {
 
     public function run() {
-        $role = 'professor';
+        $role = 'aluno';
 
         $data = [
-            'Professor A' => [
-                'name' => 'Professor A',
-                'email' => 'Professora@biko.edu',
-                'password' => 'Professora@biko.edu',
+            'Aluno A' => [
+                'name' => 'Aluno A',
+                'email' => 'alunoa@biko.edu',
+                'password' => 'alunoa@biko.edu',
                 'phone' => '6430000000',
                 'nucleo' => 'Núcleo A',
                 'status' => 1,
+                'listaEspera' => 'Não',
                 'emailVerified' => Carbon::now(),
             ],
-            'Professor B' => [
-                'name' => 'Professor B',
-                'email' => 'Professorb@biko.edu',
-                'password' => 'Professorb@biko.edu',
+            'Aluno B' => [
+                'name' => 'Aluno B',
+                'email' => 'alunob@biko.edu',
+                'password' => 'alunob@biko.edu',
                 'phone' => '6440000000',
                 'nucleo' => 'Núcleo B',
                 'status' => 0,
+                'listaEspera' => 'Sim',
                 'emailVerified' => null,
             ],
         ];
@@ -46,13 +50,15 @@ class ProfessoresSeeder extends Seeder
 
             $nucleo = Nucleo::where('NomeNucleo', $row['nucleo'])->first();
 
-            Professores::create([
-                'NomeProfessor' => $user->name,
+            Aluno::create([
+                'NomeAluno' => $user->name,
                 'id_user' => $user->id,
                 'Status' => $row['status'],
                 'FoneCelular' => $user->phone,
                 'Email' => $user->email,
                 'id_nucleo' => $nucleo->id,
+                'NomeNucleo' => $nucleo->NomeNucleo,
+                'ListaEspera' => $row['listaEspera'],
             ]);
         }
     }
