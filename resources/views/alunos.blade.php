@@ -120,7 +120,7 @@
               <a class="btn btn-info text-light" href="/alunos/details/{{ $aluno->id }}">Detalhes</a>
               <a class="btn btn-primary" href="/alunos/edit/{{ $aluno->id }}">Editar</a>
               @if($aluno->Status === 1)
-              <a class="btn btn-danger disableBtn" href="/alunos/disable/{{ $aluno->id }}">Inativar</a>
+              <a class="mx-6 btn btn-danger disableBtn" href="/alunos/disable/{{ $aluno->id }}">Inativar</a>
               @else
               <a class="btn btn-success enableBtn" href="/alunos/enable/{{ $aluno->id }}">Ativar</a>
               @endif

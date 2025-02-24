@@ -19,8 +19,11 @@
 
                         <div class="row">
                           <div class="col-12 col-md-6">
+
                             <div class="form-group">
+
                               <label for="name">{{ __('Nome') }}</label>
+
                               <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                               <small id="nameHelp" class="form-text text-muted">Por favor, informe seu nome completo, da mesma forma em que consta em seu RG.</small>
                             </div>
