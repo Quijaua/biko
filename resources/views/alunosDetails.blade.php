@@ -19,39 +19,39 @@
   </div>
 
   <div class="row mt-4 mb-4">
-    <div class="col-2">
-      <a class="btn btn-block btn-danger" href="/alunos/edit/{{ $dados->id }}"><i class="fas fa-user-edit"></i> Editar Dados</a>
+    <div class="col-auto">
+      <a class="btn btn-block btn-danger" href="/alunos/edit/{{ $dados->id }}"><i class="me-2 fas fa-user-edit"></i> Editar Dados</a>
     </div>
-    <div class="col-2">
-      <a class="btn btn-block btn-primary" href="/alunos"><i class="fas fa-arrow-left"></i> Voltar</a>
+    <div class="col-auto">
+      <a class="btn btn-block btn-primary" href="/alunos"><i class="me-2 fas fa-arrow-left"></i> Voltar</a>
     </div>
-    <div class="col-2">
-      <a class="btn btn-block btn-success text-light" href="javascript:window.print()"><i class="fas fa-print"></i> Imprimir</a>
+    <div class="col-auto">
+      <a class="btn btn-block btn-success text-light" href="javascript:window.print()"><i class="me-2 fas fa-print"></i> Imprimir</a>
     </div>
     @if($user->role === 'administrador')
-    <div class="col-2">
-      <a class="btn btn-block btn-info text-light" href="/alunos/log/{{ $dados->id }}"><i class="fas fa-info-circle"></i> Registro de ações</a>
+    <div class="col-auto">
+      <a class="btn btn-block btn-info text-light" href="/alunos/log/{{ $dados->id }}"><i class="me-2 fas fa-info-circle"></i> Registro de ações</a>
     </div>
     @endif
   </div>
   <h3>DADOS PESSOAIS</h3>
   <div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputNomeAluno">Nome do aluno</span>
         <input type="text" class="form-control" id="inputNomeAluno" name="inputNomeAluno" aria-describedby="inputNomeAlunoHelp" value="{{ $dados->NomeAluno }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
-        <label for="inputNomeSocial">Nome Social do aluno</label>
+      <div class="mb-3">
+        <label class="form-label mb-2" for="inputNomeSocial">Nome Social do aluno</label>
         <input type="text" class="form-control" id="inputNomeSocial" name="inputNomeSocial" aria-describedby="inputNomeSocialHelp" value="{{ $dados->NomeSocial }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputNucleo">Núcleo</span>
-        <select name="inputNucleo" class="custom-select" disabled>
+        <select name="inputNucleo" class="form-select" disabled>
           <option selected>Selecione</option>
           @foreach($nucleos as $nucleo)
           <option  <?php if($nucleo->id == $dados->id_nucleo){ echo 'selected=selected';} ?> value="{{ $nucleo->id }}">{{ $nucleo->NomeNucleo }}</option>
@@ -60,12 +60,12 @@
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
-        <!--<label for="inputListaEspera">Lista de Espera</label>--><br />
+      <div class="mb-3">
+        <!--<label class="form-label mb-2" for="inputListaEspera">Lista de Espera</label>--><br />
         <div class="form-check form-check-inline">
           @if($user->role === 'administrador' || $user->role === 'coordenador')
           <input class="form-check-input" name="inputListaEspera" type="checkbox" value="{{ $dados->ListaEspera }}" @if($dados->ListaEspera)checked @else @endif disabled>
-          <label class="form-check-label" for="inputListaEspera">Lista de Espera</label>
+          <label class="form-label mb-2" class="form-check-label" for="inputListaEspera">Lista de Espera</label>
           @endif
         </div>
       </div>
@@ -73,50 +73,50 @@
   </div>
   <div class="row">
     <!--<div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputCPF">CPF</span>
         <input type="text" class="form-control" id="inputCPF" name="inputCPF" aria-describedby="inputCPFHelp" data-mask="000.000.000-00" value="{{ $dados->CPF }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputRG">RG</span>
         <input type="text" class="form-control" id="inputRG" name="inputRG" aria-describedby="inputRGHelp" data-mask="00.000.000-00" value="{{ $dados->RG }}" disabled>
       </div>
     </div>-->
     <div class="col">
-      <label for="temFilhos">Tem filhos?</label>
+      <label class="form-label mb-2" for="temFilhos">Tem filhos?</label>
       <div class="form-check">
         <input class="form-check-input" type="radio" name="temFilhos" id="temFilhos1" value="1" @if($dados->temFilhos === 1) {{ 'checked' }} @endif disabled>
-        <label class="form-check-label" for="temFilhos1">
+        <label class="form-label mb-2" class="form-check-label" for="temFilhos1">
           Sim
         </label>
       </div>
       <div class="form-check">
         <input class="form-check-input" type="radio" name="temFilhos" id="temFilhos2" value="0" @if($dados->temFilhos === 0) {{ 'checked' }} @endif disabled>
-        <label class="form-check-label" for="temFilhos2">
+        <label class="form-label mb-2" class="form-check-label" for="temFilhos2">
           Não
         </label>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
-        <label for="filhosQt">Quantos?</label>
+      <div class="mb-3">
+        <label class="form-label mb-2" for="filhosQt">Quantos?</label>
         <input class="form-control" type="number" id="filhosQt" name="filhosQt" value="{{ $dados->filhosQt }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
-        <label for="inputEmail">Email</label>
+      <div class="mb-3">
+        <label class="form-label mb-2" for="inputEmail">Email</label>
         <input type="email" class="form-control" id="inputEmail" name="inputEmail" aria-describedby="inputEmailHelp" value="{{ $dados->Email }}" disabled>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputRaca">Raça / Cor</span>
-        <select name="inputRaca" class="custom-select" disabled>
+        <select name="inputRaca" class="formcust-select" disabled>
           <option selected>Selecione</option>
           <option <?php if($dados->Raca == 'negra'){ echo 'selected=selected';} ?> value="negra">Preta</option>
           <option <?php if($dados->Raca == 'branca'){ echo 'selected=selected';} ?> value="branca">Branca</option>
@@ -127,9 +127,9 @@
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputGenero">Identidade de Gênero</span>
-        <select name="inputGenero" class="custom-select" disabled>
+        <select name="inputGenero" class="form-select" disabled>
           <option selected>Selecione</option>
           <option <?php if($dados->Genero == 'mulher' || $dados->Genero == 'mulher_trans_cis'){ echo 'selected=selected';} ?> value="mulher">Mulher (Cis/Trans)</option>
           <option <?php if($dados->Genero == 'homem' || $dados->Genero == 'homem_trans_cis'){ echo 'selected=selected';} ?> value="homem">Homem (Cis/Trans)</option>
@@ -140,9 +140,9 @@
   </div>
   <div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputEstadoCivil">Estado Civil</span>
-        <select name="inputEstadoCivil" class="custom-select" disabled>
+        <select name="inputEstadoCivil" class="form-select" disabled>
           <option selected>Selecione</option>
           <option <?php if($dados->EstadoCivil == 'solteiro_a'){ echo 'selected=selected';} ?> value="solteiro_a">Solteiro(a)</option>
           <option <?php if($dados->EstadoCivil == 'casado_a'){ echo 'selected=selected';} ?> value="casado_a">Casado(a)</option>
@@ -153,24 +153,24 @@
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputNascimento">Data de Nascimento</span>
         <input type="date" class="form-control" id="inputNascimento" name="inputNascimento" aria-describedby="inputNascimentoHelp" value="{{ $dados->Nascimento }}" onblur="getAge()" disabled>
       </div>
     </div>
 
     <div class="col-12 col-md-6">
-      <div class="form-group">
-        <label for="concordaSexoDesignado">Você se identifica com o gênero designado ao nascer?</label>
+      <div class="mb-3">
+        <label class="form-label mb-2" for="concordaSexoDesignado">Você se identifica com o gênero designado ao nascer?</label>
         <div class="form-check">
           <input class="form-check-input" type="radio" name="concordaSexoDesignado" id="concordaSexoDesignado1" value="1" @if( $dados->concordaSexoDesignado ) {{ 'checked' }} @endif disabled>
-          <label class="form-check-label" for="concordaSexoDesignado1">
+          <label class="form-label mb-2" class="form-check-label" for="concordaSexoDesignado1">
             Sim
           </label>
         </div>
         <div class="form-check">
           <input class="form-check-input" type="radio" name="concordaSexoDesignado" id="concordaSexoDesignado2" value="0" @if( !$dados->concordaSexoDesignado ) {{ 'checked' }} @endif disabled >
-          <label class="form-check-label" for="concordaSexoDesignado2">
+          <label class="form-label mb-2" class="form-check-label" for="concordaSexoDesignado2">
             Não
           </label>
         </div>
@@ -181,9 +181,9 @@
 
   <div class="row">
     <div class="col-12">
-      <div class="form-group">
-        <label for="responsavelCuidadoOutraPessoa">É responsável pelo cuidado de outra pessoa?</label>
-        <select name="responsavelCuidadoOutraPessoa" class="custom-select" disabled>
+      <div class="mb-3">
+        <label class="form-label mb-2" for="responsavelCuidadoOutraPessoa">É responsável pelo cuidado de outra pessoa?</label>
+        <select name="responsavelCuidadoOutraPessoa" class="form-select" disabled>
           <option value="Não" @if( $dados->responsavelCuidadoOutraPessoa === 'Não' ) {{ 'selected' }} @endif >Não</option>
           <option value="Sim, por uma criança" @if( $dados->responsavelCuidadoOutraPessoa === 'Sim, por uma criança' ) {{ 'selected' }} @endif >Sim, por uma criança</option>
           <option value="Sim, por uma pessoa idosa ou pessoa adulta que demanda cuidados especiais" @if( $dados->responsavelCuidadoOutraPessoa === 'Sim, por uma pessoa idosa ou pessoa adulta que demanda cuidados especiais' ) {{ 'selected' }} @endif >Sim, por uma pessoa idosa ou pessoa adulta que demanda cuidados especiais</option>
@@ -194,23 +194,23 @@
 
   <div class="row">
     <div class="col">
-      <div class="form-group">
-        <label for="inputAuxGoverno">A família recebe algumn tipo de auxílio do Governo?</label>
+      <div class="mb-3">
+        <label class="form-label mb-2" for="inputAuxGoverno">A família recebe algumn tipo de auxílio do Governo?</label>
         <div id="AuxGoverno" class="form-check form-check-inline">
           <input <?php if($dados->AuxGoverno == 'sim'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno1" value="sim" onclick="showInput('#AuxTipo')" disabled>
-          <label class="form-check-label" for="inputTaxaInscricao1">Sim</label>
+          <label class="form-label mb-2" class="form-check-label" for="inputTaxaInscricao1">Sim</label>
         </div>
         <div class="form-check form-check-inline">
           <input <?php if($dados->AuxGoverno == 'nao'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno2" value="nao" onclick="hideAuxInput('#AuxTipo')" disabled>
-          <label class="form-check-label" for="inputTaxaInscricao2">Não</label>
+          <label class="form-label mb-2" class="form-check-label" for="inputTaxaInscricao2">Não</label>
         </div>
       </div>
     </div>
     <div class="col">
       @if($dados->AuxGoverno == 'nao' or $dados->AuxGoverno == NULL)
-      <div id="AuxTipo" class="form-group" style="display:none;">
-        <label for="inputAuxTipo">Qual?</label>
-        <select name="inputAuxTipo" class="custom-select">
+      <div id="AuxTipo" class="mb-3" style="display:none;">
+        <label class="form-label mb-2" for="inputAuxTipo">Qual?</label>
+        <select name="inputAuxTipo" class="form-select">
           <option value="" selected>Selecione</option>
           <option value="bolsa_familia">Programa Bolsa Família</option>
           <option value="energia_eletrica">Tarifa Social de Energia Elétrica</option>
@@ -219,9 +219,9 @@
         </select>
       </div>
       @else
-      <div id="AuxTipo" class="form-group">
-        <label for="inputAuxTipo">Qual?</label>
-        <select name="inputAuxTipo" class="custom-select">
+      <div id="AuxTipo" class="mb-3">
+        <label class="form-label mb-2" for="inputAuxTipo">Qual?</label>
+        <select name="inputAuxTipo" class="form-select">
           <option value="">Selecione</option>
           <option <?php if($dados->AuxTipo == 'bolsa_familia'){ echo 'selected=selected';} ?> value="bolsa_familia">Programa Bolsa Família</option>
           <option <?php if($dados->AuxTipo == 'energia_eletrica'){ echo 'selected=selected';} ?> value="energia_eletrica">Tarifa Social de Energia Elétrica</option>
@@ -236,19 +236,19 @@
   <h3>ENDEREÇO</h3>
   <div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputCEP">CEP (Somente números)</span>
         <input type="text" class="form-control" id="inputCEP" name="inputCEP" aria-describedby="inputCEPHelp" data-mask="00000-000" value="{{ $dados->CEP }}" onblur="checkCEP('#inputCEP')" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputEndereco">Rua</span>
         <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEndereco" name="inputEndereco" aria-describedby="inputEnderecoHelp" value="{{ $dados->Endereco }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputNumero">Número</span>
         <input type="number" class="form-control" id="inputNumero" name="inputNumero" aria-describedby="inputNumeroHelp" value="{{ $dados->Numero }}" disabled>
       </div>
@@ -256,13 +256,13 @@
   </div>
   <div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputBairro">Distrito</span>
         <input type="text" class="form-control" id="inputBairro" name="inputBairro" aria-describedby="inputBairroHelp" value="{{ $dados->Bairro }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputCidade">Cidade</span>
         <input type="text" class="form-control" id="inputCidade" name="inputCidade" aria-describedby="inputCidadeHelp" value="{{ $dados->Cidade }}" disabled>
       </div>
@@ -270,9 +270,9 @@
   </div>
   <div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputEstado">Estado</span>
-        <select name="inputEstado" class="custom-select" disabled>
+        <select name="inputEstado" class="form-select" disabled>
           <option selected>Selecione</option>
           <option <?php if($dados->Estado == 'AC'){ echo 'selected=selected';} ?> value="AC">Acre</option>
           <option <?php if($dados->Estado == 'AL'){ echo 'selected=selected';} ?> value="AL">Alagoas</option>
@@ -306,7 +306,7 @@
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputComplemento">Complemento</span>
         <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" value="{{ $dados->Complemento }}" disabled>
       </div>
@@ -314,19 +314,19 @@
   </div>
   <div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputFoneComercial">Telefone Comercial</span>
         <input type="phone" class="form-control" id="inputFoneComercial" name="inputFoneComercial" aria-describedby="inputFoneComercialHelp" data-mask="(00) 0000-0000" value="{{ $dados->FoneComercial }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputFoneResidencial">Telefone Residencial</span>
         <input type="phone" class="form-control" id="inputFoneResidencial" name="inputFoneResidencial" aria-describedby="inputFoneResidencialHelp" data-mask="(00) 0000-0000" value="{{ $dados->FoneResidencial }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputFoneCelular">Telefone Celular</span>
         <input type="phone" class="form-control" id="inputFoneCelular" name="inputFoneCelular" aria-describedby="inputFoneCelularHelp" data-mask="(00) 0 0000-0000" value="{{ $dados->FoneCelular }}" disabled>
       </div>
@@ -336,9 +336,9 @@
   <h3>DADOS PROFISSIONAIS</h3>
   <div class="row">
     <div class="col-12 col-md-6">
-      <div class="form-group">
-        <label for="inputRamoAtuacao">Você trabalha no ramo da:</label>
-        <select id="inputRamoAtuacao" name="inputRamoAtuacao" class="custom-select" disabled>
+      <div class="mb-3">
+        <label class="form-label mb-2" for="inputRamoAtuacao">Você trabalha no ramo da:</label>
+        <select id="inputRamoAtuacao" name="inputRamoAtuacao" class="form-select" disabled>
           <option value="Educação" @if( $dados->RamoAtuacao == 'Educação' ) {{ 'selected' }} @endif >Educação</option>
           <option value="Pesquisa" @if( $dados->RamoAtuacao == 'Pesquisa' ) {{ 'selected' }} @endif >Pesquisa</option>
           <option value="Telemarketing" @if( $dados->RamoAtuacao == 'Telemarketing' ) {{ 'selected' }} @endif >Telemarketing</option>
@@ -358,13 +358,13 @@
       </div>
     </div>
     <div class="col-12 col-md-6">
-      <label for="inputRamoAtuacaoOutros">&nbsp;</label>
+      <label class="form-label mb-2" for="inputRamoAtuacaoOutros">&nbsp;</label>
       <input type="text" class="form-control" id="inputRamoAtuacaoOutros" name="inputRamoAtuacaoOutros" aria-describedby="inputRamoAtuacaoOutrosHelp" placeholder="Outros (Especifique)" value="{{ $dados->RamoAtuacaoOutros }}" disabled>
     </div>
   </div>
   <!--<div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputEmpresa">Nome da Empresa</span>
         <input type="text" class="form-control" id="inputEmpresa" name="inputEmpresa" aria-describedby="inputEmpresaHelp" value="{{ $dados->Empresa }}" disabled>
       </div>
@@ -372,19 +372,19 @@
   </div>-->
   <!--<div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputCEPEmpresa">CEP</span>
         <input type="text" class="form-control" id="inputCEPEmpresa" name="inputCEPEmpresa" aria-describedby="inputCEPEmpresaHelp" data-mask="00000-000" value="{{ $dados->CEPEmpresa }}" onblur="checkCEP('#inputCEPEmpresa')" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputEnderecoEmpresa">Rua</span>
         <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEnderecoEmpresa" name="inputEnderecoEmpresa" aria-describedby="inputEnderecoEmpresaHelp" value="{{ $dados->EnderecoEmpresa }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputNumeroEmpresa">Número</span>
         <input type="text" class="form-control" id="inputNumeroEmpresa" name="inputNumeroEmpresa" aria-describedby="inputNumeroEmpresaHelp" value="{{ $dados->NumeroEmpresa }}" disabled>
       </div>
@@ -392,27 +392,27 @@
   </div>-->
   <!--<div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputBairroEmpresa">Bairro</span>
         <input type="text" class="form-control" id="inputBairroEmpresa" name="inputBairroEmpresa" aria-describedby="inputBairroEmpresaHelp" value="{{ $dados->BairroEmpresa }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputCidadeEmpresa">Cidade</span>
         <input type="text" class="form-control" id="inputCidadeEmpresa" name="inputCidadeEmpresa" aria-describedby="inputCidadeEmpresaHelp" value="{{ $dados->CidadeEmpresa }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputComplementoEmpresa">Complemento</span>
         <input type="text" class="form-control" id="inputComplementoEmpresa" name="inputComplementoEmpresa" aria-describedby="inputComplementoEmpresaHelp" value="{{ $dados->ComplementoEmpresa }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputEstadoEmpresa">Estado</span>
-        <select name="inputEstadoEmpresa" class="custom-select" disabled>
+        <select name="inputEstadoEmpresa" class="form-select" disabled>
           <option selected>Selecione</option>
           <option <?php if($dados->EstadoEmpresa == 'AC'){ echo 'selected=selected';} ?> value="AC">Acre</option>
           <option <?php if($dados->EstadoEmpresa == 'AL'){ echo 'selected=selected';} ?> value="AL">Alagoas</option>
@@ -448,7 +448,7 @@
   </div>-->
   <!--<div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputCargo">Cargo/Função</span>
         <input type="text" class="form-control" id="inputCargo" name="inputCargo" aria-describedby="inputCargoHelp" value="{{ $dados->Cargo }}" disabled>
       </div>
@@ -459,13 +459,13 @@
       <p>Horário de Trabalho</p>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputHorarioFrom">De</span>
         <input type="time" class="form-control" id="inputHorarioFrom" name="inputHorarioFrom" aria-describedby="inputHorarioFromHelp" value="{{ $dados->HorarioFrom }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputHorarioTo">Até</span>
         <input type="time" class="form-control" id="inputHorarioTo" name="inputHorarioTo" aria-describedby="inputHorarioToHelp" value="{{ $dados->HorarioTo }}" disabled>
       </div>
@@ -476,13 +476,13 @@
   <h3>DADOS FAMILIARES</h3>
   <div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputNomeMae">Nome da Mãe</span>
         <input type="text" class="form-control" id="inputNomeMae" name="inputNomeMae" aria-describedby="inputNomeMaeHelp" value="{{ $dados->NomeMae }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputNomePai">Nome do Pai</span>
         <input type="text" class="form-control" id="inputNomePai" name="inputNomePai" aria-describedby="inputNomePaiHelp" value="{{ $dados->NomePai }}" disabled>
       </div>
@@ -490,19 +490,19 @@
   </div>
   <div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputCEPFamilia">CEP</span>
         <input type="text" class="form-control" id="inputCEPFamilia" name="inputCEPFamilia" aria-describedby="inputCEPFamiliaHelp" data-mask="00000-000" value="{{ $dados->CEPFamilia }}" onblur="checkCEP('#inputCEPFamilia')" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputEnderecoFamilia">Rua</span>
         <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEnderecoFamilia" name="inputEnderecoFamilia" aria-describedby="inputEnderecoFamiliaHelp" value="{{ $dados->EnderecoFamilia }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputNumeroFamilia">Número</span>
         <input type="number" class="form-control" id="inputNumeroFamilia" name="inputNumeroFamilia" aria-describedby="inputNumeroFamiliaHelp" value="{{ $dados->NumeroFamilia }}" disabled>
       </div>
@@ -510,27 +510,27 @@
   </div>
   <div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputComplementoFamilia">Complemento</span>
         <input type="text" class="form-control" id="inputComplementoFamilia" name="inputComplementoFamilia" aria-describedby="inputComplementoFamiliaHelp" value="{{ $dados->ComplementoFamilia }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputBairroFamilia">Bairro</span>
         <input type="text" class="form-control" id="inputBairroFamilia" name="inputBairroFamilia" aria-describedby="inputBairroFamiliaHelp" value="{{ $dados->BairroFamilia }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputCidadeFamilia">Cidade</span>
         <input type="text" class="form-control" id="inputCidadeFamilia" name="inputCidadeFamilia" aria-describedby="inputCidadeFamiliaHelp" value="{{ $dados->CidadeFamilia }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputEstadoFamilia">Estado</span>
-        <select id="inputEstadoFamilia" name="inputEstadoFamilia" class="custom-select" disabled>
+        <select id="inputEstadoFamilia" name="inputEstadoFamilia" class="form-select" disabled>
           <option selected>Selecione</option>
           <option <?php if($dados->EstadoFamilia == 'AC'){ echo 'selected=selected';} ?> value="AC">Acre</option>
           <option <?php if($dados->EstadoFamilia == 'AL'){ echo 'selected=selected';} ?> value="AL">Alagoas</option>
@@ -566,29 +566,29 @@
   </div>
   <div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputTelefoneFamilia">Telefone</span>
         <input type="text" class="form-control" id="inputTelefoneFamilia" name="inputTelefoneFamilia" aria-describedby="inputTelefoneFamiliaHelp" data-mask="(00) 0000-0000" value="{{ $dados->TelefoneFamilia }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
-        <label for="inputAuxGoverno">A família recebe algumn tipo de auxílio do Governo?</label>
+      <div class="mb-3">
+        <label class="form-label mb-2" for="inputAuxGoverno">A família recebe algumn tipo de auxílio do Governo?</label>
         <div id="AuxGoverno" class="form-check form-check-inline">
           <input <?php if($dados->AuxGoverno == 'sim'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno1" value="sim" disabled>
-          <label class="form-check-label" for="inputTaxaInscricao1">Sim</label>
+          <label class="form-label mb-2" class="form-check-label" for="inputTaxaInscricao1">Sim</label>
         </div>
         <div class="form-check form-check-inline">
           <input <?php if($dados->AuxGoverno == 'nao'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno2" value="nao" disabled>
-          <label class="form-check-label" for="inputTaxaInscricao2">Não</label>
+          <label class="form-label mb-2" class="form-check-label" for="inputTaxaInscricao2">Não</label>
         </div>
       </div>
     </div>
     <div class="col">
       @if($dados->AuxGoverno == 'sim')
-      <div id="AuxTipo" class="form-group">
-        <label for="inputAuxTipo">Qual?</label>
-        <select name="inputAuxTipo" class="custom-select" disabled>
+      <div id="AuxTipo" class="mb-3">
+        <label class="form-label mb-2" for="inputAuxTipo">Qual?</label>
+        <select name="inputAuxTipo" class="form-select" disabled>
           <option selected>Selecione</option>
           <option <?php if($dados->AuxTipo == 'bolsa_familia'){ echo 'selected=selected';} ?> value="bolsa_familia">Programa Bolsa Família</option>
           <option <?php if($dados->AuxTipo == 'energia_eletrica'){ echo 'selected=selected';} ?> value="energia_eletrica">Tarifa Social de Energia Elétrica</option>
@@ -607,9 +607,9 @@
       <div id="item" class="stage">
         <div class="row">
           <div class="col">
-            <div class="form-group">
-              <label for="inputGrauParentesco">Grau de Parentesco</label>
-              <select name="inputGrauParentesco" class="custom-select" disabled>
+            <div class="mb-3">
+              <label class="form-label mb-2" for="inputGrauParentesco">Grau de Parentesco</label>
+              <select name="inputGrauParentesco" class="form-select" disabled>
                 <option selected>Selecione</option>
                 <option <?php if($parente->GrauParentesco === 'pai'){echo 'selected=selected';} ?> value="pai">Pai</option>
                 <option <?php if($parente->GrauParentesco === 'mae'){echo 'selected=selected';} ?> value="mae">Mãe</option>
@@ -624,15 +624,15 @@
             </div>
           </div>
           <div class="col">
-            <div class="form-group">
-              <label for="inputIdade">Idade</label>
+            <div class="mb-3">
+              <label class="form-label mb-2" for="inputIdade">Idade</label>
               <input type="number" class="form-control" id="inputIdade" name="inputIdade" aria-describedby="inputIdadeHelp" value="{{ $parente->Idade }}" disabled>
             </div>
           </div>
           <div class="col">
-            <div class="form-group">
-              <label for="inputEstadoCivil">Estado Civil</label>
-              <select name="inputEstadoCivil" class="custom-select" disabled>
+            <div class="mb-3">
+              <label class="form-label mb-2" for="inputEstadoCivil">Estado Civil</label>
+              <select name="inputEstadoCivil" class="form-select" disabled>
                 <option selected>Selecione</option>
                 <option <?php if($parente->EstadoCivil === 'solteiro_a'){echo 'selected=selected';} ?> value="solteiro_a">Solteiro(a)</option>
                 <option <?php if($parente->EstadoCivil === 'casado_a'){echo 'selected=selected';} ?> value="casado_a">Casado(a)</option>
@@ -645,9 +645,9 @@
         </div>
         <div class="row">
           <div class="col">
-            <div class="form-group">
-              <label for="inputEscolaridade">Escolaridade</label>
-              <select name="inputEscolaridade" class="custom-select" disabled>
+            <div class="mb-3">
+              <label class="form-label mb-2" for="inputEscolaridade">Escolaridade</label>
+              <select name="inputEscolaridade" class="form-select" disabled>
                 <option selected>Selecione</option>
                 <option <?php if($parente->Escolaridade === 'fundamental_completo'){echo 'selected=selected';} ?> value="fundamental_completo">Ensino Fundamental Completo</option>
                 <option <?php if($parente->Escolaridade === 'fundamental_incompleto'){echo 'selected=selected';} ?> value="fundamental_incompleto">Ensino Fundamental Incompleto</option>
@@ -659,14 +659,14 @@
             </div>
           </div>
           <div class="col">
-            <div class="form-group">
-              <label for="inputProfissao">Profissão</label>
+            <div class="mb-3">
+              <label class="form-label mb-2" for="inputProfissao">Profissão</label>
               <input type="text" class="form-control" id="inputProfissao" name="inputProfissao" aria-describedby="inputProfissaoHelp" value="{{ $parente->Profissao }}" disabled>
             </div>
           </div>
           <div class="col">
-            <div class="form-group">
-              <label for="inputRenda">Renda Mensal R$</label>
+            <div class="mb-3">
+              <label class="form-label mb-2" for="inputRenda">Renda Mensal R$</label>
               <input type="number" class="form-control" id="inputRenda" name="inputRenda" aria-describedby="inputRendaHelp" value="{{ $parente->Renda }}" disabled>
             </div>
           </div>
@@ -681,9 +681,9 @@
 
   <div class="row">
     <div class="col">
-      <div class="form-group">
-        <label for="inputEscolaridade">Qual a sua escolaridade</label>
-        <select name="inputEscolaridade" class="custom-select" disabled>
+      <div class="mb-3">
+        <label class="form-label mb-2" for="inputEscolaridade">Qual a sua escolaridade</label>
+        <select name="inputEscolaridade" class="form-select" disabled>
           <option selected>Selecione</option>
           <option value="Ensino fundamental completo" @if( $dados->Escolaridade === 'Ensino fundamental completo' ) {{ 'selected' }} @endif >Ensino fundamental completo</option>
           <option value="Ensino fundamental incompleto" @if( $dados->Escolaridade === 'Ensino fundamental incompleto' ) {{ 'selected' }} @endif >Ensino fundamental incompleto</option>
@@ -701,7 +701,7 @@
 
   <div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputEnsFundamental">Ensino Fundamental</span><br>
         <div class="form-check form-check-inline">
           <input <?php if(strpos($dados->EnsFundamental, 'rede publica') !== FALSE){ echo 'checked=checked';} ?> class="form-check-input" name="inputEnsFundamental[]" type="checkbox" id="rede_publica" value="rede publica" disabled>
@@ -714,7 +714,7 @@
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputPorcentagemBolsa">Particular com bolsa de:</span>
         <input max="100" pattern="[0-9]{1,3}" type="number" class="form-control" id="inputPorcentagemBolsa" name="inputPorcentagemBolsa" aria-describedby="inputPorcentagemBolsaHelp" value="{{ $dados->PorcentagemBolsa }}" disabled>
       </div>
@@ -722,7 +722,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputEnsMedio">Ensino Médio</span><br>
         <div class="form-check form-check-inline">
           <input <?php if(strpos($dados->EnsMedio, 'rede publica') !== FALSE){ echo 'checked=checked';} ?> class="form-check-input" name="inputEnsMedio[]" type="checkbox" id="rede_publica" value="rede publica" disabled>
@@ -735,7 +735,7 @@
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputPorcentagemBolsaMedio">Particular com bolsa de:</span>
         <input max="100" pattern="[0-9]{1,3}" type="number" class="form-control" id="inputPorcentagemBolsaMedio" name="inputPorcentagemBolsaMedio" aria-describedby="inputPorcentagemBolsaMedioHelp" value="{{ $dados->PorcentagemBolsaMedio }}" disabled>
       </div>
@@ -743,39 +743,39 @@
   </div>
   <div class="row">
     <div class="col">
-      <div class="form-group">
-        <label for="inputVestibular">Já prestou algum vestibular?</label>
+      <div class="mb-3">
+        <label class="form-label mb-2" for="inputVestibular">Já prestou algum vestibular?</label>
         <br>
         <div id="Vestibular" class="form-check form-check-inline">
           <input <?php if($dados->Vestibular == 'Sim'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputVestibular" id="inputVestibular1" value="Sim" onclick="showInput('.dados-faculdade')" disabled>
-          <label class="form-check-label" for="inputVestibular1">Sim</label>
+          <label class="form-label mb-2" class="form-check-label" for="inputVestibular1">Sim</label>
         </div>
         <div class="form-check form-check-inline">
           <input <?php if($dados->Vestibular == 'Não'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputVestibular" id="inputVestibular2" value="Não" onclick="hideInput('.dados-faculdade')" disabled>
-          <label class="form-check-label" for="inputVestibular2">Não</label>
+          <label class="form-label mb-2" class="form-check-label" for="inputVestibular2">Não</label>
         </div>
       </div>
     </div>
     <div class="col">
       @if($dados->Vestibular == 'sim')
-      <div class="form-group dados-faculdade">
-        <label for="inputFaculdadeTipo">Faculdade pública ou particular?</label>
+      <div class="mb-3 dados-faculdade">
+        <label class="form-label mb-2" for="inputFaculdadeTipo">Faculdade pública ou particular?</label>
         <br>
         <div class="form-check form-check-inline">
           <input <?php if($dados->FaculdadeTipo == 'publica'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputFaculdadeTipo" id="inputFaculdadeTipo1" value="publica" disabled>
-          <label class="form-check-label" for="inputFaculdadeTipo1">Pública</label>
+          <label class="form-label mb-2" class="form-check-label" for="inputFaculdadeTipo1">Pública</label>
         </div>
         <div class="form-check form-check-inline">
           <input <?php if($dados->FaculdadeTipo == 'particular'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputFaculdadeTipo" id="inputFaculdadeTipo2" value="particular" disabled>
-          <label class="form-check-label" for="inputFaculdadeTipo2">Particular</label>
+          <label class="form-label mb-2" class="form-check-label" for="inputFaculdadeTipo2">Particular</label>
         </div>
       </div>
       @endif
     </div>
     <div class="col">
       @if($dados->Vestibular == 'sim')
-      <div class="form-group dados-faculdade">
-        <label for="inputNomeFaculdade">Qual nome da Faculdade?</label>
+      <div class="mb-3 dados-faculdade">
+        <label class="form-label mb-2" for="inputNomeFaculdade">Qual nome da Faculdade?</label>
         <input type="text" class="form-control" id="inputNomeFaculdade" name="inputNomeFaculdade" aria-describedby="inputNomeFaculdadeHelp" value="{{ $dados->NomeFaculdade }}" disabled>
       </div>
       @endif
@@ -784,16 +784,16 @@
   <div class="row mb-2">
     <div class="col">
       @if($dados->Vestibular == 'sim')
-      <div class="form-group dados-faculdade">
-        <label for="inputCursoFaculdade">Curso</label>
+      <div class="mb-3 dados-faculdade">
+        <label class="form-label mb-2" for="inputCursoFaculdade">Curso</label>
         <input type="text" class="form-control" id="inputCursoFaculdade" name="inputCursoFaculdade" aria-describedby="inputCursoFaculdadeHelp" value="{{ $dados->CursoFaculdade }}" disabled>
       </div>
       @endif
     </div>
     <div class="col">
-      <div class="form-group dados-faculdade">
-        <label for="inputAnoFaculdade">Ano</label>
-        <select name="inputAnoFaculdade" class="custom-select"  disabled>
+      <div class="mb-3 dados-faculdade">
+        <label class="form-label mb-2" for="inputAnoFaculdade">Ano</label>
+        <select name="inputAnoFaculdade" class="form-select"  disabled>
           <option selected>Selecione</option>
           <option <?php if($dados->AnoFaculdade == '1969'){ echo 'selected=selected';} ?> value="1969">1969</option>
           <option <?php if($dados->AnoFaculdade == '1970'){ echo 'selected=selected';} ?> value="1970">1970</option>
@@ -855,16 +855,16 @@
 
   <div class="row">
     <div class="col-12 col-md-6">
-      <div class="form-group">
-        <label for="inputEnem">Já prestou Enem?</label>
+      <div class="mb-3">
+        <label class="form-label mb-2" for="inputEnem">Já prestou Enem?</label>
         <br>
         <div id="enem" class="form-check form-check-inline">
           <input class="form-check-input" type="radio" name="inputEnem" id="inputEnem1" value="1" @if( $dados->Enem === 1 ) {{ 'checked' }} @endif disabled>
-          <label class="form-check-label" for="inputEnem1">Sim</label>
+          <label class="form-label mb-2" class="form-check-label" for="inputEnem1">Sim</label>
         </div>
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" name="inputEnem" id="inputEnem2" value="0" @if( $dados->Enem === 0 ) {{ 'checked' }} @endif disabled >
-          <label class="form-check-label" for="inputEnem2">Não</label>
+          <label class="form-label mb-2" class="form-check-label" for="inputEnem2">Não</label>
         </div>
       </div>
     </div>
@@ -875,13 +875,13 @@
       <p>Para qual (quais) curso(s) pretende prestar vestibular?</p>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputOpcoesVestibular1">Primeira Opção</span>
         <input type="text" class="form-control" id="inputOpcoesVestibular1" name="inputOpcoesVestibular1" aria-describedby="inputOpcoesVestibular1Help" value="{{ $dados->OpcoesVestibular1 }}" disabled>
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputOpcoesVestibular2">Segunda Opção</span>
         <input type="text" class="form-control" id="inputOpcoesVestibular2" name="inputOpcoesVestibular2" aria-describedby="inputOpcoesVestibular2Help" value="{{ $dados->OpcoesVestibular2 }}" disabled>
       </div>
@@ -889,9 +889,9 @@
   </div>
   <div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputVestibularOutraCidade">Quanto à Universidade, tem disponibilidade/interesse de estudar em outras cidades?</span>
-        <select name="inputVestibularOutraCidade" class="custom-select" disabled>
+        <select name="inputVestibularOutraCidade" class="form-select" disabled>
           <option selected>Selecione</option>
           <option <?php if($dados->VestibularOutraCidade == 'sim'){ echo 'selected=selected';} ?> value="sim">Sim</option>
           <option <?php if($dados->VestibularOutraCidade == 'nao'){ echo 'selected=selected';} ?> value="nao">Não</option>
@@ -899,9 +899,9 @@
       </div>
     </div>
     <div class="col">
-      <div class="form-group">
+      <div class="mb-3">
         <span for="inputComoSoube">Como você ficou sabendo do cursinho pré-vestibular da UNEafro Brasil?</span>
-        <select name="inputComoSoube" class="custom-select" disabled>
+        <select name="inputComoSoube" class="form-select" disabled>
           <option selected>Selecione</option>
           <option <?php if($dados->ComoSoube == 'internet'){ echo 'selected=selected';} ?> value="internet">Internet</option>
           <option <?php if($dados->ComoSoube == 'panfleto'){ echo 'selected=selected';} ?> value="panfleto">Panfleto</option>
@@ -913,8 +913,8 @@
     </div>
     <div class="col">
       @if($dados->ComoSoube == 'outros')
-      <div id="ComoSoubeOutros" class="form-group">
-        <label class="pb-3" for="inputComoSoubeOutros">Qual?</label>
+      <div id="ComoSoubeOutros" class="mb-3">
+        <label class="form-label mb-2" class="pb-3" for="inputComoSoubeOutros">Qual?</label>
         <input type="text" class="form-control" id="inputComoSoubeOutros" name="inputComoSoubeOutros" aria-describedby="inputComoSoubeOutrosHelp" value="{{ $dados->ComoSoubeOutros }}" disabled>
       </div>
       @endif
