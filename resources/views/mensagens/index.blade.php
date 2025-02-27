@@ -11,7 +11,7 @@
         </div>
 
         <div class="card-body table-responsive">
-            <table class="table table-striped">
+            <table class="table table-hover">
                 <tbody>
 
                 @if(\Illuminate\Support\Facades\Auth::user()->allowed_send_email)
