@@ -1046,10 +1046,10 @@
       </div>
     </div>
     <div class="row mb-5">
-      <div class="col-6">
+      <div class="col-auto">
         <button type="submit" class="btn btn-lg btn-danger w-100">Salvar Dados</button>
       </div>
-      <div class="col-6">
+      <div class="col-auto">
         <a class="btn btn-lg btn-success w-100" href="/alunos">Voltar</a>
       </div>
     </div>
