@@ -37,7 +37,7 @@
   </div>
   <div class="row">
     <div class="col" id="presences_wrapper">
-      <table class="table table-striped">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">Nome</th>
@@ -54,7 +54,7 @@
                 <button aria-label="{{ $list->aluno->id }}" class="btn btn-success btn-sm btn-present mb-2" type="button" name="button">Sim</button>
                 <button aria-label="{{ $list->aluno->id }}" class="btn btn-danger btn-sm btn-absent mb-2" type="button" name="button">Não</button>
               </td>
-              <td id="{{ $list->aluno->id }}">@if( $list->is_present ) <?php echo '<span class="badge bg-success">Presente</span>'; ?> @elseif( !$list->is_present ) <?php echo '<span class="badge bg-danger">Ausente</span>'; ?> @endif</td>
+              <td id="{{ $list->aluno->id }}">@if( $list->is_present ) <?php echo '<span class="badge bg-success text-white">Presente</span>'; ?> @elseif( !$list->is_present ) <?php echo '<span class="badge bg-danger text-white">Ausente</span>'; ?> @endif</td>
             </tr>
             @endforeach
           @else
@@ -83,7 +83,7 @@
   $('.btn-present').click(function() {
     let alunoId = $(this).attr('aria-label');
     let situation = 1;
-    $('td[id='+alunoId+']').html('<span class="badge bg-success">Presente</span>');
+    $('td[id='+alunoId+']').html('<span class="badge bg-success text-light">Presente</span>');
     /*console.log('listaId', listaId);
     console.log('alunoId', alunoId);
     console.log('situation', situation);*/
