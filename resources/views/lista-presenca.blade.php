@@ -52,28 +52,30 @@
       </div>
       @endif
       @if(Session::get('role') === 'administrador')
-        <div class="col-12">
-          <div class="form-group float-right">
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-                {{ $nucleo->NomeNucleo }}
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                @foreach($nucleos as $nucleo_id => $nucleo_name)
-                <a class="dropdown-item" href="{{ route('nucleo/presences', ['nid' => $nucleo_id]) }}">{{ $nucleo_name }}</a>
-                  <input type="hidden" name="nid" value="{{ $nucleo_id }}">
-                @endforeach
-              </div>
-            </div>
-          </div>
-        </div>
-      @endif
+  <div class="col-12">
+    <div class="mb-3 d-flex justify-content-end">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          {{ $nucleo->NomeNucleo }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          @foreach($nucleos as $nucleo_id => $nucleo_name)
+          <li>
+            <a class="dropdown-item" href="{{ route('nucleo/presences', ['nid' => $nucleo_id]) }}">{{ $nucleo_name }}</a>
+          </li>
+          @endforeach
+        </ul>
+      </div>
+    </div>
+  </div>
+@endif
+
     </div>
   </form>
 
   <div class="row">
     <div class="col" id="presences_wrapper">
-      <table class="table table-striped">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">Data</th>
