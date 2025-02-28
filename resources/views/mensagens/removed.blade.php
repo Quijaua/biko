@@ -7,7 +7,7 @@
         </div>
 
         <div class="card-body table-responsive">
-            <table class="table table-striped">
+            <table class="table table-hover">
                 <tbody>
                 @forelse($mensagensAluno as $mensagemAluno)
                     <tr>

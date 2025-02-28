@@ -40,7 +40,7 @@
 
 
     <!-- FontsAwesome -->
-    <!-- <link href="{{ asset('css/fontawesome.min.css') }}" rel="stylesheet"> -->
+    <link href="{{ asset('css/fontawesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/quill.snow.css') }}" rel="stylesheet">
 

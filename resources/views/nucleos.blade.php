@@ -17,7 +17,7 @@
         <div class="input-group">
             <input type="text" class="form-control" name="inputQuery"
                 placeholder="Buscar por nome do núcleo" required> <span class="input-group-btn">
-                <button type="submit" class="btn btn-default">
+                <button type="submit" class="btn-link text-decorate-none">
                     <i class="fas fa-search"></i>
                 </button>
             </span>
@@ -70,7 +70,7 @@
       @if($nucleos->isEmpty())
       <p>Nenhum registro encontrado.</p>
       @else
-      <table class="table table-striped">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">Nome</th>
@@ -89,21 +89,21 @@
             <td>{{ $nucleo->Telefone }}</td>
             <td class="text-center">
               @if($nucleo->Status === 1)
-              <span class="badge badge-success p-2">ATIVO</span>
+              <span class="badge text-white bg-success p-2">ATIVO</span>
               @else
-              <span class="badge badge-danger p-2">INATIVO</span>
+              <span class="badge text-white bg-danger p-2">INATIVO</span>
               @endif
             </td>
             <!--<td class="text-center"><span class="text-light badge badge-info p-2">{{ $nucleo->alunos->count() }}</span></td>-->
             @if($user->role === 'coordenador')
             @if($nucleo->id === $user->coordenador->id_nucleo)
-            <td class="text-center"><span class="badge badge-info p-2"><a class="text-light" href="{{ route('alunos/nucleo/search') }}?nucleo={{ $myNucleo ?? '' }}&status=1">{{ $nucleo->alunos->where('Status', 1)->count() }}</a></span></td>
+            <td class="text-center"><span class="badge bg-info p-2"><a class="text-light" href="{{ route('alunos/nucleo/search') }}?nucleo={{ $myNucleo ?? '' }}&status=1">{{ $nucleo->alunos->where('Status', 1)->count() }}</a></span></td>
             @else
             <td class="text-center"><span class="badge badge-secondary p-2 text-light">{{ $nucleo->alunos->where('Status', 1)->count() }}</span></td>
             @endif
             @endif
             @if($user->role !== 'coordenador')
-            <td class="text-center"><span class="badge badge-info p-2"><a class="text-light" href="{{ route('alunos/nucleo/search') }}?nucleo={{ $nucleo->id }}&status=1">{{ $nucleo->alunos->where('Status', 1)->count() }}</a></span></td>
+            <td class="text-center"><span class="badge bg-info p-2"><a class="text-light" href="{{ route('alunos/nucleo/search') }}?nucleo={{ $nucleo->id }}&status=1">{{ $nucleo->alunos->where('Status', 1)->count() }}</a></span></td>
             @endif
             <td>
               <a class="btn btn-info text-light" href="/nucleos/details/{{ $nucleo->id }}">Detalhes</a>
