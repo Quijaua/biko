@@ -42,21 +42,21 @@
     <h3>DADOS PESSOAIS</h3>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputNomeCoordenador">Nome do coordenador</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputNomeCoordenador">Nome do coordenador</label>
           <input type="text" class="form-control" id="inputNomeCoordenador" name="inputNomeCoordenador" aria-describedby="inputNomeCoordenadorHelp" value="{{ $dados->NomeCoordenador }}">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputNomeSocial">Nome Social</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputNomeSocial">Nome Social</label>
           <input type="text" class="form-control" id="inputNomeSocial" name="inputNomeSocial" aria-describedby="inputNomeSocialHelp" value="{{ $dados->NomeSocial }}">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputNucleo">Núcleo</label>
-          <select name="inputNucleo" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputNucleo">Núcleo</label>
+          <select name="inputNucleo" class="form-select">
             <option selected value="0">Selecione</option>
             @foreach($nucleos as $nucleo)
             <option <?php if($nucleo->id == $dados->id_nucleo){ echo 'selected=selected';} ?> value="{{ $nucleo->id }}">{{ $nucleo->NomeNucleo }}</option>
@@ -65,8 +65,8 @@
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputFuncaoCoordenador">Função</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputFuncaoCoordenador">Função</label>
           <input type="text" class="form-control" id="inputFuncaoCoordenador" name="inputFuncaoCoordenador" aria-describedby="inputFuncaoCoordenadorHelp" value="{{ $dados->FuncaoCoordenador }}">
         </div>
       </div>
@@ -74,18 +74,18 @@
         <div class="form-check">
           @if($dados->RepresentanteCGU === 'sim')
           <input <?php if($dados->RepresentanteCGU === 'sim'){ echo 'checked=checked'; } ?> class="form-check-input" type="checkbox" name="inputRepresentanteCGU" id="inputRepresentanteCGU" value="{{ $dados->RepresentanteCGU }}">
-          <label class="form-check-label" for="inputRepresentanteCGU">Representante no CGU</label>
+          <label class="form-label mb-2" class="form-check-label" for="inputRepresentanteCGU">Representante no CGU</label>
           @else
           <input class="form-check-input" type="checkbox" name="inputRepresentanteCGU" id="inputRepresentanteCGU" value="sim">
-          <label class="form-check-label" for="inputRepresentanteCGU">Representante do núcleo no CGU</label>
+          <label class="form-label mb-2" class="form-check-label" for="inputRepresentanteCGU">Representante do núcleo no CGU</label>
           @endif
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputFoto">Foto</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputFoto">Foto</label>
           <input name="inputFoto" type="file" class="form-control-file" id="inputFoto">
         </div>
       </div>
@@ -96,23 +96,23 @@
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputCPF">CPF</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputCPF">CPF</label>
           <input type="text" class="form-control" id="inputCPF" name="inputCPF" aria-describedby="inputCPFHelp" data-mask="000.000.000-00" value="{{ $dados->CPF }}" disabled>
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputRG">RG</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputRG">RG</label>
           <input type="text" class="form-control" id="inputRG" name="inputRG" aria-describedby="inputRGHelp" data-mask="00.000.000-00" value="{{ $dados->RG }}">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputRaca">Raça / Cor</label>
-          <select name="inputRaca" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputRaca">Raça / Cor</label>
+          <select name="inputRaca" class="form-select">
             <option selected value="0">Selecione</option>
             <option <?php if($dados->Raca == 'negra'){ echo 'selected=selected';} ?> value="negra">Negra</option>
             <option <?php if($dados->Raca == 'branca'){ echo 'selected=selected';} ?> value="branca">Branca</option>
@@ -123,9 +123,9 @@
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputGenero">Identidade de Gênero</label>
-          <select name="inputGenero" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputGenero">Identidade de Gênero</label>
+          <select name="inputGenero" class="form-select">
             <option selected value="0">Selecione</option>
             <option <?php if($dados->Genero == 'mulher'){ echo 'selected=selected';} ?> value="mulher">Mulher</option>
             <option <?php if($dados->Genero == 'homem'){ echo 'selected=selected';} ?> value="homem">Homem</option>
@@ -136,17 +136,17 @@
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="concordaSexoDesignado">Você se identifica com o sexo designado ao nascer?</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="concordaSexoDesignado">Você se identifica com o sexo designado ao nascer?</label>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="concordaSexoDesignado" id="concordaSexoDesignado1" value="1" @if($dados->concordaSexoDesignado) {{ 'checked' }} @endif >
-            <label class="form-check-label" for="concordaSexoDesignado1">
+            <label class="form-label mb-2" class="form-check-label" for="concordaSexoDesignado1">
               Sim
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="concordaSexoDesignado" id="concordaSexoDesignado2" value="0" @if(!$dados->concordaSexoDesignado) {{ 'checked' }} @endif >
-            <label class="form-check-label" for="concordaSexoDesignado2">
+            <label class="form-label mb-2" class="form-check-label" for="concordaSexoDesignado2">
               Não
             </label>
           </div>
@@ -155,9 +155,9 @@
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputEstadoCivil">Estado Civil</label>
-          <select name="inputEstadoCivil" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEstadoCivil">Estado Civil</label>
+          <select name="inputEstadoCivil" class="form-select">
             <option selected value="0">Selecione</option>
             <option <?php if($dados->EstadoCivil == 'solteiro_a'){ echo 'selected=selected';} ?> value="solteiro_a">Solteiro(a)</option>
             <option <?php if($dados->EstadoCivil == 'casado_a'){ echo 'selected=selected';} ?> value="casado_a">Casado(a)</option>
@@ -168,17 +168,17 @@
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputNascimento">Data de Nascimento</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputNascimento">Data de Nascimento</label>
           <input type="date" class="form-control" id="inputNascimento" name="inputNascimento" aria-describedby="inputNascimentoHelp" value="{{ $dados->Nascimento }}" onblur="getAge()">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputEscolaridade">Qual a sua escolaridade</label>
-          <select name="inputEscolaridade" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEscolaridade">Qual a sua escolaridade</label>
+          <select name="inputEscolaridade" class="form-select">
             <option selected value="0">Selecione</option>
             <option value="Ensino Médio">Ensino Médio</option>
             <option value="Ensino Superior Completo" @if($dados->Escolaridade === 'Ensino Superior Completo') {{ 'selected' }} @endif >Graduação Completa</option>
@@ -194,25 +194,25 @@
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputFormacaoSuperior">Se você esteve/está no ensino superior, qual a sua formação?</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputFormacaoSuperior">Se você esteve/está no ensino superior, qual a sua formação?</label>
           <input type="text" class="form-control" id="inputFormacaoSuperior" name="inputFormacaoSuperior" aria-describedby="inputFormacaoSuperiorHelp" placeholder="Sua formação no ensino superior" value="{{ $dados->FormacaoSuperior }}">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputAnoInicioUneafro">Desde que ano você está na UNEAFRO?</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputAnoInicioUneafro">Desde que ano você está na UNEAFRO?</label>
           <br><br>
           <input type="text" class="form-control" id="inputAnoInicioUneafro" name="inputAnoInicioUneafro" aria-describedby="inputAnoInicioUneafroHelp" placeholder="Ano em que iniciou na UNEAFRO" value="{{ $dados->AnoInicioUneafro }}" placeholder="4 dígitos (Ex. 2021)">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="aulasForaUneafro">Fora da UNEAFRO, você dá aulas?</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="aulasForaUneafro">Fora da UNEAFRO, você dá aulas?</label>
           <br><br>
-          <select name="aulasForaUneafro" class="custom-select">
+          <select name="aulasForaUneafro" class="form-select">
             <option selected value="0">Selecione</option>
             <option value="Sim" @if($dados->aulasForaUneafro === 'Sim, em escola regular' || $dados->aulasForaUneafro === 'Sim') {{ 'selected' }} @endif >Sim</option>
             <option value="Não" @if($dados->aulasForaUneafro === 'Não') {{ 'selected' }} @endif >Não</option>
@@ -224,51 +224,51 @@
     <h3>ENDEREÇO</h3>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputCEP">CEP</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputCEP">CEP</label>
           <input type="text" class="form-control" id="inputCEP" name="inputCEP" aria-describedby="inputCEPHelp" data-mask="00000-000" value="{{ $dados->CEP }}" onblur="checkCEP('#inputCEP')">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputEndereco">Rua</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEndereco">Rua</label>
           <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEndereco" name="inputEndereco" aria-describedby="inputEnderecoHelp" value="{{ $dados->Endereco }}">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputNumero">Número</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputNumero">Número</label>
           <input type="text" class="form-control" id="inputNumero" name="inputNumero" aria-describedby="inputNumeroHelp" value="{{ $dados->Numero }}">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputComplemento">Complemento</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputComplemento">Complemento</label>
           <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" value="{{ $dados->Complemento }}">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputBairro">Distrito</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputBairro">Distrito</label>
           <input type="text" class="form-control" id="inputBairro" name="inputBairro" aria-describedby="inputBairroHelp" value="{{ $dados->Bairro }}">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputCidade">Cidade</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputCidade">Cidade</label>
           <input type="text" class="form-control" id="inputCidade" name="inputCidade" aria-describedby="inputCidadeHelp" value="{{ $dados->Cidade }}">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputEstado">Estado</label>
-          <select id="inputEstado" name="inputEstado" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEstado">Estado</label>
+          <select id="inputEstado" name="inputEstado" class="form-select">
             <option selected value="0">Selecione</option>
             <option <?php if($dados->Estado == 'AC'){ echo 'selected=selected';} ?> value="AC">Acre</option>
             <option <?php if($dados->Estado == 'AL'){ echo 'selected=selected';} ?> value="AL">Alagoas</option>
@@ -304,26 +304,26 @@
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputFoneComercial">Telefone Comercial</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputFoneComercial">Telefone Comercial</label>
           <input type="phone" class="form-control" id="inputFoneComercial" name="inputFoneComercial" aria-describedby="inputFoneComercialHelp" data-mask="(00) 0000-0000" value="{{ $dados->FoneComercial }}">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputFoneResidencial">Telefone Residencial</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputFoneResidencial">Telefone Residencial</label>
           <input type="phone" class="form-control" id="inputFoneResidencial" name="inputFoneResidencial" aria-describedby="inputFoneResidencialHelp" data-mask="(00) 0000-0000" value="{{ $dados->FoneResidencial }}">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputFoneCelular">Telefone Celular</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputFoneCelular">Telefone Celular</label>
           <input type="phone" class="form-control" id="inputFoneCelular" name="inputFoneCelular" aria-describedby="inputFoneCelularHelp" data-mask="(00) 0 0000-0000" value="{{ $dados->FoneCelular }}">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputEmail">Email</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEmail">Email</label>
           <input type="email" class="form-control" id="inputEmail" name="inputEmail" aria-describedby="inputEmailHelp" value="{{ $dados->Email }}">
         </div>
       </div>
@@ -333,9 +333,9 @@
     <h3>DADOS ACADÊMICOS</h3>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputEnsinoSuperior"><strong>Ensino Superior</strong></label>
-          <select name="inputEnsinoSuperior" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEnsinoSuperior"><strong>Ensino Superior</strong></label>
+          <select name="inputEnsinoSuperior" class="form-select">
             <option value="" selected value="0">Selecione</option>
             <option <?php if($dados->EnsinoSuperior == 'em_curso'){ echo 'selected=selected';} ?> value="em_curso">Em curso</option>
             <option <?php if($dados->EnsinoSuperior == 'completo'){ echo 'selected=selected';} ?> value="completo">Completo</option>
@@ -344,23 +344,23 @@
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputInstituicaoSuperior">Instituição</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputInstituicaoSuperior">Instituição</label>
           <input type="text" class="form-control" id="inputInstituicaoSuperior" name="inputInstituicaoSuperior" aria-describedby="inputInstituicaoSuperiorHelp" value="{{ $dados->InstituicaoSuperior }}">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputCursoSuperior1">Curso 1</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputCursoSuperior1">Curso 1</label>
           <input type="text" class="form-control" id="inputCursoSuperior1" name="inputCursoSuperior1" aria-describedby="inputCursoSuperior1Help" value="{{ $dados->CursoSuperior1 }}">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputAnoCursoSuperior1">Ano</label>
-          <select name="inputAnoCursoSuperior1" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputAnoCursoSuperior1">Ano</label>
+          <select name="inputAnoCursoSuperior1" class="form-select">
             <option value="0" selected>Selecione</option>
             <option <?php if($dados->AnoCursoSuperior1 == '1972'){ echo 'selected=selected';} ?> value="1972">1972</option>
             <option <?php if($dados->AnoCursoSuperior1 == '1973'){ echo 'selected=selected';} ?> value="1973">1973</option>
@@ -418,15 +418,15 @@
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputCursoSuperior2">Curso 2</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputCursoSuperior2">Curso 2</label>
           <input type="text" class="form-control" id="inputCursoSuperior2" name="inputCursoSuperior2" aria-describedby="inputCursoSuperior2Help" value="{{ $dados->CursoSuperior2 }}">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputAnoCursoSuperior2">Ano</label>
-          <select name="inputAnoCursoSuperior2" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputAnoCursoSuperior2">Ano</label>
+          <select name="inputAnoCursoSuperior2" class="form-select">
             <option value="0" selected>Selecione</option>
             <option <?php if($dados->AnoCursoSuperior2 == '1972'){ echo 'selected=selected';} ?> value="1972">1972</option>
             <option <?php if($dados->AnoCursoSuperior2 == '1973'){ echo 'selected=selected';} ?> value="1973">1973</option>
@@ -485,9 +485,9 @@
     <hr>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputEspecializacao"><strong>Especialização</strong></label>
-          <select name="inputEspecializacao" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEspecializacao"><strong>Especialização</strong></label>
+          <select name="inputEspecializacao" class="form-select">
             <option value="0" selected>Selecione</option>
             <option <?php if($dados->Especializacao == 'em_curso'){ echo 'selected=selected';} ?> value="em_curso">Em curso</option>
             <option <?php if($dados->Especializacao == 'completo'){ echo 'selected=selected';} ?> value="completo">Completo</option>
@@ -496,23 +496,23 @@
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputInstEspecializacao">Instituição</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputInstEspecializacao">Instituição</label>
           <input type="text" class="form-control" id="inputInstEspecializacao" name="inputInstEspecializacao" aria-describedby="inputInstEspecializacaoHelp" value="{{ $dados->InstEspecializacao }}">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputCursoEspecializacao">Curso</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputCursoEspecializacao">Curso</label>
           <input type="text" class="form-control" id="inputCursoEspecializacao" name="inputCursoEspecializacao" aria-describedby="inputCursoEspecializacaoHelp" value="{{ $dados->CursoEspecializacao }}">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputAnoCursoEspecializacao">Ano de Conclusão</label>
-          <select name="inputAnoCursoEspecializacao" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputAnoCursoEspecializacao">Ano de Conclusão</label>
+          <select name="inputAnoCursoEspecializacao" class="form-select">
             <option value="0" selected>Selecione</option>
             <option <?php if($dados->AnoCursoEspecializacao == '1972'){ echo 'selected=selected';} ?> value="1972">1972</option>
             <option <?php if($dados->AnoCursoEspecializacao == '1973'){ echo 'selected=selected';} ?> value="1973">1973</option>
@@ -571,9 +571,9 @@
     <hr>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputMestrado"><strong>Mestrado</strong></label>
-          <select name="inputMestrado" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputMestrado"><strong>Mestrado</strong></label>
+          <select name="inputMestrado" class="form-select">
             <option value="0" selected>Selecione</option>
             <option <?php if($dados->Mestrado == 'em_curso'){ echo 'selected=selected';} ?> value="em_curso">Em curso</option>
             <option <?php if($dados->Mestrado == 'completo'){ echo 'selected=selected';} ?> value="completo">Completo</option>
@@ -582,23 +582,23 @@
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputInstMestrado">Instituição</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputInstMestrado">Instituição</label>
           <input type="text" class="form-control" id="inputInstMestrado" name="inputInstMestrado" aria-describedby="inputInstMestradoHelp" value="{{ $dados->InstMestrado }}">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputCursoMestrado">Curso</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputCursoMestrado">Curso</label>
           <input type="text" class="form-control" id="inputCursoMestrado" name="inputCursoMestrado" aria-describedby="inputCursoMestradoHelp" value="{{ $dados->CursoMestrado }}">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputAnoCursoMestrado">Ano de Conclusão</label>
-          <select name="inputAnoCursoMestrado" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputAnoCursoMestrado">Ano de Conclusão</label>
+          <select name="inputAnoCursoMestrado" class="form-select">
             <option value="0" selected>Selecione</option>
             <option <?php if($dados->AnoCursoMestrado == '1972'){ echo 'selected=selected';} ?> value="1972">1972</option>
             <option <?php if($dados->AnoCursoMestrado == '1973'){ echo 'selected=selected';} ?> value="1973">1973</option>
@@ -657,9 +657,9 @@
     <hr>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputFormacaoAcademicaRecente">Sua formação acadêmica mais recente é ou foi em instituição pública ou privada?</label>
-          <select id="inputFormacaoAcademicaRecente" name="inputFormacaoAcademicaRecente" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputFormacaoAcademicaRecente">Sua formação acadêmica mais recente é ou foi em instituição pública ou privada?</label>
+          <select id="inputFormacaoAcademicaRecente" name="inputFormacaoAcademicaRecente" class="form-select">
             <option value="Sim" @if( $dados->FormacaoAcademicaRecente == 'Sim' ) {{ 'selected' }} @endif >Sim</option>
             <option value="Não" @if( $dados->FormacaoAcademicaRecente == 'Não' ) {{ 'selected' }} @endif >Não</option>
           </select>
@@ -671,9 +671,9 @@
     <h3>DADOS PROFISSIONAIS</h3>
     <div class="row">
       <div class="col-12 col-md-6">
-        <div class="form-group">
-          <label for="inputRamoAtuacao">Você trabalha no ramo da:</label>
-          <select id="inputRamoAtuacao" name="inputRamoAtuacao" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputRamoAtuacao">Você trabalha no ramo da:</label>
+          <select id="inputRamoAtuacao" name="inputRamoAtuacao" class="form-select">
             <option value="Educação" @if( $dados->RamoAtuacao == 'Educação' ) {{ 'selected' }} @endif >Educação</option>
             <option value="Pesquisa" @if( $dados->RamoAtuacao == 'Pesquisa' ) {{ 'selected' }} @endif >Pesquisa</option>
             <option value="Telemarketing" @if( $dados->RamoAtuacao == 'Telemarketing' ) {{ 'selected' }} @endif >Telemarketing</option>
@@ -693,61 +693,61 @@
         </div>
       </div>
       <div class="col-12 col-md-6">
-        <label for="inputRamoAtuacaoOutros">&nbsp;</label>
+        <label class="form-label mb-2" for="inputRamoAtuacaoOutros">&nbsp;</label>
         <input type="text" class="form-control" id="inputRamoAtuacaoOutros" name="inputRamoAtuacaoOutros" aria-describedby="inputRamoAtuacaoOutrosHelp" placeholder="Outros (Especifique)" value="{{ $dados->RamoAtuacaoOutros }}">
       </div>
     </div>
     <!--<div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputEmpresa">Nome da Empresa</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEmpresa">Nome da Empresa</label>
           <input type="text" class="form-control" id="inputEmpresa" name="inputEmpresa" aria-describedby="inputEmpresaHelp" value="{{ $dados->Empresa }}">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputCEPEmpresa">CEP</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputCEPEmpresa">CEP</label>
           <input type="text" class="form-control" id="inputCEPEmpresa" name="inputCEPEmpresa" aria-describedby="inputCEPEmpresaHelp" data-mask="00000-000" value="{{ $dados->CEPEmpresa }}" onblur="checkCEP('#inputCEPEmpresa')">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputEnderecoEmpresa">Rua</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEnderecoEmpresa">Rua</label>
           <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEnderecoEmpresa" name="inputEnderecoEmpresa" aria-describedby="inputEnderecoEmpresaHelp" value="{{ $dados->EnderecoEmpresa }}">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputNumeroEmpresa">Número</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputNumeroEmpresa">Número</label>
           <input type="text" class="form-control" id="inputNumeroEmpresa" name="inputNumeroEmpresa" aria-describedby="inputNumeroEmpresaHelp" value="{{ $dados->NumeroEmpresa }}">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputComplementoEmpresa">Complemento</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputComplementoEmpresa">Complemento</label>
           <input type="text" class="form-control" id="inputComplementoEmpresa" name="inputComplementoEmpresa" aria-describedby="inputComplementoEmpresaHelp" value="{{ $dados->ComplementoEmpresa }}">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputBairroEmpresa">Distrito</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputBairroEmpresa">Distrito</label>
           <input type="text" class="form-control" id="inputBairroEmpresa" name="inputBairroEmpresa" aria-describedby="inputBairroEmpresaHelp" value="{{ $dados->BairroEmpresa }}">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputCidadeEmpresa">Cidade</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputCidadeEmpresa">Cidade</label>
           <input type="text" class="form-control" id="inputCidadeEmpresa" name="inputCidadeEmpresa" aria-describedby="inputCidadeEmpresaHelp" value="{{ $dados->CidadeEmpresa }}">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputEstadoEmpresa">Estado</label>
-          <select id="inputEstadoEmpresa" name="inputEstadoEmpresa" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEstadoEmpresa">Estado</label>
+          <select id="inputEstadoEmpresa" name="inputEstadoEmpresa" class="form-select">
             <option selected>Selecione</option>
             <option <?php if($dados->Estado == 'AC'){ echo 'selected=selected';} ?> value="AC">Acre</option>
             <option <?php if($dados->Estado == 'AL'){ echo 'selected=selected';} ?> value="AL">Alagoas</option>
@@ -783,8 +783,8 @@
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputCargo">Cargo/Função</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputCargo">Cargo/Função</label>
           <input type="text" class="form-control" id="inputCargo" name="inputCargo" aria-describedby="inputCargoHelp" value="{{ $dados->Cargo }}">
         </div>
       </div>
@@ -794,14 +794,14 @@
         <p>Horário de Trabalho</p>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputHorarioFrom">De</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputHorarioFrom">De</label>
           <input type="time" class="form-control" id="inputHorarioFrom" name="inputHorarioFrom" aria-describedby="inputHorarioFromHelp" value="{{ $dados->HorarioFrom }}">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputHorarioTo">Até</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputHorarioTo">Até</label>
           <input type="time" class="form-control" id="inputHorarioTo" name="inputHorarioTo" aria-describedby="inputHorarioToHelp" value="{{ $dados->HorarioTo }}">
         </div>
       </div>
@@ -809,49 +809,49 @@
     <hr>
     <div class="row">
       <div class="col-6">
-          <div class="form-group">
-            <label for="inputProjetosRealizados">Já realizou trabalhos em projetos educacionais/Coletivos/Movimentos Sociais?</label>
+          <div class="mb-3">
+            <label class="form-label mb-2" for="inputProjetosRealizados">Já realizou trabalhos em projetos educacionais/Coletivos/Movimentos Sociais?</label>
             <div class="form-check form-check-inline">
               <input <?php if($dados->ProjetosRealizados == 'sim'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputProjetosRealizados" id="inputProjetosRealizados1" value="sim" onclick="showInput('.projeto-dados')">
-              <label class="form-check-label" for="inputProjetosRealizados1">Sim</label>
+              <label class="form-label mb-2" class="form-check-label" for="inputProjetosRealizados1">Sim</label>
             </div>
             <div class="form-check form-check-inline">
               <input <?php if($dados->ProjetosRealizados == 'nao'){ echo 'checked=checked';} ?> class="form-check-input" type="radio" name="inputProjetosRealizados" id="inputProjetosRealizados2" value="nao" onclick="hideInput('.projeto-dados')">
-              <label class="form-check-label" for="inputProjetosRealizados2">Não</label>
+              <label class="form-label mb-2" class="form-check-label" for="inputProjetosRealizados2">Não</label>
             </div>
           </div>
       </div>
 
       <div class="col-3">
         @if($dados->ProjetosRealizados == 'sim')
-        <div class="form-group projeto-dados">
-          <label for="inputProjetosNome">Nome do projeto</label>
+        <div class="mb-3 projeto-dados">
+          <label class="form-label mb-2" for="inputProjetosNome">Nome do projeto</label>
           <input type="text" class="form-control" id="inputProjetosNome" name="inputProjetosNome" aria-describedby="inputProjetosNomeHelp" value="{{ $dados->ProjetosNome }}">
         </div>
         @else
-        <div class="form-group projeto-dados" style="display:none;">
-          <label for="inputProjetosNome">Nome do projeto</label>
+        <div class="mb-3 projeto-dados" style="display:none;">
+          <label class="form-label mb-2" for="inputProjetosNome">Nome do projeto</label>
           <input type="text" class="form-control" id="inputProjetosNome" name="inputProjetosNome" aria-describedby="inputProjetosNomeHelp" value="{{ $dados->ProjetosNome }}">
         </div>
         @endif
       </div>
       <div class="col-3">
         @if($dados->ProjetosRealizados == 'sim')
-        <div id="ProjetosQual" class="form-group projeto-dados">
-          <label for="inputProjetosFuncao">Função exercida</label>
+        <div id="ProjetosQual" class="mb-3 projeto-dados">
+          <label class="form-label mb-2" for="inputProjetosFuncao">Função exercida</label>
           <input type="text" class="form-control" id="inputProjetosFuncao" name="inputProjetosFuncao" aria-describedby="inputProjetosFuncaoHelp" value="{{ $dados->ProjetosFuncao }}">
         </div>
         @else
-        <div id="ProjetosQual" class="form-group projeto-dados" style="display:none;">
-          <label for="inputProjetosFuncao">Função exercida</label>
+        <div id="ProjetosQual" class="mb-3 projeto-dados" style="display:none;">
+          <label class="form-label mb-2" for="inputProjetosFuncao">Função exercida</label>
           <input type="text" class="form-control" id="inputProjetosFuncao" name="inputProjetosFuncao" aria-describedby="inputProjetosFuncaoHelp" value="{{ $dados->ProjetosFuncao }}">
         </div>
         @endif
       </div>
       <div class="col-6">
-        <div class="form-group">
-          <label for="inputComoSoube">Como você ficou sabendo do cursinho pré-vestibular da UNEafro Brasil?</label>
-          <select id="comoSoube" name="inputComoSoube" class="custom-select" onchange="checkComosoube()">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputComoSoube">Como você ficou sabendo do cursinho pré-vestibular da UNEafro Brasil?</label>
+          <select id="comoSoube" name="inputComoSoube" class="form-select" onchange="checkComosoube()">
             <option value="" selected>Selecione</option>
             <option <?php if($dados->ComoSoube == 'internet'){ echo 'selected=selected';} ?> value="internet">Internet</option>
             <option <?php if($dados->ComoSoube == 'panfleto'){ echo 'selected=selected';} ?> value="panfleto">Panfleto</option>
@@ -863,15 +863,15 @@
       </div>
       @if($dados->ComoSoube === 'outros')
       <div class="col-6">
-        <div id="ComoSoubeOutros" class="form-group">
-          <label for="inputComoSoubeOutros">Qual?</label>
+        <div id="ComoSoubeOutros" class="mb-3">
+          <label class="form-label mb-2" for="inputComoSoubeOutros">Qual?</label>
           <input type="text" class="form-control" id="inputComoSoubeOutros" name="inputComoSoubeOutros" aria-describedby="inputComoSoubeOutrosHelp" value="{{ $dados->ComoSoubeOutros }}">
         </div>
       </div>
       @else
       <div class="col-6">
-        <div id="ComoSoubeOutros" class="form-group" style="display:none;">
-          <label for="inputComoSoubeOutros">Qual?</label>
+        <div id="ComoSoubeOutros" class="mb-3" style="display:none;">
+          <label class="form-label mb-2" for="inputComoSoubeOutros">Qual?</label>
           <input type="text" class="form-control" id="inputComoSoubeOutros" name="inputComoSoubeOutros" aria-describedby="inputComoSoubeOutrosHelp" value="{{ $dados->ComoSoubeOutros }}">
         </div>
       </div>
@@ -879,8 +879,8 @@
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputMotivoPrincipal">Qual foi o principal motivo que o/a levou a participar do Uneafro?</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputMotivoPrincipal">Qual foi o principal motivo que o/a levou a participar do Uneafro?</label>
           <br>
           <textarea class="form-control" name="inputMotivoPrincipal" rows="8">{{ $dados->MotivoPrincipal }}</textarea>
         </div>
@@ -891,24 +891,24 @@
         <span>Representantes no CGU</span>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputRepresentantesCGU1">1º Representante</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputRepresentantesCGU1">1º Representante</label>
           <input type="text" class="form-control" id="inputRepresentantesCGU1" name="inputRepresentantesCGU1" aria-describedby="inputRepresentantesCGU1Help" value="{{ $dados->RepresentantesCGU1 }}">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputRepresentantesCGU2">2º Representante</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputRepresentantesCGU2">2º Representante</label>
           <input type="text" class="form-control" id="inputRepresentantesCGU2" name="inputRepresentantesCGU2" aria-describedby="inputRepresentantesCGU2Help" value="{{ $dados->RepresentantesCGU2 }}">
         </div>
       </div>
     </div>
     <hr>
     <div class="row mb-5">
-      <div class="col">
+      <div class="col-auto">
         <button type="submit" class="btn btn-lg btn-block btn-danger">Salvar Dados</button>
       </div>
-      <div class="col">
+      <div class="col-auto">
         <a class="btn btn-lg btn-block btn-success" href="/coordenadores">Voltar</a>
       </div>
     </div>

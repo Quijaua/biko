@@ -17,7 +17,7 @@
         <div class="input-group">
             <input type="text" class="form-control" name="inputQuery"
                 placeholder="Buscar por nome ou sobrenome do professor" required> <span class="input-group-btn">
-                <button type="submit" class="btn btn-default">
+                <button type="submit" class="btn-link text-decorate-none">
                     <i class="fas fa-search"></i>
                 </button>
             </span>
@@ -73,7 +73,7 @@
       @if($professores->isEmpty())
       <p>Nenhum registro encontrado.</p>
       @else
-      <table class="table table-striped">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">Foto</th>
@@ -87,9 +87,9 @@
           @foreach($professores as $professor)
           <tr>
             @if($professor->Foto)
-            <td><img class="rounded-circle" src="{{ asset('storage') }}/{{ $professor->Foto }}" alt="{{ $professor->Foto }}" width="25%"></td>
+            <td><img class="rounded-circle avatar" src="{{ asset('storage') }}/{{ $professor->Foto }}" alt="{{ $professor->Foto }}" width="25%"></td>
             @else
-            <td><img class="rounded-circle" src="{{ asset('images') }}/user.png" alt="Avatar" width="25%"></td>
+            <td><img class="rounded-circle avatar" src="{{ asset('images') }}/user.png" alt="Avatar" width="25%"></td>
             @endif
             @if($professor->NomeSocial === null)
             <td>{{ $professor->NomeProfessor }}</td>
@@ -99,9 +99,9 @@
             <td>{{ $professor->CPF }}</td>
             <td>
               @if($professor->Status === 1)
-              <span class="badge badge-success p-2">ATIVO</span>
+              <span class="badge bg-success p-2 text-white">ATIVO</span>
               @else
-              <span class="badge badge-danger p-2">INATIVO</span>
+              <span class="badge bg-danger p-2 text-white">INATIVO</span>
               @endif
             </td>
             <td>

@@ -32,21 +32,21 @@
     <h3>DADOS PESSOAIS</h3>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputNomeAluno">Nome do aluno</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputNomeAluno">Nome do aluno</label>
           <input type="text" class="form-control" id="inputNomeAluno" name="inputNomeAluno" aria-describedby="inputNomeAlunoHelp" placeholder="Nome do novo aluno" required>
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputNomeSocial">Nome Social do aluno</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputNomeSocial">Nome Social do aluno</label>
           <input type="text" class="form-control" id="inputNomeSocial" name="inputNomeSocial" aria-describedby="inputNomeSocialHelp" placeholder="Nome social do aluno">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputNucleo">Núcleo</label>
-          <select name="inputNucleo" class="custom-select" required>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputNucleo">Núcleo</label>
+          <select name="inputNucleo" class="form-select" required>
             <option selected>Selecione</option>
             @foreach($nucleos as $nucleo)
             @if($user->role === 'aluno')
@@ -61,8 +61,8 @@
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputFoto">Foto</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputFoto">Foto</label>
           <input name="inputFoto" type="file" class="form-control-file" id="inputFoto">
         </div>
       </div>
@@ -71,61 +71,61 @@
         <small class="form-text text-muted">Tipos de arquivos permitidos: <strong>png gif jpg jpeg</strong>.</small>
       </div>
       <div class="col">
-        <div class="form-group">
-          <!--<label for="inputListaEspera">Lista de Espera</label>--><br />
+        <div class="mb-3">
+          <!--<label class="form-label mb-2" for="inputListaEspera">Lista de Espera</label>--><br />
           <div class="form-check form-check-inline">
             <input class="form-check-input" name="inputListaEspera" type="checkbox" value="Sim" checked>
-            <label class="form-check-label" for="inputListaEspera">Lista de Espera</label>
+            <label class="form-label mb-2" class="form-check-label" for="inputListaEspera">Lista de Espera</label>
           </div>
         </div>
       </div>
     </div>
     <div class="row">
       <!--<div class="col">
-        <div class="form-group">
-          <label for="inputCPF">CPF</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputCPF">CPF</label>
           <input type="text" class="form-control" id="inputCPF" name="inputCPF" aria-describedby="inputCPFHelp" data-mask="000.000.000-00" placeholder="xxx.xxx.xxx-xx" onblur="checkCPF()" required>
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputRG">RG</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputRG">RG</label>
           <input type="text" class="form-control" id="inputRG" name="inputRG" aria-describedby="inputRGHelp" data-mask="00.000.000-00" placeholder="xx.xxx.xxx-x">
         </div>
       </div>-->
       <div class="col">
-        <label for="temFilhos">Tem filhos?</label>
+        <label class="form-label mb-2" for="temFilhos">Tem filhos?</label>
         <div class="form-check">
           <input class="form-check-input" type="radio" name="temFilhos" id="temFilhos1" value="1">
-          <label class="form-check-label" for="temFilhos1">
+          <label class="form-label mb-2" class="form-check-label" for="temFilhos1">
             Sim
           </label>
         </div>
         <div class="form-check">
           <input class="form-check-input" type="radio" name="temFilhos" id="temFilhos2" value="0" checked>
-          <label class="form-check-label" for="temFilhos2">
+          <label class="form-label mb-2" class="form-check-label" for="temFilhos2">
             Não
           </label>
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="filhosQt">Quantos?</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="filhosQt">Quantos?</label>
           <input class="form-control" type="number" id="filhosQt" name="filhosQt">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputEmail">Email</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEmail">Email</label>
           <input type="email" class="form-control" id="inputEmail" name="inputEmail" aria-describedby="inputEmailHelp" placeholder="Endereço de Email" required>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputRaca">Raça / Cor</label>
-          <select name="inputRaca" class="custom-select" required>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputRaca">Raça / Cor</label>
+          <select name="inputRaca" class="form-select" required>
             <option value="" selected>Selecione</option>
             <option value="negra">Preta</option>
             <option value="branca">Branca</option>
@@ -136,9 +136,9 @@
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputGenero">Identidade de Gênero</label>
-          <select name="inputGenero" class="custom-select" required>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputGenero">Identidade de Gênero</label>
+          <select name="inputGenero" class="form-select" required>
             <option value="" selected>Selecione</option>
             <option value="mulher">Mulher (Cis/Trans)</option>
             <option value="homem">Homem (Cis/Trans)</option>
@@ -149,9 +149,9 @@
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputEstadoCivil">Estado Civil</label>
-          <select name="inputEstadoCivil" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEstadoCivil">Estado Civil</label>
+          <select name="inputEstadoCivil" class="form-select">
             <option value="" selected>Selecione</option>
             <option value="solteiro_a">Solteiro(a)</option>
             <option value="casado_a">Casado(a)</option>
@@ -162,30 +162,30 @@
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputNascimento">Data de Nascimento</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputNascimento">Data de Nascimento</label>
           <input type="date" class="form-control" id="inputNascimento" name="inputNascimento" aria-describedby="inputNascimentoHelp" onblur="getAge()" required>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputAuxGoverno">A família recebe algumn tipo de auxílio do Governo?</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputAuxGoverno">A família recebe algumn tipo de auxílio do Governo?</label>
           <div id="AuxGoverno" class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno1" value="sim" onclick="showInput('#AuxTipo')">
-            <label class="form-check-label" for="inputTaxaInscricao1">Sim</label>
+            <label class="form-label mb-2" class="form-check-label" for="inputTaxaInscricao1">Sim</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno2" value="nao" onclick="hideAuxInput('#AuxTipo')">
-            <label class="form-check-label" for="inputTaxaInscricao2">Não</label>
+            <label class="form-label mb-2" class="form-check-label" for="inputTaxaInscricao2">Não</label>
           </div>
         </div>
       </div>
       <div class="col">
-        <div id="AuxTipo" class="form-group" style="display:none;">
-          <label for="inputAuxTipo">Qual?</label>
-          <select name="inputAuxTipo" class="custom-select">
+        <div id="AuxTipo" class="mb-3" style="display:none;">
+          <label class="form-label mb-2" for="inputAuxTipo">Qual?</label>
+          <select name="inputAuxTipo" class="form-select">
             <option value="" selected>Selecione</option>
             <option value="bolsa_familia">Programa Bolsa Família</option>
             <option value="energia_eletrica">Tarifa Social de Energia Elétrica</option>
@@ -199,43 +199,43 @@
     <h3>ENDEREÇO</h3>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputCEP">CEP (Somente números)</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputCEP">CEP (Somente números)</label>
           <input type="text" class="form-control" id="inputCEP" name="inputCEP" aria-describedby="inputCEPHelp" data-mask="00000-000" placeholder="xx.xxx-xxx" onblur="checkCEP('#inputCEP')">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputEndereco">Rua</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEndereco">Rua</label>
           <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEndereco" name="inputEndereco" aria-describedby="inputEnderecoHelp" placeholder="Rua, Avenida, Logradoouro">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputNumero">Número</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputNumero">Número</label>
           <input type="number" class="form-control" id="inputNumero" name="inputNumero" aria-describedby="inputNumeroHelp" placeholder="Número">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputBairro">Distrito</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputBairro">Distrito</label>
           <input type="text" class="form-control" id="inputBairro" name="inputBairro" aria-describedby="inputBairroHelp" placeholder="Bairro">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputCidade">Cidade</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputCidade">Cidade</label>
           <input type="text" class="form-control" id="inputCidade" name="inputCidade" aria-describedby="inputCidadeHelp" placeholder="Cidade/Município">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputEstado">Estado</label>
-          <select id="inputEstado" name="inputEstado" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEstado">Estado</label>
+          <select id="inputEstado" name="inputEstado" class="form-select">
             <option value="" selected>Selecione</option>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
@@ -269,28 +269,28 @@
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputComplemento">Complemento</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputComplemento">Complemento</label>
           <input type="text" class="form-control" id="inputComplemento" name="inputComplemento" aria-describedby="inputComplementoHelp" placeholder="Complemento">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputFoneComercial">Telefone Comercial</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputFoneComercial">Telefone Comercial</label>
           <input type="text" class="form-control" id="inputFoneComercial" name="inputFoneComercial" aria-describedby="inputFoneComercialHelp" data-mask="(00) 0000-0000" placeholder="(xx)xxxx-xxxx">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputFoneResidencial">Telefone Residencial</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputFoneResidencial">Telefone Residencial</label>
           <input type="text" class="form-control" id="inputFoneResidencial" name="inputFoneResidencial" aria-describedby="inputFoneResidencialHelp" data-mask="(00) 0000-0000" placeholder="(xx)xxxx-xxxx">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputFoneCelular">Telefone Celular</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputFoneCelular">Telefone Celular</label>
           <input type="text" class="form-control" id="inputFoneCelular" name="inputFoneCelular" aria-describedby="inputFoneCelularHelp" data-mask="(00) 0 0000-0000" placeholder="(xx)xxxx-xxxx">
         </div>
       </div>
@@ -299,9 +299,9 @@
     <h3>DADOS PROFISSIONAIS</h3>
     <div class="row">
       <div class="col-12 col-md-6">
-        <div class="form-group">
-          <label for="inputRamoAtuacao">Você trabalha no ramo da:</label>
-          <select id="inputRamoAtuacao" name="inputRamoAtuacao" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputRamoAtuacao">Você trabalha no ramo da:</label>
+          <select id="inputRamoAtuacao" name="inputRamoAtuacao" class="form-select">
             <option value="Educação">Educação</option>
             <option value="Pesquisa">Pesquisa</option>
             <option value="Telemarketing">Telemarketing</option>
@@ -321,61 +321,61 @@
         </div>
       </div>
       <div class="col-12 col-md-6">
-        <label for="inputRamoAtuacaoOutros">&nbsp;</label>
+        <label class="form-label mb-2" for="inputRamoAtuacaoOutros">&nbsp;</label>
         <input type="text" class="form-control" id="inputRamoAtuacaoOutros" name="inputRamoAtuacaoOutros" aria-describedby="inputRamoAtuacaoOutrosHelp" placeholder="Outros (Especifique)">
       </div>
     </div>
     <!--<div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputEmpresa">Nome da Empresa</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEmpresa">Nome da Empresa</label>
           <input type="text" class="form-control" id="inputEmpresa" name="inputEmpresa" aria-describedby="inputEmpresaHelp" placeholder="Nome da empresa onde trabalha">
         </div>
       </div>
     </div>-->
     <!--<div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputCEPEmpresa">CEP</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputCEPEmpresa">CEP</label>
           <input type="text" class="form-control" id="inputCEPEmpresa" name="inputCEPEmpresa" aria-describedby="inputCEPEmpresaHelp" data-mask="00000-000" placeholder="xx.xxx-xxx" onblur="checkCEP('#inputCEPEmpresa')">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputEnderecoEmpresa">Rua</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEnderecoEmpresa">Rua</label>
           <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEnderecoEmpresa" name="inputEnderecoEmpresa" aria-describedby="inputEnderecoEmpresaHelp" placeholder="Rua, Avenida, Logradouro">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputNumeroEmpresa">Número</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputNumeroEmpresa">Número</label>
           <input type="text" class="form-control" id="inputNumeroEmpresa" name="inputNumeroEmpresa" aria-describedby="inputNumeroEmpresaHelp" placeholder="Número">
         </div>
       </div>
     </div>-->
     <!--<div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputBairroEmpresa">Bairro</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputBairroEmpresa">Bairro</label>
           <input type="text" class="form-control" id="inputBairroEmpresa" name="inputBairroEmpresa" aria-describedby="inputBairroEmpresaHelp" placeholder="Bairro da empresa onde trabalha">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputCidadeEmpresa">Cidade</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputCidadeEmpresa">Cidade</label>
           <input type="text" class="form-control" id="inputCidadeEmpresa" name="inputCidadeEmpresa" aria-describedby="inputCidadeEmpresaHelp" placeholder="Cidade da empresa onde trabalha">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputComplementoEmpresa">Complemento</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputComplementoEmpresa">Complemento</label>
           <input type="text" class="form-control" id="inputComplementoEmpresa" name="inputComplementoEmpresa" aria-describedby="inputComplementoEmpresaHelp" placeholder="Complemento">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputEstadoEmpresa">Estado</label>
-          <select id="inputEstadoEmpresa" name="inputEstadoEmpresa" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEstadoEmpresa">Estado</label>
+          <select id="inputEstadoEmpresa" name="inputEstadoEmpresa" class="form-select">
             <option value="" selected>Selecione</option>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
@@ -411,8 +411,8 @@
     </div>-->
     <!--<div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputCargo">Cargo/Função</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputCargo">Cargo/Função</label>
           <input type="text" class="form-control" id="inputCargo" name="inputCargo" aria-describedby="inputCargoHelp" placeholder="Cargo ocupado na empresa">
         </div>
       </div>
@@ -422,14 +422,14 @@
         <p>Horário de Trabalho</p>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputHorarioFrom">De</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputHorarioFrom">De</label>
           <input type="time" class="form-control" id="inputHorarioFrom" name="inputHorarioFrom" aria-describedby="inputHorarioFromHelp">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputHorarioTo">Até</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputHorarioTo">Até</label>
           <input type="time" class="form-control" id="inputHorarioTo" name="inputHorarioTo" aria-describedby="inputHorarioToHelp">
         </div>
       </div>
@@ -439,61 +439,61 @@
     <h3>DADOS FAMILIARES</h3>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputNomeMae">Nome da Mãe</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputNomeMae">Nome da Mãe</label>
           <input type="text" class="form-control" id="inputNomeMae" name="inputNomeMae" aria-describedby="inputNomeMaeHelp" placeholder="Nome da mãe do aluno">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputNomePai">Nome do Pai</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputNomePai">Nome do Pai</label>
           <input type="text" class="form-control" id="inputNomePai" name="inputNomePai" aria-describedby="inputNomePaiHelp" placeholder="Nome do pai do aluno">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputCEPFamilia">CEP</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputCEPFamilia">CEP</label>
           <input type="text" class="form-control" id="inputCEPFamilia" name="inputCEPFamilia" aria-describedby="inputCEPFamiliaHelp" data-mask="00000-000" placeholder="xx.xxx-xxx" onblur="checkCEP('#inputCEPFamilia')">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputEnderecoFamilia">Rua</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEnderecoFamilia">Rua</label>
           <input pattern="([^\s][A-zÀ-ž\s]+)" type="text" class="form-control" id="inputEnderecoFamilia" name="inputEnderecoFamilia" aria-describedby="inputEnderecoFamiliaHelp" placeholder="Rua, Avenida, Logradouro">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputNumeroFamilia">Número</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputNumeroFamilia">Número</label>
           <input type="text" class="form-control" id="inputNumeroFamilia" name="inputNumeroFamilia" aria-describedby="inputNumeroFamiliaHelp" placeholder="Número">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputComplementoFamilia">Complemento</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputComplementoFamilia">Complemento</label>
           <input type="text" class="form-control" id="inputComplementoFamilia" name="inputComplementoFamilia" aria-describedby="inputComplementoFamiliaHelp" placeholder="Complemento">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputBairroFamilia">Bairro</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputBairroFamilia">Bairro</label>
           <input type="text" class="form-control" id="inputBairroFamilia" name="inputBairroFamilia" aria-describedby="inputBairroFamiliaHelp" placeholder="Bairro da família do aluno">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputCidadeFamilia">Cidade</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputCidadeFamilia">Cidade</label>
           <input type="text" class="form-control" id="inputCidadeFamilia" name="inputCidadeFamilia" aria-describedby="inputCidadeFamiliaHelp" placeholder="Cidade da família do aluno">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputEstadoFamilia">Estado</label>
-          <select id="inputEstadoFamilia" name="inputEstadoFamilia" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEstadoFamilia">Estado</label>
+          <select id="inputEstadoFamilia" name="inputEstadoFamilia" class="form-select">
             <option value="" selected>Selecione</option>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
@@ -529,28 +529,28 @@
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputTelefoneFamilia">Telefone</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputTelefoneFamilia">Telefone</label>
           <input type="text" class="form-control" id="inputTelefoneFamilia" name="inputTelefoneFamilia" aria-describedby="inputTelefoneFamiliaHelp" data-mask="(00) 0000-0000" placeholder="(xx) xxxx-xxxx">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputAuxGoverno">A família recebe algum tipo de auxílio do Governo?</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputAuxGoverno">A família recebe algum tipo de auxílio do Governo?</label>
           <div id="AuxGoverno" class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno1" value="sim" onclick="showInput('#AuxTipo')">
-            <label class="form-check-label" for="inputTaxaInscricao1">Sim</label>
+            <label class="form-label mb-2" class="form-check-label" for="inputTaxaInscricao1">Sim</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="inputAuxGoverno" id="inputAuxGoverno2" value="nao" onclick="hideInput('#AuxTipo')">
-            <label class="form-check-label" for="inputTaxaInscricao2">Não</label>
+            <label class="form-label mb-2" class="form-check-label" for="inputTaxaInscricao2">Não</label>
           </div>
         </div>
       </div>
       <div class="col">
-        <div id="AuxTipo" class="form-group" style="display:none;">
-          <label for="inputAuxTipo">Qual?</label>
-          <select name="inputAuxTipo" class="custom-select">
+        <div id="AuxTipo" class="mb-3" style="display:none;">
+          <label class="form-label mb-2" for="inputAuxTipo">Qual?</label>
+          <select name="inputAuxTipo" class="form-select">
             <option value="" selected>Selecione</option>
             <option value="bolsa_familia">Programa Bolsa Família</option>
             <option value="energia_eletrica">Tarifa Social de Energia Elétrica</option>
@@ -573,93 +573,93 @@
     <h3>DADOS ACADÊMICOS</h3>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputEnsFundamental">Ensino Fundamental</label><br>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEnsFundamental">Ensino Fundamental</label><br>
           <div class="form-check form-check-inline">
             <input class="form-check-input" name="inputEnsFundamental[]" type="checkbox" id="rede_publica" value="rede publica">
-            <label class="form-check-label" for="inputEnsFundamental1">Rede Pública</label>
+            <label class="form-label mb-2" class="form-check-label" for="inputEnsFundamental1">Rede Pública</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" name="inputEnsFundamental[]" type="checkbox" id="particular_sem_bolsa" value="particular sem bolsa">
-            <label class="form-check-label" for="inputEnsFundamental2">Particular sem bolsa</label>
+            <label class="form-label mb-2" class="form-check-label" for="inputEnsFundamental2">Particular sem bolsa</label>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputPorcentagemBolsa">Particular com bolsa de:</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputPorcentagemBolsa">Particular com bolsa de:</label>
           <input max="100" pattern="[0-9]{1,3}" type="number" class="form-control" id="inputPorcentagemBolsa" name="inputPorcentagemBolsa" aria-describedby="inputPorcentagemBolsaHelp" placeholder="%">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputEnsMedio">Ensino Médio</label><br>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputEnsMedio">Ensino Médio</label><br>
           <div class="form-check form-check-inline">
             <input class="form-check-input" name="inputEnsMedio[]" type="checkbox" id="rede_publica" value="rede publica">
-            <label class="form-check-label" for="inputEnsMedio1">Rede Pública</label>
+            <label class="form-label mb-2" class="form-check-label" for="inputEnsMedio1">Rede Pública</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" name="inputinputEnsMedio[]" type="checkbox" id="particular_sem_bolsa" value="particular sem bolsa">
-            <label class="form-check-label" for="inputEnsMedio2">Particular sem bolsa</label>
+            <label class="form-label mb-2" class="form-check-label" for="inputEnsMedio2">Particular sem bolsa</label>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputPorcentagemBolsaMedio">Particular com bolsa de:</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputPorcentagemBolsaMedio">Particular com bolsa de:</label>
           <input max="100" pattern="[0-9]{1,3}" type="number" class="form-control" id="inputPorcentagemBolsaMedio" name="inputPorcentagemBolsaMedio" aria-describedby="inputPorcentagemBolsaMedioHelp" placeholder="%">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputVestibular">Já prestou algum vestibular?</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputVestibular">Já prestou algum vestibular?</label>
           <br>
           <div id="Vestibular" class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="inputVestibular" id="inputVestibular1" value="sim" onclick="showInput('.dados-faculdade')">
-            <label class="form-check-label" for="inputVestibular1">Sim</label>
+            <label class="form-label mb-2" class="form-check-label" for="inputVestibular1">Sim</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="inputVestibular" id="inputVestibular2" value="nao" onclick="hideInput('.dados-faculdade')">
-            <label class="form-check-label" for="inputVestibular2">Não</label>
+            <label class="form-label mb-2" class="form-check-label" for="inputVestibular2">Não</label>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="form-group dados-faculdade" style="display:none;">
-          <label for="inputFaculdadeTipo">Faculdade pública ou particular?</label>
+        <div class="mb-3 dados-faculdade" style="display:none;">
+          <label class="form-label mb-2" for="inputFaculdadeTipo">Faculdade pública ou particular?</label>
           <br>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="inputFaculdadeTipo" id="inputFaculdadeTipo1" value="publica">
-            <label class="form-check-label" for="inputFaculdadeTipo1">Pública</label>
+            <label class="form-label mb-2" class="form-check-label" for="inputFaculdadeTipo1">Pública</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="inputFaculdadeTipo" id="inputFaculdadeTipo2" value="particular">
-            <label class="form-check-label" for="inputFaculdadeTipo2">Particular</label>
+            <label class="form-label mb-2" class="form-check-label" for="inputFaculdadeTipo2">Particular</label>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="form-group dados-faculdade" style="display:none;">
-          <label for="inputNomeFaculdade">Qual nome da Faculdade?</label>
+        <div class="mb-3 dados-faculdade" style="display:none;">
+          <label class="form-label mb-2" for="inputNomeFaculdade">Qual nome da Faculdade?</label>
           <input type="text" class="form-control" id="inputNomeFaculdade" name="inputNomeFaculdade" aria-describedby="inputNomeFaculdadeHelp" placeholder="Qual o nome da faculdade?">
         </div>
       </div>
     </div>
     <div class="row mb-2">
       <div class="col">
-        <div class="form-group dados-faculdade" style="display:none;">
-          <label for="inputCursoFaculdade">Curso</label>
+        <div class="mb-3 dados-faculdade" style="display:none;">
+          <label class="form-label mb-2" for="inputCursoFaculdade">Curso</label>
           <input type="text" class="form-control" id="inputCursoFaculdade" name="inputCursoFaculdade" aria-describedby="inputCursoFaculdadeHelp" placeholder="Qual foi o curso?">
         </div>
       </div>
       <div class="col">
-        <div class="form-group dados-faculdade" style="display:none;">
-          <label for="inputAnoFaculdade">Ano</label>
-          <select name="inputAnoFaculdade" class="custom-select">
+        <div class="mb-3 dados-faculdade" style="display:none;">
+          <label class="form-label mb-2" for="inputAnoFaculdade">Ano</label>
+          <select name="inputAnoFaculdade" class="form-select">
             <option value="" selected>Selecione</option>
             <option value="1969">1969</option>
             <option value="1970">1970</option>
@@ -723,23 +723,23 @@
         <p>Para qual (quais) curso(s) pretende prestar vestibular?</p>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputOpcoesVestibular1">Primeira Opção</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputOpcoesVestibular1">Primeira Opção</label>
           <input type="text" class="form-control" id="inputOpcoesVestibular1" name="inputOpcoesVestibular1" aria-describedby="inputOpcoesVestibular1Help" placeholder="Informe a primeira opção">
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputOpcoesVestibular2">Segunda Opção</label>
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputOpcoesVestibular2">Segunda Opção</label>
           <input type="text" class="form-control" id="inputOpcoesVestibular2" name="inputOpcoesVestibular2" aria-describedby="inputOpcoesVestibular2Help" placeholder="Informe a segunda opção">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="form-group">
-          <label for="inputVestibularOutraCidade">Quanto à Universidade, tem disponibilidade/interesse de estudar em outras cidades?</label>
-          <select name="inputVestibularOutraCidade" class="custom-select">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputVestibularOutraCidade">Quanto à Universidade, tem disponibilidade/interesse de estudar em outras cidades?</label>
+          <select name="inputVestibularOutraCidade" class="form-select">
             <option value="" selected>Selecione</option>
             <option value="sim">Sim</option>
             <option value="nao">Não</option>
@@ -747,9 +747,9 @@
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
-          <label for="inputComoSoube">Como você ficou sabendo do cursinho pré-vestibular da UNEafro Brasil?</label>
-          <select id="comoSoube" name="inputComoSoube" class="custom-select" onchange="checkComosoube()">
+        <div class="mb-3">
+          <label class="form-label mb-2" for="inputComoSoube">Como você ficou sabendo do cursinho pré-vestibular da UNEafro Brasil?</label>
+          <select id="comoSoube" name="inputComoSoube" class="form-select" onchange="checkComosoube()">
             <option value="" selected>Selecione</option>
             <option value="internet">Internet</option>
             <option value="panfleto">Panfleto</option>
@@ -760,8 +760,8 @@
         </div>
       </div>
       <div class="col">
-        <div id="ComoSoubeOutros" class="form-group" style="display:none;">
-          <label for="inputComoSoubeOutros">Qual?</label><br><br>
+        <div id="ComoSoubeOutros" class="mb-3" style="display:none;">
+          <label class="form-label mb-2" for="inputComoSoubeOutros">Qual?</label><br><br>
           <input type="text" class="form-control" id="inputComoSoubeOutros" name="inputComoSoubeOutros" aria-describedby="inputComoSoubeOutrosHelp">
         </div>
       </div>
@@ -785,9 +785,9 @@
           <div class="container-fluid p-3">
             <div class="row">
               <div class="col">
-                <div class="form-group">
-                  <label for="inputGrauParentesco">Grau de Parentesco</label>
-                  <select name="inputGrauParentesco" class="custom-select">
+                <div class="mb-3">
+                  <label class="form-label mb-2" for="inputGrauParentesco">Grau de Parentesco</label>
+                  <select name="inputGrauParentesco" class="form-select">
                     <option selected>Selecione</option>
                     <option value="pai">Pai</option>
                     <option value="mae">Mãe</option>
@@ -802,15 +802,15 @@
                 </div>
               </div>
               <div class="col">
-                <div class="form-group">
-                  <label for="inputIdade">Idade</label>
+                <div class="mb-3">
+                  <label class="form-label mb-2" for="inputIdade">Idade</label>
                   <input type="number" class="form-control" id="inputIdade" name="inputIdade" aria-describedby="inputIdadeHelp" placeholder="Idade">
                 </div>
               </div>
               <div class="col">
-                <div class="form-group">
-                  <label for="inputEstadoCivil">Estado Civil</label>
-                  <select name="inputEstadoCivil" class="custom-select">
+                <div class="mb-3">
+                  <label class="form-label mb-2" for="inputEstadoCivil">Estado Civil</label>
+                  <select name="inputEstadoCivil" class="form-select">
                     <option selected>Selecione</option>
                     <option value="solteiro_a">Solteiro(a)</option>
                     <option value="casado_a">Casado(a)</option>
@@ -823,9 +823,9 @@
             </div>
             <div class="row">
               <div class="col">
-                <div class="form-group">
-                  <label for="inputEscolaridade">Escolaridade</label>
-                  <select name="inputEscolaridade" class="custom-select">
+                <div class="mb-3">
+                  <label class="form-label mb-2" for="inputEscolaridade">Escolaridade</label>
+                  <select name="inputEscolaridade" class="form-select">
                     <option selected>Selecione</option>
                     <option value="fundamental_completo">Ensino Fundamental Completo</option>
                     <option value="fundamental_incompleto">Ensino Fundamental Incompleto</option>
@@ -837,14 +837,14 @@
                 </div>
               </div>
               <div class="col">
-                <div class="form-group">
-                  <label for="inputProfissao">Profissão</label>
+                <div class="mb-3">
+                  <label class="form-label mb-2" for="inputProfissao">Profissão</label>
                   <input type="text" class="form-control" id="inputProfissao" name="inputProfissao" aria-describedby="inputProfissaoHelp" placeholder="Profissão">
                 </div>
               </div>
               <div class="col">
-                <div class="form-group">
-                  <label for="inputRenda">Renda Mensal R$</label>
+                <div class="mb-3">
+                  <label class="form-label mb-2" for="inputRenda">Renda Mensal R$</label>
                   <input type="number" class="form-control" id="inputRenda" name="inputRenda" aria-describedby="inputRendaHelp" placeholder="Ex: 1.200,00">
                 </div>
               </div>

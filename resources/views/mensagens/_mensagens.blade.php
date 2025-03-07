@@ -47,8 +47,8 @@
                         </ul>
 
                         @if(\Illuminate\Support\Facades\Auth::user()->allowed_send_email)
-                            <a href="{{ route('messages.create') }}" class="btn btn-outline-secondary btn-block">
-                                <i class="far fa-envelope-open"></i>
+                            <a href="{{ route('messages.create') }}" class="btn btn-outline-secondary w-100">
+                                <i class="far fa-envelope-open me-2"></i>
                                 Nova mensagem
                             </a>
                         @endif

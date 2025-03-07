@@ -17,7 +17,7 @@
         <div class="input-group">
             <input type="text" class="form-control" name="inputQuery"
                 placeholder="Buscar por nome ou sobrenome do coordenador" required> <span class="input-group-btn">
-                <button type="submit" class="btn btn-default">
+                <button type="submit" class="btn-link text-decorate-none">
                     <i class="fas fa-search"></i>
                 </button>
             </span>
@@ -73,7 +73,7 @@
   @else
   <div class="row">
     <div class="col mt-4">
-      <table class="table table-striped">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">Foto</th>
@@ -87,9 +87,9 @@
           @foreach($coordenadores as $coordenador)
           <tr>
             @if($coordenador->Foto)
-            <td><img class="rounded-circle" src="{{ asset('storage') }}/{{ $coordenador->Foto }}" alt="{{ $coordenador->Foto }}" width="25%"></td>
+            <td><img class="rounded-circle avatar" src="{{ asset('storage') }}/{{ $coordenador->Foto }}" alt="{{ $coordenador->Foto }}" width="25%"></td>
             @else
-            <td><img class="rounded-circle" src="{{ asset('images') }}/user.png" alt="Avatar" width="25%"></td>
+            <td><img class="rounded-circle avatar" src="{{ asset('images') }}/user.png" alt="Avatar" width="25%"></td>
             @endif
 
 
@@ -106,9 +106,9 @@
             @endif
             <td>
               @if($coordenador->Status === 1)
-              <span class="badge badge-success p-2">ATIVO</span>
+              <span class="badge bg-success text-white p-2">ATIVO</span>
               @else
-              <span class="badge badge-danger p-2">INATIVO</span>
+              <span class="badge bg-danger  text-white p-2">INATIVO</span>
               @endif
             </td>
             <td>

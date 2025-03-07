@@ -14,10 +14,10 @@
       <div class="col-6 m-auto">
         <form action="/alunos/search" method="POST" role="search">
         @csrf
-        <div class="input-group">
+        <div class="input-group d-flex justify-content-center align-center">
             <input type="text" class="form-control" name="inputQuery"
                 placeholder="Buscar por nome ou sobrenome do aluno" required> <span class="input-group-btn">
-                <button type="submit" class="btn btn-default">
+                <button type="submit" class="btn-link text-decoration-none">
                     <i class="fas fa-search"></i>
                 </button>
             </span>
@@ -74,7 +74,7 @@
       @if($alunos->isEmpty())
       <p>Nenhum registro encontrado.</p>
       @else
-      <table class="table table-striped">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">Foto</th>
@@ -89,9 +89,9 @@
           @foreach($alunos as $aluno)
           <tr>
             @if($aluno->Foto)
-            <td class="avatar"><img class="rounded-circle" src="{{ asset('storage') }}/{{ $aluno->Foto }}" alt="{{ $aluno->NomeAluno }}"></td>
+            <td><img class="rounded-circle avatar" src="{{ asset('storage') }}/{{ $aluno->Foto }}" alt="{{ $aluno->NomeAluno }}"></td>
             @else
-            <td class="avatar"><img class="rounded-circle" src="{{ asset('images') }}/user.png" alt="{{ $aluno->NomeAluno }}"></td>
+            <td><img class="rounded-circle avatar" src="{{ asset('images') }}/user.png" alt="{{ $aluno->NomeAluno }}"></td>
             @endif
             @if($aluno->NomeSocial === null)
             <td class="w25p">{{ $aluno->NomeAluno}}</td>
@@ -106,9 +106,9 @@
             @endif
             <td>
               @if($aluno->Status === 1)
-              <span class="badge badge-success p-2">ATIVO</span>
+              <span class="badge bg-success p-2 text-white">ATIVO</span>
               @else
-              <span class="badge badge-danger p-2">INATIVO</span>
+              <span class="badge bg-danger p-2 text-white">INATIVO</span>
               @endif
             </td>
             @if($aluno->ListaEspera === 'Sim')
